@@ -1,3 +1,9 @@
+---
+title: "LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
+description: "Analisis trade-off nyata antara teknologi display LCD, OLED, dan microLED untuk aplikasi HMI otomotif."
+pubDate: 2026-05-16
+---
+
 # Blog Draft: "LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
 
 **Topic:** LCD vs OLED vs microLED trade-offs for automotive HMI applications
