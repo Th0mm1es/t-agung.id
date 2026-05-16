@@ -12,7 +12,7 @@ draft: false
 
 Tahun 2010, saya kerja di desain produk Sony VAIO. Display controller yang kita bikin harus bisa handle panel LCD dengan resolusi yang belum ada di pasar. Waktu itu, OLED masih di lab — belum siap untuk produk konsumen, apalagi automotive.
 
-Sekarang, 16 tahun kemudian, saya di Stuttgart kerja sama tim tentang integrasi display in interior dan exterior mobil. Dan pertanyaannya bukan lagi "LCD atau OLED?" tapi "LCD, OLED, atau microLED?" ... karena ketiganya ada di meja meeting OEM.
+Sekarang, 16 tahun kemudian, saya di Stuttgart kerja sama tim tentang integrasi display in interior dan exterior mobil. Dan pertanyaannya bukan lagi "LCD atau OLED?" tapi "LCD, OLED, atau microLED?" ... karena ketiganya ada di meja meeting.
 
 Masalahnya: di internet dan di powerpoint, semuanya terlihat sempurna. Di lapangan? Beda cerita, dan itu yang saya mau bahas.
 
@@ -28,6 +28,7 @@ Kalau brightness adalah prioritas, dan di HMI, visibility itu safety, LCD masih 
 
 ## Burn-in : masalah yang belum selesai
 
+![Diagram 1](../../assets/blog/3/Asus-vivobook-OLED_burnin.jpg)"Burn In OLED di showroom toko elektronik"
 OLED punya pixel organik yang *decay* dengan laju berbeda tergantung berapa lama dia nyala. Static content, seperti dashboard gauge, navigation bar, atau menu icon yang selalu di posisi sama, bisa bikin *image retention* dalam 6 bulan. 
 
 Di consumer TV, ini bukan masalah karena content-nya terus berubah. Di automotive HMI? Konten static-nya banyak. Dashboard layout tidak berubah. Navigation bar dan menu lainnya selalu di bawah.
