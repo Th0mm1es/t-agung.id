@@ -106,20 +106,3 @@ Makanya, display yang "bagus" itu tergantung *siapa kamu* dan *di mana kamu paka
 
 ---
 
-**📸 Foto yang bisa diambil:**
-
-1. **Moko the Detail Inspector**
-   
-   - *Setup:* Moko lagi duduk di meja kerja, iPad di depannya menampilkan 3 warna berbeda (merah, hijau, biru)
-   - *Sudut:* Dari samping iPad, fokus ke mata Moko yang liat warna
-   - *Vibe:* "Kucing yang lagi nge-check color accuracy"
-   - *Caption suggestion:* "Moko lagi ngecek color gamut. Katanya warna merah di panel IPS lebih enak dilihat 😼"
-
-2. **Moko the Refleksi Problem**
-   
-   - *Setup:* Moko lagi duduk di depan jendela, iPad di tangannya (atau di pangkuannya) yang kena cahaya matahari langsung
-   - *Sudut:* Dari belakang Moko, fokus ke pantulan cahaya di layar iPad
-   - *Vibe:* "Kucing yang bingung liat layar karena matahari sore"
-   - *Caption suggestion:* "Moko: 'Matamu masih bisa baca? Aku udah keder sama glare-nya ini'"
-
----
