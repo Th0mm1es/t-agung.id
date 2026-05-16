@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f7fb"/>
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="#ffffff" stroke="#d7deea" stroke-width="4"/>
+  <text x="120" y="180" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#1f2937">Astro Blog Starter</text>
+  <text x="120" y="240" font-family="Arial, sans-serif" font-size="28" fill="#4b5563">Content collections + Markdown + images</text>
+  <rect x="120" y="300" width="240" height="140" rx="18" fill="#e0ecff" stroke="#8bb2ff"/>
+  <text x="150" y="350" font-family="Arial, sans-serif" font-size="24" fill="#1e3a8a">src/content</text>
+  <text x="150" y="385" font-family="Arial, sans-serif" font-size="20" fill="#1e3a8a">blog/my-first-post.md</text>
+  <rect x="420" y="300" width="260" height="140" rx="18" fill="#eaf7ea" stroke="#8fd19e"/>
+  <text x="450" y="350" font-family="Arial, sans-serif" font-size="24" fill="#166534">src/assets</text>
+  <text x="450" y="385" font-family="Arial, sans-serif" font-size="20" fill="#166534">blog/my-first-post/*</text>
+  <rect x="740" y="300" width="240" height="140" rx="18" fill="#fff4dd" stroke="#f0c36a"/>
+  <text x="770" y="350" font-family="Arial, sans-serif" font-size="24" fill="#92400e">public/images</text>
+  <text x="770" y="385" font-family="Arial, sans-serif" font-size="20" fill="#92400e">site/default-cover.svg</text>
+</svg>

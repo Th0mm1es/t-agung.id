@@ -1,0 +1,22 @@
+---
+const { post } = Astro.props;
+---
+
+<article class="card">
+  <h2>
+    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+  </h2>
+  <p>{post.data.description}</p>
+  <p class="meta">
+    {post.data.pubDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })}
+  </p>
+  {post.data.tags?.length > 0 && (
+    <ul class="tags">
+      {post.data.tags.map((tag: string) => <li>{tag}</li>)}
+    </ul>
+  )}
+</article>
