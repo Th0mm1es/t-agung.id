@@ -1,7 +1,7 @@
 ---
 title: "HMI Bukan UI"
 description: "Bedanya HMI dan UI"
-pubDate: 2026-05-05
+pubDate: 2026-04-25
 tags: ["HMI", "UI", "display"]
 draft: false
 ---

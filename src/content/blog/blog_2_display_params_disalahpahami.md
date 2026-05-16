@@ -1,7 +1,7 @@
 ---
 title: "Display Parameters"
 description: "Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi"
-pubDate: 2026-05-07
+pubDate: 2026-04-28
 tags: ["HMI", "UI", "display"]
 draft: false
 ---

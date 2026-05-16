@@ -2,6 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
 
@@ -13,11 +16,16 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const currentIndex = posts.findIndex((item) => item.slug === post.slug);
+const previousPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article class="post">
     <h1>{post.data.title}</h1>
+
     <p class="meta">
       {post.data.pubDate.toLocaleDateString('id-ID', {
         year: 'numeric',
@@ -36,5 +44,76 @@ const { Content } = await render(post);
     )}
 
     <Content />
+
+    <nav class="post-nav" aria-label="Navigasi tulisan">
+      <a class="post-nav-card post-nav-prev" href={previousPost ? `/blog/${previousPost.slug}/` : '/blog'}>
+        <span class="post-nav-label">Tulisan sebelumnya</span>
+        <strong>{previousPost ? previousPost.data.title : 'Kembali ke blog'}</strong>
+      </a>
+
+      <a class="post-nav-card post-nav-next" href={nextPost ? `/blog/${nextPost.slug}/` : '/'}>
+        <span class="post-nav-label">{nextPost ? 'Tulisan berikutnya' : 'Navigasi'}</span>
+        <strong>{nextPost ? nextPost.data.title : 'Home'}</strong>
+      </a>
+    </nav>
   </article>
 </BaseLayout>
+
+<style>
+  .post-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(99, 216, 212, 0.1);
+  }
+
+  .post-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(99, 216, 212, 0.12);
+    background: rgba(21, 28, 32, 0.86);
+    color: var(--text);
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+  }
+
+  .post-nav-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 216, 212, 0.22);
+    background: rgba(27, 37, 43, 0.92);
+    color: var(--text);
+  }
+
+  .post-nav-label {
+    font-size: 0.82rem;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .post-nav-card strong {
+    line-height: 1.45;
+    font-size: 1rem;
+  }
+
+  .post-nav-next {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 720px) {
+    .post-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .post-nav-next {
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+</style>
