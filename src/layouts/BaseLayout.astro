@@ -6,30 +6,63 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'My Astro blog' } = Astro.props;
+const { title, description = 'Catatan teknis tentang HMI, display engineering, embedded electronics, dan eksperimen AI.' } = Astro.props;
+
+const pageTitle = `${title} | T. Agung`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten</a>
+
     <header class="site-header">
-      <div class="container">
-        <a href="/" class="logo">My Astro Blog</a>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/blog">Blog</a>
-        </nav>
+      <div class="shell shell-wide">
+        <div class="header-inner">
+          <a href="/" class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <strong>T. Agung</strong>
+              <small>HMI · Display · Engineering</small>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="Navigasi utama">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="shell shell-wide">
       <slot />
     </main>
+
+    <footer class="site-footer">
+      <div class="shell shell-wide">
+        <p>
+          Catatan teknis tentang HMI, display engineering, embedded electronics,
+          dan eksperimen AI.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
