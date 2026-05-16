@@ -2,14 +2,9 @@
 title: "LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
 description: "bedanya berbagai display technology"
 pubDate: 2026-05-09
-tags: ["HMI", "UI", "display"]
-cover: ../../assets/blog/my-first-post/cover.svg
-coverAlt: "Simple folder diagram for Astro blog content"
+tags: ["HMI", "display"]
 draft: false
 ---
-
-
-# "LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
 
 ---
 

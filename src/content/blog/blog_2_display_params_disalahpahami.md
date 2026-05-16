@@ -1,14 +1,12 @@
 ---
-title: "HMI Bukan UI"
-description: "Bedanya HMI dan UI"
-pubDate: 2026-05-09
+title: "Display Parameters"
+description: "Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi"
+pubDate: 2026-05-07
 tags: ["HMI", "UI", "display"]
-cover: ../../assets/blog/my-first-post/cover.svg
-coverAlt: "Simple folder diagram for Astro blog content"
 draft: false
 ---
 
-# Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi: Parameter yang Sering Disalahpahami
+# Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi: Parameter yang Sering Disalah-pahami
 
 ![Diagram 1](../../assets/blog/2/2_moko_rgb.jpg)"Moko lagi ngecek color gamut. Katanya warna merah di panel IPS dengan mini LED lebih enak dilihat dan kontrasnya bagus 😼"
 
