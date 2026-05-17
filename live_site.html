@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="id"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT | T. Agung</title><meta name="description" content="bedanya berbagai display technology"><link rel="canonical" href="https://t-agung.id/blog/blog_3_lcd_oled_microled_hmi/"><meta property="og:title" content="LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT | T. Agung"><meta property="og:description" content="bedanya berbagai display technology"><meta property="og:type" content="website"><meta property="og:url" content="https://t-agung.id/blog/blog_3_lcd_oled_microled_hmi/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT | T. Agung"><meta name="twitter:description" content="bedanya berbagai display technology"><link rel="stylesheet" href="/_astro/_slug_.D6nTWUKO.css">
+<style>.post-nav[data-astro-cid-4sn4zg3r]{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(99,216,212,.1)}.post-nav-card[data-astro-cid-4sn4zg3r]{display:flex;flex-direction:column;gap:.45rem;padding:1rem 1.1rem;border-radius:1rem;border:1px solid rgba(99,216,212,.12);background:#151c20db;color:var(--text);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background-color .18s ease}.post-nav-card[data-astro-cid-4sn4zg3r]:hover{transform:translateY(-2px);border-color:#63d8d438;background:#1b252beb;color:var(--text)}.post-nav-label[data-astro-cid-4sn4zg3r]{font-size:.82rem;color:var(--soft);text-transform:uppercase;letter-spacing:.08em}.post-nav-card[data-astro-cid-4sn4zg3r] strong[data-astro-cid-4sn4zg3r]{line-height:1.45;font-size:1rem}.post-nav-next[data-astro-cid-4sn4zg3r]{text-align:right;align-items:flex-end}@media(max-width:720px){.post-nav[data-astro-cid-4sn4zg3r]{grid-template-columns:1fr}.post-nav-next[data-astro-cid-4sn4zg3r]{text-align:left;align-items:flex-start}}
+</style></head> <body> <a class="skip-link" href="#main-content">Lewati ke konten</a> <header class="site-header"> <div class="shell shell-wide"> <div class="header-inner"> <a href="/" class="brand"> <span class="brand-mark" aria-hidden="true"></span> <span class="brand-text"> <strong>T. Agung</strong> <small>HMI · Display · Engineering</small> </span> </a> <nav class="site-nav" aria-label="Navigasi utama"> <a href="/">Home</a> <a href="/blog">Blog</a> </nav> </div> </div> </header> <main id="main-content" class="shell shell-wide">  <article class="post" data-astro-cid-4sn4zg3r> <h1 data-astro-cid-4sn4zg3r>LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT</h1> <p class="meta" data-astro-cid-4sn4zg3r> 1 Mei 2026 </p>  <hr>
+<p><img alt="Diagram 1" loading="lazy" decoding="async" fetchpriority="auto" width="1142" height="2029" src="/_astro/3_moko_display.t5hXMNI2_Z12hYTd.webp" >“Bingung nih… ini LCD apa OLED ya ? 😼”</p>
+<p>Tahun 2010, saya kerja di desain produk Sony VAIO. Display controller yang kita bikin harus bisa handle panel LCD dengan resolusi yang belum ada di pasar. Waktu itu, OLED masih di lab — belum siap untuk produk konsumen, apalagi automotive.</p>
+<p>Sekarang, 16 tahun kemudian, saya di Stuttgart kerja sama tim tentang integrasi display in interior dan exterior mobil. Dan pertanyaannya bukan lagi “LCD atau OLED?” tapi “LCD, OLED, atau microLED?” … karena ketiganya ada di meja meeting.</p>
+<p>Masalahnya: di internet dan di powerpoint, semuanya terlihat sempurna. Di lapangan? Beda cerita, dan itu yang saya mau bahas.</p>
+<h2 id="brightness--oled-masih-kalah-di-satu-hal">Brightness : OLED masih kalah di satu hal</h2>
+<p>OLED cenderung punya warna yang lebih hidup karena material yang dipakai biasanya punya karakteristik spektrum yang lebih tajam (tentang color spectrum, dibahas di lain kali aja ya..), setiap sub-pixel nyala sendiri, bukan diterangi backlight. Bagus buat kontrast, tapi, sering kurang terang dibanding LCD.</p>
+<p>Di mobil, kadang display harus bisa dilihat di bawah sinar matahari langsung. Bukan “terang di dalam showroom” tapi terang di dashboard yang menghadap selatan jam 2 siang di Stuttgart, yang mataharinya kadang masuk ke ruang mobil.</p>
+<p>LCD dengan LED backlight bisa tembus 1000+ nits (cd/m2) untuk automotive grade. OLED? Masih di 600-800 nits untuk panel besar, biarpun ada beberapa yang mengklaim nembus 1000 nits. Dan itu belum termasuk <em>solar loading</em>, yaitu kalau panel OLED kena sinar matahari terus, dia harus <em>dim down</em> sendiri biar tidak kepanasan.</p>
+<p>Kalau brightness adalah prioritas, dan di HMI, visibility itu safety, LCD masih punya advantage.</p>
+<h2 id="burn-in--masalah-yang-belum-selesai">Burn-in : masalah yang belum selesai</h2>
+<p><img alt="Diagram 1" loading="lazy" decoding="async" fetchpriority="auto" width="4032" height="3024" src="/_astro/Asus-vivobook-OLED_burnin.Dn0BzwwH_1JUTN5.webp" >“Burn In OLED di showroom toko elektronik”
+OLED punya pixel organik yang <em>decay</em> dengan laju berbeda tergantung berapa lama dia nyala. Static content, seperti dashboard gauge, navigation bar, atau menu icon yang selalu di posisi sama, bisa bikin <em>image retention</em> dalam 6 bulan.</p>
+<p>Di consumer TV, ini bukan masalah karena content-nya terus berubah. Di automotive HMI? Konten static-nya banyak. Dashboard layout tidak berubah. Navigation bar dan menu lainnya selalu di bawah.</p>
+<p>Solusinya? Pixel shifting (menggeser static content beberapa pixel dalam beberapa rentangan waktu), logo dimming, dynamic brightness adjustment. Semua software workaround yang menambah komplexitas dan kadang bikin user experience lebih buruk.</p>
+<p>Saya pernah lihat demo di trade show di mana supplier tunjukkan OLED panel yang “anti burn-in.” Saya tanya: “Berapa jam test?” Jawabnya: 5.000 jam. Saya bilang: “Mobil jalan 10 tahun lebih, itu 20.000+ jam.” Dia diam.</p>
+<p>Untuk engineer yang baca ini: minta data <em>accelerated aging test</em> yang sebenarnya. Bukan slide presentasi.</p>
+<h2 id="cost--di-mana-uang-benar-benar-jadi-pertimbangan">Cost : di mana uang benar-benar jadi pertimbangan</h2>
+<p>LCD masih paling murah untuk panel besar di atas 10 inci. Supply chain-nya matang, yield-nya stabil kadang diatas 90%, dan equipment-nya sudah amortized belasan tahun. Supplier banyak banting harga untuk bisa tetap kompetitif.</p>
+<p>OLED? Untuk panel di bawah 7 inci, sudah kompetitif (kira-kira seharga sama LCD). Tapi di atas 10 inci, cost per square inch masih 2-3x LCD. Belum termasuk <em>driver IC</em>, <em>thermal management</em>, dan <em>software compensation</em> untuk burn-in.</p>
+<p>microLED? Masih di angka “jangan tanya sekarang, nanti saya kirim quote.”  (soalnya yield-nya masih ngga jelas di pabriknya…) Dari pengalaman, module microLED untuk automotive HMI bisa sampai dengan10x lebih mahal dari LCD untuk ukuran yang sama. Yield-nya? Masih di angka yang bikin supplier enggan ngomong.</p>
+<p>Tapi ada nuance yang tidak selalu dibahas. <em>Total cost of ownership</em>. LCD butuh backlight, diffuser, BEF, polarizer, glass dll. yang membuat stack-up yang relatif tebal. OLED lebih tipis, lebih ringan, dan bisa <em>flexible</em>. Di mobil premium Jerman, weight savings dan design flexibility bisa justify premium price.</p>
+<p>Cost bukan hanya “harga panel”, tapi “harga panel + berat + ketebalan + design freedom + lifetime.”</p>
+<h2 id="component-availability--yang-sering-dilupakan">Component availability : yang sering dilupakan</h2>
+<p>Ini yang paling jarang dibahas di blog, tapi paling sering bikin proyek telat.</p>
+<p>LCD: Driver IC-nya standar (eDP, LVDS, atau yg lebih kuno lagi, RGB interface). Software stack-nya matang. Kalau Anda pernah kerja sama display, Anda bisa integrate dalam mingguan, bukan bulanan.</p>
+<p>OLED: Driver IC-nya lebih kompleks karena butuh <em>gamma correction</em> per pixel, <em>brightness compensation</em>, dan <em>burn-in mitigation</em>. Software stack-nya belum standar, tiap supplier punya software know-how yang beda. Tim software kadang butuh 3 bulan hanya untuk migrate dari LCD ke OLED karena driver tidak compatible, dan belum biasa untuk bring-up OLED.</p>
+<p>microLED: Belum ada driver IC yang standar. Setiap module butuh custom integration. Dan karena masih <em>custom engineering</em>, lead time untuk first sample bisa 6-12 bulan, kebayang harga pengembangannya hanya untuk <em>custom engineering</em> ini.</p>
+<p>Pelajaran: jangan pilih teknologi berdasarkan spec sheet. Pilih berdasarkan <em>integration maturity</em> dan <em>timeline proyek Anda</em>.</p>
+<h2 id="trade-off-summary--bukan-yang-terbaik-tapi-yang-paling-cocok">Trade-off summary — bukan “yang terbaik”, tapi “yang paling cocok”</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Factor</th><th>LCD</th><th>OLED</th><th>microLED</th></tr></thead><tbody><tr><td>Brightness</td><td>✅ 1000+ nits</td><td>⚠️ 600-800 nits</td><td>✅ 1500+ nits (klaim)</td></tr><tr><td>Burn-in</td><td>✅ Tidak ada</td><td>❌ Masih ada</td><td>✅ Tidak ada</td></tr><tr><td>Cost (large size)</td><td>✅ Murah</td><td>⚠️ 2-3x LCD</td><td>❌ 5-10x LCD</td></tr><tr><td>Integration</td><td>✅ Matang</td><td>⚠️ 3-6 bulan</td><td>❌ 6-12 bulan</td></tr><tr><td>Weight/Thickness</td><td>⚠️ Stack-up tebal</td><td>✅ Tipis &#x26; fleksibel</td><td>✅ Tipis</td></tr><tr><td>Lifetime</td><td>✅ 50.000+ jam</td><td>⚠️ 30.000 jam</td><td>✅ 100.000+ jam (klaim)</td></tr></tbody></table>
+<p><em>(Data as of Mei 2026, dari pengalaman pribadi + industry sources)</em></p>
+<h2 id="kapan-pakai-yang-mana">Kapan pakai yang mana?</h2>
+<p><strong>LCD</strong> — Budget terbatas, timeline ketat, brightness priority. Masih pilihan yang <em>safe</em> untuk mass-market vehicles.</p>
+<p><strong>OLED</strong> — Design freedom, thin profile, color quality jadi priority, budget memungkinkan. Cocok untuk premium segment. Tapi pastikan Anda punya software team yang siap handle driver complexity.</p>
+<p><strong>microLED</strong> — Kalau Anda di <em>concept phase</em> dan mau siap untuk 2030. Jangan pakai untuk proyek yang harus ship di 2026-2027. Masanya belum tiba, apalagi untuk automotive HMI scale-up.</p>
+<p>Pilihannya selalu: technology readiness vs. business reality.</p>
+<hr>
+<h2 id="-plan-kedepan">📊 Plan kedepan</h2>
+<p><strong>Technology deep dive</strong></p>
+<blockquote>
+<p>Nanti kita akan membahas lebih dalam tentang setiap teknologi di blog ini, komponen dari LCD, material OLED, dsb… Tunggu waktunya.</p>
+</blockquote> <nav class="post-nav" aria-label="Navigasi tulisan" data-astro-cid-4sn4zg3r> <a class="post-nav-card post-nav-prev" href="/blog/blog_2_display_params_disalahpahami/" data-astro-cid-4sn4zg3r> <span class="post-nav-label" data-astro-cid-4sn4zg3r>Tulisan sebelumnya</span> <strong data-astro-cid-4sn4zg3r>Display Parameters</strong> </a> <a class="post-nav-card post-nav-next" href="/" data-astro-cid-4sn4zg3r> <span class="post-nav-label" data-astro-cid-4sn4zg3r>Navigasi</span> <strong data-astro-cid-4sn4zg3r>Home</strong> </a> </nav> </article>  </main> <footer class="site-footer"> <div class="shell shell-wide"> <p>
+Catatan teknis tentang HMI, display engineering, embedded electronics,
+          dan eksperimen AI.
+</p> </div> </footer> </body></html> 

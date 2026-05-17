@@ -2,37 +2,56 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+    params: { slug: post.id },
+    props: { post, posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, posts } = Astro.props;
 const { Content } = await render(post);
 
-const currentIndex = posts.findIndex((item) => item.slug === post.slug);
+const currentIndex = posts.findIndex((item) => item.id === post.id);
 const previousPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": new Date(post.data.pubDate).toISOString(),
+  "author": [{
+    "@type": "Person",
+    "name": "T. Agung",
+    "url": "https://t-agung.id"
+  }]
+});
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout 
+  title={post.data.title} 
+  description={post.data.description}
+  type="article"
+  image={post.data.cover?.src}
+  schema={schema}
+>
   <article class="post">
-    <h1>{post.data.title}</h1>
+    <a href="/blog" class="back-link">← Kembali ke Blog</a>
 
-    <p class="meta">
-      {post.data.pubDate.toLocaleDateString('id-ID', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}
-    </p>
+    <header class="post-header">
+      <h1>{post.data.title}</h1>
+      <p class="post-meta">
+        {new Date(post.data.pubDate).toLocaleDateString('id-ID', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </p>
+    </header>
 
     {post.data.cover && (
       <img
@@ -46,13 +65,19 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
     <Content />
 
     <nav class="post-nav" aria-label="Navigasi tulisan">
-      <a class="post-nav-card post-nav-prev" href={previousPost ? `/blog/${previousPost.slug}/` : '/blog'}>
-        <span class="post-nav-label">Tulisan sebelumnya</span>
-        <strong>{previousPost ? previousPost.data.title : 'Kembali ke blog'}</strong>
+      <a
+        href={previousPost ? `/blog/${previousPost.id}/` : '/blog'}
+        class="post-nav-card post-nav-prev"
+      >
+        <span class="post-nav-label">{previousPost ? 'Tulisan sebelumnya' : 'Navigasi'}</span>
+        <strong>{previousPost ? previousPost.data.title : 'Semua artikel'}</strong>
       </a>
 
-      <a class="post-nav-card post-nav-next" href={nextPost ? `/blog/${nextPost.slug}/` : '/'}>
-        <span class="post-nav-label">{nextPost ? 'Tulisan berikutnya' : 'Navigasi'}</span>
+      <a
+        href={nextPost ? `/blog/${nextPost.id}/` : '/'}
+        class="post-nav-card post-nav-next"
+      >
+        <span class="post-nav-label">{nextPost ? 'Tulisan selanjutnya' : 'Navigasi'}</span>
         <strong>{nextPost ? nextPost.data.title : 'Home'}</strong>
       </a>
     </nav>
@@ -68,7 +93,6 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
     padding-top: 2rem;
     border-top: 1px solid rgba(99, 216, 212, 0.1);
   }
-
   .post-nav-card {
     display: flex;
     flex-direction: column;
@@ -76,41 +100,35 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
     padding: 1rem 1.1rem;
     border-radius: 1rem;
     border: 1px solid rgba(99, 216, 212, 0.12);
-    background: rgba(21, 28, 32, 0.86);
+    background: #151c20db;
     color: var(--text);
     text-decoration: none;
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
   }
-
   .post-nav-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(99, 216, 212, 0.22);
-    background: rgba(27, 37, 43, 0.92);
+    border-color: #63d8d438;
+    background: #1b252beb;
     color: var(--text);
   }
-
   .post-nav-label {
     font-size: 0.82rem;
     color: var(--soft);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-
   .post-nav-card strong {
     line-height: 1.45;
     font-size: 1rem;
   }
-
   .post-nav-next {
     text-align: right;
     align-items: flex-end;
   }
-
   @media (max-width: 720px) {
     .post-nav {
       grid-template-columns: 1fr;
     }
-
     .post-nav-next {
       text-align: left;
       align-items: flex-start;

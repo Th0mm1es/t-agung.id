@@ -4,9 +4,18 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  schema?: string;
 }
 
-const { title, description = 'Catatan teknis tentang HMI, display engineering, embedded electronics, dan eksperimen AI.' } = Astro.props;
+const { 
+  title, 
+  description = 'Catatan teknis tentang HMI, display engineering, embedded electronics, dan eksperimen AI.',
+  image,
+  type = 'website',
+  schema,
+} = Astro.props;
 
 const pageTitle = `${title} | T. Agung`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -23,8 +32,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
+    {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+
+    {schema && <script type="application/ld+json" set:html={schema} />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />

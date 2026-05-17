@@ -20,8 +20,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       </p>
     </div>
 
-
-
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>

@@ -2,10 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const latestPosts = (await getCollection('blog'))
-  .filter((post) => post.data.draft !== true)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+let latestPosts = [];
+let blogError = false;
+
+try {
+  latestPosts = (await getCollection('blog'))
+    .filter((post) => post.data.draft !== true)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 5);
+} catch (error) {
+  console.error('Failed to load blog collection:', error);
+  blogError = true;
+}
 ---
 
 <BaseLayout
@@ -28,16 +36,29 @@ const latestPosts = (await getCollection('blog'))
 
     <aside class="latest-posts" aria-labelledby="latest-posts-title">
       <h2 id="latest-posts-title">Tulisan terbaru</h2>
-      <ul>
-        {latestPosts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}/`}>
-              <strong>{post.data.title}</strong>
-              <p>{post.data.description}</p>
-            </a>
-          </li>
-        ))}
-      </ul>
+
+      {blogError ? (
+        <p class="status-message">
+          Blog belum bisa dimuat. Periksa <code>src/content.config.ts</code> dan
+          frontmatter file di <code>src/content/blog</code>.
+        </p>
+      ) : latestPosts.length > 0 ? (
+        <ul>
+          {latestPosts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id.replace(/\.md$/, '').replace(/\.mdx$/, '')}/`}>
+                <strong>{post.data.title}</strong>
+                <p>{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="status-message">
+          Belum ada tulisan yang tampil. Tambahkan minimal satu post valid di
+          <code>src/content/blog</code>.
+        </p>
+      )}
     </aside>
   </section>
 
@@ -216,6 +237,18 @@ const latestPosts = (await getCollection('blog'))
     color: var(--muted);
     line-height: 1.6;
     font-size: 0.96rem;
+  }
+
+  .status-message {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.96rem;
+  }
+
+  .status-message code {
+    color: var(--highlight);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
   .about-author {
