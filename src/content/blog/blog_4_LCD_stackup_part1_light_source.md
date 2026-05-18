@@ -2,6 +2,7 @@
 title: "LCD Display Stack-Up Part 1 : LED, Reflector, LGP, Diffuser"
 description: "Membedah LCD secara detail"
 pubDate: 2026-05-03
+topic: "Display"
 tags: ["HMI", "display", "LCD Components"]
 draft: false
 ---

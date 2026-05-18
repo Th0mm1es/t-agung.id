@@ -1,0 +1,36 @@
+---
+interface Props {
+  projectId: string;
+  boxId?: string;
+}
+
+const { projectId, boxId = 'commentbox' } = Astro.props;
+---
+
+<section class="comments-wrap" aria-labelledby="comments-title">
+  <h2 id="comments-title">Komentar</h2>
+  <div class="commentbox"></div>
+  <noscript>Aktifkan JavaScript untuk melihat komentar.</noscript>
+</section>
+
+<script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script define:vars={{ projectId, boxId }}>
+  commentBox(projectId, {
+    className: 'commentbox',
+    defaultBoxId: boxId,
+    sortOrder: 'best',
+  });
+</script>
+
+<style>
+  .comments-wrap {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(99, 216, 212, 0.1);
+  }
+
+  .comments-wrap h2 {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+  }
+</style>

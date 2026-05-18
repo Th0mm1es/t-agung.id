@@ -2,7 +2,8 @@
 title: "LCD Display Stack-Up Part 2 : BEF, DBEF dan Rear Polarizer"
 description: "Membedah LCD secara detail part 2"
 pubDate: 2026-05-06
-tags: ["HMI", "display", "LCD Components", "BEF", "DBEF", "Polarizer"]
+topic: "Display"
+tags: ["Display", "LCD Components", "BEF", "DBEF", "Polarizer", "HMI"]
 draft: false
 ---
 
@@ -62,7 +63,7 @@ DBEF **nggak nyerep cahaya**. Dia **mantulin S-polarized light sambil muter pola
 1. Cahaya unpolarized dari backlight → 50% P-polarized, 50% S-polarized
 2. Rear polarizer lewatkan 50% P-polarized, absorb 50% S-polarized
 3. P-polarized → masuk LC cell → LC rotate polarization (sebagian berhasil, sebagian gagal)
-4. Cahaya yang gagal → **bounce back** dari DBEF
+4. Cahaya yang gagal → **mantul balik** dari DBEF
 5. DBEF reflect + rotate polarization ~90° → jadi P-polarized lagi
 6. P-polarized → lewat rear polarizer lagi → **second chance through LC cell**
 
@@ -111,7 +112,8 @@ Liquid crystal **nggak bisa kerja yang benar tanpa polarized light**. LC cuma ro
 ### Light Loss di Rear Polarizer
 
 Rear polarizer **meneruskan hanya 50% cahaya** — ini light loss terbesar di seluruh stack-up, makanya kita butuh BEF dan DBEF, supaya bisa recycle cahaya yang terbuang. Ini salah satu alasan kenapa OLED nggak butuh backlight — OLED emit light yang sudah terpolarisasi, jadi nggak ada loss 50% di polarizer.
-Saya agak susah memahami dulu waktu nyoba memahami gimana polarized light ini bekerja, jadi kayaknya akan saya bahas lagi satu blog khusus tentang gimana Polarizationini bekerja di LCD.
+
+Saya agak susah memahami dulu waktu nyoba memahami gimana polarized light ini bekerja, jadi kayaknya akan saya bahas lagi satu blog khusus tentang gimana Polarization ini bekerja di LCD.
 
 ---
 
@@ -138,6 +140,8 @@ Cara kerja:
 Karena LC cuma **rotate** polarization — dia nggak bisa **create** atau **absorb** light. Jadi rear polarizer (buat bikin cahaya terpolarisasi) dan front polarizer (buat filter hasil rotasi) itu wajib.
 
 ---
+
+![Diagram 1](../../assets/blog/5/5.Moko_polarizedSunglass.jpg)"Ini sunglass juga make polarizer, tapi beda ama yang di display kayaknya 🐈 "
 
 ## 5. Kesimpulan Part 2
 

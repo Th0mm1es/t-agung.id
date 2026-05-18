@@ -9,8 +9,8 @@ interface Props {
   schema?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = 'Catatan teknis tentang HMI, display engineering, embedded electronics, dan eksperimen AI.',
   image,
   type = 'website',
@@ -18,7 +18,8 @@ const {
 } = Astro.props;
 
 const pageTitle = `${title} | T. Agung`;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = image ? new URL(image, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -34,14 +35,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
-    {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
 
     {schema && <script type="application/ld+json" set:html={schema} />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
   </head>
+
   <body>
     <a class="skip-link" href="#main-content">Lewati ke konten</a>
 
@@ -76,5 +79,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </p>
       </div>
     </footer>
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "12fab8830d6845039e72bd9f5853901c"}'></script>
+    <!-- End Cloudflare Web Analytics -->
   </body>
 </html>

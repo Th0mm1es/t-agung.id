@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Comments from '../../components/Comments.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
   return posts.map((post) => ({
     params: { slug: post.id },
@@ -74,13 +77,18 @@ const schema = JSON.stringify({
       </a>
 
       <a
-        href={nextPost ? `/blog/${nextPost.id}/` : '/'}
+        href={nextPost ? `/blog/${nextPost.id}/` : '/blog'}
         class="post-nav-card post-nav-next"
       >
         <span class="post-nav-label">{nextPost ? 'Tulisan selanjutnya' : 'Navigasi'}</span>
-        <strong>{nextPost ? nextPost.data.title : 'Home'}</strong>
+        <strong>{nextPost ? nextPost.data.title : 'Semua artikel'}</strong>
       </a>
     </nav>
+
+    <Comments
+      projectId="5701935021686784-proj"
+      boxId={`comments-${post.id}`}
+    />
   </article>
 </BaseLayout>
 

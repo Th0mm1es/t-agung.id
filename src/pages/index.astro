@@ -62,15 +62,17 @@ try {
     </aside>
   </section>
 
-  <section class="about-author">
-    <div class="section-heading">
-      <h2>Tentang penulis</h2>
-      <p>
-        Saya Thomas Agung. Saya menulis tentang HMI dan display engineering,
-        terutama hal-hal praktis yang sering tidak dijelaskan dengan sederhana:
-        trade-off desain, testing, integrasi, dan pelajaran dari proyek nyata.
-      </p>
-    </div>
+  <section>
+    <a href="/about_me" class="about-author" aria-label="Tentang penulis">
+      <div class="section-heading">
+        <h2>Tentang penulis</h2>
+        <p>
+          Saya Thomas Agung. Saya menulis tentang HMI dan display engineering,
+          terutama hal-hal praktis yang sering tidak dijelaskan dengan sederhana:
+          trade-off desain, testing, integrasi, dan pelajaran dari proyek nyata.
+        </p>
+      </div>
+    </a>
   </section>
 
   <section class="focus-grid" aria-label="Fokus utama blog">
@@ -252,8 +254,18 @@ try {
   }
 
   .about-author {
+    display: block;
     padding: 1.4rem;
     margin-bottom: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+  }
+
+  .about-author:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 216, 212, 0.22);
+    background: rgba(27, 37, 43, 0.92);
   }
 
   .section-heading p {
