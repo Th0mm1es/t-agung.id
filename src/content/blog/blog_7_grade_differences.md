@@ -1,12 +1,12 @@
 ---
-
 title: "Kenapa Display Mobil Listrik Indonesia Perlu Automotive Grade? (Bukan Hanya Marketing)"
 description: "Sales EV Indonesia naik 55%, tapi supply chain display masih impor total. Apa yang konsumen perlu tahu soal standar komponen dan transparansi grade."
 pubDate: 2026-05-15
-tags: [ev-indonesia, automotive-grade, display-technology, supply-chain, transparency]
-draft: true
-
+topic: "Display"
+tags: ["ev-indonesia", "automotive-grade", "display-technology", "supply-chain", "transparency"]
+draft: false
 ---
+
 
 ![Diagram 1](../../assets/blog/7/taycan_interior.jpg)<center>"Ada berapa ya total display di *Porsche Taycan* ini ?"</center>
 
@@ -108,7 +108,7 @@ Semua punya tempatnya sendiri. Untuk mobil yang kamu pakai setiap hari di iklim 
 
 Kamu nggak bisa ngebandingin Indomie dan steak wagyu terus bilang "kan sama-sama makanan."
 
-# 
+---
 
 ## Referensi
 
@@ -122,3 +122,5 @@ Kamu nggak bisa ngebandingin Indomie dan steak wagyu terus bilang "kan sama-sama
 8. [Indonesia EV Landscape - Bolt.Earth](https://bolt.earth/blog/ev-landscape-in-indonesia)
 9. [IBC Bulletin: Indonesia EV Ecosystem 2025](https://ibc-bulletin-vol4.vercel.app/)
 10. [WIPC: Indonesia 2026 EV Policy 40% Local Content](https://wipc.com/uncategorized/decoding-indonesias-2026-ev-policy-the-40-local-content-mandate-arrives-how-can-chinese-enterprises-seize-post-subsidy-opportunities/4407/)
+
+---
