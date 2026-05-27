@@ -4,9 +4,8 @@ description: "Sales EV Indonesia naik 55%, tapi supply chain display masih impor
 pubDate: 2026-05-15
 topic: "Display"
 tags: ["ev-indonesia", "automotive-grade", "display-technology", "supply-chain", "transparency"]
-draft: false
+draft: true
 ---
-
 
 ![Diagram 1](../../assets/blog/7/taycan_interior.jpg)<center>"Ada berapa ya total display di *Porsche Taycan* ini ?"</center>
 
@@ -42,14 +41,14 @@ Mobil adalah salah satu lingkungan paling ekstrem untuk elektronik. Parkir di ba
 
 Standar AEC-Q100 yang dipakai untuk semikonduktor otomotif punya 4 grade:
 
-| Grade       | Suhu                         | Lokasi                               |
-| ----------- | ---------------------------- | ------------------------------------ |
-| Grade 0     | -40 sampai 150 derajat C     | Engine compartment                   |
-| Grade 1     | -40 sampai 125 derajat C     | Under dashboard                      |
-| **Grade 2** | **-40 sampai 105 derajat C** | **In-cabin (infotainment, display)** |
-| Grade 3     | -40 sampai 85 derajat C      | Jarang dipakai oleh produsen mobil   |
+| Grade       | Suhu                  | Lokasi                               |
+| ----------- | --------------------- | ------------------------------------ |
+| Grade 0     | -40 sampai 150° C     | Engine compartment                   |
+| Grade 1     | -40 sampai 125° C     | Under dashboard                      |
+| **Grade 2** | **-40 sampai 105° C** | **In-cabin (infotainment, display)** |
+| Grade 3     | -40 sampai 85° C      | Jarang dipakai oleh produsen mobil   |
 
-Sebagian besar display dashboard ada di Grade 2. Artinya komponen harus survive dari -40 derajat C sampai 105 derajat C tanpa gagal.
+Sebagian besar display dashboard ada di Grade 2. Artinya komponen harus survive dari -40° C sampai 105° C tanpa gagal.
 
 Bukan cuma suhu. Ada thermal cycling -- komponen dipanaskan dan didinginkan 1.000 kali. Setiap siklus, material ekspansi lalu kontraksi. Kalau materialnya tidak tepat, solder crack, connector lepas, panel muncul artifact.
 
@@ -71,9 +70,9 @@ Ini seperti beli obat di pasar tanpa label expiry date. Kelihatan sama, tapi sia
 
 **2. Iklim Indonesia butuh grade yang tepat**
 
-Indonesia bukan negara empat musim. Iklim tropis kita punya tantangan unik: suhu tinggi, kelembaban tinggi, dan kadang variasi suhu yang signifikan antara siang dan malam. Display yang cuma survive sampai 50 derajat C (consumer grade) akan bermasalah di dalam mobil yang terparkir di bawah matahari.
+Indonesia bukan negara empat musim. Iklim tropis kita punya tantangan unik: suhu tinggi, kelembaban tinggi, dan kadang variasi suhu yang signifikan antara siang dan malam. Display yang cuma survive sampai 50° C (consumer grade) akan bermasalah di dalam mobil yang terparkir di bawah matahari.
 
-LCD akan slow response di waktu dingin, dan kontras akan jelek saat kepanasan. OLED bisa burn-in lebih cepat. Connector mulai korosi karena kelembaban. Bukan mati total, tapi flicker, artifact, color shift -- hal-hal yang bikin kamu kesal tiap kali nyalain infotainment.
+LCD akan slow response di waktu dingin, dan kontras akan jelek saat kepanasan. OLED bisa burn-in lebih cepat. Connector mulai korosi karena kelembaban. Bukan mati total, tapi flicker, artifact, color shift; hal-hal yang bikin kamu kesal tiap kali nyalain infotainment.
 
 **3. Regulasi lokal content 40 persen (2026)**
 
