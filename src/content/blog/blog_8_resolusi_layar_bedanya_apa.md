@@ -9,13 +9,13 @@ draft: false
 
 ![Diagram 1](../../assets/blog/8/ces-2026-lg-2026-tv-lineup.jpg)<center> "LG mamerin TV lineup nya di CES 2026" </center>
 
-Kamu baru beli TV 85 inci (215 cm) 8K. Harganya 50 juta. Sales-nya senyum lebar, "Ini resolusinya paling tinggi di dunia Pak, jauh lebih tajam dari 4K."
+Kamu baru beli TV 85 inci 8K. Harganya 50 juta. Sales-nya senyum lebar, "Ini resolusinya paling tinggi di dunia Pak, jauh lebih tajam dari 4K."
 
-Kamu bayar, senang, bawa pulang. Tiga bulan kemudian kamu sadar satu hal yang agak mengecewakan: konten streaming yang kamu nonton resolusinya 1080p atau 4K. TV 8K-mu cuma ngescale ke atas. Dan jujur, hasil upscale-nya nggak jauh beda sama TV 4K tetanggamu yang punya HDR bagus dan warna kebih terang.
+Kamu bayar, senang, bawa pulang. Tiga bulan kemudian kamu sadar satu hal yang agak mengecewakan: konten streaming yang kamu nonton resolusinya 1080p atau 4K. TV 8K-mu cuma ngescale ke atas. Dan jujur, hasil upscale-nya nggak jauh beda sama TV 4K tetanggamu yang punya HDR bagus dan warna lebih terang.
 
 ![Diagram 2](../../assets/blog/8/8.Moko_catTree.jpg)<center>"Moko ngelihat ini dari cat tree. Dia cuma ngangguk pelan, kayak bilang 'udah tau'."</center>
 
-*Ini cerita yang sering banget terjadi. Dan setelah 15 tahun di industri display: dari Sony VAIO, lewat Intel, sampai sekarang ngurusi automotive HMI: yang saya lihat justru sebaliknya. Konsumen terus dikejar-kejar resolusi, padahal faktor lain bikin display terasa jauh lebih beda.*
+*Ini cerita yang sering banget terjadi. Dan setelah 15+ tahun di industri display: dari Sony VAIO, lewat Intel, sampai sekarang ngurusi automotive HMI: yang saya lihat justru sebaliknya. Konsumen terus dikejar-kejar resolusi, padahal faktor lain bikin display terasa jauh lebih beda.*
 
 ## Resolusi Itu Apa?
 
@@ -50,12 +50,12 @@ Coba lihat perbandingan ini:
 | Perangkat                 | Ukuran        | Resolusi    | PPI  |
 | ------------------------- | ------------- | ----------- | ---- |
 | iPhone 15 Pro Max         | 6,7" (17 cm)  | 2796 x 1290 | ~460 |
-| MacBook Pro 14" (35,6 cm) | 14,2" (36 cm) | 3024 x 1964 | ~254 |
-| Monitor 27" (68,6 cm) 4K  | 27" (69 cm)   | 3840 x 2160 | ~163 |
-| TV 55" (139,7 cm) 4K      | 55" (140 cm)  | 3840 x 2160 | ~80  |
-| TV 55" (139,7 cm) 8K      | 55" (140 cm)  | 7680 x 4320 | ~163 |
+| MacBook Pro 14" | 14,2" (36 cm) | 3024 x 1964 | ~254 |
+| Monitor 27"  4K  | 27" (69 cm)   | 3840 x 2160 | ~163 |
+| TV 55" 4K      | 55" (140 cm)  | 3840 x 2160 | ~80  |
+| TV 55" 8K      | 55" (140 cm)  | 7680 x 4320 | ~163 |
 
-Perhatikan sesuatu yang menarik di sini: TV 55 inci (140 cm) 8K punya PPI yang sama dengan monitor 27 inci (69 cm) 4K. Tapi monitor kamu lihat dari jarak 50-60 cm, sedangkan TV dari jarak 2-3 meter. Dari 3 meter, 80 PPI dari TV 4K udah cukup tajam. Mata kamu nggak bakal bisa bedain pixel 8K kecuali kamu merayap ke depan layar.
+Perhatikan sesuatu yang menarik di sini: TV 55 inci 8K punya PPI yang sama dengan monitor 27 inci 4K. Tapi monitor kamu lihat dari jarak 50-60 cm, sedangkan TV dari jarak 2-3 meter. Dari 3 meter, 80 PPI dari TV 4K udah cukup tajam. Mata kamu nggak bakal bisa bedain pixel 8K kecuali kamu merayap ke depan layar.
 
 4K di layar 5 inci (12,7 cm - smartphone) itu beda banget sama 4K di layar 65 inci (165 cm - TV). Di smartphone, pixel-pixelnya rapat banget sampai mata nggak bisa bedain satu pixel sama pixel lainnya. Di TV 65 inci (165 cm), pixel-pixelnya lebih renggang.
 
@@ -100,8 +100,6 @@ Jadi kapan 8K mulai masuk akal?
 - Jarak pandang sangat dekat: kurang dari 1,5 meter dari layar besar
 - Konten profesional yang memang difilmkan di 8K, medical imaging, atau content creation yang butuh detail maksimal
 - Atau kamu memang mau investasi buat masa depan 5-10 tahun ke depan
-
-Kamu baca koran dari dekat, teksnya jelas. Kamu baca koran dari jauh, teksnya jadi nggak keliatan lagi. Tapi kalau kamu duduk seratus meter dari billboard, teks gede aja cukup. Layar juga begitu: jarak pandang menentukan seberapa detail yang bisa kamu tangkep.
 
 *Di sini mampir dulu: kamu mungkin mikir "tapi saya emang liat 4K lebih tajam dari 1080p, kok?" Iya, benar. Tapi ketajaman itu bukan cuma dari resolusi — kita bahas kenapa dalam beberapa menit, karena ada faktor lain yang bikin 4K terasa lebih "hidup".*
 
