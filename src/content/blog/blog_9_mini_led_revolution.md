@@ -209,15 +209,11 @@ Jadi ya, 2026 ini tahun Mini LED. Tahun di mana LCD bangkit dari kubur bukan den
 
 Kalau kamu punya pertanyaan teknis, tinggal comment di bawah. Saya seneng banget breakdown lebih detail.
 
-
-
-Ipad pro 12.9" katanya juga make mini-LED kan ? tapi denger-denger maximum luminance nya 1600 cd/m2. "
-
+![Moko & iPad](../../assets/blog/9/9.Moko_Ipad.jpg)<center> iPad pro 12.9" katanya juga make mini-LED kan ? tapi denger-denger maximum luminance nya 1600 cd/m2 ya ?.</center>
 
 
 Dan Moko, kalau kamu baca ini dan merasa di-interrogate sama teknologi... sorry, kamu nggak bisa escape dari dunia Mini LED.
 
-![Moko looking confused at TV setup](PHOTO PLACEHOLDER: Moko duduk di atas meja kopi dengan ekspresi bingung khas ragdoll, di depannya ada TV kecil yang menampilkan warna-warna cerah. Shot eye-level dengan Moko. Background ruang tamu minimalis dengan pencahayaan natural. Ekspresi Moko harus terlihat seperti "Aku tidak paham tapi aku tetap terlihat elegan".)
 
 ---
 *Referensi:*
