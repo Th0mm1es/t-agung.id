@@ -1,15 +1,15 @@
 ---
-title: "Kenapa Display Mobil Listrik Indonesia Perlu Automotive Grade? (Bukan Hanya Marketing)"
+title: "Kenapa Display Mobil Listrik Indonesia Perlu Automotive Grade?"
 description: "Sales EV Indonesia naik 55%, tapi supply chain display masih impor total. Apa yang konsumen perlu tahu soal standar komponen dan transparansi grade."
 pubDate: 2026-05-15
 topic: "Display"
 tags: ["ev-indonesia", "automotive-grade", "display-technology", "supply-chain", "transparency"]
-draft: true
+draft: false
 ---
 
 ![Diagram 1](../../assets/blog/7/taycan_interior.jpg)<center>"Ada berapa ya total display di *Porsche Taycan* ini ?"</center>
 
-## Pembuka: Angka yang Bikin Senang, Pertanyaan yang Jarang Ditanyakan
+## Angka yang Bikin Senang, Pertanyaan yang Jarang Ditanyakan
 
 April 2026. Penjualan kendaraan di Indonesia naik 55 persen, total 80.776 unit (data Gaikindo). BYD tumbuh 85,6 persen dengan pangsa pasar EV 48,2 persen (Focus2move). Wuling Cloud EV hadir dengan display 15,6 inci sebagai selling point utama. Semua media heboh.
 
@@ -35,7 +35,7 @@ Biar fungsinya sama-sama nampilin gambar, display itu punya empat grade yang umu
 
 ![Diagram 2](../../assets/blog/7/7.Moko_bengong.jpg)<center>"Waduh.. nggak mudeng nih...ada display grade mainan ngga ?"</center>
 
-## Kenapa sih Automotive Grade Palin Gokil?
+## Kenapa sih Automotive Grade Paling Gokil?
 
 Mobil adalah salah satu lingkungan paling ekstrem untuk elektronik. Parkir di bawah matahari Jakarta, suhu kabin bisa 70°C. Bawa ke Bogor saat hujan deras, kelembaban 95%. Bawa ke pegunungan, suhu minus. Plus getaran terus-menerus selama 10 tahun.
 

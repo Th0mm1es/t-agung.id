@@ -212,7 +212,7 @@ Kalau kamu punya pertanyaan teknis, tinggal comment di bawah. Saya seneng banget
 ![Moko & iPad](../../assets/blog/9/9.Moko_Ipad.jpg)<center> iPad pro 12.9" katanya juga make mini-LED kan ? tapi denger-denger maximum luminance nya 1600 cd/m2 ya ?.</center>
 
 
-Dan Moko, kalau kamu baca ini dan merasa di-interrogate sama teknologi... sorry, kamu nggak bisa escape dari dunia Mini LED.
+Dan Moko, kalau kamu baca ini dan merasa tercekam sama teknologi... sorry, kamu nggak bisa escape dari dunia Mini LED.
 
 
 ---
