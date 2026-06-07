@@ -2,21 +2,21 @@
 title: "Mini LED Itu Apa? Kenapa Semua TV Brand Lagi Pushing Gila-gilaan?"
 description: "Mini LED technology explained: local dimming zones, backlight evolution, QD vs white LED, harga di Indonesia, dan kenapa TV maker berlomba-lomba push teknologi ini"
 pubDate: 2026-05-27
-tags: ["Mini LED", "backlight", "local dimming", "Hisense", "LG", "TV technology", "Quantum Dot", "OLED vs Mini LED"]
+tags: ["Mini LED", "backlight", "local dimming", "Hisense", "LG", "TV technology", "Quantum Dot", "OLED vs Mini LED", "Sony", "Xiaomi"]
 draft: false
 ---
 
 ![RGB mini LED](../../assets/blog/9/9.SONY_ConceptualRGB.jpg)<center> *Visualisasi RGB LED matrix dari Sony TrueRGB. Sumber: Sony*</center>
 
-Kamu lagi browsing TV di toko elektronik. Jalan ngeliat-liat, ada satu pertanyaan: "Mini LED? Itu apa?" Sales di toko juga senyum-senyum: "Pak, ini teknologi terbaru. Kontrasnya hampir kayak OLED tapi lebih terang." Kamu denger-denger aja, bayar, bawa pulang. Nonton film pertama malam itu: wah, beneran hitam pekat pas adegan gelap, tapi terang banget pas scene outdoor.
+Kamu lagi browsing TV di toko elektronik pas lagi lebaran haji. Jalan ngeliat-liat, ada satu pertanyaan: "Mini LED? Itu apa?" Sales di toko juga senyum-senyum: "Pak, ini teknologi terbaru. Kontrasnya hampir kayak OLED tapi lebih terang." Kamu denger-denger aja, bayar, bawa pulang. Nonton film pertama malam itu: wah, beneran hitam pekat pas adegan gelap, tapi terang banget pas scene outdoor.
 
 Tapi, sama-sama mini LED, TV 65 inci Mini LED dari Hisense harganya 11-16 juta (U7Q/U8 series). OLED LG ukuran sama? 18-22 juta, SONY yang ngebangga-banggain TrueColor sampe lewat 50 Juta.
 
-- **Xiaomi TV A Pro 65" Mini LED** — Rp9.900.000 (entry-level Mini LED, white LED + QD, sekitar 500 zones)
-- **Hisense U7Q 65" Mini LED** — Rp11-16 juta (Mini LED + QD, ~2.000 zones)
-- **LG QNED85 65" Mini LED** — Rp18-21 juta (Mini LED + QD, ~400 zones, alpha7 processor)
-- **TCL C855 65" Mini LED** — Rp18-21 juta (Mini LED + SQD, ~1.500 zones)
-- **Sony BRAVIA 9 65" True RGB Mini LED** — Rp42-45 juta (True RGB, ~1.500 zones, XR Backlight Master)
+- **Xiaomi TV A Pro 65" Mini LED** — Rp.9.900.000 (entry-level Mini LED, white LED + QD, sekitar 500 zones)
+- **Hisense U7Q 65" Mini LED** — Rp.11-16 juta (Mini LED + QD, ~2.000 zones)
+- **LG QNED85 65" Mini LED** — Rp.18-21 juta (Mini LED + QD, ~400 zones, alpha7 processor)
+- **TCL C855 65" Mini LED** — Rp.18-21 juta (Mini LED + SQD, ~1.500 zones)
+- **Sony BRAVIA 9 65" True RGB Mini LED** — Rp.42-45 juta (True RGB, ~1.500 zones, XR Backlight Master)
 
 Xiaomi masuk paling murah, Sony paling mahal. Beda 4x lipat buat ukuran yang sama.
 
@@ -27,6 +27,8 @@ Setelah 15+ tahun di industri display, dari kerja di Sony VAIO Architecture Team
 Mini LED bukan panel. Bukan teknologi display yang bikin pixel-mu nyala sendiri kayak OLED. Mini LED itu backlight. Dia masih LCD: kristal cair yang disorot dari belakang. Bedanya, lampu sorotnya jauh lebih kecil dan jauh lebih banyak.
 
 Anggap aja begini: LCD itu kayak jendela yang kamu atur transparansinya dari belakang. Pixel LCD adalah tirai yang bisa naik atau turun. Tapi kalau nggak ada cahaya dari belakang, tirai pun nggak bisa nampilin apa-apa. Backlight adalah lampu yang nyorot ke tirai itu.
+
+![Moko Backlight experiment](../../assets/blog/10/10.Moko_spotlight.jpg)<center> Moko lagi experiment baclight, katanya: "*kalau lampu ini backlight.. biar ada saya di depannya tetep ajah cahayanya bocor ke belakang ya*"</center>
 
 LED biasa di TV LCD ukuran sekitar 2-4 mm. Mini LED? Sekitar 100-200 mikrometer. Ini 10 sampai 20 kali lebih kecil. Perumpamaannya: LED biasa itu kayak bola lampu bohlam di ruang tamu. Mini LED itu kayak LED strip yang kamu tempel di dapur, cuma jauh lebih kecil lagi.
 
@@ -40,7 +42,7 @@ Semakin banyak zones, semakin presisi kontrol cahayanya. Area hitam bisa lebih g
 
 LCD punya satu masalah utama: dia nggak bisa mati total. Pixel hitam di LCD masih disorot cahaya dari belakang, jadi yang keluar bukan hitam murni tapi abu-abu gelap. Ini kayak kamu coba nonton film horor di kamar tapi lampu tidur di pojok masih nyala redup. Ketar-ketir-nya jadi ilang.
 
-![Moko Backlight experiment](../../assets/blog/10/10.Moko_spotlight.jpg)<center> Moko lagi experiment baclight, katanya: "*kalau lampu ini backlight.. biar ada saya di depannya tetep ajah cahayanya bocor ke belakang ya*"</center>
+
 
 TV LCD biasa punya kontras sekitar 1.000:1 sampai 2.000:1. OLED bisa mencapai kontras tak terbatas karena pixel-nya beneran mati. Bedanya jauh.
 
@@ -128,7 +130,7 @@ LG fokus di processor dan algoritma mereka. TV Mini LED LG pakai branding QNED (
 TCL pakai Super Quantum Dot (SQD) yang klaimnya lebih efisien dan lebih stable dari QD biasa. TCL C855/C755 series di Indonesia tersedia di harga Rp18-21 juta untuk 65 inci, Rp.35-40 juta untuk 85 inci. TCL agresi di harga: mereka bikin Mini LED terjangkau. TCL itu kayak warung yang buka 24 jam: harga bersahabat, kualitas.... oke lah.
 
 **Hisense: "ULED MiniLED" / "RGB-MiniLED"**\
-Hisense paling agresif push Mini LED. Mereka punya lineup lengkap: U6 (entry Mini LED), U7 (mid), U8 (premium), dan UX (RGB-MiniLED flagship). Hisense juga yang paling murah: U7Q 65 inci di kisaran 11-16 juta, U6Q di kisaran Rp.7-10 juta. Sub-brand Vidda S Mini dijual di China sekitar Rp5 jutaan (65 inci) tapi belum tersedia di Indonesia. Hisense resmi rilis TV 116 inci RGB-MiniLED di Indonesia dengan harga 400 juta!
+Hisense paling agresif push Mini LED. Mereka punya lineup lengkap: U6 (entry Mini LED), U7 (mid), U8 (premium), dan UX (RGB-MiniLED flagship). Hisense juga yang paling murah: U7Q 65 inci di kisaran 11-16 juta, U6Q di kisaran Rp.7-10 juta. Sub-brand Vidda S Mini dijual di China dengan harga yang bersaing, tapi belum tersedia di Indonesia. Hisense resmi rilis TV 116 inci RGB-MiniLED di Indonesia dengan harga 400 juta!
 
 **Sony: "XR Backlight Master" / "True RGB"**\
 Sony fokus di kualitas kontrol dan jumlah zones yang besar. BRAVIA 9 pakai sekitar 1.500 zones (65 inci) sampai 2.000 zones (75 inci) dengan algoritma XR Backlight Master yang sangat presisi. Sony juga punya teknologi "True RGB" untuk Mini LED generasi berikutnya.
