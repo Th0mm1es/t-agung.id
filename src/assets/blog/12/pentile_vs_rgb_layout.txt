@@ -1,0 +1,2 @@
+Source: https://www.oled-info.com/sites/default/files/page/pageLCD-rgb-subpixel-matrix-img_assist-255x250.jpg
+Source article: https://www.oled-info.com/pentile
