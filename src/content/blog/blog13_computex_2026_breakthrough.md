@@ -67,11 +67,11 @@ Menurut analis Tom's Guide, RTX Spark bakal geser debat Mac vs Windows dari perf
 
 Intinya: RTX Spark menang di AI on-device dan GPU power. Apple Silicon menang di CPU efficiency, battery life, dan ekosistem yang udah matang. Spark buat creator dan gamer yang butuh GPU berat. Apple buat user yang prioritaskan efisiensi dan integrasi.
 
-Yang bikin saya mikir panjang: keduanya pakai arsitektur yang sama. ARM. Unified memory. Chiplet design. RTX Spark bukan sekadar nyoba ngejar Apple, tapi ngasih bukti kalau filosofi Apple Silicon bisa jalan di ekosistem terbuka. Bagi saya ini justru poin paling menarik. Kalau Apple bisa bikin orang mikir lagi soal x86, NVIDIA mau buktiin kalau model itu juga bisa bekerja di Windows.
+Yang bikin saya mikir panjang: keduanya pakai arsitektur yang sama. ARM. Unified memory. Chiplet design. RTX Spark bukan sekadar nyoba ngejar Apple, tapi ngasih bukti kalau filosofi Apple Silicon bisa jalan di ekosistem terbuka. Bagi saya ini justru poin paling menarik. Kalau Apple bisa bikin orang mikir lagi soal x86 / x64, NVIDIA mau buktiin kalau model itu juga bisa bekerja di Windows.
 
 ## Benang Merah
 
-E Ink Prism nunjukin kalau display nggak harus selalu nyala. Permukaan pasif yang berubah warna bisa ganti layar konvensional di banyak konteks, dan display itu nggak harus datar lagi. Thermoforming ngebuka kemungkinan hardware kita bakal punya permukaan yang hidup dan interaktif, bukan cuma di layar, tapi di body produk itu sendiri.
+E Ink Prism nunjukin kalau display nggak harus ngabisin listrik pas lagi nyala. Permukaan pasif yang berubah warna bisa ganti layar konvensional di banyak konteks, dan display itu nggak harus datar lagi. Thermoforming ngebuka kemungkinan hardware kita bakal punya permukaan yang hidup dan interaktif, bukan cuma di layar, tapi di body produk itu sendiri.
 
 NVIDIA RTX Spark nunjukin kalau AI bisa hidup di device, bukan di cloud. 1 petaFLOP dalam satu chip konsumen berarti model AI yang dulu butuh server rack sekarang bisa jalan di laptop.
 
@@ -85,6 +85,6 @@ Perlahan tapi pasti, hardware mulai ngerti apa yang kita butuhkan.
 
 ![MokoSSd](../../assets/blog/13/13.Moko_SSD.jpg) <center>*Moko... itu SSD isinya foto kamu doang*</center>
 
-Moko masih ngeliatin portable SSD saya. Mungkin dia masih kurang ngerti bedanya Memory untuk AI dan Memory untuk storage, sambil ngebayangin laptop saya bakal ngejalanin AI lokal setara cloud, dan mobil di jalan raya bakal bertukar warna tanpa dicat ulang dengan teknologi e-ink.
+Moko masih ngeliatin portable SSD saya. Mungkin dia masih kurang ngerti bedanya Memory untuk AI dan Memory untuk storage, sambil ngebayangin laptop saya bakal ngejalanin AI lokal setara cloud yang tentunya butuh buanyak banget DDR RAM yg punya bandwidth gede, dia juga kayaknya mimpiin mobil di jalan raya bakal punya motif warna-warni dan motif unik yang bisa ganti-ganti dengan teknologi e-ink.
 
 Tapi sampai saat itu, setidaknya Moko masih mau nemenin saya mikir ilmu yang mau di share. Dan itu udah cukup.
