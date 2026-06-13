@@ -1,7 +1,7 @@
 ---
 title: "Apple Intelligence Tanpa Layar: NPU Jadi Raja, Intel Cari Jembatan Pulang"
 description: "WWDC 2026: Apple Intelligence 2.0, Siri dibangun ulang, camera jadi HMI baru, macOS 27 terakhir untuk Intel. Tapi Intel punya jalan pulang lewat Foundry dan Gaudi 3."
-pubDate: 2026-06-10
+pubDate: 2026-06-09
 tags: ["WWDC 2026", "Apple Intelligence", "Intel", "NPU", "Silicon", "AI on-device", "HMI"]
 draft: false
 ---
