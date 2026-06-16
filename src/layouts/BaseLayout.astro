@@ -43,6 +43,25 @@ const socialImage = image ? new URL(image, Astro.site).href : undefined;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     {socialImage && <meta name="twitter:image" content={socialImage} />}
+	<!-- Theme Management Script -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          return 'light';
+        }
+        return 'dark';
+      };
+
+      const theme = getTheme();
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    </script>
   </head>
 
   <body>
@@ -59,10 +78,60 @@ const socialImage = image ? new URL(image, Astro.site).href : undefined;
             </span>
           </a>
 
-          <nav class="site-nav" aria-label="Navigasi utama">
+<nav class="site-nav" aria-label="Navigasi utama">
             <a href="/">Home</a>
             <a href="/blog">Blog</a>
+            
+            <div class="theme-switcher" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; margin-left: 0.75rem; user-select: none;">
+              <span id="label-dark" style="transition: color 0.2s; font-weight: 500;">Dark</span>
+              
+              <button id="theme-toggle" aria-label="Toggle theme" style="background: var(--surface-3); border: 1px solid var(--border); width: 2.6rem; height: 1.4rem; border-radius: 999px; position: relative; cursor: pointer; padding: 0; transition: background-color 0.2s;">
+                <div id="toggle-circle" style="width: 1rem; height: 1rem; background: var(--text); border-radius: 50%; position: absolute; top: 0.125rem; left: 0.15rem; transition: transform 0.2s ease;"></div>
+              </button>
+              
+              <span id="label-light" style="transition: color 0.2s; font-weight: 500;">Light</span>
+            </div>
           </nav>
+
+          <script>
+            const toggle = document.getElementById('theme-toggle');
+            const circle = document.getElementById('toggle-circle');
+            const labelDark = document.getElementById('label-dark');
+            const labelLight = document.getElementById('label-light');
+
+            // Function to update the visual UI of the switch and labels
+            const updateToggleUI = (isLight: boolean) => {
+              if (isLight) {
+                if (circle) circle.style.transform = 'translateX(1.15rem)';
+                if (labelLight) labelLight.style.color = 'var(--accent)';
+                if (labelDark) labelDark.style.color = 'var(--muted)';
+              } else {
+                if (circle) circle.style.transform = 'translateX(0)';
+                if (labelDark) labelDark.style.color = 'var(--accent)';
+                if (labelLight) labelLight.style.color = 'var(--muted)';
+              }
+            };
+
+            // Initialize UI state on load
+            const initLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+            updateToggleUI(initLightMode);
+
+            // Click listener logic
+            toggle?.addEventListener('click', () => {
+              const element = document.documentElement;
+              const isLight = element.getAttribute('data-theme') === 'light';
+              
+              if (isLight) {
+                element.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                updateToggleUI(false);
+              } else {
+                element.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                updateToggleUI(true);
+              }
+            });
+          </script>
         </div>
       </div>
     </header>

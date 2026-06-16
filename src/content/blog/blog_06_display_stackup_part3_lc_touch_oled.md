@@ -9,9 +9,10 @@ draft: false
 
 ## Recap: Dari Part 1 dan Part 2
 
-Part 1: kita bahas sumber cahaya : LED spectrum, reflector, light guide plate, diffuser. 
+Part 1: kita bahas sumber cahaya : *[LED spectrum, reflector, light guide plate, diffuser.](/blog/blog_04_lcd_stackup_part1_light_source/)*
 
-Part 2: kita bahas bagian fokus : BEF, DBEF, rear polarizer.
+
+Part 2: kita bahas bagian fokus : *[BEF, DBEF, rear polarizer.](/blog/blog_05_display_stackup_part2_focus_polarizer/)*
 
 Sekarang: **bagian otak** : LC cell, polarizer depan, touch layer, bonding, cover glass. Dan kenapa semua ini bikin OLED mulai ngambil alih display di consumer electronics, bukan hanya di *HaPe.*
 
@@ -218,7 +219,7 @@ Itu salah satu tanda bahwa chemical layer nya udah mengelupas.
 
 Pas saya di Sony VAIO tahun 2010, kita bikin notebook premium ultra-tipis. Dan kita stuck di satu masalah: **backlight unit adalah musuh**.
 
-Backlight = 70% BOM cost. Tebal 10-15mm. Kontras terbatas 1000:1. Viewing angle terbatas. Dan di outdoor, brightness-nya nggak cukup.
+Backlight = 70% BOM cost. Tebal 5-8mm. Kontras terbatas 1000:1. Viewing angle terbatas. Dan di outdoor, brightness-nya nggak cukup.
 
 **Di meeting internal, saya bilang:** "Kita butuh display yang nggak butuh backlight."
 

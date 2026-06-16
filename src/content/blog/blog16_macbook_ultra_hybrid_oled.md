@@ -6,7 +6,7 @@ tags: ["MacBook Ultra", "Samsung Display", "Hybrid OLED", "Supply Chain", "BOE",
 draft: false
 ---
 
-![MacBook OLED Concept 2026](../../assets/blog/16/16.macbook_oled_2026.jpg)<center>*MacBook Ultra 2026: layar hybrid OLED 14.3 dan 16.3 inci, Samsung supplier tunggal*</center>
+![MacBook OLED Concept 2026](../../assets/blog/16/16.macbook_oled_2026.jpg)<center>*MacBook Ultra 2026: layar hybrid OLED 14.3 dan 16.3 inci, Samsung supplier tunggal, source image: 9to5mac*</center>
 
 Minggu ini saya lagi baca-baca berita dari WWDC, dan pas liat semua demo Apple Intelligence 2.0 itu, ada satu hal yang langsung muncul di pikiran saya: semua fitur AI keren itu nggak bakal berarti kalau layar laptopmu nggak bisa nunjukin dengan bagus. Moko, si ragdoll kesayangan saya, lagi duduk di keyboard MacBook lama saya. Layarnya masih IPS tahun 2019, warnanya udah agak pudar. Kayaknya dia juga ngerasa laptop itu udah waktunya diganti.
 

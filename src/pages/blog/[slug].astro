@@ -5,7 +5,6 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-
   posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
   return posts.map((post) => ({
@@ -15,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 
 const currentIndex = posts.findIndex((item) => item.id === post.id);
 const previousPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
@@ -43,56 +42,93 @@ const schema = JSON.stringify({
   schema={schema}
 >
   <article class="post">
-    <a href="/blog" class="back-link">← Kembali ke Blog</a>
+    <div class="post-content-wrapper">
+      <a href="/blog" class="back-link">← Kembali ke Blog</a>
 
-    <header class="post-header">
-      <h1>{post.data.title}</h1>
-      <p class="post-meta">
-        {new Date(post.data.pubDate).toLocaleDateString('id-ID', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-      </p>
-    </header>
+      <header class="post-header">
+        <h1>{post.data.title}</h1>
+        <p class="post-meta">
+          {new Date(post.data.pubDate).toLocaleDateString('id-ID', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </p>
+      </header>
 
-    {post.data.cover && (
-      <img
-        src={post.data.cover.src}
-        width={post.data.cover.width}
-        height={post.data.cover.height}
-        alt={post.data.coverAlt ?? post.data.title}
+      {post.data.cover && (
+        <img
+          src={post.data.cover.src}
+          width={post.data.cover.width}
+          height={post.data.cover.height}
+          alt={post.data.coverAlt ?? post.data.title}
+        />
+      )}
+
+      <Content />
+
+      <nav class="post-nav" aria-label="Navigasi tulisan">
+        <a
+          href={previousPost ? `/blog/${previousPost.id}/` : '/blog'}
+          class="post-nav-card post-nav-prev"
+        >
+          <span class="post-nav-label">{previousPost ? 'Tulisan sebelumnya' : 'Navigasi'}</span>
+          <strong>{previousPost ? previousPost.data.title : 'Semua artikel'}</strong>
+        </a>
+
+        <a
+          href={nextPost ? `/blog/${nextPost.id}/` : '/blog'}
+          class="post-nav-card post-nav-next"
+        >
+          <span class="post-nav-label">{nextPost ? 'Tulisan selanjutnya' : 'Navigasi'}</span>
+          <strong>{nextPost ? nextPost.data.title : 'Semua artikel'}</strong>
+        </a>
+      </nav>
+
+      <Comments
+        projectId="5701935021686784-proj"
+        boxId={`comments-${post.id}`}
       />
-    )}
+    </div>
 
-    <Content />
-
-    <nav class="post-nav" aria-label="Navigasi tulisan">
-      <a
-        href={previousPost ? `/blog/${previousPost.id}/` : '/blog'}
-        class="post-nav-card post-nav-prev"
-      >
-        <span class="post-nav-label">{previousPost ? 'Tulisan sebelumnya' : 'Navigasi'}</span>
-        <strong>{previousPost ? previousPost.data.title : 'Semua artikel'}</strong>
-      </a>
-
-      <a
-        href={nextPost ? `/blog/${nextPost.id}/` : '/blog'}
-        class="post-nav-card post-nav-next"
-      >
-        <span class="post-nav-label">{nextPost ? 'Tulisan selanjutnya' : 'Navigasi'}</span>
-        <strong>{nextPost ? nextPost.data.title : 'Semua artikel'}</strong>
-      </a>
-    </nav>
-
-    <Comments
-      projectId="5701935021686784-proj"
-      boxId={`comments-${post.id}`}
-    />
+    <aside class="toc-sidebar">
+      <div class="toc-sticky-container">
+        <h2>On this page</h2>
+        <nav aria-label="Table of contents">
+          <ul>
+            {headings
+              .filter((heading) => heading.depth <= 3)
+              .map((heading) => (
+                <li class={`toc-depth-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+          </ul>
+        </nav>
+      </div>
+    </aside>
   </article>
 </BaseLayout>
 
 <style>
+  /* FAIL-SAFE OVERFLOW UNBLOCK PATTERNS */
+  :global(html), :global(body) {
+    overflow-x: visible !important;
+  }
+  :global(main), :global(#main-content), :global(.shell) {
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Grid Layout Setup */
+  .post {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    width: 100%;
+    align-items: start !important;
+  }
+
   .post-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -133,6 +169,66 @@ const schema = JSON.stringify({
     text-align: right;
     align-items: flex-end;
   }
+
+  /* Pinned Table of Contents Sidebar Styles */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .post {
+      grid-template-columns: minmax(0, var(--container-read)) 260px !important;
+    }
+    .toc-sidebar {
+      display: block !important;
+      position: sticky !important;
+      top: 6.5rem !important; /* Locks sidebar right under your sticky top menu bar */
+      max-height: calc(100vh - 8rem);
+      align-self: start !important;
+    }
+    .toc-sticky-container {
+      padding-left: 0.75rem;
+      border-left: 1px solid rgba(99, 216, 212, 0.08);
+      overflow-y: auto;
+    }
+    .toc-sidebar h2 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--soft);
+      margin: 0 0 0.8rem 0;
+    }
+    .toc-sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .toc-sidebar a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+      display: block;
+      padding: 0.1rem 0;
+      transition: color 0.15s, padding-left 0.15s;
+    }
+    .toc-sidebar a:hover,
+    .toc-sidebar a.active {
+      color: var(--accent-hover);
+    }
+    .toc-sidebar a.active {
+      font-weight: 500;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.4rem;
+      margin-left: -0.75rem;
+    }
+    .toc-depth-3 {
+      padding-left: 0.85rem;
+    }
+  }
+
   @media (max-width: 720px) {
     .post-nav {
       grid-template-columns: 1fr;
@@ -143,3 +239,37 @@ const schema = JSON.stringify({
     }
   }
 </style>
+
+<script>
+  const initToc = () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-100px 0px -70% 0px',
+      threshold: 0
+    };
+
+    const headings = Array.from(document.querySelectorAll('.post-content-wrapper h2, .post-content-wrapper h3'));
+    const tocLinks = document.querySelectorAll('.toc-sidebar a');
+
+    if (headings.length === 0 || tocLinks.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          tocLinks.forEach((link) => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc-sidebar a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    headings.forEach((heading) => observer.observe(heading));
+  };
+
+  // Runs on initial page load and handles Astro view transitions cleanly if enabled
+  document.addEventListener('DOMContentLoaded', initToc);
+  document.addEventListener('astro:page-load', initToc);
+</script>
