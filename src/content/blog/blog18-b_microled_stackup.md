@@ -1,5 +1,5 @@
 ---
-title: "microLED Deepdive 2a/4: Tentang Manufakturing; Mass Transfer, dan Apasih Yield Produksi ?"
+title: "microLED Deepdive 2b/4: Tentang Manufakturing; Mass Transfer, dan Apasih Yield Produksi ?"
 description: "Bagian 2-b seri microLED. Tentang mass transfer, backplane MicroIC, dan produksi yield."
 pubDate: "2026-06-17"
 series: "microLED Deep Dive"

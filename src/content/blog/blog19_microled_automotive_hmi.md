@@ -173,14 +173,15 @@ Di Motherson, saya lihat langsung bagaimana setiap prototipe yang keren di booth
 
 Teknologi ini beneran ada dan lagi berkembang. Dan saya ikut jadi saksi langsung.
 
-![Moko on Office Chair](../../assets/blog/8/8.Moko_catTree.jpg)<center>*Moko tidak peduli HUD 300.000 nits. Yang penting ada tempat nongkrong.*</center>
+![Moko on Office Chair](../../assets/blog/8/8.Moko_catTree.jpg)<center>*Moko nggak peduli HUD 300.000 nits. Yang penting ada tempat nongkrong.*</center>
 
 ---
 
 *Referensi: 
 
 - [microLED Apa Itu? (blog17)](/blog/blog17_microled_intro/), 
-- [microLED Stack-Up (blog18)](/blog/blog18_microled_stackup/), 
+- [Bedah microLED part 1 (blog18-a)](/blog/microled-stackup-chip-material/), 
+- [Bedah microLED part 2 (blog18-b)](/blog/blog18-b_microled_stackup/), 
 - BOE CES 2026 booth (HERO 2.0 Smart Cockpit, Panoramic HUD RGB 50,000 nits, transparent wood grain), 
 - BOE Display Week 2025 (monochrome PHUD 300,000 nits, RGB PHUD 30,000 nits, microled-info.com), 
 - AUO CES 2026 booth via AUO Mobility Solutions (transparent microLED 54", 12.4" automotive module 93 PPI 50% transparency), 

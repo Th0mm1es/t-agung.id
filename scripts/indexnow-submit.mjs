@@ -4,8 +4,9 @@ const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/blog17_microled_intro/',
-  'https://t-agung.id/blog/blog18_microled_stackup/'
+  'https://t-agung.id/blog/microled-stackup-chip-material/',
+  'https://t-agung.id/blog/blog18-b_microled_stackup/',
+  'https://t-agung.id/blog/blog19_microled_automotive_hmi/'
 ];
 
 const body = {
