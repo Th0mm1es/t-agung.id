@@ -1,0 +1,64 @@
+<div class="search-shell">
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <div id="search"></div>
+</div>
+
+<script>
+  const setupSearch = async () => {
+    if (window.__pagefindUiReady) return;
+
+    await new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-pagefind-ui="true"]');
+      if (existing) {
+        if (window.PagefindUI) {
+          resolve();
+          return;
+        }
+        existing.addEventListener('load', resolve, { once: true });
+        existing.addEventListener('error', reject, { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = '/pagefind/pagefind-ui.js';
+      script.async = true;
+      script.dataset.pagefindUi = 'true';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+
+    if (!window.PagefindUI) {
+      console.error('PagefindUI failed to load.');
+      return;
+    }
+
+    const searchRoot = document.querySelector('#search');
+    if (!searchRoot) return;
+
+    searchRoot.innerHTML = '';
+
+    new window.PagefindUI({
+      element: '#search',
+      showSubResults: false,
+      showImages: false,
+      excerptLength: 18,
+      resetStyles: false,
+      translations: {
+        placeholder: 'Cari artikel...',
+        clear_search: 'Hapus',
+        load_more: 'Tampilkan lagi',
+        search_label: 'Cari artikel',
+        zero_results: 'Tidak ada hasil untuk [SEARCH_TERM]',
+        many_results: '[COUNT] hasil untuk [SEARCH_TERM]',
+        one_result: '[COUNT] hasil untuk [SEARCH_TERM]',
+        searching: 'Mencari...'
+      }
+    });
+
+    window.__pagefindUiReady = true;
+  };
+
+  document.addEventListener('DOMContentLoaded', setupSearch);
+  document.addEventListener('astro:page-load', setupSearch);
+</script>

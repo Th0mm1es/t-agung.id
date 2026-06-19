@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Search from '../components/Search.astro';
 
 interface Props {
   title: string;
@@ -81,7 +82,7 @@ const socialImage = image ? new URL(image, Astro.site).href : undefined;
 <nav class="site-nav" aria-label="Navigasi utama">
             <a href="/">Home</a>
             <a href="/blog">Blog</a>
-            
+            <Search />
             <div class="theme-switcher" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; margin-left: 0.75rem; user-select: none;">
               <span id="label-dark" style="transition: color 0.2s; font-weight: 500;">Dark</span>
               
