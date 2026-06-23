@@ -18,9 +18,7 @@ tags:
 draft: true
 ---
 
-
-
-Baru aja saya selesai nulis blog20 soal timeline pasar microLED, Ferrari Luce muncul dan langsung ingetin saya ke satu hal: setiap kali teknologi display baru masuk ke produk ikonik, kontroversi yang muncul selalu lebih besar dari teknologinya sendiri.
+Baru aja saya selesai nulis blog 20 soal timeline pasar microLED, Ferrari Luce muncul di feed dan langsung ingetin saya ke satu hal: setiap kali teknologi display baru masuk ke produk ikonik, kontroversi yang muncul selalu lebih besar dari teknologinya sendiri.
 
 Jony Ive, orang yang merancang wajah iPhone, MacBook Pro, dan Apple Watch, sekarang masuk ke dunia otomotif. Bukan jadi konsultan yang dikasih job description samar. Dia bener-bener turun tangan di tim desain Ferrari Luce lewat studio-nya LoveFrom, bareng Marc Newson.
 
@@ -94,9 +92,9 @@ r/OpenAI: "That dumbass just made the Apple car but with a Ferrari logo."
 
 Dan yang paling relate: seseorang di Reddit bilang, "My wife said it looked like some kind of Rivian, and $640k."
 
-![Ferrari Luce design controversy](../../assets/blog/21/21.ferrari-luce-controversy.jpg)
+![Ferrari Luce design controversy](../../assets/blog/21/21.ferrari-luce.jpg)
 
-<center>*Desain Ferrari Luce yang memicu kontroversi global* source:The Verge</center>
+<center>*Desain Ferrari Luce yang memicu kontroversi global* source:Ferrari</center>
 
 ## Tapi Tunggu... Jony Ive Punya Jawaban
 
@@ -223,19 +221,15 @@ Mungkin suatu hari nanti, teknologi yang sekarang dianggap "Apple Store minivan"
 
 ## Moko Nge-comment
 
-![Moko the ragdoll](../../assets/blog/21/moko-ferrari.jpg)
+![Moko pengen mobil](../../assets/blog/21/21.Moko-MobilAnna.jpg)
 
-<center>*Moko menatap Ferrari Luce dengan penuh keraguan* source:Thomas Agung</center>
+<center>Moko bilang... *"kayaknya mobil mainannya Anna lebih stylish deh..."* source:Thomas Agung</center>
 
-Moko lagi duduk di atas dashboard Ferrari Luce versi mainan. Mata lebar, lihat jarum mekanik yang muter 360 derajat di antara tiga lubang OLED. Katanya, kalau diterjemahkan ke bahasa manusia: "Jadi ini yang bikin harganya Rp 12 Miliar? Hmm, menarik. Tapi kok kayak Nissan?"
-
-Catnya yang ragdoll itu biasanya tenang. Tapi kalau ada jarum yang muter, dia gak bisa diam. Mungkin itu kenapa dia relate sama dashboard Ferrari Luce. Ada sesuatu yang bergerak, dia harus lihat sampai selesai.
-
-Anna, anak saya yang 8 tahun, nanya tadi: "Papa, Paus naik Ferrari? Paus kan baik hati, kenapa naik Ferrari?" Saya jawab: "Karena di 2026, bahkan Paus butuh mobil listrik." Dia bilang: "Kalau gitu, Paus harus naik Ferrari yang bagus, bukan kayak Nissan."
+Moko lagi ngeliatin fotonya Ferrari Luce. Mata melotot pas ngeliat harganya... Katanya, kalau diterjemahkan ke bahasa manusia: "Jadi ini yang bikin harganya Rp 12 Miliar? Hmm, menarik. Tapi kok kayak Nissan?"
 
 ## Penutup
 
-Ferrari Luce bukan tentang mobil listrik. Dari sudut saya yang dulu ngehandle display di Sony dan Intel, lalu automotive HMI di Motherson, ini tentang bagaimana teknologi display consumer (HP Samsung) bisa di-scale ke automotive grade.
+Ferrari Luce bukan tentang mobil listrik. Dari sudut saya yang dulu ngehandle display di Sony dan Intel, lalu automotive HMI di Motherson, ini tentang bagaimana teknologi display consumer electronics bisa di-scale ke automotive grade.
 
 Kontroversi desain? Normal. Jony Ive gak bikin iPhone untuk semua orang, dan Ferrari Luce juga bukan untuk semua orang. Ferrari Luce buat orang yang mau Ferrari di era EV. Buat pasar China. Buat masa depan.
 
