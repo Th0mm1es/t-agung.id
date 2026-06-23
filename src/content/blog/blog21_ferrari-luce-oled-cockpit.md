@@ -1,6 +1,6 @@
 ---
 title: "Jony Ive Dewa Design Masuk Ferrari, Luce Kontroversial: Bedah OLED yang Sebenarnya Inovatif"
-description: "Dewa desain Apple Jony Ive debut di Ferrari Luce, internet hancur, saham jatuh 5 miliar dollar, tapi teknologi OLED kokpit-nya benar-benar mengubah industri."
+description: "Dewa desain Apple Jony Ive debut di Ferrari Luce, internet hancur, saham jatuh 5 miliar dollar, tapi teknologi OLED kokpit-nya benar-benar ngerubah industri."
 pubDate: 2026-06-24
 tags:
   - Ferrari Luce
@@ -15,7 +15,7 @@ tags:
   - HIAA
   - GIIAS 2026
   - MicroLED
-draft: true
+draft: false
 ---
 
 Baru aja saya selesai nulis blog 20 soal timeline pasar microLED, Ferrari Luce muncul di feed dan langsung ingetin saya ke satu hal: setiap kali teknologi display baru masuk ke produk ikonik, kontroversi yang muncul selalu lebih besar dari teknologinya sendiri.
