@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  images: { src: any; alt: string }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="carousel" data-carousel>
+  <button class="nav prev" type="button" aria-label="Previous image" data-prev>
+    &#10094;
+  </button>
+
+  <div class="slides">
+    {images.map((image, index) => (
+      <div class={`slide ${index === 0 ? 'active' : ''}`} data-slide>
+        <Image src={image.src} alt={image.alt} />
+      </div>
+    ))}
+  </div>
+
+  <button class="nav next" type="button" aria-label="Next image" data-next>
+    &#10095;
+  </button>
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 2rem auto;
+    overflow: hidden;
+  }
+
+  .slides {
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    border-radius: 0.5rem;
+  }
+
+  .prev {
+    left: 1rem;
+  }
+
+  .next {
+    right: 1rem;
+  }
+
+  .nav:hover {
+    background: rgba(0, 0, 0, 0.75);
+  }
+</style>
+
+<script>
+  const carousels = document.querySelectorAll('[data-carousel]');
+
+  carousels.forEach((carousel) => {
+    const slides = carousel.querySelectorAll('[data-slide]');
+    const prevBtn = carousel.querySelector('[data-prev]');
+    const nextBtn = carousel.querySelector('[data-next]');
+    let current = 0;
+
+    const showSlide = (index) => {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  });
+</script>

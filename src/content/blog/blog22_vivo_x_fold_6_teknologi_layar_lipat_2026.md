@@ -1,7 +1,7 @@
 ---
 title: "vivo X Fold 6: Teknologi Layar Lipat yang Mengubah Aturan Main Smartphone 2026"
 description: "vivo X Fold 6 rilis Juni 2026 dengan layar Samsung M14, baterai 7000mAh, kamera 200MP Zeiss, dan Zeiss Teleconverter. HP lipat yang ngejawab semua kelemahan generasi sebelumnya."
-pubDate: 2026-06-27
+pubDate: 2026-06-26
 tags:
   - vivo X Fold 6
   - HP Lipat
