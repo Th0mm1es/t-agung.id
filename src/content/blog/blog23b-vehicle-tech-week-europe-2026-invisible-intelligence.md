@@ -28,7 +28,7 @@ Saya sendiri bukan ekspert di Lidar dan Radar, dan ini ngasi kesempatan saya unt
 ![LIDAR vs RADAR comparison](../../assets/blog/23/23.lidar-radar.jpg)
 <center>Perbandingan LIDAR vs RADAR source: Google</center>
 
-Mari kita lihat fakta teknisnya, setidak-tidaknya relevan di tahun 2025:
+Coba kita lihat fakta teknisnya, setidak-tidaknya relevan di tahun 2025:
 
 | Fitur           | LIDAR              | RADAR (4D)               |
 | --------------- | ------------------ | ------------------------ |
