@@ -25,7 +25,7 @@ Autonomous Vehicle Tech Expo di Stuttgart menghadirkan lebih dari 200 exhibitor 
 Pertanyaan ini sudah lama jadi perdebatan. Jawabannya? Bukan siapa menang, tapi bagaimana mereka bekerja bersama.
 Saya sendiri bukan ekspert di Lidar dan Radar, dan ini ngasi kesempatan saya untuk belajar juga.
 
-![LIDAR vs RADAR comparison](../../assets/blog/23/23.lidar-radar.jpg)
+![LIDAR vs RADAR comparison](../../assets/blog/23/23.lidar_vs_radar.jpg)
 <center>Perbandingan LIDAR vs RADAR source: Google</center>
 
 Coba kita lihat fakta teknisnya, setidak-tidaknya relevan di tahun 2025:
