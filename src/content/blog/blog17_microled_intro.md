@@ -13,15 +13,6 @@ tags:
 draft: false
 ---
 
-<figure style="text-align: center;">
-  <img
-    src="../../assets/blog/17/17.microled_2026_hero.jpg"
-    alt="MicroLED Display Technology 2026"
-    style="display: block; margin: 0 auto;"
-  />
-  <figcaption><em>microLED di 2026: dari smartwatch Garmin ke TV Samsung The Wall 110 inci, dari dashboard mobil ke HUD 300.000 nits</em></figcaption>
-</figure>
-
 ![MicroLED Display Technology 2026](../../assets/blog/17/17.microled_2026_hero.jpg)<center>*microLED di 2026: dari smartwatch Garmin ke TV Samsung The Wall 110 inci, dari dashboard mobil ke HUD 300.000 nits*</center>
 
 Saya lagi ngobrol sama orang-orang di industri display tahun ini. Satu nama muncul terus-terusan. Bukan sebagai konsep lab lagi, bukan sebagai teknologi masa depan yang masih menunggu matang. microLED sudah jadi produk nyata, dikirim, dipakai, dan dipakai di kondisi yang kalau dulu kita anggap mustahil buat layar.
