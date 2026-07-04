@@ -1,9 +1,48 @@
 ---
+#Required fields
 title: "Mini LED Itu Apa? Kenapa Semua TV Brand Lagi Pushing Gila-gilaan?"
 description: "Mini LED technology explained: local dimming zones, backlight evolution, QD vs white LED, harga di Indonesia, dan kenapa TV maker berlomba-lomba push teknologi ini"
 pubDate: 2026-05-27
+category: "mini led"
+cover: "../../assets/blog/9/9.SONY_ConceptualRGB.jpg"
+coverAlt: "Visual representation of Mini LED Itu Apa? Kenapa Semua TV Brand Lagi Pushing Gila-gilaan?"
+
+#Core Fields
 tags: ["Mini LED", "backlight", "local dimming", "Hisense", "LG", "TV technology", "Quantum Dot", "OLED vs Mini LED", "Sony", "Xiaomi"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_10_mini_led_itu_apa"
+excerpt: "Bingung kenapa semua merek TV mendadak promosi Mini LED? Saya jelaskan cara kerja local dimming zones dan kenapa teknologi ini jadi jembatan menuju masa depan."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_10_mini_led_itu_apa"
+keywords:
+  - Mini LED
+  - backlight
+  - local dimming
+  - Hisense
+  - LG
+  - TV technology
+  - Quantum Dot
+  - OLED vs Mini LED
+  - Sony
+  - Xiaomi
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_09_mini_led_revolution
 ---
 
 ![RGB mini LED](../../assets/blog/9/9.SONY_ConceptualRGB.jpg)<center> *Visualisasi RGB LED matrix dari Sony TrueRGB. Sumber: Sony*</center>

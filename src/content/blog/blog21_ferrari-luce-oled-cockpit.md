@@ -1,21 +1,39 @@
 ---
+#Required fields
 title: "Jony Ive Dewa Design Masuk Ferrari, Luce Kontroversial: Bedah OLED yang Sebenarnya Inovatif"
 description: "Dewa desain Apple Jony Ive debut di Ferrari Luce, internet hancur, saham jatuh 5 miliar dollar, tapi teknologi OLED kokpit-nya benar-benar ngerubah industri."
 pubDate: 2026-06-24
-tags:
-  - Ferrari Luce
-  - Jony Ive
-  - OLED
-  - Samsung Display
-  - Automotive HMI
-  - EV
-  - Kontroversi
-  - Display Tech
-  - Multi-Layer OLED
-  - HIAA
-  - GIIAS 2026
-  - MicroLED
+category: "automotive"
+cover: "../../assets/blog/21/21.jony-ive-ferrari-luce.jpg"
+coverAlt: "Visual representation of Jony Ive Dewa Design Masuk Ferrari, Luce Kontroversial: Bedah OLED yang Sebenarnya Inovatif"
+
+#Core Fields
+tags: ["Ferrari Luce"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog21_ferrari-luce-oled-cockpit"
+excerpt: "Debut Jony Ive di Ferrari Luce memicu kemarahan internet dan menjatuhkan sahamnya. Namun bagi saya, HMI kokpit berbasis OLED-nya adalah mahakarya rekayasa sejati."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog21_ferrari-luce-oled-cockpit"
+keywords:
+  - Ferrari Luce
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog24_Ferrari_Luce_vs_Lamborghini_Urus
 ---
 
 Baru aja saya selesai nulis blog 20 soal timeline pasar microLED, Ferrari Luce muncul di feed dan langsung ingetin saya ke satu hal: setiap kali teknologi display baru masuk ke produk ikonik, kontroversi yang muncul selalu lebih besar dari teknologinya sendiri.

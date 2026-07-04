@@ -1,10 +1,45 @@
 ---
+#Required fields
 title: "LCD Display Stack-Up Part 2 : BEF, DBEF dan Rear Polarizer"
 description: "Membedah LCD secara detail part 2"
 pubDate: 2026-05-06
-topic: "Display"
+category: "deepdive"
+cover: "../../assets/blog/4/DisplayStackup.jpg"
+coverAlt: "Visual representation of LCD Display Stack-Up Part 2 : BEF, DBEF dan Rear Polarizer"
+
+#Core Fields
 tags: ["Display", "LCD Components", "BEF", "DBEF", "Polarizer", "HMI"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_05_display_stackup_part2_focus_polarizer"
+excerpt: "Sebagai mantan display engineer, saya sering mengutak-atik BEF dan DBEF. Mari saya jelaskan trik mendaur ulang cahaya pada layar LCD."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "LCD Display Stack-Up"
+seriesOrder: 2
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_05_display_stackup_part2_focus_polarizer"
+keywords:
+  - Display
+  - LCD Components
+  - BEF
+  - DBEF
+  - Polarizer
+  - HMI
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_04_LCD_stackup_part1_light_source
+  - blog_06_display_stackup_part3_lc_touch_oled
 ---
 
 ## Intro: Dari Part 1

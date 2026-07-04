@@ -1,17 +1,39 @@
 ---
+#Required fields
 title: "Stuttgart Tripel — Kecerdasan Tak Terlihat Yang Menjaga Keamanan Masa Depan (Bagian 2)"
-pubDate: 2026-06-29
 description: "Autonomous Vehicle Tech Expo 2026 Stuttgart — LIDAR vs RADAR, fiber optic sensor, digital twin dan metoda testing yang mengendalikan keamanan di masa depan."
-tags:
-  - automotive
-  - autonomous-vehicle
-  - lidar
-  - radar
-  - digital-twin
-  - stuttgart
-  - xavveo
-  - fujikura
+pubDate: 2026-06-29
+category: "exhibition"
+cover: "../../assets/blog/23/23.lidar_vs_radar.jpg"
+coverAlt: "Visual representation of Stuttgart Tripel — Kecerdasan Tak Terlihat Yang Menjaga Keamanan Masa Depan (Bagian 2)"
+
+#Core Fields
+tags: ["automotive"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog23b-vehicle-tech-week-europe-2026-invisible-intelligence"
+excerpt: "Di balik kenyamanan kabin, ada sensor serat optik dan digital twins yang menjaga nyawa penumpang. Catatan saya dari pameran keselamatan berkendara di Stuttgart."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "Stuttgart Tripel"
+seriesOrder: 2
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog23b-vehicle-tech-week-europe-2026-invisible-intelligence"
+keywords:
+  - automotive
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog23a-vehicle-tech-week-europe-2026-kabin-battle
 ---
 
 ## Teknologi Tak Terlihat yang Mengendalikan Segalanya

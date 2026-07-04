@@ -1,21 +1,42 @@
 ---
+#Required fields
 title: "Perang OLED: Samsung QD-OLED vs LG W-OLED - Siapa Raja di COMPUTEX 2026?"
 description: "Samsung pamerkan QD-OLED Penta Tandem 4500 nits, LG balik dengan RGB Stripe W-OLED. Bedah teknis lengkap: arsitektur, pixel layout, triple-mode, AI monitor, dan semua monitor OLED baru dari COMPUTEX 2026."
 pubDate: 2026-06-04
-tags:
-  - COMPUTEX 2026
-  - OLED
-  - QD-OLED
-  - W-OLED
-  - Samsung Display
-  - LG Display
-  - Monitor Gaming
-  - Penta Tandem
-  - RGB Stripe
-  - Pentile
-  - Display Technology
+category: "exhibition"
+cover: "../../assets/blog/12/computex-2026.jpg"
+coverAlt: "Visual representation of Perang OLED: Samsung QD-OLED vs LG W-OLED - Siapa Raja di COMPUTEX 2026?"
+
+#Core Fields
+tags: ["COMPUTEX 2026"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_12_Computex2026"
+excerpt: "Saya memantau sengitnya duel QD-OLED Samsung vs RGB Stripe LG di COMPUTEX 2026. Berikut analisis teknis saya mengenai keduanya."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_12_Computex2026"
+keywords:
+  - COMPUTEX 2026
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog13_computex_2026_breakthrough
 ---
+
+![Computex 2026](../../assets/blog/12/computex-2026.jpg)<center>*Acara tahunan di Taipei dimana produsen show-off teknologi terakhirnya*</center>
 
 Pagi itu Anna, anak kita yang baru genap 8 tahun, duduk di depan laptop dengan mata melek lebar. "Eh, di sini ada tulisannya 120 Hertz, itu artinya apa sih?" Tanya dia sambil nunjuk stiker yg ditempel disamping touchpad yang baru aja kita buka buat nulis ini. 
 Momen kecil itu ngingatkan saya kalau dunia display udah berubah total. Kalau dulu kita ribut antara IPS dan VA, sekarang ceritanya jauh lebih seru. COMPUTEX 2026 di Taipei baru aja tutup, dan dua raksasa Korea Selatan, Samsung Display dan LG Display, udah mempertontonkan siapa yang punya teknologi OLED paling mematikan.

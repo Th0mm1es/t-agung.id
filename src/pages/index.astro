@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
 let latestPosts = [];
@@ -34,8 +35,11 @@ try {
       </div>
     </div>
 
-    <aside class="latest-posts" aria-labelledby="latest-posts-title">
-      <h2 id="latest-posts-title">Tulisan terbaru</h2>
+    <aside class="latest-posts latest-posts-cards" aria-labelledby="latest-posts-title">
+      <div class="latest-posts-head">
+        <h2 id="latest-posts-title">Tulisan terbaru</h2>
+        <a class="latest-posts-link" href="/blog">Lihat semua</a>
+      </div>
 
       {blogError ? (
         <p class="status-message">
@@ -43,16 +47,9 @@ try {
           frontmatter file di <code>src/content/blog</code>.
         </p>
       ) : latestPosts.length > 0 ? (
-        <ul>
-          {latestPosts.map((post) => (
-            <li>
-              <a href={`/blog/${post.id.replace(/\.md$/, '').replace(/\.mdx$/, '')}/`}>
-                <strong>{post.data.title}</strong>
-                <p>{post.data.description}</p>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div class="latest-posts-grid">
+          {latestPosts.map((post) => <BlogCard post={post} />)}
+        </div>
       ) : (
         <p class="status-message">
           Belum ada tulisan yang tampil. Tambahkan minimal satu post valid di
@@ -198,47 +195,34 @@ try {
     padding: 1.25rem;
   }
 
+  .latest-posts-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .latest-posts h2,
   .about-author h2,
   .focus-card h2 {
-    margin: 0 0 0.9rem;
+    margin: 0;
     font-size: 1.05rem;
   }
 
-  .latest-posts ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .latest-posts li + li {
-    margin-top: 0.9rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid rgba(99, 216, 212, 0.08);
-  }
-
-  .latest-posts a {
-    color: inherit;
+  .latest-posts-link {
+    color: var(--accent);
+    font-size: 0.92rem;
     text-decoration: none;
-    display: block;
   }
 
-  .latest-posts a strong {
-    display: block;
-    margin-bottom: 0.35rem;
-    color: var(--text);
-    transition: color 180ms ease;
-  }
-
-  .latest-posts a:hover strong {
+  .latest-posts-link:hover {
     color: var(--accent-hover);
   }
 
-  .latest-posts p {
-    margin: 0;
-    color: var(--muted);
-    line-height: 1.6;
-    font-size: 0.96rem;
+  .latest-posts-grid {
+    display: grid;
+    gap: 1rem;
   }
 
   .status-message {

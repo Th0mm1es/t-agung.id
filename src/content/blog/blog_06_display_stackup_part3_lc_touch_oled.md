@@ -1,10 +1,45 @@
 ---
+#Required fields
 title: "LCD Display Stack-Up Part 3 : LC Cell, Touch, Bonding : Otak dan Saraf Display"
 description: "Membedah LCD secara detail part 3"
 pubDate: 2026-05-09
-topic: "Display"
+category: "deepdive"
+cover: "../../assets/blog/6/6.Moko_glass.jpg"
+coverAlt: "Visual representation of LCD Display Stack-Up Part 3 : LC Cell, Touch, Bonding : Otak dan Saraf Display"
+
+#Core Fields
 tags: ["Display", "LCD Components", "Liquid Crystal", "Optical Bonding", "Touch", "HMI"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_06_display_stackup_part3_lc_touch_oled"
+excerpt: "Dalam bagian penutup ini, saya akan tunjukkan bagaimana optical bonding menyatukan sel kristal cair dan sensor sentuh menjadi layar utuh."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "LCD Display Stack-Up"
+seriesOrder: 3
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_06_display_stackup_part3_lc_touch_oled"
+keywords:
+  - Display
+  - LCD Components
+  - Liquid Crystal
+  - Optical Bonding
+  - Touch
+  - HMI
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_04_LCD_stackup_part1_light_source
+  - blog_05_display_stackup_part2_focus_polarizer
 ---
 
 ## Recap: Dari Part 1 dan Part 2

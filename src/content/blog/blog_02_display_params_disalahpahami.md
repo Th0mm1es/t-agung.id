@@ -1,12 +1,43 @@
 ---
-title: "Display Parameters"
+#Required fields
+title: "Display Parameters : Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi: Parameter yang Sering Disalah-pahami"
 description: "Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi"
 pubDate: 2026-04-28
+category: "deepdive"
+cover: "../../assets/blog/2/2_moko_rgb.jpg"
+coverAlt: "Visual representation of Display Parameters"
+
+#Core Fields
 tags: ["HMI", "UI", "display"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_02_display_params_disalahpahami"
+excerpt: "Jangan gampang tertipu promosi spesifikasi monitor. Dari pengalaman saya, ada 6 parameter display krusial yang sering kali disalahpahami pembeli."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_02_display_params_disalahpahami"
+keywords:
+  - HMI
+  - UI
+  - display
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
-# Brightness, Contrast, Color Coverage, Haze, Viewing Angle, dan Refleksi: Parameter yang Sering Disalah-pahami
+
 
 ![Diagram 1](../../assets/blog/2/2_moko_rgb.jpg)"Moko lagi ngecek color gamut. Katanya warna merah di panel IPS dengan mini LED lebih enak dilihat dan kontrasnya bagus 😼"
 

@@ -1,9 +1,42 @@
 ---
+#Required fields
 title: "HP Lipat Itu Keren, Tapi Kenapa Masih Keliatan Lipatannya?"
 description: "Apa sih Crease itu ? kenapa susah ngebenerinnya ?"
 pubDate: 2026-05-31
+category: "OLED"
+cover: "../../assets/blog/11/11.fold7Crease.jpg"
+coverAlt: "Visual representation of HP Lipat Itu Keren, Tapi Kenapa Masih Keliatan Lipatannya?"
+
+#Core Fields
 tags: ["HP Lipat", "Crease", "OLED", "UTG"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_11_hp_lipat_crease"
+excerpt: "Menghilangkan crease pada layar lipat adalah mimpi buruk teknik mekanis. Sebagai engineer, saya tahu betapa rumitnya struktur engsel tersebut."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_11_hp_lipat_crease"
+keywords:
+  - HP Lipat
+  - Crease
+  - OLED
+  - UTG
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog22_vivo_x_fold_6_teknologi_layar_lipat_2026
 ---
 
 Weekend kemarin saya main ke counter Samsung di mall dan ngeliat demo Z Fold terbaru. Pas di buka layarnya, "Wah, layar gede beneran!" kata salah satu abang di belakang.

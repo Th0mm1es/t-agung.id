@@ -1,9 +1,43 @@
 ---
+#Required fields
 title: "LCD Bangkit dari Kubur dengan mini LED: Dari Xiaomi Rp.10 Juta Sampai Sony True RGB yang Mengguncang OLED"
 description: "Xiaomi baru aja launching TV Mini LED seharga Rp.9,9 juta, dan ini bikin LCD bangkit dari kubur. Tapi di level atas, Sony True RGB dengan 15.000 zones dan 4.000 nits mengubah aturannya. Ini bedah teknisnya."
 pubDate: 2026-05-24
+category: "mini led"
+cover: "../../assets/blog/9/9.Rtings_led-backlighting-medium.jpg"
+coverAlt: "Visual representation of LCD Bangkit dari Kubur dengan mini LED: Dari Xiaomi Rp.10 Juta Sampai Sony True RGB yang Mengguncang OLED"
+
+#Core Fields
 tags: ["mini-LED", "LCD", "Dimming Zone", "Xiaomi TV", "Sony TV"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_09_mini_led_revolution"
+excerpt: "Saat saya bekerja dengan layar, Mini LED muncul sebagai penyelamat LCD. Persaingan teknologi display premium kini jauh dari kata selesai."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_09_mini_led_revolution"
+keywords:
+  - mini-LED
+  - LCD
+  - Dimming Zone
+  - Xiaomi TV
+  - Sony TV
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_10_mini_led_itu_apa
 ---
 
 

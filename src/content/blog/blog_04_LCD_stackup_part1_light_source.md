@@ -1,10 +1,42 @@
 ---
+#Required fields
 title: "LCD Display Stack-Up Part 1 : LED, Reflector, LGP, Diffuser"
 description: "Membedah LCD secara detail"
 pubDate: 2026-05-03
-topic: "Display"
+category: "deepdive"
+cover: "../../assets/blog/4/4.Moko_LCDStackup.jpg"
+coverAlt: "Visual representation of LCD Display Stack-Up Part 1 : LED, Reflector, LGP, Diffuser"
+
+#Core Fields
 tags: ["HMI", "display", "LCD Components"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_04_LCD_stackup_part1_light_source"
+excerpt: "Banyak yang mengira LCD itu sederhana. Di sini saya akan membedah rumitnya backlight unit sebagai pondasi awal pencahayaan layar."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "LCD Display Stack-Up"
+seriesOrder: 1
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_04_LCD_stackup_part1_light_source"
+keywords:
+  - HMI
+  - display
+  - LCD Components
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_05_display_stackup_part2_focus_polarizer
+  - blog_06_display_stackup_part3_lc_touch_oled
 ---
 
 

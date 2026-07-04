@@ -1,10 +1,42 @@
 ---
+#Required fields
 title: "Kenapa Display Mobil Listrik Indonesia Perlu Automotive Grade?"
 description: "Sales EV Indonesia naik 55%, tapi supply chain display masih impor total. Apa yang konsumen perlu tahu soal standar komponen dan transparansi grade."
 pubDate: 2026-05-15
-topic: "Display"
+category: "display"
+cover: "../../assets/blog/7/taycan_interior.jpg"
+coverAlt: "Visual representation of Kenapa Display Mobil Listrik Indonesia Perlu Automotive Grade?"
+
+#Core Fields
 tags: ["ev-indonesia", "automotive-grade", "display-technology", "supply-chain", "transparency"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_07_grade_differences"
+excerpt: "Sebagai mantan engineer di Motherson, saya tahu betul ketatnya standar layar mobil. Kerusakan layar otomotif bisa berakibat fatal bagi keselamatan."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_07_grade_differences"
+keywords:
+  - ev-indonesia
+  - automotive-grade
+  - display-technology
+  - supply-chain
+  - transparency
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
 ![Diagram 1](../../assets/blog/7/taycan_interior.jpg)<center>"Ada berapa ya total display di *Porsche Taycan* ini ?"</center>

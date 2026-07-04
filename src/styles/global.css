@@ -83,6 +83,12 @@ img {
 
 .shell-wide {
   width: min(100% - 2rem, var(--container-wide));
+  margin: 0 auto;
+}
+
+main.shell.shell-wide {
+  width: min(100% - 2rem, var(--container-wide));
+  max-width: var(--container-wide);
 }
 
 .skip-link {

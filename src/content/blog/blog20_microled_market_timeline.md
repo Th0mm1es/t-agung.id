@@ -1,24 +1,40 @@
 ---
+#Required fields
 title: "microLED Deepdive 4/4: Kapan Sampai ke Rumah Kita? Peta Jalan Industri dari 2026 ke 2030"
 description: "Bagian keempat dan terakhir seri microLED. Market timeline: kapan microLED TV konsumen akan ada dan berapa harganya. Analisis dari data nyata: Samsung The Wall $220.000, Sony CLEDIS untuk studio profesional, LG MAGNIT, plus prediksi DSCC. Panduan membeli untuk konsumen — nunggu atau beli sekarang?"
 pubDate: 2026-06-21
-series: "microLED Deep Dive"
-tags:
-  - microLED
-  - Display
-  - Market Timeline
-  - Sony CLEDIS
-  - Sony Crystal LED
-  - Samsung The Wall
-  - LG MAGNIT
-  - Professional Display
-  - Consumer Electronics
-  - Garmin Fenix 8 Pro
-  - Bugatti C SEED N1
-  - Sony Honda AFEELA 1
-  - L3Harris NOVA
-  - Early Adoption
+category: "deepdive"
+cover: "../../assets/blog/20/20.hero_samsung_the_wall.jpg"
+coverAlt: "Visual representation of microLED Deepdive 4/4: Kapan Sampai ke Rumah Kita? Peta Jalan Industri dari 2026 ke 2030"
+
+#Core Fields
+tags: ["microLED"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog20_microled_market_timeline"
+excerpt: "Banyak orang bertanya kapan TV microLED harganya masuk akal. Ini prediksi saya mengenai timeline industri display hingga tahun 2030."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "microLED Deep Dive"
+seriesOrder: 5
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog20_microled_market_timeline"
+keywords:
+  - microLED
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog19_microled_automotive_hmi
+  - blog17_microled_intro
 ---
 
 ![Samsung The Wall 146 inch microLED](../../assets/blog/20/20.hero_samsung_the_wall.jpg)<center>*Samsung The Wall 146 inci microLED — display microLED terbesar di dunia, diperkenalkan CES 2018 (sumber: Samsung)*</center>

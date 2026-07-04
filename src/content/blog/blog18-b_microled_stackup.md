@@ -1,12 +1,47 @@
 ---
+#Required fields
 title: "microLED Deepdive 2b/4: Tentang Manufakturing; Mass Transfer, dan Apasih Yield Produksi ?"
 description: "Bagian 2-b seri microLED. Tentang mass transfer, backplane MicroIC, dan produksi yield."
-pubDate: "2026-06-17"
-series: "microLED Deep Dive"
-part: "2b dari 4"
-tags: [microLED, display, manufacturing, mass transfer, LTPS, inspection, automotive, HMI]
-image: "../../assets/blog/18/cover.png"
+pubDate: 2026-06-17
+category: "deepdive"
+cover: "../../assets/blog/18/18_microic_backplane.png"
+coverAlt: "Visual representation of microLED Deepdive 2b/4: Tentang Manufakturing; Mass Transfer, dan Apasih Yield Produksi ?"
+
+#Core Fields
+tags: ["microLED", "display", "manufacturing", "mass transfer", "LTPS", "inspection", "automotive", "HMI"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog18-b_microled_stackup"
+excerpt: "Memindahkan jutaan chip mikroskopis ke sirkuit adalah mimpi buruk mass transfer. Saya akan bongkar rahasia yield produksi layar ini."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "microLED Deep Dive"
+seriesOrder: 3
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog18-b_microled_stackup"
+keywords:
+  - microLED
+  - display
+  - manufacturing
+  - mass transfer
+  - LTPS
+  - inspection
+  - automotive
+  - HMI
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog18-a_microled_stackup
+  - blog19_microled_automotive_hmi
 ---
 
 Bagian 2a sudah membahas soal chip, material, dan perang warna hijau. Sekarang kita masuk ke bagian yang lebih berdarah — proses manufaktur yang bikin insinyur display sering merasa butuh cuti panjang.

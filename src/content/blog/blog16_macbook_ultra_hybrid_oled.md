@@ -1,9 +1,43 @@
 ---
+#Required fields
 title: "MacBook Ultra 2026: Samsung OLED Sendiri Menanggung Apple, BOE Nunggu Di Belakang"
 description: "Apple MacBook Ultra dengan layar hybrid OLED 14.3 dan 16.3 inci, Samsung Display supplier tunggal dengan yield 90%+, BOE siap masuk sebagai backup. Supply chain yang biasa multi-supplier kini taruh semua telur di satu keranjang."
 pubDate: 2026-06-13
+category: "OLED"
+cover: "../../assets/blog/16/16.macbook_oled_2026.jpg"
+coverAlt: "Visual representation of MacBook Ultra 2026: Samsung OLED Sendiri Menanggung Apple, BOE Nunggu Di Belakang"
+
+#Core Fields
 tags: ["MacBook Ultra", "Samsung Display", "Hybrid OLED", "Supply Chain", "BOE", "Apple Silicon"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog16_macbook_ultra_hybrid_oled"
+excerpt: "Bagi saya, keputusan Apple memakai panel hybrid OLED Samsung di MacBook Ultra sangat berisiko. Mari kita bedah rantai pasok layar ini."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog16_macbook_ultra_hybrid_oled"
+keywords:
+  - MacBook Ultra
+  - Samsung Display
+  - Hybrid OLED
+  - Supply Chain
+  - BOE
+  - Apple Silicon
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
 ![MacBook OLED Concept 2026](../../assets/blog/16/16.macbook_oled_2026.jpg)<center>*MacBook Ultra 2026: layar hybrid OLED 14.3 dan 16.3 inci, Samsung supplier tunggal, source image: 9to5mac*</center>

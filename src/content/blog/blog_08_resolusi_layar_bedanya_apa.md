@@ -1,9 +1,43 @@
 ---
+#Required fields
 title: "HD, Full HD, 2K, 4K, 8K: Bedanya Apa, dan Kenapa Resolusi Nggak Selalu Makin Bagus?"
 description: "HD, FHD, 4k, 8k, bedanya apa dan kenapa resolusi tinggi bukan satu-satunya faktor yang bikin display bagus"
 pubDate: 2026-05-20
+category: "display"
+cover: "../../assets/blog/8/ces-2026-lg-2026-tv-lineup.jpg"
+coverAlt: "Visual representation of HD, Full HD, 2K, 4K, 8K: Bedanya Apa, dan Kenapa Resolusi Nggak Selalu Makin Bagus?"
+
+#Core Fields
 tags: ["resolusi", "4K vs 8K", "pixel-density", "PPI", "display-tech", "color-accuracy"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog_08_resolusi_layar_bedanya_apa"
+excerpt: "Banyak orang tertipu label 4K atau 8K. Saya akan jelaskan mengapa kepadatan piksel lebih penting daripada sekadar angka resolusi layar."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_08_resolusi_layar_bedanya_apa"
+keywords:
+  - resolusi
+  - 4K vs 8K
+  - pixel-density
+  - PPI
+  - display-tech
+  - color-accuracy
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
 

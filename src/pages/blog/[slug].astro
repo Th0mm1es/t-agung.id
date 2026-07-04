@@ -56,14 +56,6 @@ const schema = JSON.stringify({
         </p>
       </header>
 
-      {post.data.cover && (
-        <img
-          src={post.data.cover.src}
-          width={post.data.cover.width}
-          height={post.data.cover.height}
-          alt={post.data.coverAlt ?? post.data.title}
-        />
-      )}
 
       <Content />
 

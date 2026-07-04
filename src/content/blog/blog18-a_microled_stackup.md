@@ -1,13 +1,47 @@
 ---
+#Required fields
 title: "microLED Deepdive 2a/4: Stackup, Chip, Material, dan Perang Warna"
 description: "Bagian 2-a seri microLED. Bedah lengkap dari wafer GaN, chip 50 mikrometer, masalah green gap, dan kenapa secara fisik lebih sederhana tapi manufacturing-nya jauh lebih menyakitkan dari LCD."
-slug: "microled-stackup-chip-material"
-pubDate: "2026-06-16"
-series: "microLED Deep Dive"
-part: "2a dari 4"
-tags: [microLED, display, GaN, substrate, quantum dot, automotive, HMI, additive manufacturing]
-image: "../../assets/blog/18/cover.png"
+pubDate: 2026-06-16
+category: "deepdive"
+cover: "../../assets/blog/18/18.LCD_OLED_microled_hero.png"
+coverAlt: "Visual representation of microLED Deepdive 2a/4: Stackup, Chip, Material, dan Perang Warna"
+
+#Core Fields
+tags: ["microLED", "display", "GaN", "substrate", "quantum dot", "automotive", "HMI", "additive manufacturing"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog18-a_microled_stackup"
+excerpt: "Berdasarkan pengalaman saya, membuat microLED itu luar biasa sulit. Mari saya bedah tantangan fisik wafer GaN hingga masalah warna hijau."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "microLED Deep Dive"
+seriesOrder: 2
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog18-a_microled_stackup"
+keywords:
+  - microLED
+  - display
+  - GaN
+  - substrate
+  - quantum dot
+  - automotive
+  - HMI
+  - additive manufacturing
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog17_microled_intro
+  - blog18-b_microled_stackup
 ---
 
 ![MicroLED Stackup Engineering](../../assets/blog/18/18.LCD_OLED_microled_hero.png)<center>*microLED dibandingin ama teknologi display lain*</center>

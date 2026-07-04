@@ -1,17 +1,40 @@
 ---
+#Required fields
 title: "microLED Deepdive 3/4: microLED di Otomotif, Dashboard Masa Depan yang Sudah Ada di Mobil Konsep"
 description: "Bagian ketiga seri microLED. Kenapa otomotif adalah pasar yang bener-bener butuh microLED: brightness 300.000 nits buat HUD, transparent display buat instrument cluster, AEC-Q102 certification, dan cerita langsung dari pengalaman saya di Motherson soal gap antara prototipe dan mass production."
 pubDate: 2026-06-19
-tags:
-  - microLED
-  - Automotive HMI
-  - BOE
-  - HUD
-  - Transparent Display
-  - Smart Cockpit
-  - AEC-Q102
-  - Motherson
+category: "deepdive"
+cover: "../../assets/blog/19/19.boe_panoramic_hud.jpg"
+coverAlt: "Visual representation of microLED Deepdive 3/4: microLED di Otomotif, Dashboard Masa Depan yang Sudah Ada di Mobil Konsep"
+
+#Core Fields
+tags: ["microLED"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog19_microled_automotive_hmi"
+excerpt: "Dasbor kayu transparan hingga HUD berdaya 300 ribu nits. Industri mobil adalah tempat terbaik bagi microLED untuk unjuk gigi. Ini cerita saya dari dapur Motherson."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "microLED Deep Dive"
+seriesOrder: 4
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog19_microled_automotive_hmi"
+keywords:
+  - microLED
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog18-b_microled_stackup
+  - blog20_microled_market_timeline
 ---
 
 ![BOE Panoramic HUD microLED](../../assets/blog/19/19.boe_panoramic_hud.jpg)<center>*BOE Panoramic HUD microLED — versi RGB 50.000 nits di CES 2026, versi monochrome tembus 300.000 nits di Display Week 2025 (sumber: BOE)*</center>

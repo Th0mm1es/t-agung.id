@@ -1,18 +1,39 @@
 ---
+#Required fields
 title: "Ferrari Luce vs Lamborghini Urus SE: Dua Pendekatan, Satu Masa Depan"
 description: "Ferrari Luce listrik murni berhadapan dengan Lamborghini Urus SE hybrid. Dua filosofi berbeda dalam mencapai performa puncak. Dari powertrain, kokpit HMI, hingga inovasi yang belum pernah dilihat sebelumnya."
 pubDate: 2026-07-01
-tags:
-  - Ferrari Luce
-  - Lamborghini Urus SE
-  - Automotive Innovation
-  - HMI
-  - Powertrain
-  - EV vs Hybrid
-  - Haptic Feedback
-  - Display Tech
-  - Super Car 2026
+category: "automotive"
+cover: "../../assets/blog/24/luce_interior.jpg"
+coverAlt: "Visual representation of Ferrari Luce vs Lamborghini Urus SE: Dua Pendekatan, Satu Masa Depan"
+
+#Core Fields
+tags: ["Ferrari Luce"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog24_Ferrari_Luce_vs_Lamborghini_Urus"
+excerpt: "Luce yang elektrik murni berhadapan dengan Urus SE yang hybrid. Saya bandingkan bagaimana kedua ikon Italia ini menerjemahkan performa dan HMI ke masa depan."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog24_Ferrari_Luce_vs_Lamborghini_Urus"
+keywords:
+  - Ferrari Luce
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog21_ferrari-luce-oled-cockpit
 ---
 
 Abis saya nulis blog 21 soal teknologi OLED kokpit Ferrari Luce, ada satu pertanyaan yang terus muncul di pikiran saya: Ferrari Luce bukan satu-satunya mobil high-end yang debut tahun ini. Lamborghini baru saja meluncurkan Urus SE, facelift hybrid yang nambah lebih dari 200 horsepower dibanding generasi sebelumnya.
@@ -168,7 +189,7 @@ Saya lihat tren ini di Motherson. Tim-tim OEM yang saya temui sudah eksplorasi h
 
 ![Moko commenting](../../assets/blog/24/24.Moko_komen.jpg)
 
-<center>Perbandingan LIDAR vs RADAR source: Google</center>
+<center>Moko lagi ngasi komentar nih...</center>
 
 Moko baru sadar ada dua mobil Italia yang lagi dibanding-bandingkan. Katanya kalau saya terjemahkan dari bahasa kucing: "Ferrari 12 miliar? Itu cukup buat beli 5000 mangkuk makanan kucing premium. Lamborghini 4,8 miliar? Masih mahal, tapi setidaknya ada V8-nya. Saya pilih yang punya mesin ribut, biar bisa beli makanan kucing yang lebih enak."
 

@@ -1,12 +1,40 @@
 ---
+#Required fields
 title: "LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
 description: "bedanya berbagai display technology"
 pubDate: 2026-05-01
-topic: "Display"
-tags: ["HMI", "display"]
-draft: false
----
+category: "display"
+cover: "../../assets/blog/3/3_moko_display.jpg"
+coverAlt: "Visual representation of LCD, OLED, atau microLED untuk HMI : Trade-off Nyata, Bukan Slide PPT"
 
+#Core Fields
+tags: ["HMI", "display"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
+draft: false
+
+#recommended
+slug: "blog_03_lcd_oled_microled_hmi"
+excerpt: "Di presentasi marketing, semua teknologi layar terlihat sempurna. Di lapangan? Saya bagikan realitas pahit memilih antara LCD, OLED, dan microLED untuk kokpit mobil."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_03_lcd_oled_microled_hmi"
+keywords:
+  - HMI
+  - display
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_01_my-first-post
 ---
 
 ![Diagram 1](../../assets/blog/3/3_moko_display.jpg)"Bingung nih... ini LCD apa OLED ya ? 😼"

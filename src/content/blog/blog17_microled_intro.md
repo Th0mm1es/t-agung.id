@@ -1,16 +1,40 @@
 ---
+#Required fields
 title: "microLED Deepdive 1/4:  Apa Itu mikroLED? Teknologi yang Menjanjikan Tak Ada Burn-in, Tak Ada Backlight"
 description: "microLED sering disebut holy grail display. Tanpa burn-in kayak OLED, tanpa backlight kayak LCD. Di 2026, Samsung punya The Wall true microLED, Garmin keluar smartwatch pertama, BOE buat HUD 300.000 nits. Ini pengenalan komprehensif tentang teknologi yang sedang berubah dari mimpi jadi kenyataan."
 pubDate: 2026-06-14
-tags:
-  - microLED
-  - Display Technology
-  - Samsung
-  - Garmin
-  - BOE
-  - Automotive HMI
-  - OLED vs microLED
+category: "deepdive"
+cover: "../../assets/blog/17/17.microled_2026_hero.jpg"
+coverAlt: "Visual representation of microLED Deepdive 1/4:  Apa Itu mikroLED? Teknologi yang Menjanjikan Tak Ada Burn-in, Tak Ada Backlight"
+
+#Core Fields
+tags: ["microLED"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog17_microled_intro"
+excerpt: "Saya melihat microLED sebagai holy grail baru dunia display. Tanpa burn-in dan backlight, teknologi ini siap merevolusi layar di sekitar kita."
+updatedDate: 2026-07-04
+
+#Optional-series support
+series: "microLED Deep Dive"
+seriesOrder: 1
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog17_microled_intro"
+keywords:
+  - microLED
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog18-a_microled_stackup
+  - blog18-b_microled_stackup
 ---
 
 ![MicroLED Display Technology 2026](../../assets/blog/17/17.microled_2026_hero.jpg)<center>*microLED di 2026: dari smartwatch Garmin ke TV Samsung The Wall 110 inci, dari dashboard mobil ke HUD 300.000 nits*</center>

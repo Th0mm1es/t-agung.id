@@ -11,8 +11,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   title="Blog"
   description="Kumpulan tulisan tentang HMI, display engineering, embedded electronics, dan eksperimen AI."
 >
-  <section>
-    <div class="page-intro">
+  <section class="blog-index">
+    <div class="blog-index-header">
       <h1>Blog</h1>
       <p>
         Kumpulan tulisan tentang HMI, display engineering, embedded electronics,
@@ -20,10 +20,43 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       </p>
     </div>
 
-
-
-    <div class="post-list">
+    <div class="blog-grid">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .blog-index {
+    display: grid;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .blog-index-header {
+    max-width: 72ch;
+  }
+
+  .blog-index-header p {
+    color: var(--muted);
+  }
+
+  .blog-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  @media (max-width: 1100px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

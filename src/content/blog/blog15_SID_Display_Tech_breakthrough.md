@@ -1,9 +1,45 @@
 ---
+#Required fields
 title: "SID 2026: Dari Penta-Tandem ke Layar yang Bisa Diregangkan - Evolusi OLED yang Belum Selesai"
 description: "Abis bahas COMPUTEX soal penta-tandem OLED dan foldable phone, saya ingat SID 2026 di Los Angeles - forum display expert sejati. eMagin tandem OLED 20K nits, Samsung Sensor OLED, dan stretchable OLED dengan MXene. Evolusi dari kaku ke lipat ke regang."
 pubDate: 2026-06-11
+category: "exhibition"
+cover: "../../assets/blog/15/15.sid2026_banner.jpg"
+coverAlt: "Visual representation of SID 2026: Dari Penta-Tandem ke Layar yang Bisa Diregangkan - Evolusi OLED yang Belum Selesai"
+
+#Core Fields
 tags: ["SID 2026", "OLED", "eMagin", "Samsung Sensor OLED", "MXene", "Stretchable Display", "Tandem OLED", "Display Breakthrough"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog15_SID_Display_Tech_breakthrough"
+excerpt: "Dari Los Angeles, saya laporkan inovasi layar paling radikal tahun ini: kacamata pintar eMagin 20 ribu nits hingga layar stretchable yang bisa melar bebas."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog15_SID_Display_Tech_breakthrough"
+keywords:
+  - SID 2026
+  - OLED
+  - eMagin
+  - Samsung Sensor OLED
+  - MXene
+  - Stretchable Display
+  - Tandem OLED
+  - Display Breakthrough
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
 Abis saya nulis blog tentang [COMPUTEX](/blog/blog13_computex_wwdc_2026_breakthrough/) soal penta-tandem OLED Samsung 4K 360Hz dan *latest and greatest of* display lainnya, ada satu hal yang nggak berhenti nge-greget di kepala saya.

@@ -1,13 +1,41 @@
 ---
-title: "HMI Bukan UI"
+#Required fields
+title: "HMI Bukan UI:Sudut pandang Engineer"
 description: "Bedanya HMI dan UI"
 pubDate: 2026-04-25
+category: "HMI"
+cover: "../../assets/blog/my-first-post/1_moko-EQS.jpg"
+coverAlt: "Trend yang pergi terlalu jauh, pillar-to-pillar display"
+
+#Core Fields
 tags: ["HMI", "UI", "display"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
----
 
-# HMI Bukan UI : Sudut Pandang Engineer
+#recommended
+slug: "blog_01_my-first-post"
+excerpt: "Banyak orang mengira UI itu sama dengan HMI. Sebagai engineer, saya gemas karena HMI mencakup seluruh interaksi fisik dan sistem, bukan sekadar visual."
+updatedDate: 2026-07-04
 
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog_01_my-first-post"
+keywords:
+  - HMI
+  - UI
+  - display
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_03_lcd_oled_microled_hmi
 ---
 
 ![Diagram 1](../../assets/blog/my-first-post/1_moko-EQS.jpg)"Menurut Moko, HMI itu bukan UI, dan dia selalu benar"

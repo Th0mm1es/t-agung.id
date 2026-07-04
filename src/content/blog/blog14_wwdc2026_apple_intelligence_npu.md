@@ -1,9 +1,44 @@
 ---
+#Required fields
 title: "Apple Intelligence Tanpa Layar: NPU Jadi Raja, Intel Cari Jembatan Pulang"
 description: "WWDC 2026: Apple Intelligence 2.0, Siri dibangun ulang, camera jadi HMI baru, macOS 27 terakhir untuk Intel. Tapi Intel punya jalan pulang lewat Foundry dan Gaudi 3."
 pubDate: 2026-06-09
+category: "exhibition"
+cover: "../../assets/blog/14/14.apple_siri_ai_wwdc2026.jpeg"
+coverAlt: "Visual representation of Apple Intelligence Tanpa Layar: NPU Jadi Raja, Intel Cari Jembatan Pulang"
+
+#Core Fields
 tags: ["WWDC 2026", "Apple Intelligence", "Intel", "NPU", "Silicon", "AI on-device", "HMI"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog14_wwdc2026_apple_intelligence_npu"
+excerpt: "Di WWDC 2026, saya melihat arah HMI bergeser ke NPU dan kamera. Ini analisis saya mengenai nasib layar dan kebangkitan Intel."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog14_wwdc2026_apple_intelligence_npu"
+keywords:
+  - WWDC 2026
+  - Apple Intelligence
+  - Intel
+  - NPU
+  - Silicon
+  - AI on-device
+  - HMI
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+#relatedPosts:
 ---
 
 Minggu ini, tepat setelah COMPUTEX ditutup, Apple buka WWDC 2026 di Cupertino. Dua acara, di dua minggu, dua kutub dari perang yang sama. COMPUTEX nunjukin apa yang industri terbuka bisa raih. WWDC nunjukin arah Apple tarik ekosistemnya. Dan arah itu bikin saya mikir ulang soal masa depan display, silicon, dan interface yang kita kenal.

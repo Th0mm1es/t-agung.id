@@ -4,8 +4,7 @@ const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/blog23b-vehicle-tech-week-europe-2026-invisible-intelligence/', 
-  'https://t-agung.id/blog/blog23a-vehicle-tech-week-europe-2026-kabin-battle/'
+  'https://t-agung.id/blog/blog24_ferrari_luce_vs_lamborghini_urus/'
 ];
 
 const body = {

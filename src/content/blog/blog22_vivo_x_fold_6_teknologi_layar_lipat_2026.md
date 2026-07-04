@@ -1,19 +1,39 @@
 ---
+#Required fields
 title: "vivo X Fold 6: Teknologi Layar Lipat yang Mengubah Aturan Main Smartphone 2026"
 description: "vivo X Fold 6 rilis Juni 2026 dengan layar Samsung M14, baterai 7000mAh, kamera 200MP Zeiss, dan Zeiss Teleconverter. HP lipat yang ngejawab semua kelemahan generasi sebelumnya."
 pubDate: 2026-06-26
-tags:
-  - vivo X Fold 6
-  - HP Lipat
-  - Samsung M14
-  - Foldable Display
-  - AMOLED
-  - Zeiss Camera
-  - MediaTek Dimensity 9500
-  - Teleconverter
-  - 7000mAh
-  - Smartphone 2026
+category: "OLED"
+cover: "../../assets/blog/22/22.Vivo_X_Fold_6.jpg"
+coverAlt: "Visual representation of vivo X Fold 6: Teknologi Layar Lipat yang Mengubah Aturan Main Smartphone 2026"
+
+#Core Fields
+tags: ["vivo X Fold 6"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog22_vivo_x_fold_6_teknologi_layar_lipat_2026"
+excerpt: "Saya terkesan dengan panel Samsung M14 di Vivo X Fold 6. Ponsel lipat ini menetapkan standar rekayasa layar baru untuk tahun 2026."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog22_vivo_x_fold_6_teknologi_layar_lipat_2026"
+keywords:
+  - vivo X Fold 6
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_11_hp_lipat_crease
 ---
 
 ![vivo X Fold 6](../../assets/blog/22/22.Vivo_X_Fold_6.jpg)

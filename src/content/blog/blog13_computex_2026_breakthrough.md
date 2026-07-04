@@ -1,9 +1,43 @@
 ---
+#Required fields
 title: "COMPUTEX 2026: E-Ink Bukan Lagi Layar Kindle, RTX Spark Tantang Apple Silicon"
 description: "E-Ink bukan lagi layar Kindle, sekarang bisa bikin mobil berubah warna dan siap mass production, bahkan speaker yang thermoform ke bentuk 3D. NVIDIA RTX Spark tantang Apple Silicon. Breakthrough dari COMPUTEX 2026."
 pubDate: 2026-06-07
+category: "exhibition"
+cover: "../../assets/blog/13/13.BMW-iX3-Flow-Edition-E-Ink.jpg"
+coverAlt: "Visual representation of COMPUTEX 2026: E-Ink Bukan Lagi Layar Kindle, RTX Spark Tantang Apple Silicon"
+
+#Core Fields
 tags: ["COMPUTEX", "E Ink", "NVIDIA RTX Spark", "Display Tech", "Thermoforming"]
+author: "Thomas Agung Nugraha"
+lang: "id-ID"
 draft: false
+
+#recommended
+slug: "blog13_computex_2026_breakthrough"
+excerpt: "Dari pengamatan saya di COMPUTEX 2026, mobil E-Ink yang bisa berubah warna hingga chip NVIDIA RTX Spark yang menantang dominasi Apple."
+updatedDate: 2026-07-04
+
+#Optional-series support
+#series: ""
+#seriesOrder:
+
+#Optional:SEO & Indexing
+canonicalURL: "https://t-agung.id/blog/blog13_computex_2026_breakthrough"
+keywords:
+  - COMPUTEX
+  - E Ink
+  - NVIDIA RTX Spark
+  - Display Tech
+  - Thermoforming
+noindex: false
+
+#Optional-table-of-content
+showToc: true
+
+#optional-internal linking
+relatedPosts:
+  - blog_12_Computex2026
 ---
 
 Tiga minggu lalu, konferensi teknologi terbesar di Asia, COMPUTEX 2026 mencatat rekor baru: 111 ribu pengunjung dari 152 negara, angka tertinggi dalam 45 tahun. Yang bikin saya berhenti sejenak bukan produk yang bisa dibeli bulan depan. Ini tentang teknologi dari lab riset yang bikin hardware terasa beda dalam lima hingga sepuluh tahun ke depan.
