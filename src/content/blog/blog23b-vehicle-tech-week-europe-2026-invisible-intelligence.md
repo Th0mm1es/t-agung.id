@@ -1,6 +1,6 @@
 ---
 #Required fields
-title: "Stuttgart Tripel — Kecerdasan Tak Terlihat Yang Menjaga Keamanan Masa Depan (Bagian 2)"
+title: "Stuttgart Tripel — Kecerdasan Tak Terlihat Yang Menjaga Keamanan Masa Depan (Bagian 2/2)"
 description: "Autonomous Vehicle Tech Expo 2026 Stuttgart — LIDAR vs RADAR, fiber optic sensor, digital twin dan metoda testing yang mengendalikan keamanan di masa depan."
 pubDate: 2026-06-29
 category: "exhibition"
