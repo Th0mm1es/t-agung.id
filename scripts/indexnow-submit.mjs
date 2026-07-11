@@ -4,7 +4,7 @@ const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/oled-deepdive-1-apa-itu-oled/'
+  'https://t-agung.id/blog/realme-p4-series-8000-mah-rekayasa-baterai/'
 ];
 
 const body = {

@@ -1,5 +1,5 @@
 ---
-title: "Realme P4 Series: 8000 mAh di Harga Rp2 Jutaan, Rekayasa Baterai yang Sebenarnya"
+title: "Realme P4 Series: 8000 mAh di Harga 2 Jutaan, Rekayasa Baterai yang Sebenarnya"
 description: "Realme P4x dan P4 Lite resmi di Indonesia dengan baterai Titan 8000 mAh. Bedah engineering, trade-off layar LCD, dan kenapa ini bukan soal marketing."
 pubDate: 2026-07-07
 category: "Produk"
@@ -9,7 +9,7 @@ tags: ["Realme", "Smartphone", "Battery", "Gaming", "Indonesia"]
 author: "Thomas Agung Nugraha"
 lang: "id-ID"
 slug: "realme-p4-series-8000-mah-rekayasa-baterai"
-excerpt: "Bedah engineering Realme P4 Series: bagaimana 8000 mAh masuk ke HP Rp2 jutaan, trade-off yang diambil, dan batasannya sebagai konsumen."
+excerpt: "Bedah engineering Realme P4 Series: bagaimana 8000 mAh masuk ke HP 2 jutaan, trade-off yang diambil, dan batasannya sebagai konsumen."
 updatedDate: 2026-07-07
 canonicalURL: "https://t-agung.id/blog/realme-p4-series-8000-mah-rekayasa-baterai"
 keywords:
