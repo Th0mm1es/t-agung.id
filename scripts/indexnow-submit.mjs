@@ -4,7 +4,8 @@ const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/realme-p4-series-8000-mah-rekayasa-baterai/'
+  'https://t-agung.id/blog/blog28_startup_autobahn_expo_2026_part1/'
+  'https://t-agung.id/blog/blog28_startup_autobahn_expo_2026_part2/'  
 ];
 
 const body = {
