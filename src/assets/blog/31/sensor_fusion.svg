@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .title { font-size: 20px; font-weight: 700; fill: #e2e8f0; }
+      .subtitle { font-size: 13px; fill: #94a3b8; }
+      .sensor-label { font-size: 15px; font-weight: 700; }
+      .sensor-sub { font-size: 11px; fill: #94a3b8; }
+      .fusion-label { font-size: 15px; font-weight: 700; fill: #fbbf24; }
+      .car-label { font-size: 13px; fill: #e2e8f0; }
+      .footnote { font-size: 11px; fill: #475569; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#f87171"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#34d399"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" rx="16" fill="url(#bg)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" class="title">Sensor Fusion — Arsitektur</text>
+  <text x="400" y="52" text-anchor="middle" class="subtitle">Tiga sensor masuk, satu keputusan keluar</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 1: Three sensor inputs (top)           -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <!-- LIDAR circle -->
+  <circle cx="200" cy="130" r="58" fill="rgba(248,113,113,0.12)" stroke="#f87171" stroke-width="2" filter="url(#glow)"/>
+  <text x="200" y="124" text-anchor="middle" class="sensor-label" fill="#f87171">LIDAR</text>
+  <text x="200" y="142" text-anchor="middle" class="sensor-sub">Peta 3D + jarak presisi</text>
+  <text x="200" y="158" text-anchor="middle" class="sensor-sub">Kuat di gelap, lemah di hujan</text>
+
+  <!-- RADAR circle -->
+  <circle cx="400" cy="130" r="58" fill="rgba(96,165,250,0.12)" stroke="#60a5fa" stroke-width="2" filter="url(#glow)"/>
+  <text x="400" y="124" text-anchor="middle" class="sensor-label" fill="#60a5fa">RADAR</text>
+  <text x="400" y="142" text-anchor="middle" class="sensor-sub">Kecepatan + semua cuaca</text>
+  <text x="400" y="158" text-anchor="middle" class="sensor-sub">Resolusi rendah, jarak jauh</text>
+
+  <!-- Kamera circle -->
+  <circle cx="600" cy="130" r="58" fill="rgba(52,211,153,0.12)" stroke="#34d399" stroke-width="2" filter="url(#glow)"/>
+  <text x="600" y="124" text-anchor="middle" class="sensor-label" fill="#34d399">KAMERA</text>
+  <text x="600" y="142" text-anchor="middle" class="sensor-sub">Semantik + rambu jalan</text>
+  <text x="600" y="158" text-anchor="middle" class="sensor-sub">Terbatas di malam/hujan</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- Arrows: sensors → fusion engine             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <line x1="200" y1="190" x2="340" y2="260" stroke="#f87171" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <line x1="400" y1="190" x2="400" y2="260" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="600" y1="190" x2="460" y2="260" stroke="#34d399" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 2: Fusion Engine (center)              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect x="280" y="260" width="240" height="100" rx="16" fill="rgba(251,191,36,0.1)" stroke="#fbbf24" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="400" y="295" text-anchor="middle" class="fusion-label">FUSION ENGINE</text>
+  <text x="400" y="318" text-anchor="middle" class="sensor-sub">Kalman Filter + Deep Learning</text>
+  <text x="400" y="338" text-anchor="middle" class="sensor-sub">World Model: Objek + Kecepatan + Klasifikasi</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- Arrow: fusion → Kendaraan (vehicle ECU)    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <line x1="400" y1="362" x2="400" y2="410" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrowGold)"/>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 3: Kendaraan / ECU (bottom)             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect x="310" y="410" width="180" height="70" rx="12" fill="#334155" stroke="#475569" stroke-width="2"/>
+  <text x="400" y="440" text-anchor="middle" class="car-label">KENDARAAN</text>
+  <text x="400" y="460" text-anchor="middle" class="sensor-sub">ECU / ADAS Controller</text>
+
+  <!-- Footnote -->
+  <text x="400" y="500" text-anchor="middle" class="footnote">LIDAR + RADAR + Kamera = redundansi yang menyelamatkan nyawa</text>
+</svg>

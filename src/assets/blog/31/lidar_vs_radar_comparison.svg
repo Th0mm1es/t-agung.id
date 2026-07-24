@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .title { font-size: 28px; font-weight: 700; fill: #e2e8f0; }
+      .subtitle { font-size: 16px; fill: #94a3b8; }
+      .label { font-size: 15px; fill: #cbd5e1; }
+      .highlight { font-size: 18px; font-weight: 600; fill: #60a5fa; }
+      .red { fill: #f87171; }
+      .blue { fill: #60a5fa; }
+      .green { fill: #34d399; }
+      .yellow { fill: #fbbf24; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="lidarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(248,113,113,0.3)"/>
+      <stop offset="100%" style="stop-color:rgba(248,113,113,0.05)"/>
+    </linearGradient>
+    <linearGradient id="radarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(96,165,250,0.3)"/>
+      <stop offset="100%" style="stop-color:rgba(96,165,250,0.05)"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="480" rx="16" fill="url(#bg)" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" class="title">LIDAR vs RADAR — Perbandingan</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Teknologi Sensor Otonom</text>
+  
+  <!-- LIDAR Column -->
+  <rect x="30" y="90" width="400" height="370" rx="12" fill="url(#lidarGrad)" stroke="#f87171" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="230" y="125" text-anchor="middle" class="title red" font-size="24">LIDAR</text>
+  <text x="230" y="148" text-anchor="middle" class="subtitle">(Light Detection and Ranging)</text>
+  
+  <!-- LIDAR rows -->
+  <text x="50" y="185" class="highlight">Gelombang Cahaya</text>
+  <text x="50" y="205" class="label">Panjang gelombang: 905nm / 1550nm</text>
+  <text x="50" y="225" class="label">Resolusi: Sangat tinggi (&lt;5cm)</text>
+  <text x="50" y="245" class="label">Jarak efektif: Hingga 300m</text>
+  <text x="50" y="270" class="label">Kelebihan: Peta 3D detail, deteksi</text>
+  <text x="50" y="290" class="label">                objek non-logam (plastik)</text>
+  <text x="50" y="315" class="label">Kelemahan: Harga, cuaca buruk</text>
+  <text x="50" y="335" class="label">                (hujan, kabut, salju)</text>
+  <text x="50" y="360" class="label">Main Players:</text>
+  <text x="50" y="380" class="label">Hesai, Luminar, RoboSense, Ouster</text>
+  <text x="50" y="400" class="label">Aeva, Seyond</text>
+  
+  <!-- RADAR Column -->
+  <rect x="470" y="90" width="400" height="370" rx="12" fill="url(#radarGrad)" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="670" y="125" text-anchor="middle" class="title blue" font-size="24">RADAR</text>
+  <text x="670" y="148" text-anchor="middle" class="subtitle">(Radio Detection and Ranging)</text>
+  
+  <!-- RADAR rows -->
+  <text x="490" y="185" class="highlight">Gelombang Radio</text>
+  <text x="490" y="205" class="label">Frekuensi: 76-81 GHz (mmWave)</text>
+  <text x="490" y="225" class="label">Resolusi: ~5cm (4D), 20-50cm (3D)</text>
+  <text x="490" y="245" class="label">Jarak efektif: Hingga 300m (4D)</text>
+  <text x="490" y="270" class="label">Kelebihan: All-weather, harga ter</text>
+  <text x="490" y="290" class="label">                ukur kecepatan langsung</text>
+  <text x="490" y="315" class="label">Kelemahan: Resolusi sudut rendah</text>
+  <text x="490" y="335" class="label">                (tradisional), multipath</text>
+  <text x="490" y="360" class="label">Main Players:</text>
+  <text x="490" y="380" class="label">Texas Instruments, Continental,</text>
+   <text x="490" y="400" class="label">Bosch, Arbe, Valeo, NXP</text>
+</svg>
