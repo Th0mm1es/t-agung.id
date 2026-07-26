@@ -44,7 +44,7 @@ relatedPosts:
 
 Setiap kali saya bilang "saya kerja di bidang HMI" reaksi orang itu kayak kamu bilang kamu kerja di blockchain, mata berkaca-kaca, ngangguk-ngangguk dan terus bilang "oh gitu ya." seakan seperti saya ngomong tentang hal yang jauh dari kehidupan sehari-hari.
 
-Padahal HMI (Human-Machine Interface) itu selalu di depan muka kita. Kamu naik mobil, sentuh layar AC, pencet tombol cruise control, itu HMI. Cuma kita nggak pernah mikir kenapa tombolnya di situ, kenapa warnanya begitu, atau kenapa latencynya harus di bawah 80 milidetik kalau nggak mau kamu crash.
+Padahal HMI (Human-Machine Interface) itu selalu di depan muka kita. Kamu naik mobil, sentuh layar AC, pencet tombol cruise control, itu HMI. Cuma kita nggak pernah mikir kenapa tombolnya di situ, kenapa warnanya begitu, atau kenapa latencynya harus di bawah 100 milidetik kalau mau ngerasain responsive.
 
 Jadi begini ceritanya. HMI bukan UI. Bedanya jauh. Dan saya bakal jelasin dari sisi engineer, kenapa HMI itu jauh lebih ribet dari yang kamu kira.
 
@@ -117,7 +117,7 @@ Beberapa contoh:
 
 **Warna dan konteks.** Tombol merah itu bahaya. Tapi di beberapa budaya, merah itu keberuntungan. HMI internasional harus pilih warna yang universal dipahami.
 
-**Ukuran target.** Jari manusia di layar 10 inci butuh tombol minimal 7mm buat tap yang akurat. Nggak bisa cuma "kecil-kecil biar aesthetic."
+**Ukuran target.** Jari manusia di layar 10 inci butuh tombol minimal 7mm buat tap yang akurat, dengan rekomendasi ukuran >12mm. Nggak bisa cuma "kecil-kecil biar aesthetic."
 
 Untuk *konsumen elektronik*, peran psikologi manusia akan lebih berpengaruh. Waktu saya harus kerjasama dengan Image Quality team di Sony untuk tabletnya, kita harus memikirkan juga yang namanya "memory color" dimana warna-warna yang kita ingat kadang lebih kuat (saturated) dibanding warna sebenarnya, tapi memory ini beda dengan ingatan warna kulit, dimana kita akan lebih sering mengigat warna kulit sebenarnya.
 
@@ -129,7 +129,7 @@ Sekarang semua mobil punya layar. Bukan cuma AC, tapi navigasi, infotainment, AD
 
 Di Motherson, kita kerja sama project "smart cockpit" di mana seluruh interior mobil jadi HMI, dashboard, pintu, steering wheel, semuanya bisa interaksi. Di level ini, desain HMI udah bukan soal tampilan. Ini safety-critical engineering.
 
-Di Eropa dan beberapa tempat di Amerika, truk besar sudah mulai memakai "*digital mirror*," menggantikan spion konvensional dengan kamera dan layar di dalam kokpit. Layar yang dipakai untuk layar yang dekat dengan pengemudi biasanya lebih kecil daripada layar yang ditempatkan jauh dari pengemudi (di daerah co-driver), ini karena kita harus mempertimbangkan seberapa besar objek yang harus ditampilkan di layar tersebut dan ini terkadang tidak didefinisikan dengan ukuran sentimeter, tapi dengan *angular degree*.
+Di Eropa dan beberapa tempat di Amerika, truk besar sudah mulai memakai "*digital mirror*," menggantikan spion konvensional dengan kamera dan layar di dalam kokpit. Layar yang dipakai untuk layar yang dekat dengan pengemudi biasanya (meskipun tidak selalu) lebih kecil daripada layar yang ditempatkan jauh dari pengemudi (di daerah co-driver), ini karena kita harus mempertimbangkan seberapa besar objek yang harus ditampilkan di layar tersebut dan ini terkadang tidak didefinisikan dengan ukuran sentimeter, tapi dengan *angular degree*.
 
 ---
 

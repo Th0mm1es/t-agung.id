@@ -76,11 +76,11 @@ Yang paling unik, dan mungkin paling gak disangka. vivo X Fold 6 adalah HP lipat
 
 Sistem kamera vivo X Fold 6 terdiri dari tiga kamera di belakang:
 
-- Kamera utama 200MP dengan sensor Samsung HP9 ukuran 1/1,4 inci. Sensor yang sama kayak di flagship vivo X300 Ultra, cuma di sini resolusinya naik dari 50MP ke 200MP
+- Kamera utama 200MP dengan sensor Samsung HPB ukuran 1/1,4 inci dengan 200MP. 
 - Kamera telephoto 50MP Zeiss APO periscope dengan zoom optik dan support Teleconverter G2
 - Kamera ultrawide 50MP Zeiss
 
-Kamera depan 20MP untuk selfie.
+Dual kamera depan 20MP (layar dalam dan luar)
 
 Bandingin sama HP lipat lain yang biasanya dikasih kamera "yang lumayan". vivo X Fold 6 dikasih kamera flagship beneran. Kayak kamu beli mobil sport terus dikasih mesin balap F1.
 
@@ -100,9 +100,9 @@ Saya sering dengar prototipe HP yang speknya keren di kertas tapi realitanya ove
 
 ## Desain: Tipis, Ringan, dan Tahan Air
 
-Vivo X Fold 6 setebal 4,3mm saat dibuka, dimensi 159,7 x 142,3mm. Buat HP lipat dengan baterai 7000mAh, ini angka yang gak buruk.
+Vivo X Fold 6 setebal 4,3mm saat dibuka, dimensi 159,7 x 142,3mm. Buat HP lipat dengan baterai 7000mAh dengan semi-solid-state Si-C battery, ini angka yang gak buruk.
 
-Warna yang tersedia: Blue Hole, Polar Night, dan Salt Lake. Terjemahan dari nama warna bahasa China. Beda dari X Fold 5 yang punya Green, White, Black, dan Black/Gold.
+Warna yang tersedia: Blue Hole, Polar Night, Salt Lake dan Black Gold Edition. Terjemahan dari nama warna bahasa China. Beda dari X Fold 5 yang punya Titanium, Clear White, dan Pine Green.
 
 Yang jarang ada di HP lipat: rating IPX8 dan IPX9. IPX8 untuk perendaman, IPX9 untuk tekanan air tinggi. Penting banget buat Indonesia. Hujan tiba-tiba, cipratan kopi, jatuh ke toilet, HP kamu tetep aman.
 
@@ -128,20 +128,20 @@ Masih ragu-ragu? Ini perbandingan singkat:
 | Fitur        | Vivo X Fold 6            | Samsung Z Fold 7       | Honor Magic V6           |
 | ------------ | ------------------------ | ---------------------- | ------------------------ |
 | Layar Dalam  | 8.02" Samsung M14        | 8.0" Dynamic AMOLED 3X | 7.95" BOE                |
-| Layar Luar   | 6.51" BOE Q11            | 6.4" Dynamic AMOLED 2X | 6.4" BOE                 |
+| Layar Luar   | 6.51" BOE LTPO AMOLED    | 6.4" Dynamic AMOLED 3X | 6.4" BOE                 |
 | Chip         | Dimensity 9500 SE        | Snapdragon 8 Elite     | Snapdragon 8 Elite Gen 5 |
 | Baterai      | 7000mAh                  | 4400mAh                | 6660mAh                  |
 | Kamera Utama | 200MP                    | 50MP                   | 50MP                     |
 | Telephoto    | 50MP APO + Teleconverter | 10MP                   | 50MP                     |
-| Wireless     | 40W                      | 15W                    | 40W                      |
+| Wireless     | 40W                      | 15W                    | 66W                      |
 | Rating Air   | IPX8/IPX9                | IPX8                   | IP68/IP69                |
-| Harga        | ¥7,999 (China)           | Rp. 32,4 juta          | ~Rp. 22-24 juta          |
+| Harga        | ¥7,999 (China)           | Rp. 28,5 juta          | ~Rp. 22-24 juta          |
 
 **Keterangan harga:**
 
 - **vivo X Fold 6**: Belum masuk Indonesia. Harga ¥7,999 Yuan hanya untuk pasar China. Estimasi jika masuk Indonesia via import: ~Rp. 27-30 juta (setelah pajak 75%: 25% bea masuk + 11% PPN + 10% PPh final).
 - **Samsung Z Fold 7**: Rp. 32,4 juta harga resmi Samsung Indonesia (12/256GB). China harganya ¥13,999, jadi rasio China ke Indonesia sekitar 2,3x termasuk pajak resmi dan premium Samsung.
-- **Honor Magic V6**: Rp. 21-24 juta dari Shopee/Tokopedia import unofficial (belum ada resmi di Indonesia). China harganya ¥6,999.
+- **Honor Magic V6**: Rp. 21-24 juta dari Shopee/Tokopedia import unofficial (belum ada resmi di Indonesia). China harganya ¥8,999.
 
 Angkanya bicara sendiri, vivo X Fold 6 menang di baterai, kamera, dan harga. Samsung Z Fold 7 masih unggul di ekosistem dan software foldable. Honor Magic V6 ada di tengah.
 

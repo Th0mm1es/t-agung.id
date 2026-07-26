@@ -39,7 +39,6 @@ relatedPosts:
   - blog_06_display_stackup_part3_lc_touch_oled
 ---
 
-
 ![Diagram 1](../../assets/blog/4/4.Moko_LCDStackup.jpg)"Moko : Pusiing, nggak mau belajar kayak ginian ah..."
 
 ## Intro: Stack-Up Itu Bukan Sekadar "Lapisan"
@@ -55,7 +54,6 @@ Artikel ini saya bagi tiga bagian. Part 1: kita bahas **bagian cahaya** : dari L
 Ini saya tulis buat engineer muda yang mau paham *mengapa* display behave begini, bukan cuma *apa* yang terjadi.
 
 Kita jadi agak scientific ya.... ambil kopi ama cemilan biar ngga ngantuk !
-
 
 ![Diagram 1](../../assets/blog/4/DisplayStackup.jpg)"Contoh high-end display stackup, beberapa lapisan bisa berbeda tergantung displaynya"
 
@@ -77,11 +75,9 @@ Tapi spektrum yang dihasilkan **bukan spektrum penuh**. Ada "blue spike" yang ti
 
 **2. Blue LED + YAG + KSF Phosphor (Dual Phosphor)**
 
-KSF itu **K₂SiF₆:Mn⁴⁺** (Potassium Silicate Fluoride dengan Manganese activator). Dia emits **narrow red peak** di ~660nm : jauh lebih narrow dari YAG.
+KSF itu **K₂SiF₆:Mn⁴⁺** (Potassium Hexafluorosilicate dengan Manganese activator). Dia emits **narrow red peak** di sekitar 630nm : jauh lebih narrow dari YAG.
 
 Jadi kalau kamu combine: blue LED + YAG (yellow) + KSF (narrow red) → spektrum yang jauh lebih "lengkap". Red valley-nya terisi → **color gamut bisa naik ke NTSC 90-95%** tanpa perlu Quantum Dot.
-
-
 
 ![Diagram 1](../../assets/blog/4/LED_KSF+YAG_handdrawn.jpg)"Spektrum dari BlueLED + YAG + KSF Phosphor, lihat spectrum purity nya di red region"
 
@@ -99,20 +95,18 @@ Ini yang bikin **Quantum Dot (QD)** game-changer. QD itu nanopartikel semiconduc
 
 KSF dan QD itu sebenernya **kompetitor** di ruang yang sama : keduanya berusaha improve color gamut white LED.
 
-| Parameter             | KSF Phosphor                   | Quantum Dot                   |
-| --------------------- | ------------------------------ | ----------------------------- |
-| **Emission peak**     | Narrow red (~660nm)            | Narrow red + green            |
-| **Gamut**             | NTSC 85-95%                    | NTSC 100%+                    |
-| **Cost**              | ~20% lebih mahal dari YAG only | ~30-40% lebih mahal dari YAG  |
-| **Thermal stability** | Better (inorganic crystal)     | Worse (organic semiconductor) |
-| **Yield**             | High (mature process)          | Medium (still improving)      |
-| **Application**       | Mid-high end consumer          | Premium consumer, automotive  |
+| Parameter             | KSF Phosphor                   | Quantum Dot                  |
+| --------------------- | ------------------------------ | ---------------------------- |
+| **Emission peak**     | Narrow red (~660nm)            | Narrow red + green           |
+| **Gamut**             | NTSC 85-95%                    | NTSC 100%+                   |
+| **Cost**              | ~20% lebih mahal dari YAG only | ~30-40% lebih mahal dari YAG |
+| **Thermal stability** | Better (inorganic crystal)     | Worse (sensitive to heat)    |
+| **Yield**             | High (mature process)          | Medium (still improving)     |
+| **Application**       | Mid-high end consumer          | Premium consumer, automotive |
 
 **Analogi:** KSF+YAG itu kayak **nasi goreng yang dikasih telur**. Udah lebih enak dari nasi goreng biasa. QD itu kayak **nasi goreng yang dikasih telur + udang + ayam**. Lebih mantaaab, tapi harganya naik.
 
 Di lain waktu nanti kita diskusikan lagi tentang sejarahnya aplikasi Quantum Dot di display ya.
-
-
 
 ### LED Binning dan Thermal Roll-Off
 
@@ -134,7 +128,7 @@ Material: white plastic dengan Titanium Dioxide (TiO₂) scattering particles. C
 
 ### Silver Reflector (Metallized)
 
-Material: metal coating (aluminum atau silver plating) di atas substrate plastic. Cara kerja: **specular reflection** : cahaya pantul dengan sudut yang terkontrol, kayak cermin. Efisiensi: **~95-98% reflection**. Mahal, tapi lebih banyak cahaya sampai ke depan.
+Material: dulunya metal coating (aluminum atau silver plating) di atas substrate plastic, meskipun sekarang ada yang pakai 100% polymer (plastik). Cara kerja: **specular reflection** : cahaya pantul dengan sudut yang terkontrol, kayak cermin. Efisiensi: **~95-98% reflection**. Mahal, tapi lebih banyak cahaya sampai ke depan.
 
 ### Kenapa Ini Penting?
 

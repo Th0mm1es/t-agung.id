@@ -92,8 +92,7 @@ Saya paham ini mengecewakan buat yang berharap AMOLED di harga segini. Tapi seba
 
 Sebelum masuk ke bedah teknik, penting dipahami dulu landscape Realme P4 Series secara keseluruhan:
 
-- **Realme P4 5G** (global/India, Agustus 2025): Dimensity 7400 Ultra, AMOLED 6,77 inci, 144Hz, 4500 nits peak, 7.000 mAh
-- **Realme P4 Pro 5G** (global): Varian premium
+- **Realme P4 5G** (global/India): Dimensity 7400 Ultra, AMOLED 6,77 inci, 144Hz, 6500 nits peak, 7.000 mAh
 - **Realme P4x 4G** (Indonesia/ASEAN): Unisoc T7250, IPS LCD 6,8 inci, 120Hz, **8.000 mAh**
 - **Realme P4 Lite** (Indonesia): Unisoc T7250, IPS LCD, 120Hz, 7.000 mAh
 
@@ -149,7 +148,7 @@ Spesifikasi Unisoc T7250:
 
 - Proses: 12nm TSMC
 - CPU: Octa-core (2x Cortex-A75 @ 1.8 GHz + 6x Cortex-A55 @ 1.6 GHz)
-- GPU: Mali-G57 MC2
+- GPU: Mali-G57 MP1
 - Connectivity: 4G LTE Cat.12 (download hingga 600 Mbps), tidak support 5G NR
 - NPU: Ada, tapi kemampuan terbatas dibanding NPU di chipset MediaTek atau Qualcomm
 - RAM: LPDDR4X

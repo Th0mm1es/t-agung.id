@@ -93,11 +93,11 @@ Tapi pertanyaannya: apakah RTX Spark bener-bener bisa ngejar Apple Silicon?
 
 Jawabannya nggak sesederhana ya atau nggak.
 
-Apple Silicon udah ada sejak 2020, lima tahun lebih dulu. M-series sudah lewat beberapa generasi iterasi dan optimisasi. RTX Spark memang punya spesifikasi mentah yang lebih tinggi: 1 petaFLOP buat AI, GPU dengan jumlah core setara RTX 5070 laptop, dan memori unified sampai 128GB yang jauh ngelewatin apa pun yang Apple tawarin di laptop konsumen.
+Apple Silicon udah ada sejak 2020, lima tahun lebih dulu. M-series sudah lewat beberapa generasi iterasi dan optimisasi. RTX Spark memang punya spesifikasi mentah yang lebih tinggi: 1 petaFLOP buat AI, GPU dengan jumlah core setara RTX 5070, dan memori unified sampai 128GB yang jauh ngelewatin apa pun yang Apple tawarin di laptop konsumen.
 
 Tapi di benchmark Clang yang kebocor, RTX Spark cuma 54 persen lebih cepet dari Apple M5. Bukan selisih yang sebesar yang dijanjikan oleh angka 1 petaFLOP. Apple Insider bahkan nyelipin judul "Nvidia's Apple Silicon rival is already two years behind," menyebut kalau GPU dan AI memang lebih kuat, tapi CPU performance dan daily efficiency masih ngelek.
 
-Menurut analis Tom's Guide, RTX Spark bakal geser debat Mac vs Windows dari performance ke harga. Creative Bloq nambahin kalau RTX Spark bisa jadi game changer buat Windows, tapi nggak bakal ngeakhiri debat Mac vs Windows, cuma geser fokus ke value proposition yang beda.
+Menurut analis Creative Bloq, RTX Spark bakal geser debat Mac vs Windows dari performance ke harga. Creative Bloq nambahin kalau RTX Spark bisa jadi game changer buat Windows, tapi nggak bakal ngeakhiri debat Mac vs Windows, cuma geser fokus ke value proposition yang beda.
 
 Intinya: RTX Spark menang di AI on-device dan GPU power. Apple Silicon menang di CPU efficiency, battery life, dan ekosistem yang udah matang. Spark buat creator dan gamer yang butuh GPU berat. Apple buat user yang prioritaskan efisiensi dan integrasi.
 

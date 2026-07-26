@@ -39,7 +39,7 @@ relatedPosts:
 
 ![Diagram 1](../../assets/blog/3/3_moko_display.jpg)"Bingung nih... ini LCD apa OLED ya ? 😼"
 
-Tahun 2010, saya kerja di desain produk Sony VAIO. Display controller yang kita bikin harus bisa handle panel LCD dengan resolusi yang belum ada di pasar. Waktu itu, OLED masih di lab — belum siap untuk produk konsumen, apalagi automotive.
+Tahun 2010, saya kerja di desain produk Sony VAIO. Display controller yang kita bikin harus bisa handle panel LCD dengan resolusi yang belum ada di pasar. Waktu itu, OLED umumnyamasih di lab, belum terlalu umum untuk produk konsumen, apalagi automotive.
 
 Sekarang, 16 tahun kemudian, saya di Stuttgart kerja sama tim tentang integrasi display in interior dan exterior mobil. Dan pertanyaannya bukan lagi "LCD atau OLED?" tapi "LCD, OLED, atau microLED?" ... karena ketiganya ada di meja meeting.
 
@@ -51,7 +51,7 @@ OLED cenderung punya warna yang lebih hidup karena material yang dipakai biasany
 
 Di mobil, kadang display harus bisa dilihat di bawah sinar matahari langsung. Bukan "terang di dalam showroom" tapi terang di dashboard yang menghadap selatan jam 2 siang di Stuttgart, yang mataharinya kadang masuk ke ruang mobil.
 
-LCD dengan LED backlight bisa tembus 1000+ nits (cd/m2) untuk automotive grade. OLED? Masih di 600-800 nits untuk panel besar, biarpun ada beberapa yang mengklaim nembus 1000 nits. Dan itu belum termasuk *solar loading*, yaitu kalau panel OLED kena sinar matahari terus, dia harus *dim down* sendiri biar tidak kepanasan.
+LCD dengan LED backlight bisa tembus 1500+ nits (cd/m2) untuk automotive grade. OLED? Masih di 800-1200 nits untuk panel besar (di tahun 2026), biarpun ada beberapa yang mengklaim nembus 1500 nits. Dan itu belum termasuk *solar loading*, yaitu kalau panel OLED kena sinar matahari terus, dia harus *dim down* sendiri biar tidak kepanasan.
 
 Kalau brightness adalah prioritas, dan di HMI, visibility itu safety, LCD masih punya advantage.
 
@@ -86,7 +86,7 @@ Ini yang paling jarang dibahas di blog, tapi paling sering bikin proyek telat.
 
 LCD: Driver IC-nya standar (eDP, LVDS, atau yg lebih kuno lagi, RGB interface). Software stack-nya matang. Kalau Anda pernah kerja sama display, Anda bisa integrate dalam mingguan, bukan bulanan.
 
-OLED: Driver IC-nya lebih kompleks karena butuh *gamma correction* per pixel, *brightness compensation*, dan *burn-in mitigation*. Software stack-nya belum standar, tiap supplier punya software know-how yang beda. Tim software kadang butuh 3 bulan hanya untuk migrate dari LCD ke OLED karena driver tidak compatible, dan belum biasa untuk bring-up OLED.
+OLED: Driver IC-nya lebih kompleks karena butuh *gamma correction*, *brightness compensation*, dan *burn-in mitigation* per pixel atau cluster pixel untuk mengkompensasi aging material organik yang tidak merata.. Software stack-nya belum standar, tiap supplier punya software know-how yang beda. Tim software kadang butuh 3 bulan hanya untuk migrate dari LCD ke OLED karena driver tidak compatible, dan belum biasa untuk bring-up OLED.
 
 microLED: Belum ada driver IC yang standar. Setiap module butuh custom integration. Dan karena masih *custom engineering*, lead time untuk first sample bisa 6-12 bulan, kebayang harga pengembangannya hanya untuk *custom engineering* ini.
 

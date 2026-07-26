@@ -220,8 +220,6 @@ Di bagian berikutnya, kita masuk ke konsumsi daya. Kenapa menghitung berapa watt
 
 Dan Moko?
 
-
-
 ![Moko tidur di modul OLED](../../assets/blog/DD_OLED/Moko_Kitchen.jpg)
 
 <center>Moko duduk di atas batu putih yang dingin, keliatan mukanya bosen dengerin tuannya njelasin masalah OLED</center>
@@ -234,4 +232,3 @@ Katanya "OLED emang lebih dingin dari LCD ? gara-gara ngga butuh backlight ?  ta
 ---
 
 *Referensi dari blog sebelumnya: [Bagian 1 - Apa Itu OLED?](../oled-deepdive-1-apa-itu-oled/)*
-

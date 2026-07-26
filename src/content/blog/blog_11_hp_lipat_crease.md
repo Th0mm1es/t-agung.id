@@ -71,7 +71,7 @@ Samsung Galaxy Fold pertama, yang rilis tahun 2019, pake material bernama CPI at
 
 ### Generasi 2 (2020-2025): UTG, Kaca Super Tipis
 
-Tahun 2020, Samsung mulai pake UTG (Ultra-Thin Glass) buat pertama kalinya di Galaxy Z Flip. Bukan plastik lagi, ini kaca beneran, cuma dipoles super tipis. Sekitar 30 mikrometer doang. Buat gambaran, sehelai rambut kita itu 50 sampai 70 mikrometer. Jadi UTG ini lebih tipis dari satu rambut kamu. Z Fold 2 rilis tahun 2021 dan jadi folder pertama yang pake UTG.
+Tahun 2020, Samsung mulai pake UTG (Ultra-Thin Glass) buat pertama kalinya di Galaxy Z Flip. Bukan plastik lagi, ini kaca beneran, cuma dipoles super tipis. Sekitar 30 mikrometer doang. Buat gambaran, sehelai rambut kita itu 50 sampai 70 mikrometer. Jadi UTG ini lebih tipis dari satu rambut kamu. Z Fold 2 rilis tahun 2020 dan jadi folder pertama yang pake UTG.
 
 UTG ini jauh lebih tahan baret dan bikin crease-nya jadi lebih dangkal. Mulai Z Fold 2 sampai Z Fold 7, Samsung tetep pake UTG. Z Fold 7 bahkan naikin ketebalan UTG-nya 50 persen dibanding Fold 6, biar crease-nya makin ilang. Tapi ilangnya bukan 100 persen, cuma makin samar.
 
@@ -146,7 +146,7 @@ Dan ini yang paling bicara: di laporan keuangan Q2 2025, Samsung sebutin foldabl
 
 Kamu mungkin mikir, "Samsung mah mahir bikin mekanik, mereka pasti bisa rollable." Tapi coba liat Galaxy Z TriFold. Ini HP yang bisa dilipat tiga kali, jadi kayak tablet 10 inci. Secara mekanik, TriFold masih "lebih sederhana" dibanding rollable karena cuma ada dua hinge yang bergerak, bukan layar yang ngeroll.
 
-Dan hasilnya? Samsung cuma produksi 20.000 sampai 30.000 unit. Harganya Rp. 42 Juta, sekitar $2,899. Dan setelah 3 bulan, langsung discontinued. Dihentikan produksinya.
+Dan hasilnya? Kabarnya Samsung cuma produksi 20.000 sampai 30.000 unit. Harganya Rp. 42 Juta, sekitar $2,899. Dan setelah 3 bulan, langsung discontinued. Dihentikan produksinya.
 
 Kalau Samsung, perusahaan terbesar di dunia yang bikin HP lipat, bahkan gak bisa sustain produk tri-fold yang "sederhana", kamu pikir ekonomi rollable yang jauh lebih kompleks bakal lebih baik? Gak mungkin.
 

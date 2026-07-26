@@ -54,7 +54,7 @@ Flex Titanium menjawab persis masalah crease yang kita bahas di [artikel HP lipa
 ![Flex Titanium Stackup Diagram](../../assets/blog/29/FlexTitanium_SamsungDisplay.jpg)
 <center>Flex Titanium Architecture, Source : Samsung Display</center>
 
-Layar lipat sebelum Flex Titanium pakai **CFRP** (*carbon fiber reinforced polymer*) sebagai lapisan penyangga di bawah panel UTG. Karbon fiber yang sama kayak di mobil F1 sama body MacBook Pro. Tujuannya jelas: kaku, ringan, tahan panel OLED melengkung saat HP dibuka.
+Layar lipat sebelum Flex Titanium pakai polymer film sebagai lapisan penyangga di bawah panel UTG. Karbon fiber yang sama kayak di mobil F1 sama body MacBook Pro. Tujuannya jelas: kaku, ringan, tahan panel OLED melengkung saat HP dibuka.
 
 Tapi CFRP punya masalah yang udah kita bahas di [artikel HP lipat dan crease](https://t-agung.id/blog/blog_11_hp_lipat_crease/). Meskipun kaku, dia nggak cukup kaku buat sepenuhnya ilangin *air gap* (rongga udara) antar lapisan. Hasilnya? Di cahaya tertentu, Anda liat efek pelangi atau *halo* di sekitar area lipatan.
 
@@ -101,7 +101,7 @@ Model ini langsung jadi Z Fold 8, format lebar 4:3. Dan buat varian tradisional 
 | Layar dalam | **7.6"**        | **8.0"**       |
 | Layar luar  | **5.5"**        | **6.5"**       |
 | Rasio       | **4:3**         | 19.9:15        |
-| Resolusi    | **1828 x 2584** | 2232 x 2424 (belum dikonfirmasi)   |
+| Resolusi    | **2184 x 1968** | 2232 x 2424 (belum dikonfirmasi)   |
 | Prosesor    | Snapdragon 8 Elite Gen 5 for Galaxy | Snapdragon 8 Elite Gen 5 for Galaxy |
 | Baterai     | **4800 mAh**    | **5000 mAh**   |
 | Bobot       | **201g**        | **215g**       |
@@ -145,7 +145,7 @@ Z Flip 8 **nggak dapat Flex Titanium**. Ketipisan 0.4 mm berasal dari **baterai 
 | ----------------- | ---------------------------------------------------- |
 | Layar utama       | **6.9"**, 2520 x 1080 |
 | Layar cover       | **4.1"** (1048 x 948px)                              |
-| Prosesor          | **Exynos 2600** (Snapdragon 8 Elite Gen5 di US saja) |
+| Prosesor          | **Snapdragon 8 Elite Gen5 for Galaxy** |
 | Bobot             | **180g**                                             |
 | Ketebalan dilipat | **13.1 mm**                                          |
 
@@ -204,7 +204,7 @@ Saya jadi ingat meme dari iPhone Air di bawah ini yang membandingkan kamera iPho
 
 Nah, Z Fold 8 Ultra ini rasanya di level yang sama, cuma bentuknya lebih lebar karena modul kamera foldable yang bawa 3 lensa.
 
-Masalahnya bukan cuma estetika, ini ergonomi. Di 2026, dengan teknologi *under-display camera* yang udah ada di Z Fold 5, dan panel UTG yang udah cukup matang, saya bertanya-tanya kenapa Samsung belum sepenuhnya ilangin bump kamera di foldable flagship mereka.
+Masalahnya bukan cuma estetika, ini ergonomi. Di 2026, dengan Dengan UTG yang sudah matang, Samsung sudah punya basis teknologi untuk merampingkan modul kamera.
 
 vivo X Fold 6 yang bahas di [artikel sebelumnya](../22_vivo_x_fold_6_indonesia.md) udah berhasil merampingkan profil belakangnya lebih agresif. Samsung punya teknologinya, tinggal soal prioritas.
 

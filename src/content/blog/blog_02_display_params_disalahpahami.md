@@ -75,7 +75,7 @@ Di Sony VAIO, kita pernah pusing banget bikin laptop tipis dengan kontras tinggi
 
 Warna yang bisa ditampilkan layar diukur dengan "color gamut". Yang paling umum adalah sRGB, Adobe RGB, DCI-P3 dan *ultimate color* Rec-2020.
 
-Banyak orang langsung tanya "udah 100% sRGB belum?". Padahal sRGB itu standar lama yang cukup terbatas. Kalau kamu kerja di industri film atau desain grafis, kamu butuh DCI-P3 atau bahkan Adobe RGB supaya warna-nya lebih hidup dan akurat.
+Banyak orang langsung tanya "udah 100% sRGB belum?". Padahal sRGB itu standar dari tahun 1996 yang cukup terbatas. Kalau kamu kerja di industri film atau desain grafis, kamu butuh DCI-P3 atau bahkan Adobe RGB supaya warna-nya lebih hidup dan akurat.
 
 Tapi ada jebakan. Layar yang gamut-nya besar, tapi *color accuracy*-nya jelek, malah bikin warna terlihat "mual". Saya sering lihat monitor gaming murah yang klaim 100% sRGB, tapi pas diukur warnanya melenceng jauh.
 
@@ -100,7 +100,7 @@ Viewing angle itu seberapa besar sudut kamu bisa pandang layar sebelum warnanya 
 Tiga jenis panel LCD punya masalah beda:
 
 - TN (Twisted Nematic): Paling murah, tapi kalau dipandang dari samping, warnanya langsung "balik" atau pucat.
-- VA (Vertical Alignment): Contrast bagus, tapi viewing angle masih agak terbatas.
+- VA (Vertical Alignment): Contrast bagus, tapi viewing angle masih agak terbatas dibanding IPS.
 - IPS (In-Plane Switching): King of viewing angle. Warna konsisten dari mana aja kamu pandang.
 
 Di Sony, kami sering pakai panel IPS untuk tablet premium karena tablet itu sering diputar (landscape/portrait) atau ditengahkan buat ditonton berdua. Kalau pakai TN, orang yang duduk di samping bakal lihat warna yang beda.

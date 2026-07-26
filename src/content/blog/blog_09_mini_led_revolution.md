@@ -116,7 +116,7 @@ Dunia Sony True RGB.
 
 ## Sony True RGB: The Bleeding Edge
 
-Sony resmi launching teknologi "True RGB" April 2026. Produk pertamanya, Bravia 9 II dan Bravia 7 II, mulai tersedia akhir Mei 2026. Ini bukan sekadar upgrade incremental. Ini fundamental shift di cara LCD TV ngehasilin warna.
+Sony resmi launching teknologi "True RGB" May 2026. Produk pertamanya, Bravia 9 II dan Bravia 7 II, mulai tersedia akhir Mei 2026. Ini bukan sekadar upgrade incremental. Ini fundamental shift di cara LCD TV ngehasilin warna.
 
 Sony Bravia 9 II, spesifikasi:
 
@@ -128,7 +128,7 @@ Sony Bravia 9 II, spesifikasi:
 - Processor: XR Processor (Sony proprietary AI image processing chip)
 - Platform: Google TV dengan Gemini AI integration
 - Audio: Acoustic Surface Audio+, Dolby Atmos
-- Harga US MSRP: Bravia 9 II 65 inci $3.599,99 / Bravia 7 II mulai $2.099,99 (50 inci)
+- Harga US MSRP: Bravia 9 II 65 inci $3.600 / Bravia 7 II mulai $1.599 (50 inci)
 
 Lima belas ribu zona dimming. Empat ribu nits. Angka-angka yang terdengar kayak sci-fi. Dan ini bukan angka marketing yang dibesar-besarkan. Udah dikonfirmasi multiple reviews dan hands-on dari Rtings, AVForums, Business Insider, dan TechRadar.
 

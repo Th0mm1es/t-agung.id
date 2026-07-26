@@ -101,7 +101,7 @@ Tianma juga ada di area yang sama. Di SID Display Week 2026, mereka nunjukin pro
 
 ![Tianma Transparent MicroLED Automotive SID 2026](../../assets/blog/19/19.tianma_transparent_automotive.jpg)<center>*Tianma 19 inci transparent microLED untuk automotive, SID Displayweek 2026, tiga panel ultra-narrow-border di-join tanpa seam (sumber: microled-info.com)*</center>
 
-Kenapa transparent microLED lebih masuk akal dari transparent OLED? Karena transparent OLED butuh backlight dan polarizer yang mengurangi transparansi. microLED nggak butuh backlight. Jadi area yang nggak dipakai pixel tetap benar-benar transparan. Transparency 50 persen dari AUO berarti setengah area display bisa lihat tembus ke luar. Angka ini masih bisa ditingkatkan saat pixel pitch mengecil.
+Kenapa transparent microLED lebih masuk akal dari transparent OLED? Karena transparent OLED masih kurang terang dibanding microLED. 
 
 ## Smart cockpit: Dari instrument cluster ke V2X interface
 
@@ -109,13 +109,13 @@ Kenapa transparent microLED lebih masuk akal dari transparent OLED? Karena trans
 
 Trend smart cockpit di 2026 nggak lagi soal "berapa banyak layar di dashboard". Sekarang soalnya: layar di mana, bagaimana layar itu berinteraksi dengan pengemudi tanpa mengganggu, dan terintegrasikan dengan indah.
 
-AUO bikin subsidiary baru tahun ini: AUO Mobility Solutions Corporation. Di CES 2026, mereka presentasi tiga pilar strategis: Visual, Computing, dan Connectivity. Bukan cuma display. Tapi integrasi sistem. Display mikro yang tersembunyi di dashboard, transparan saat off dan muncul saat on, terintegrasi dengan sensor AI yang baca gesture dan suara pengemudi.
+AUO bikin subsidiary baru akhir tahun 2024: AUO Mobility Solutions Corporation. Di CES 2026, mereka presentasi tiga pilar strategis: Visual, Computing, dan Connectivity. Bukan cuma display. Tapi integrasi sistem. Display mikro yang tersembunyi di dashboard, transparan saat off dan muncul saat on, terintegrasi dengan sensor AI yang baca gesture dan suara pengemudi.
 
 Di CES 2026, digitimes melaporkan bahwa leading global panel makers fokus pada microLED dan OLED untuk AI-driven smart cockpits. Tren ini bukan cuma dari Taiwan. BOE dari Tiongkok, Samsung dari Korea, dan vendor Jepang semua punya roadmap yang mengarah ke arah yang sama: display yang lebih banyak, lebih terang, lebih terintegrasi.
 
 Innolux juga masuk ke area yang sama. Mereka nunjukin transparent window display dan HUD 50.000 nits berbasis microLED di CES 2026. Angka 50.000 nits lebih rendah dari klaim 300.000 nits BOE, tapi masih jauh di atas kemampuan OLED atau LCD konvensional.
 
-PlayNitride, yang sudah mulai sampling microLED panel untuk 5 potential automotive customer sejak 2022, nunjukin HUD capable of delivering over 20.000 nits di DisplayWeek 2026. Mereka juga nunjukin 38 inci Head-up Display dan 19 inci transparent microLED.
+PlayNitride, yang sudah mulai sampling microLED panel untuk 5 potential automotive customer sejak 2022, nunjukin HUD capable of delivering over 20.000 nits di DisplayWeek 2026. 
 
 ## AEC-Q102: Standar yang nggak bisa di-cuekin
 
@@ -176,7 +176,7 @@ Kendaraan mana yang kemungkinan besar pakai microLED duluan? Premium brand yang 
 
 | Parameter         | LCD (otomotif)    | OLED (otomotif)                   | microLED (otomotif)    |
 | ----------------- | ----------------- | --------------------------------- | ---------------------- |
-| Brightness max    | 1000-1500 nits    | 1000-1500 nits                    | 10.000-300.000 nits    |
+| Brightness max    | 1000-2000 nits    | 1000-2000 nits                    | 10.000-300.000 nits    |
 | Lifetime          | 60.000 jam        | 30.000 jam (burn-in risk)         | 100.000+ jam           |
 | Kontras           | 1000:1 s/d 5000:1 | Infinite                          | Infinite               |
 | Temperature range | -40 s/d 85°C      | -30 s/d 85°C (thermal management) | -40 s/d 105°C+         |

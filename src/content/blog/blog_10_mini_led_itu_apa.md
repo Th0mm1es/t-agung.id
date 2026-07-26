@@ -107,7 +107,7 @@ LED ditaruh di belakang seluruh layar, bukan cuma di tepi. Pencahayaan lebih uni
 **2010-an tengah: Full Array Local Dimming (FALD)**\
 LED di belakang layar dibagi ke dalam zones yang bisa diatur independen. Biasanya 60-128 zones. Kontras mulai membaik, blooming masih ada. Samsung dan Sony push teknologi ini di TV premium mereka. Sudah kayak lampu di restoran yang bisa diatur per meja, tapi belum per piring.
 
-**2019: Mini LED masuk market**\
+**2021: Mini LED masuk market**\
 Apple pakai Mini LED di iPad Pro. Samsung ngelanjutin di Neo QLED. Hisense langsung masuk dengan seri U8. Sekarang 2026: Mini LED udah jadi standar untuk TV LCD premium, bahkan mulai turun ke mid-range. Hisense juga rilis Vidda S Mini TV (sub-brand) di China dengan harga bersaing, tapi ini belum tersedia di Indonesia.
 
 **2025-2026: True RGB Mini LED**\
@@ -126,10 +126,10 @@ Blue LED ditutupi lapisan fosfor YAG yang convert sebagian cahaya biru jadi kuni
 
 Tapi spektrum cahaya putih-nya kurang ideal. Puncak kuning yang lebar "mengotori" channel merah dan hijau. Warna yang keluar kurang jenuh. Color coverage biasanya sRGB atau DCI-P3 yang nggak penuh. Merah nggak secemerah bendera, hijau nggak secemerah daun muda di musim hujan.
 
-**2. KSF (Potassium Strontium Fluoride, K₂SiF₆:Mn⁴⁺) Phosphor**\
+**2. KSF (Potassium Hexafluorosilicate, K₂SiF₆:Mn⁴⁺) Phosphor**\
 Blue LED ditutupi fosfor KSF yang emit merah sempit. Ditambah green phosphor untuk lengkap. Spektrum merah lebih narrow dibanding YAG, jadi warna merah lebih jenuh. Color coverage bisa nyampe DCI-P3 90-95%. Kayak kopi dari biji single origin: lebih karakter, lebih enak.
 
-Masih bagus, tapi ada trade-off: KSF kurang stabil di suhu tinggi dan butuh enkapsulasi lebih baik. Panas terlalu lama, kualitas warna turun. Juga light decay timenya ngga secepat YAG, jadi masih kurang cocok untuk dipakai untuk miniLED di *high refresh rate* displays.
+Masih bagus, tapi ada trade-off: KSF kurang stabil di suhu tinggi dan butuh enkapsulasi lebih baik. Panas terlalu lama, kualitas warna turun. Juga Waktu peluruhan cahaya KSF lebih lambat dari YAG, jadi kurang cocok untuk miniLED di layar *high refresh rate*.
 
 **3. Quantum Dot (QD)**\
 Blue LED disinari ke quantum dot film. QD ini partikel semikonduktor nano yang emit warna sangat sempit tergantung ukurannya. QD merah emit merah yang sangat murni. QD hijau emit hijau yang sangat murni. Biru dari LED langsung. Hasilnya: warna paling jenuh dan akurat. Color coverage bisa nyampe Rec.2020, standar HDR paling luas.
@@ -151,7 +151,7 @@ Tapi quantum dot punya masalah material. QD konvensional pakai cadmium (Cd) yang
 | Material Risk  | Rendah            | KSF degradation di suhu tinggi | Cadmium toxicity (Cd-QD), InP kurang efisien |
 | Market         | Entry-mid range   | Mid-premium                    | Premium                                      |
 
-Samsung Neo QLED, TCL C7/C8 series, dan Hisense U7/U8 semuanya pakai kombinasi Mini LED + Quantum Dot. Hasilnya: backlight yang sangat terang (2.000-4.000 nits peak) dengan warna yang sangat jenuh. Ini keunggulan utama mereka atas OLED: brightness jauh lebih tinggi. OLED non-MLA di 2026 berkisar 800-1.200 nits peak untuk area penuh (full screen), sementara MLA OLED (LG G4/G5, Sony A95L) nyampe 2.000-2.500 nits. Mini LED bisa 3.000-5.000 nits, bahkan model flagship 10.000 nits.
+Samsung Neo QLED, TCL C7/C8 series, dan Hisense U7/U8 semuanya pakai kombinasi Mini LED + Quantum Dot. Hasilnya: backlight yang sangat terang (2.000-4.000 nits peak) dengan warna yang sangat jenuh. Ini keunggulan utama mereka atas OLED: brightness jauh lebih tinggi. OLED non-MLA di 2026 berkisar 800-1.200 nits peak untuk area penuh (full screen), sementara MLA OLED (LG G5, Sony A95L) nyampe 3.000-4.000 nits (peak/window).. Mini LED bisa 3.000-5.000 nits, bahkan model flagship 10.000 nits.
 
 ## Branding Mini LED: Siapa Bilang Apa
 

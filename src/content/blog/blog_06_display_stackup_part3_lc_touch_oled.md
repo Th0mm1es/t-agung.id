@@ -46,7 +46,6 @@ relatedPosts:
 
 Part 1: kita bahas sumber cahaya : *[LED spectrum, reflector, light guide plate, diffuser.](/blog/blog_04_lcd_stackup_part1_light_source/)*
 
-
 Part 2: kita bahas bagian fokus : *[BEF, DBEF, rear polarizer.](/blog/blog_05_display_stackup_part2_focus_polarizer/)*
 
 Sekarang: **bagian otak** : LC cell, polarizer depan, touch layer, bonding, cover glass. Dan kenapa semua ini bikin OLED mulai ngambil alih display di consumer electronics, bukan hanya di *HaPe.*
@@ -114,7 +113,7 @@ Liquid crystal = material yang bisa rotate polarization berdasarkan voltage. Tap
 - **Yield:** menengah-rendah
 
 **Analogi:** IPS kayak **orang yang seimbang**. Viewing angle luas, color bagus, tapi nggak sekontras VA.
-IPS ini jadi terkenal dari Apel, karena waktu dulu dia menjual IPS ini sebagai kelebihan dari layarnya, yang warnanya konsisten dari semua sudut pandang (sebenarnya ngga juga sih...)
+IPS ini jadi terkenal dari Apple, karena waktu dulu dia menjual IPS ini sebagai kelebihan dari layarnya, yang warnanya konsisten dari semua sudut pandang (sebenarnya ngga juga sih...)
 
 ### FFS (Fringe Field Switching) : Evolusi IPS dari Samsung
 
@@ -131,23 +130,25 @@ IPS ini jadi terkenal dari Apel, karena waktu dulu dia menjual IPS ini sebagai k
 
 ### LC Comparison Table
 
-| Tipe | Response | Viewing | Contrast | Gamut | Transmissivity | Cost | Yield | Aplikasi |
-|---|---|---|---|---|---|---|---|---|
-| TN | 1-5ms | ±30° | 500-1000:1 | Rendah | Tinggi | Murah | Tinggi | Budget, monitor gaming |
-| VA | 10-25ms | ±60° | 3000-5000:1 | Menengah | Menengah | Menengah | Menengah | TV, monitor premium |
-| IPS | 5-15ms | ±89° | 800-1500:1 | Tinggi | Menengah | Menengah-tinggi | Menengah-rendah | Profesional, laptop premium |
-| FFS | 5-12ms | ±89° | 1000-2000:1 | Tinggi+ | Menengah | Menengah-tinggi | Menengah-rendah | High-end smartphone, tablet |
-
+| Tipe | Response | Viewing | Contrast    | Gamut    | Transmissivity | Cost            | Yield           | Aplikasi                    |
+| ---- | -------- | ------- | ----------- | -------- | -------------- | --------------- | --------------- | --------------------------- |
+| TN   | 1-5ms    | ±30°    | 500-1000:1  | Rendah   | Tinggi         | Murah           | Tinggi          | Budget, monitor gaming      |
+| VA   | 10-25ms  | ±60°    | 3000-5000:1 | Menengah | Menengah       | Menengah        | Menengah        | TV, monitor premium         |
+| IPS  | 5-15ms   | ±89°    | 800-1500:1  | Tinggi   | Menengah       | Menengah-tinggi | Menengah-rendah | Profesional, laptop premium |
+| FFS  | 5-12ms   | ±89°    | 1000-2000:1 | Tinggi+  | Menengah       | Menengah-tinggi | Menengah-rendah | High-end smartphone, tablet |
 
 Kayaknya kita harus ngebahas satu blog sendiri masalah jenis LC ini deh, soalnya dengan milih satu teknologi, banyak juga kriteria lainnya yang berubah.
 
 ---
+
 ## 3. Upper Glass & Color Filter
+
 Jadi, Liquid Crystal diatas itu diapit ama 2 gelas, bottom glass, yang diatasnya ada sirkuit untuk driving display, dan upper glass, 
 yang ada color filter di setiap sub-pixelnya.
 Color filter ini yang membuat kita bisa ngeliat Red, Green dan Blue. Juga material dari color filter ini yang menentukan berapa luas *color gamut* dari display tersebut (tentunya setelah spectrum matching dengan light source ya...)
 
 ## 4. Front Polarizer: Filter Terakhir
+
 ![Diagram 3](../../assets/blog/4/DisplayStackup.jpg)<center>"Ngutip lagi dari LCD Stackup : Part 1 "</center>
 **[Image: Touch Panel Layer Structure]**
 
@@ -167,6 +168,7 @@ Kalau display pakai Quantum Dot atau OLED, wide-band polarizer lebih dipilih kar
 ---
 
 ## 5. Touch Layer: In-Cell vs On-Cell vs External
+
 Topik kebawah ini hanya sentuhan sedikit ajah ya... soalnya topiknya cukup dalem, dan akan dibahas dilain waktu.
 
 ### External Touch (Capacitive)
@@ -231,20 +233,20 @@ Itu salah satu tanda bahwa chemical layer nya udah mengelupas.
 
 ## 8. Full Stack-Up Summary
 
-| No | Layer | Fungsi |
-|---|---|---|
-| 1 | LED + Phosphor/QD | Sumber cahaya |
-| 2 | Reflector | Pantul cahaya ke depan |
-| 3 | Light Guide Plate | Distribusi cahaya uniform |
-| 4 | Diffuser | Bikin backlight uniform |
-| 5 | BEF/DBEF | Fokus + recycle cahaya |
-| 6 | Rear Polarizer | Polarize cahaya |
-| 7 | Glass + TFT Array | Saklar pixel |
-| 8 | Liquid Crystal | Rotate polarization |
-| 9 | Front Polarizer | Filter terakhir |
-| 10 | Touch Layer | Detect touch |
-| 11 | Optical Bonding | Eliminasi refleksi |
-| 12 | Cover Glass | Pelindung |
+| No  | Layer             | Fungsi                    |
+| --- | ----------------- | ------------------------- |
+| 1   | LED + Phosphor/QD | Sumber cahaya             |
+| 2   | Reflector         | Pantul cahaya ke depan    |
+| 3   | Light Guide Plate | Distribusi cahaya uniform |
+| 4   | Diffuser          | Bikin backlight uniform   |
+| 5   | BEF/DBEF          | Fokus + recycle cahaya    |
+| 6   | Rear Polarizer    | Polarize cahaya           |
+| 7   | Glass + TFT Array | Saklar pixel              |
+| 8   | Liquid Crystal    | Rotate polarization       |
+| 9   | Front Polarizer   | Filter terakhir           |
+| 10  | Touch Layer       | Detect touch              |
+| 11  | Optical Bonding   | Eliminasi refleksi        |
+| 12  | Cover Glass       | Pelindung                 |
 
 ---
 
@@ -254,11 +256,11 @@ Itu salah satu tanda bahwa chemical layer nya udah mengelupas.
 
 Pas saya di Sony VAIO tahun 2010, kita bikin notebook premium ultra-tipis. Dan kita stuck di satu masalah: **backlight unit adalah musuh**.
 
-Backlight = 70% BOM cost. Tebal 5-8mm. Kontras terbatas 1000:1. Viewing angle terbatas. Dan di outdoor, brightness-nya nggak cukup.
+Backlight = 15%-40% BOM cost (Tergantung spec. nya). Tebal 5-8mm. Kontras terbatas 1000:1. Viewing angle terbatas. Dan di outdoor, brightness-nya nggak cukup.
 
 **Di meeting internal, saya bilang:** "Kita butuh display yang nggak butuh backlight."
 
-Dan itu sebenernya **OLED**. OLED = setiap pixel emit cahaya sendiri. Nggak butuh backlight. Nggak butuh polarizer. Nggak butuh LC cell. Kontras infinite (karena pixel mati = beneran hitam). Viewing angle 180°. Response time 0.1ms.
+Dan itu sebenernya **OLED**. OLED = setiap pixel emit cahaya sendiri. Nggak butuh backlight. Nggak butuh BEF/DBEF. Nggak butuh LC cell. Kontras infinite (karena pixel mati = beneran hitam). Viewing angle 180°. Response time <0.1ms.
 
 ### Tapi Kenapa LCD Masih Relevan?
 
@@ -266,8 +268,6 @@ Dan itu sebenernya **OLED**. OLED = setiap pixel emit cahaya sendiri. Nggak butu
 - **Outdoor brightness**: LCD bisa 1000+ nits, OLED masih terbatas
 - **Burn-in**: LCD nggak ada masalah burn-in
 - **Harsh environment**: LCD lebih tahan suhu ekstrem (automotive)
-
-**Sumber:** Display Search (2025) : "OLED adoption in laptops grew 40% YoY in 2025, driven by thinner designs and superior contrast. However, LCD remains dominant in automotive and outdoor applications due to brightness and cost advantages."
 
 ---
 
@@ -286,6 +286,7 @@ Dan OLED? Dia adalah evolusi logis dari semua keterbatasan LCD. Tapi LCD masih p
 Nah, kita baru aja bahas spektrum LED dan pengaruhnya ke color gamut. Tapi **color gamut** sebenernya topik yang bisa kita gali lebih dalam.
 
 Di artikel berikutnya, kita bakal bahas:
+
 - **NTSC, sRGB, DCI-P3, Rec.2020** : kenapa ada banyak standard gamut?
 - **Delta E** : cara ukur color accuracy yang beneran ilmiah
 - **Wide-Gamut Displays** : kenapa laptop gaming dan creative workstation butuh gamut luas?
@@ -297,5 +298,3 @@ Nanti juga bakal ada **perumpamaan khas** dan **Moko yang mungkin bakal keliatan
 Stay tuned, dan jangan lupa comment di bawah kalau ada topik spesifik yang mau kamu bahas!
 
 ---
-
-

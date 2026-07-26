@@ -36,7 +36,7 @@ relatedPosts:
   - blog21_ferrari-luce-oled-cockpit
 ---
 
-Abis saya nulis blog 21 soal teknologi OLED kokpit Ferrari Luce, ada satu pertanyaan yang terus muncul di pikiran saya: Ferrari Luce bukan satu-satunya mobil high-end yang debut tahun ini. Lamborghini baru saja meluncurkan Urus SE, facelift hybrid yang nambah lebih dari 200 horsepower dibanding generasi sebelumnya.
+Abis saya nulis blog 21 soal teknologi OLED kokpit Ferrari Luce, ada satu pertanyaan yang terus muncul di pikiran saya: Ferrari Luce bukan satu-satunya mobil high-end yang debut tahun ini. Lamborghini baru saja meluncurkan Urus SE, Plug-in Hybrid yang nambah lebih dari 200 horsepower dibanding generasi lamborghini sebelumnya.
 
 Dua mobil. Dua brand Italia. Dua filosofi yang sama sekali berbeda soal bagaimana cara menuju masa depan otomotif.  Yang dua-duanya mengingatkan plesetan bahasa indonesia... Lucu dan Kurus...
 
@@ -54,7 +54,7 @@ Sebelum masuk ke detail, mari lihat angka-angka mentah dulu. Angka ini penting k
 | Tipe           | BEV (Full Electric)              | PHEV (Plug-in Hybrid)                |
 | Powertrain     | Quad-motor AWD (4 motor listrik) | 4.0L Twin-Turbo V8 + 1 motor listrik |
 | Total Output   | 1.050 cv (1.036 hp)              | 789 hp                               |
-| Torque         | 1.656 Nm                         | 950 Nm                               |
+| Torque         | 990 Nm                           | 950 Nm                               |
 | 0-100 km/h     | 2,5 detik                        | 3,4 detik                            |
 | Top Speed      | 310 km/h                         | 312 km/h                             |
 | Battery        | 122 kWh (800V)                   | 25,9 kWh                             |
@@ -98,7 +98,7 @@ Yang menarik dari sisi engineering: motor listrik Urus SE bekerja sebagai tracti
 
 Baterai 25,9 kWh cukup buat ~60 km full electric. Cukup buat commute harian di kota. Tapi ketika Anda butuh performa penuh, V8 twin-turbo 4.0 liter langsung jadi kuda utamanya. Ini bukan "listrik dulu, bensin nanti." Ini dua sistem yang bekerja bersamaan secara seamless.
 
-Lamborghini juga nambah tiga mode efisiensi: ECO, Eco Drive, dan Eco Sail. ECO mode optimalkan konsumsi energi. Eco Drive nyesuaikan throttle response dan transmission behavior. Eco Sail - yang paling menarik - memungkinkan mobil meluncur dalam mode electric tanpa throttle input, mengurangi drag dan memaksimalkan range.
+Lamborghini juga ada mode efisiensi:EV Drive, Hybrid, Performance, Recharge. Hybrid mode optimalkan konsumsi energi. Performance nyesuaikan throttle response dan transmission behavior. EV Drive - yang paling menarik - memungkinkan mobil meluncur dalam mode electric tanpa throttle input, mengurangi drag dan memaksimalkan range.
 
 Pikirin begini: Ferrari Luce kayak marathon runner yang bawa cadangan energi untuk jarak jauh. Lamborghini Urus SE kayak sprinter yang punya cadangan napas di detik-detik kritis.
 

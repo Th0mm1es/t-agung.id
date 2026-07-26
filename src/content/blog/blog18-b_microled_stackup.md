@@ -131,7 +131,7 @@ Ada empat pendekatan yang berkembang:
 
 Menggunakan micro-nozzle yang vakum untuk mengambil chip satu per satu. Mirip dengan pick-and-place machine di SMT, tapi skalanya 100x lebih kecil.
 
-- Kecepatan: 10.000–50.000 chip/jam
+- Kecepatan: 8.000–15.000 chip/jam
 - Akurasi: bagus, tapi lambat
 - Cocok untuk: prototyping dan volume rendah
 
@@ -139,7 +139,7 @@ Menggunakan micro-nozzle yang vakum untuk mengambil chip satu per satu. Mirip de
 
 Prinsip: tempelkan layer yang menyerap laser di bawah chip. Tembakkan laser, layer meleleh, chip terangkat. Lalu chip dijatuhkan ke posisi target.
 
-- Kecepatan: sampai 100.000 chip/jam
+- Kecepatan: **100.000.000+ chip/jam** (parallel laser LIFT). Studi terbaru (2025) mendemonstrasikan transfer >100 juta chip/jam dengan teknologi laser parallel.
 - Bisa paralel — banyak laser bekerja bersamaan
 - Risiko: energi laser bisa merusak chip sensitif
 
@@ -250,7 +250,7 @@ Alur lengkap dari wafer mentah hingga display jadi:
 10. Encapsulation
    └─ Lapisan proteksi untuk mencegah oksidasi dan kelembaban
 
-111. Module Assembly
+11. Module Assembly
     └─ Gabungkan dengan driver board, connector, housing
 ```
 
@@ -295,14 +295,14 @@ Untuk gambaran skala, berikut angka-angka kunci industri microLED:
 | Metrik | Nilai |
 |--------|-------|
 | Ukuran chip microLED tipikal | 20–100 mikron |
-| Pitch piksel (TV) | 1.0–1.5 mm |
+| Pitch piksel (TV) | 0.6–1.5 mm |
 | Pitch piksel (AR/VR) | <50 mikron |
 | Chip per wafer 6-inch | 100.000–500.000 |
 | Target yield mass transfer | >99.9% |
 | Biaya produksi per m² (TV) | Masih 10–50x dari LCD |
 | Lifetime chip | 100.000+ jam |
 | Brightness puncak | 5.000–10.000 nit |
-| Refresh rate | 120–240 Hz (consumer), >1000 Hz (AR/VR) |
+| Refresh rate | 120–240 Hz (consumer), teoritis bisa >1000 Hz  |
 
 Perhatikan gap antara pitch piksel TV dan AR/VR. Untuk AR glasses, kita butuh chip yang jauh lebih kecil dan densitas yang jauh lebih tinggi — ini berarti tantangan mass transfer yang jauh lebih ekstrem.
 

@@ -62,11 +62,11 @@ Cahaya dari diffuser itu keluar ke **banyak arah**. Sebagian besar sudah mengara
 
 **Analogi:** BEF itu kayak **cermin di koridor sempit**. Kalau kamu berdiri di koridor dan lihat ke samping, kamu nggak liat ujung koridor. Tapi kalau ada cermin di samping, cahaya dari samping dipantulkan ke depan — dan kamu bisa lihat lebih jauh. BEF "mencerminkan" cahaya yang miring biar ke depan.
 
-### Spesifikasi biasanya kayak gini : 
+### Spesifikasi biasanya kayak gini :
 
 - **Material:** Polycarbonate (PC) atau PET dengan micro-prism ridge pattern
-- **Prism pitch:** 0.2-0.3mm (ukurannya micro, nggak keliatan mata telanjang)
-- **Efficiency:** redirect 30-40% cahaya yang "miring" ke depan
+- **Prism pitch:** 24µm-50µm (ukurannya micro, nggak keliatan mata telanjang)
+- **Efficiency:** redirect 30-60% cahaya yang "miring" ke depan
 - **Angle sensitivity:** BEF kerja optimal di viewing angle ±60° dari normal
 - **Cost:** lebih murah dari DBEF
 
@@ -79,7 +79,7 @@ kalau kamu ngeliat dari belakang BEF ini, bayangan dari image di depan BEF jadi 
 
 ## 2. DBEF (Dual Brightness Enhancement Film): Game Changer yang Sering Salah Dipahami
 
-DBEF itu **bukan prismatic film**. Dia adalah **reflective polarizer** berbasis multilayer birefringent structure (biasanya cellulose acetate bilayer).
+DBEF itu **bukan prismatic film**. Dia adalah **reflective polarizer** berbasis multilayer birefringent structure (dari ratusan multilayer polymer).
 
 Ini beda fundamental dari BEF. BEF cuma redirect cahaya. DBEF redirect cahaya **dan** recycle polarized light.
 
@@ -96,13 +96,14 @@ DBEF **nggak nyerep cahaya**. Dia **mantulin S-polarized light sambil muter pola
 ### Mekanisme Step-by-Step
 
 1. Cahaya unpolarized dari backlight → 50% P-polarized, 50% S-polarized
-2. Rear polarizer lewatkan 50% P-polarized, absorb 50% S-polarized
-3. P-polarized → masuk LC cell → LC rotate polarization (sebagian berhasil, sebagian gagal)
-4. Cahaya yang gagal → **mantul balik** dari DBEF
-5. DBEF reflect + rotate polarization ~90° → jadi P-polarized lagi
-6. P-polarized → lewat rear polarizer lagi → **second chance through LC cell**
+2. DBEF mantulin S-polarized balik dan nerusin cahaya P-polarized.
+3. S-polarized yang balik, jadi terpecah dan beberapanya jadi P-polarized dan jadi nembus DBEF
+4. Rear polarizer lewatkan 50% P-polarized, absorb 50% S-polarized
+5. P-polarized → masuk LC cell → LC rotate polarization (sebagian berhasil, sebagian gagal)
+6. DBEF reflect + rotate polarization ~90° → jadi P-polarized lagi
+7. P-polarized → lewat rear polarizer lagi → **second chance through LC cell**
 
-**Analogi:** DBEF polarization recycling itu kayak **ujian ulang di sekolah**. Kamu ujian pertama (LC cell ronde 1), nilainya nggak cukup. Tapi DBEF bilang, "Gak apa-apa, coba lagi." Dia rotasi polarisasimu (ngajarin kamu), trus kamu ujian lagi (LC cell ronde 2) dan kali ini nilainya cukup. Tanpa DBEF, kamu langsung drop out setelah ujian pertama. Dengan DBEF, kamu dapet kesempatan kedua — dan lebih banyak cahaya yang lulus.
+**Analogi:** DBEF polarization recycling itu kayak **ujian ulang di sekolah**. Kamu ujian pertama (saringan DBEF pertama), nilainya nggak cukup. Tapi DBEF bilang, "Gak apa-apa, coba lagi." Dia rotasi polarisasimu (ngajarin kamu), trus kamu ujian lagi (saringan DBEF ronde 2) dan kali ini nilainya cukup. Tanpa DBEF, kamu langsung drop out setelah ujian pertama. Dengan DBEF, kamu dapet kesempatan kedua — dan lebih banyak cahaya yang lulus.
 
 ### Kenapa DBEF Butuh Collimated Light?
 
@@ -112,14 +113,14 @@ DBEF polarization rotation-nya **angle-sensitive**. Kalau cahaya datang dari ban
 
 ### DBEF vs BEF Comparison
 
-| Parameter             | BEF                      | DBEF                                      |
-| --------------------- | ------------------------ | ----------------------------------------- |
-| **Fungsi utama**      | Redirect cahaya ke depan | Recycle polarized light + redirect        |
-| **Brightness gain**   | 30-40%                   | 50-70%                                    |
-| **Angle sensitivity** | Moderate                 | High (butuh collimated light)             |
-| **Cost**              | Lower                    | Higher                                    |
-| **Material**          | Prismatic polycarbonate  | Multilayer birefringent cellulose acetate |
-| **Application**       | Budget-mid range         | High-end consumer, automotive             |
+| Parameter             | BEF                      | DBEF                               |
+| --------------------- | ------------------------ | ---------------------------------- |
+| **Fungsi utama**      | Redirect cahaya ke depan | Recycle polarized light + redirect |
+| **Brightness gain**   | 30-60%                   | 50-70%                             |
+| **Angle sensitivity** | Moderate                 | High (butuh collimated light)      |
+| **Cost**              | Lower                    | Higher                             |
+| **Material**          | Prismatic polycarbonate  | Proprietary stretched polymer      |
+| **Application**       | Budget-mid range         | High-end consumer, automotive      |
 
 ---
 
@@ -146,7 +147,7 @@ Liquid crystal **nggak bisa kerja yang benar tanpa polarized light**. LC cuma ro
 
 ### Light Loss di Rear Polarizer
 
-Rear polarizer **meneruskan hanya 50% cahaya** — ini light loss terbesar di seluruh stack-up, makanya kita butuh BEF dan DBEF, supaya bisa recycle cahaya yang terbuang. Ini salah satu alasan kenapa OLED nggak butuh backlight — OLED emit light yang sudah terpolarisasi, jadi nggak ada loss 50% di polarizer.
+Rear polarizer **meneruskan hanya 50% cahaya** — ini light loss terbesar di seluruh stack-up, makanya kita butuh BEF dan DBEF, supaya bisa recycle cahaya yang terbuang.
 
 Saya agak susah memahami dulu waktu nyoba memahami gimana polarized light ini bekerja, jadi kayaknya akan saya bahas lagi satu blog khusus tentang gimana Polarization ini bekerja di LCD.
 

@@ -61,7 +61,7 @@ Ini angka-angkanya:
 - **Full HD (1080p):** 1920 x 1080 = sekitar 2.074.000 pixel: masih jadi standar buat monitor office dan smartphone entry level
 - **QHD (1440p):** 2560 x 1440 = sekitar 3.686.000 pixel: sweet spot buat monitor gaming dan laptop
 - **4K UHD (2160p):** 3840 x 2160 = sekitar 8.294.000 pixel: standar baru buat TV, monitor premium, dan smartphone flagship
-- **8K UHD (4320p):** 7680 x 4320 = sekitar 33.178.000 pixel: masih niche, konten langka, harga premium
+- **8K UHD (4320p):** 7680 x 4320 = sekitar 33.177.600 pixel: masih niche, konten langka, harga premium
 
 Catatan kecil: "2K" di industri film sebenarnya 2048 x 1080 (DCI 2K), bukan 2560 x 1440. Tapi di dunia consumer, 2K biasanya merujuk ke QHD dan bahkan kadang FHD. Istilah 2K ini memang nggak konsisten dari awal: normal kalau kamu bingung.
 
@@ -232,9 +232,9 @@ Dunia display sekarang fokus di hal-hal selain resolusi, dan ini menarik buat di
 
 **Smartphones:** Panel OLED udah stagnan di 1440p. PPI di atas 500 udah nggak ada gunanya, dan baterai lebih diutamakan. Fokus sekarang ke brightness (2.000-3.000 nits peak outdoor brightness), color accuracy yang lebih baik, dan efisiensi daya.
 
-**TV:** 4K masih raja. 8K TV ada tapi penjualannya kecil: kurang dari 5 persen dari total penjualan TV. Samsung, LG, Sony punya model 8K tapi masih sangat niche, dan beberapa TV maker sudah memutuskan untuk *discontinue* TV 8K. Fokus industri di Mini LED backlight (1.500-4.000 nits peak), OLED yang lebih efisien, dan upscaler yang lebih pintar.
+**TV:** 4K masih raja. 8K TV ada tapi penjualannya kecil dari total penjualan TV. Samsung, LG, Sony punya model 8K tapi masih sangat niche, dan beberapa TV maker sudah memutuskan untuk *discontinue* TV 8K. Fokus industri di Mini LED backlight (1.500-4.000 nits peak), OLED yang lebih efisien, dan upscaler yang lebih pintar.
 
-**Monitor:** 4K 144Hz mulai jadi standar baru buat monitor gaming premium dan creative professional. Apple push 5K dan 6K di Pro Display XDR. Buat gaming, 2560 x 1440 165Hz masih sweet spot (ini juga memikirkan performance dari graphic card).
+**Monitor:** 4K 144Hz mulai jadi standar baru buat monitor gaming premium dan creative professional. Apple iMac 27" pakai 5K, Pro Display XDR pakai 6K. Buat gaming, 2560 x 1440 165Hz masih sweet spot (ini juga memikirkan performance dari graphic card).
 
 **Automotive HMI:** Di industri mobil, resolusi tetap di 1920 x 720 atau 2560 x 1440 karena jarak pandang dekat (30-60 cm). Fokus di brightness (1.000+ nits), anti-glare coating, color consistency antar panel, dan reliability di suhu ekstrem minus 40 derajat Celsius sampai 85 derajat Celsius.
 
