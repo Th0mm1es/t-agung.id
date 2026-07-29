@@ -1,6 +1,6 @@
 ---
 # Required fields
-title: "GIIAS 2026: 65 Brand, 10 Debutan Baru — Perang Smart Cockpit Dimulai?"
+title: "GIIAS 2026: 65 Brand, 10 Debutan Baru, Perang Smart Cockpit Dimulai?"
 description: "GIIAS 2026 dibuka 30 Juli di ICE BSD dengan 65+ merek dan 10 debutan baru. Bedah smart cockpit dan HMI yang jadi senjata utama mobil listrik China di Indonesia."
 pubDate: 2026-07-30
 category: "exhibition"
