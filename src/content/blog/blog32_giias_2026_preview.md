@@ -168,7 +168,7 @@ Dari dulu masa di Sony, ke Intel, dan sekarang pun di Motherson, HMI itu fokusny
 
 Prinsip yang sama diterapkan di kabin mobil sekarang. Bedanya skalanya lebih besar, kompleksitasnya lebih tinggi, dan safety-critical requirementsnya jauh lebih ketat daripada consumer electronics.
 
-Ferrari Luce dengan OLED cockpit-nya sudah kita bahas di [Part 21](blog21_ferrari-luce-oled-cockpit), dan perbandingan Ferrari vs Lamborghini di [Part 24](blog24_ferrari_luce_vs_lamborghini_urus) menunjukkan bahwa bahkan brand premium tradisional sudah menyadari: masa depan ada di layar. Sekarang pertanyaannya, apakah brand China yang bawa EV ke Indonesia bisa eksekusi smart cockpit lebih baik dari Ferrari?
+Ferrari Luce dengan OLED cockpit-nya sudah kita bahas di [Part 21](../blog21_ferrari-luce-oled-cockpit), dan perbandingan Ferrari vs Lamborghini di [Part 24](../blog24_Ferrari_Luce_vs_Lamborghini_Urus) menunjukkan bahwa bahkan brand premium tradisional sudah menyadari: masa depan ada di layar. Sekarang pertanyaannya, apakah brand China yang bawa EV ke Indonesia bisa eksekusi smart cockpit lebih baik dari Ferrari?
 
 ---
 

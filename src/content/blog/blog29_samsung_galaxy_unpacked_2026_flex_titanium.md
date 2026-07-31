@@ -45,7 +45,7 @@ Moko, si ragdoll, dari tadi telentang di meja kerja sambil ngeliatin layar lapto
 
 Untuk pertama kalinya sejak mereka perkenalkan *ultra-thin glass* (UTG) di Galaxy Z Fold 2 tahun 2020, Samsung ganti seluruh lapisan penyangga di bawah panel OLED lipat. Mereka namain ini **Flex Titanium**.
 
-Flex Titanium menjawab persis masalah crease yang kita bahas di [artikel HP lipat dan crease](https://t-agung.id/blog11_hp_lipat_crease_teknologi_gelas_ultra-tipis), plus isu panel Samsung M14 di vivo X Fold 6 ([Part 22](https://t-agung.id/blog22_vivo_x_fold_6_samsung_m14_review)).
+Flex Titanium menjawab persis masalah crease yang kita bahas di [artikel HP lipat dan crease](https://t-agung.id/blog/blog_11_hp_lipat_crease/), plus isu panel Samsung M14 di vivo X Fold 6 [Part 22](https://t-agung.id/blog/blog22_vivo_x_fold_6_teknologi_layar_lipat_2026/).
 
 ---
 
@@ -206,7 +206,7 @@ Nah, Z Fold 8 Ultra ini rasanya di level yang sama, cuma bentuknya lebih lebar k
 
 Masalahnya bukan cuma estetika, ini ergonomi. Di 2026, dengan Dengan UTG yang sudah matang, Samsung sudah punya basis teknologi untuk merampingkan modul kamera.
 
-vivo X Fold 6 yang bahas di [artikel sebelumnya](../22_vivo_x_fold_6_indonesia.md) udah berhasil merampingkan profil belakangnya lebih agresif. Samsung punya teknologinya, tinggal soal prioritas.
+vivo X Fold 6 yang bahas di [artikel sebelumnya](https://t-agung.id/blog/blog22_vivo_x_fold_6_teknologi_layar_lipat_2026/) udah berhasil merampingkan profil belakangnya lebih agresif. Samsung punya teknologinya, tinggal soal prioritas.
 
 ---
 
