@@ -1,26 +1,22 @@
 ---
 interface Props {
-  projectId: string;
   boxId?: string;
 }
 
-const { projectId, boxId = 'commentbox' } = Astro.props;
+const { boxId = 'isso-thread' } = Astro.props;
 ---
 
 <section class="comments-wrap" aria-labelledby="comments-title">
   <h2 id="comments-title">Komentar</h2>
-  <div class="commentbox"></div>
+  <section id={boxId}></section>
   <noscript>Aktifkan JavaScript untuk melihat komentar.</noscript>
 </section>
 
-<script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-<script define:vars={{ projectId, boxId }}>
-  commentBox(projectId, {
-    className: 'commentbox',
-    defaultBoxId: boxId,
-    sortOrder: 'best',
-  });
-</script>
+<script
+  is:inline
+  src="https://comments.t-agung.id/js/embed.min.js"
+  data-isso="https://comments.t-agung.id/"
+></script>
 
 <style>
   .comments-wrap {
