@@ -30,8 +30,33 @@ try {
         dan sesekali eksperimen AI dari sudut pandang engineer yang suka
         membongkar hal teknis menjadi lebih jelas dan praktis.
       </p>
+
       <div class="hero-actions">
         <a class="button-primary" href="/blog">Lihat semua tulisan</a>
+      </div>
+
+      <div class="about-author">
+        <div class="section-heading">
+          <h2>Tentang penulis</h2>
+          <p>
+            Saya&nbsp;
+            <a
+              href="https://www.linkedin.com/in/thomasagung/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Kunjungi profil LinkedIn Thomas Agung"
+            >
+              Thomas Agung
+            </a>.
+            Saya menulis tentang HMI dan display engineering, terutama hal-hal
+            praktis yang sering tidak dijelaskan dengan sederhana: trade-off
+            desain, testing, integrasi, dan pelajaran dari proyek nyata.
+          </p>
+
+          <a href="/about_me" class="about-author__link">
+            Baca selengkapnya tentang saya →
+          </a>
+        </div>
       </div>
     </div>
 
@@ -58,33 +83,6 @@ try {
       )}
     </aside>
   </section>
-
-	<section>
-	  <div class="about-author">
-		<div class="section-heading">
-		  <h2>Tentang penulis</h2>
-
-		  <p>
-			Saya&nbsp
-			<a
-			  href="https://www.linkedin.com/in/thomasagung/"
-			  target="_blank"
-			  rel="noopener noreferrer"
-			  aria-label="Kunjungi profil LinkedIn Thomas Agung"
-			>
-			   Thomas Agung
-			</a>.
-			Saya menulis tentang HMI dan display engineering, terutama hal-hal
-			praktis yang sering tidak dijelaskan dengan sederhana: trade-off
-			desain, testing, integrasi, dan pelajaran dari proyek nyata.
-		  </p>
-
-		  <a href="/about_me" class="about-author__link">
-			Baca selengkapnya tentang saya →
-		  </a>
-		</div>
-	  </div>
-	</section>
 
   <section class="focus-grid" aria-label="Fokus utama blog">
     <a class="focus-card" href="/blog">
@@ -115,22 +113,7 @@ try {
 
 <style>
   :global(:root) {
-    --bg: #0f1417;
-    --surface: #151c20;
-    --surface-2: #1b252b;
-    --text: #e8f3f2;
-    --muted: #9fb3b6;
-    --line: rgba(99, 216, 212, 0.14);
-    --accent: #2aa9a6;
-    --accent-hover: #63d8d4;
-    --highlight: #e3b341;
     --max: 1180px;
-  }
-
-  :global(body) {
-    background: radial-gradient(circle at top, rgba(42, 169, 166, 0.08), transparent 28%),
-      var(--bg);
-    color: var(--text);
   }
 
   section {
@@ -199,10 +182,9 @@ try {
   .latest-posts,
   .focus-card,
   .about-author {
-    background: rgba(21, 28, 32, 0.82);
+    background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 1.25rem;
-    backdrop-filter: blur(8px);
   }
 
   .latest-posts {
@@ -251,19 +233,19 @@ try {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
-  .about-author {
-    display: block;
-    padding: 1.4rem;
-    margin-bottom: 1.5rem;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-  }
+	.about-author {
+	  display: block;
+	  padding: 1.4rem;
+	  margin-top: 0.9rem;
+	  text-decoration: none;
+	  color: inherit;
+	  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+	}
 
   .about-author:hover {
     transform: translateY(-2px);
     border-color: rgba(99, 216, 212, 0.22);
-    background: rgba(27, 37, 43, 0.92);
+    background: var(--surface-2);
   }
 
   .section-heading p {
@@ -271,6 +253,18 @@ try {
     color: var(--muted);
     max-width: 72ch;
     line-height: 1.8;
+  }
+
+  .about-author__link {
+    display: inline-flex;
+    margin-top: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .about-author__link:hover {
+    color: var(--accent-hover);
   }
 
   .focus-grid {
@@ -291,7 +285,7 @@ try {
   .focus-card:hover {
     transform: translateY(-2px);
     border-color: rgba(99, 216, 212, 0.22);
-    background: rgba(27, 37, 43, 0.92);
+    background: var(--surface-2);
   }
 
   .focus-card h2 {

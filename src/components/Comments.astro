@@ -1,9 +1,5 @@
 ---
-interface Props {
-  boxId?: string;
-}
-
-const { boxId = 'isso-thread' } = Astro.props;
+const boxId = 'isso-thread';
 ---
 
 <section class="comments-wrap" aria-labelledby="comments-title">
@@ -22,11 +18,93 @@ const { boxId = 'isso-thread' } = Astro.props;
   .comments-wrap {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(99, 216, 212, 0.1);
+    border-top: 1px solid var(--border);
   }
 
   .comments-wrap h2 {
     margin: 0 0 1rem;
     font-size: 1.15rem;
+    color: var(--text);
+  }
+
+  :global(#isso-thread) {
+    color: var(--text);
+  }
+
+  :global(#isso-thread .textarea),
+  :global(#isso-thread div[contenteditable="true"]) {
+    background: #ffffff !important;
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+    caret-color: #111111 !important;
+    border: 1px solid var(--border-strong) !important;
+    border-radius: 0.85rem !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    font: inherit !important;
+    min-height: 8rem;
+  }
+
+  :global(#isso-thread .textarea.placeholder),
+  :global(#isso-thread div[contenteditable="true"].placeholder) {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+  }
+
+  :global(#isso-thread input[type="text"]),
+  :global(#isso-thread input[type="email"]),
+  :global(#isso-thread input[type="url"]) {
+    background: #ffffff !important;
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+    caret-color: #111111 !important;
+    border: 1px solid var(--border-strong) !important;
+    border-radius: 0.85rem !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    font: inherit !important;
+  }
+
+  :global(#isso-thread input[type="text"]::placeholder),
+  :global(#isso-thread input[type="email"]::placeholder),
+  :global(#isso-thread input[type="url"]::placeholder) {
+    color: #6b7280 !important;
+    -webkit-text-fill-color: #6b7280 !important;
+    opacity: 1 !important;
+  }
+
+  :global(#isso-thread .isso-postbox input[type="submit"]),
+  :global(#isso-thread .isso-postbox .preview),
+  :global(#isso-thread input[type="submit"]),
+  :global(#isso-thread button) {
+    background: #ffffff !important;
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+    border: 1px solid var(--border-strong) !important;
+    border-radius: 0.85rem !important;
+    box-shadow: none !important;
+    font: inherit !important;
+  }
+
+  :global(#isso-thread .isso-comment-header),
+  :global(#isso-thread .isso-comment-meta),
+  :global(#isso-thread .isso-comment-meta a),
+  :global(#isso-thread .isso-no-comments) {
+    color: var(--muted) !important;
+  }
+
+  :global(#isso-thread .isso-comment-text),
+  :global(#isso-thread .isso-comment-text p),
+  :global(#isso-thread .isso-comment p),
+  :global(#isso-thread .isso-comment) {
+    color: var(--text) !important;
+  }
+
+  :global(#isso-thread a) {
+    color: var(--accent) !important;
+  }
+
+  :global(#isso-thread a:hover) {
+    color: var(--accent-hover) !important;
   }
 </style>

@@ -56,7 +56,6 @@ const schema = JSON.stringify({
         </p>
       </header>
 
-
       <Content />
 
       <nav class="post-nav" aria-label="Navigasi tulisan">
@@ -77,8 +76,7 @@ const schema = JSON.stringify({
         </a>
       </nav>
 
-	  <Comments boxId="isso-thread" />
-
+      <Comments boxId="isso-thread" />
     </div>
 
     <aside class="toc-sidebar">
@@ -101,16 +99,15 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-  /* FAIL-SAFE OVERFLOW UNBLOCK PATTERNS */
   :global(html), :global(body) {
     overflow-x: visible !important;
   }
+
   :global(main), :global(#main-content), :global(.shell) {
     overflow: visible !important;
     display: block !important;
   }
 
-  /* Grid Layout Setup */
   .post {
     display: grid !important;
     grid-template-columns: 1fr;
@@ -127,40 +124,45 @@ const schema = JSON.stringify({
     padding-top: 2rem;
     border-top: 1px solid rgba(99, 216, 212, 0.1);
   }
+
   .post-nav-card {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
     padding: 1rem 1.1rem;
     border-radius: 1rem;
-    border: 1px solid rgba(99, 216, 212, 0.12);
-    background: #151c20db;
+    border: 1px solid var(--border);
+    background: var(--surface);
     color: var(--text);
     text-decoration: none;
-    transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+    transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
   }
+
   .post-nav-card:hover {
     transform: translateY(-2px);
-    border-color: #63d8d438;
-    background: #1b252beb;
+    border-color: var(--accent);
+    background: var(--surface-2);
     color: var(--text);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   }
+
   .post-nav-label {
     font-size: 0.82rem;
-    color: var(--soft);
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
+
   .post-nav-card strong {
     line-height: 1.45;
     font-size: 1rem;
   }
+
   .post-nav-next {
     text-align: right;
     align-items: flex-end;
   }
 
-  /* Pinned Table of Contents Sidebar Styles */
   .toc-sidebar {
     display: none;
   }
@@ -169,25 +171,29 @@ const schema = JSON.stringify({
     .post {
       grid-template-columns: minmax(0, var(--container-read)) 260px !important;
     }
+
     .toc-sidebar {
       display: block !important;
       position: sticky !important;
-      top: 6.5rem !important; /* Locks sidebar right under your sticky top menu bar */
+      top: 6.5rem !important;
       max-height: calc(100vh - 8rem);
       align-self: start !important;
     }
+
     .toc-sticky-container {
       padding-left: 0.75rem;
       border-left: 1px solid rgba(99, 216, 212, 0.08);
       overflow-y: auto;
     }
+
     .toc-sidebar h2 {
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--soft);
+      color: var(--muted);
       margin: 0 0 0.8rem 0;
     }
+
     .toc-sidebar ul {
       list-style: none;
       padding: 0;
@@ -196,6 +202,7 @@ const schema = JSON.stringify({
       flex-direction: column;
       gap: 0.5rem;
     }
+
     .toc-sidebar a {
       font-size: 0.82rem;
       color: var(--muted);
@@ -204,16 +211,19 @@ const schema = JSON.stringify({
       padding: 0.1rem 0;
       transition: color 0.15s, padding-left 0.15s;
     }
+
     .toc-sidebar a:hover,
     .toc-sidebar a.active {
       color: var(--accent-hover);
     }
+
     .toc-sidebar a.active {
       font-weight: 500;
       border-left: 2px solid var(--accent);
       padding-left: 0.4rem;
       margin-left: -0.75rem;
     }
+
     .toc-depth-3 {
       padding-left: 0.85rem;
     }
@@ -223,6 +233,7 @@ const schema = JSON.stringify({
     .post-nav {
       grid-template-columns: 1fr;
     }
+
     .post-nav-next {
       text-align: left;
       align-items: flex-start;
@@ -259,7 +270,6 @@ const schema = JSON.stringify({
     headings.forEach((heading) => observer.observe(heading));
   };
 
-  // Runs on initial page load and handles Astro view transitions cleanly if enabled
   document.addEventListener('DOMContentLoaded', initToc);
   document.addEventListener('astro:page-load', initToc);
 </script>
