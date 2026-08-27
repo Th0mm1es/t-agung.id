@@ -3,7 +3,7 @@
 title: "Huawei MateBook Fold 2026: Laptop Lipat 18 Inci yang Mungkin Mengubah Definisi PC"
 description: "Huawei resmi launching MateBook Fold 2026 dengan layar lipat 18 inci OLED. Apakah ini masa depan laptop, atau cuma gimmick mahal?"
 pubDate: 2026-08-09
-category: "deepdive"
+category: "produk"
 cover: "../../assets/blog/35/huawei_matebook_fold_unfolded.jpg"
 coverAlt: "Huawei MateBook Fold 2026 dalam mode terbuka penuh menampilkan layar 18 inci OLED"
 
