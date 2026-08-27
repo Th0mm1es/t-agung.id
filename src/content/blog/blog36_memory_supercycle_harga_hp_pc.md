@@ -9,7 +9,7 @@ coverAlt: "Barisan rak server di dalam data center yang menggerakkan boom AI"
 tags: ["memory supercycle", "RAM", "harga HP", "PC", "AI", "DRAM"]
 author: "Thomas Agung Nugraha"
 lang: "id-ID"
-slug: "blog37_memory_supercycle_harga_hp_pc"
+slug: "blog36_memory_supercycle_harga_hp_pc"
 #recommended
 excerpt: "Era HP dan PC murah sedang berakhir. Biang keroknya bukan layar, bukan kamera, tapi satu komponen yang jarang kita lihat: memory. AI makan semua supply RAM, dan kita yang beli di kasir yang nanggung."
 updatedDate: 2026-08-27
