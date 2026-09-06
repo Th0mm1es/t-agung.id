@@ -31,8 +31,6 @@ relatedPosts:
 draft: false
 ---
 
-
-
 Kalau ada satu hal yang bikin saya frustrasi selama bertahun-tahun duduk di meeting cost review panel, itu bukan material organiknya. Bukan driver IC-nya juga. Mask-nya. Fine Metal Mask, selembar paduan nikel setipis kertas dengan jutaan lubang presisi mikron, yang ternyata menjadi salah satu penyebab utama kenapa panel OLED besar harganya sulit turun.
 
 Dan minggu lalu, di BEXCO Busan, LG Display akhirnya mengumumkan teknologi yang membuang mask itu sepenuhnya. Nama resminya FLiPP, singkatan dari FMM-Less innovative Pixel Patterning. CTO LG Display Choi Young-seok sendiri menyebutnya "dream technology". Di industri display, kata "dream" jarang dipakai untuk teknologi yang sudah bisa diproduksi. Biasanya kata itu dipakai untuk teknologi yang masih di slide presentasi. FLiPP tidak termasuk kategori kedua.
@@ -141,7 +139,7 @@ Dari data yang tersedia dan dari pengalaman saya di industri display, satu hal j
 
 LG punya infrastruktur gen 8.5 yang sudah berjalan dan posisi WOLED yang kuat. TCL punya produk komersial dan fab baru yang sedang dibangun. JDI punya teknologi serupa tapi terlambat. Dan di tengah semuanya, konsumen Indonesia adalah yang akan merasakan dampaknya: panel lebih terang, lebih awet, lebih hemat daya, dan lebih murah, di monitor, laptop, tablet, dan akhirnya, di kokpit mobil listrik yang melintas di jalanan kita.
 
-Kalau kamu engineer display, ini waktu yang tepat untuk mulai memahami fotolitografi di konteks OLED, karena dalam 18 bulan ke depan, interview dan project brief akan mulai menyebut FLiPP, eLEAP, dan IJP sebagai pilihan arsitektur, bukan sebagai rumor. Dan kalau lo di sisi procurement atau product management, sekaranglah waktu untuk mulai bertanya ke supplier: kapan kalian pindah ke maskless, dan berapa harganya nanti.
+Kalau kamu engineer display, ini waktu yang tepat untuk mulai memahami fotolitografi di konteks OLED, karena dalam 18 bulan ke depan, interview dan project brief akan mulai menyebut FLiPP, eLEAP, dan IJP sebagai pilihan arsitektur, bukan sebagai rumor. Dan kalau kamu di sisi procurement atau product management, sekaranglah waktu untuk mulai bertanya ke supplier: kapan kalian pindah ke maskless, dan berapa harganya nanti.
 
 ---
 
