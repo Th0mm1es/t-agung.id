@@ -2,9 +2,9 @@
 #Required fields
 title: "Kenapa OLED Biru Cepat Mati? Degradasi, Burn-in, dan Breakthrough 2025"
 description: "Kenapa piksel biru OLED selalu jadi korban? Dari mekanisme degradasi elektron, burn-in, sampai breakthrough 2025: blue phosphorescent LG dan TADF yang bikin umur OLED melompat."
-pubDate: 2026-09-08
+pubDate: 2026-09-14
 category: "deepdive"
-cover: "../../assets/blog/DD_OLED/OLED-5-burn-in-example.png"
+cover: "../../assets/blog/DD_OLED/OLED-5-burn-in-example.jpg"
 coverAlt: "Kenapa OLED Biru Cepat Mati? Degradasi, Burn-in, dan Breakthrough 2025"
 
 #Core Fields
@@ -15,7 +15,7 @@ lang: "id-ID"
 #recommended
 slug: "oled-deepdive-5-lifetime-and-degradation"
 excerpt: "Dari mekanisme degradasi elektron sampai blue phosphorescent LG 2025, saya jelaskan kenapa OLED biru cepat mati dan breakthrough apa yang akhirnya bikin umurnya melompat."
-updatedDate: 2026-09-08
+updatedDate: 2026-09-14
 
 #Optional-series support
 series: "OLED Deep Dive"
@@ -40,12 +40,10 @@ relatedPosts:
   - oled-deepdive-4-luminous-evolution
   - oled-deepdive-6-manufacturing
 
-draft: true
+draft: false
 ---
 
-*Bagian 5 dari 11 seri OLED Deep Dive*
-
-# Kenapa OLED Biru Cepat Mati? Degradasi, Burn-in, dan Breakthrough 2025
+*Bagian 5 dari seri OLED Deep Dive*
 
 Moko dulu sering tidur di atas laptop lama saya, yang layarnya OLED. Waktu masih baru, warnanya cerah banget. Sekarang udah agak pudar, terutama di area yang sering nyala. Kalau kamu perhatiin, warna yang bertahan paling lama biasanya merah sama hijau. Biru? Langsung hilang duluan.
 
@@ -81,9 +79,9 @@ Penelitian di *Nature Communications* (Kim et al., 2023) menemukan sesuatu yang 
 
 Secara angka, pixel biru mengalami degradasi 10 sampai 40 kali lebih cepat dibanding pixel merah atau hijau. Bayangin, kalau merah bisa bertahan 100.000 jam, biru cuma 2.500 sampai 10.000 jam. Itu kenapa layar OLED lama selalu kelihatan agak kehijauan, efeknya dari pixel biru yang sudah mulai lemah.
 
-![Contoh burn-in dan penuaan OLED pada area statis](../../assets/blog/DD_OLED/OLED-5-burnin.jpg)
+![Contoh burn-in dan penuaan OLED pada area statis](../../assets/blog/DD_OLED/OLED-5-burn-in-example.jpg)
 
-<center><i>Burn-in di area statis: pixel biru yang sudah lemah bikin warna pudar di bagian yang sering nyala, efeknya bikin layar kelihatan agak kehijauan. Source: Rtings</i></center>
+<center><i>Burn-in di tablet Samsung AMOLED: jejak permanen dari konten statis yang nyala berjam-jam, pixel di area itu sudah terlanjur "lelah" dan nggak bisa pulih. Source: Gannu03, CC BY-SA 4.0</i></center>
 
 ## Mengukur Umur OLED: LT50, LT80, LT95
 
@@ -121,9 +119,9 @@ Akumulasi quenching species dan trap formation secara bertahap mengurangi kecerl
 
 Kamu punya lilin yang nyala perlahan. Awalnya nyala normal, terus pelan-pelan mengecil, terus tiba-tiba hampir mati total. Fase "hampir mati total" itu yang disebut degradation cliff.
 
-![Penuaan bertahap OLED: dari kecerlangan penuh ke degradasi lokal](../../assets/blog/DD_OLED/OLED-5-lifetime-aging.jpg)
+![Penuaan bertahap OLED: dari kecerlangan penuh ke degradasi lokal](../../assets/blog/DD_OLED/OLED-5-lifetime-aging.png)
 
-<center><i>Penuaan bertahap: quenching species dan trap states menumpuk pelan-pelan, lalu tiba-tiba degradasi akselerasi, yang disebut "degradation cliff."</i></center>
+<center><i>Kurva penuaan luminance: kecerlangan turun perlahan dari L0, melewati LT95, LT80, LT50, lalu degradasi akselerasi di fase akhir, yang disebut "degradation cliff."</i></center>
 
 ## Mengapa Biru PhOLED Susah?
 
@@ -131,7 +129,7 @@ Phosphorescent OLED (PhOLED) secara teori bisa mencapai efisiensi internal 100 p
 
 ![Galaxy S24 Ultra](../../assets/blog/DD_OLED/OLED-5-galaxy-s24-ultra.jpg)
 
-<center><i>Galaxy S24 Ultra, phosphorescent merah/hijau di tiap pikselnya. Biru masih jadi mimpi selama 25 tahun.</i></center>
+<center><i>Galaxy S24 Ultra, pakai phosphorescent merah/hijau yang udah matang. Biru? Masih jadi mimpi yang udah lama banget.</i></center>
 
 Masalah fundamentalnya: material biru phosphorescent harus punya triplet energy level yang sangat tinggi supaya bisa emit foton biru. Level energi tinggi itu berarti ikatan kimia yang lebih rentan terhadap reaksi dan kerusakan.
 
@@ -205,11 +203,11 @@ Yang jelas, 25 tahun kejar-kejaran biru OLED mungkin akhirnya nyampe garis finis
 
 > **Di mana teknologi ini hidup hari ini (Bagian 5):**
 > 
-> - **Burn-in nyata:** iPhone X punya kasus ghosting di status bar; Galaxy S7 terkenal gampang burn-in.
+> - **Burn-in nyata:** kasus ghosting di status bar dan area dock sudah banyak dilaporkan di iPhone X; Galaxy S7 juga terkenal gampang burn-in.
 
-![IPhone X](../../assets/blog/DD_OLED/OLED-5-iphone-x-burnin.jpg)
+![Ghosting elemen statis di layar OLED](../../assets/blog/DD_OLED/OLED-5-iphone-x-burnin.png)
 
-<center><i>IPhone X, contoh nyata ghosting status bar dari piksel statis yang nyala terus-menerus.</i></center>
+<center><i>Ghosting di layar OLED: status bar dan ikon di dock yang nyala terus-menerus meninggalkan bekas permanen. Ilustrasi.</i></center>
 > - **Pixel refresher & compensation:** TV OLED LG bawa fitur Pixel Refresher; Samsung pakai ASBL/logo dimming. Semua OLED TV modern bawa ini.
 > - **Tandem untuk umur:** TV OLED LG & iPad Pro M4, plus MacBook Pro (dikabarkan pakai tandem OLED mulai 2026; masih tahap rumor/future, belum ada konfirmasi resmi dari Apple).
 > - **Biru PhOLED “Dream OLED”:** panel LG Display + UDC sudah diverifikasi di lini produksi massal Mei 2025, tapi belum masuk TV bernama merek tertentu. Sampai hari ini belum ada produk konsumen yang jual biru PhOLED.

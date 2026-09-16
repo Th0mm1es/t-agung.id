@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="440" fill="url(#bg)" rx="10"/>
+
+  <!-- Title -->
+  <text x="380" y="34" text-anchor="middle" fill="#e6edf3" font-size="20" font-weight="700">Penuaan Luminance OLED: Bertahap, Lalu Cliff</text>
+  <text x="380" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Quenching species &amp; trap states menumpuk pelan-pelan, degradasi baru akselerasi di fase akhir</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="90" x2="80" y2="360" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="80" y1="360" x2="700" y2="360" stroke="#30363d" stroke-width="1.5"/>
+  <text x="26" y="225" fill="#8b949e" font-size="12" transform="rotate(-90 26 225)" text-anchor="middle">Luminance (% L0)</text>
+  <text x="390" y="392" text-anchor="middle" fill="#8b949e" font-size="12">Umur operasi (jam)</text>
+
+  <!-- Y ticks -->
+  <text x="72" y="94" text-anchor="end" fill="#8b949e" font-size="11">100%</text>
+  <text x="72" y="364" text-anchor="end" fill="#8b949e" font-size="11">0%</text>
+
+  <!-- Gridlines at LT thresholds -->
+  <line x1="80" y1="104" x2="700" y2="104" stroke="#21262d" stroke-width="1"/>
+  <line x1="80" y1="144" x2="700" y2="144" stroke="#21262d" stroke-width="1"/>
+  <line x1="80" y1="225" x2="700" y2="225" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Cliff shading -->
+  <rect x="540" y="90" width="92" height="270" fill="#ff6b5e" opacity="0.06"/>
+  <line x1="540" y1="90" x2="540" y2="360" stroke="#ff6b5e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+  <line x1="632" y1="90" x2="632" y2="360" stroke="#ff6b5e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+  <text x="586" y="82" text-anchor="middle" fill="#ff9d94" font-size="12" font-weight="700">degradation cliff</text>
+
+  <!-- Decay curve -->
+  <path d="M 80,93 Q 160,99 240,112 Q 330,127 400,140 Q 430,146 460,158 Q 505,176 535,200 Q 552,217 565,240 Q 580,272 595,300 Q 612,328 640,340 Q 670,349 700,350" fill="none" stroke="#4d9fff" stroke-width="3"/>
+
+  <!-- LT95 marker -->
+  <circle cx="200" cy="105" r="5" fill="#3fd66f"/>
+  <line x1="200" y1="105" x2="200" y2="360" stroke="#3fd66f" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+  <text x="200" y="130" text-anchor="middle" fill="#3fd66f" font-size="13" font-weight="700">LT95</text>
+  <text x="200" y="146" text-anchor="middle" fill="#8b949e" font-size="10">95% dari L0</text>
+
+  <!-- LT80 marker -->
+  <circle cx="412" cy="142" r="5" fill="#e6edf3"/>
+  <line x1="412" y1="142" x2="412" y2="360" stroke="#e6edf3" stroke-width="1" stroke-dasharray="3 4" opacity="0.35"/>
+  <text x="412" y="168" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="700">LT80</text>
+  <text x="412" y="184" text-anchor="middle" fill="#8b949e" font-size="10">80% dari L0</text>
+
+  <!-- LT50 marker -->
+  <circle cx="552" cy="222" r="5" fill="#ff6b5e"/>
+  <line x1="552" y1="222" x2="552" y2="360" stroke="#ff6b5e" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+  <text x="552" y="258" text-anchor="middle" fill="#ff9d94" font-size="13" font-weight="700">LT50</text>
+  <text x="552" y="274" text-anchor="middle" fill="#8b949e" font-size="10">50% dari L0</text>
+
+  <!-- Disclaimer -->
+  <text x="80" y="418" fill="#6e7681" font-size="10">Ilustrasi bentuk kurva, bukan data pengukuran spesifik.</text>
+</svg>
