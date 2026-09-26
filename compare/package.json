@@ -1,0 +1,23 @@
+{
+  "name": "bandinghidup",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Cost-of-living comparison platform for Ausbildung & Kenshusei",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "@types/node": "^24.0.0"
+  },
+  "packageManager": "pnpm@9.15.5",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

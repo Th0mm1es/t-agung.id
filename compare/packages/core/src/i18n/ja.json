@@ -1,0 +1,50 @@
+{
+  "app.name": "バンディンヒドゥプ",
+  "app.tagline": "リアルな生活費比較",
+  "app.domain": "compare.t-agung.id",
+
+  "nav.home": "ホーム",
+  "nav.compare": "比較する",
+  "nav.about": "について",
+  "nav.language": "言語",
+
+  "hero.headline": "ドイツ・アウスビルドゥングと日本・研修生のためのリアルな生活費比較",
+  "hero.subheadline": "技能実習生、留学生、新卒、エントリーレベルの労働者向け。正直な数字、偽りなし。",
+  "hero.cta": "比較を始める",
+  "hero.badge": "無料・匿名",
+
+  "form.select_country": "国を選択",
+  "form.select_city": "都市を選択",
+  "form.select_pathway": "収入経路を選択",
+  "form.loading": "読み込み中...",
+  "form.no_data": "データなし",
+
+  "country.DE": "ドイツ",
+  "country.JP": "日本",
+  "country.ID": "インドネシア",
+
+  "pathway.ausbildung": "アウスビルドゥング（ドイツ職業訓練）",
+  "pathway.technical_intern": "技能実習生 / 研修生（日本）",
+  "pathway.student": "学生",
+  "pathway.fresh_grad": "新卒",
+  "pathway.custom": "カスタム / その他",
+
+  "category.housing": "住居",
+  "category.utilities": "電気・水道・インターネット",
+  "category.food": "食費",
+  "category.transport": "交通費",
+  "category.lifestyle": "生活・娯楽",
+  "category.relocation": "引っ越し費用（一回のみ）",
+
+  "currency.eur": "ユーロ",
+  "currency.jpy": "日本円",
+  "currency.idr": "インドネシアルピア",
+  "currency.usd": "米ドル",
+
+  "disclaimer.title": "重要なお知らせ",
+  "disclaimer.text": "バンディンヒドゥプは、ユーザーの入力と参照データに基づいた計画上の見積もりを提供します。これは法律、税務、給与計算、ビザ、または財務上のアドバイスではありません。重要な決定については、必ず資格のある専門家にご相談ください。",
+
+  "footer.legal": "法律・税務・財務上のアドバイスではありません。",
+  "footer.made_with": "海外で頑張る人々のために 🌏",
+  "footer.data_source": "データソース: Destatis (DE), e-Stat (JP), BPS (ID)"
+}

@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm run build"
+  # Next.js App Router build output directory (managed in tandem with @netlify/plugin-nextjs)
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_FLAGS = "--no-frozen-lockfile"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

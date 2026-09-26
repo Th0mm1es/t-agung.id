@@ -1,0 +1,50 @@
+{
+  "app.name": "BandingHidup",
+  "app.tagline": "Realistischer Lebenshaltungskostenvergleich",
+  "app.domain": "compare.t-agung.id",
+
+  "nav.home": "Startseite",
+  "nav.compare": "Vergleich",
+  "nav.about": "Über uns",
+  "nav.language": "Sprache",
+
+  "hero.headline": "Realistischer Lebenshaltungskostenvergleich für Ausbildung in Deutschland & Kenshusei in Japan",
+  "hero.subheadline": "Speziell für Auszubildende, Studenten, Berufseinsteiger und Praktikanten. Ehrliche Zahlen, keine Schönfärberei.",
+  "hero.cta": "Vergleich starten",
+  "hero.badge": "Kostenlos & Anonym",
+
+  "form.select_country": "Land auswählen",
+  "form.select_city": "Stadt auswählen",
+  "form.select_pathway": "Verdienstweg auswählen",
+  "form.loading": "Laden...",
+  "form.no_data": "Keine Daten verfügbar",
+
+  "country.DE": "Deutschland",
+  "country.JP": "Japan",
+  "country.ID": "Indonesien",
+
+  "pathway.ausbildung": "Ausbildung (Duale Berufsausbildung)",
+  "pathway.technical_intern": "Kenshusei / Technical Intern (Japan)",
+  "pathway.student": "Student",
+  "pathway.fresh_grad": "Berufseinsteiger",
+  "pathway.custom": "Benutzerdefiniert / Sonstige",
+
+  "category.housing": "Wohnen & Warmmiete",
+  "category.utilities": "Strom, Wasser & Internet",
+  "category.food": "Essen & Trinken",
+  "category.transport": "Mobilität & ÖPNV",
+  "category.lifestyle": "Freizeit & Sonstiges",
+  "category.relocation": "Umzugskosten (einmalig)",
+
+  "currency.eur": "Euro",
+  "currency.jpy": "Japanischer Yen",
+  "currency.idr": "Indonesische Rupiah",
+  "currency.usd": "US-Dollar",
+
+  "disclaimer.title": "Wichtiger Hinweis",
+  "disclaimer.text": "BandingHidup liefert Planungsschätzungen basierend auf Benutzereingaben und amtlichen Statistiken. Dies stellt KEINE Rechts-, Steuer-, Lohn-, Visa- oder Finanzberatung dar. Bitte konsultieren Sie bei wichtigen Entscheidungen stets qualifizierte Fachkräfte.",
+
+  "footer.legal": "Keine Rechts-, Steuer- oder Finanzberatung.",
+  "footer.made_with": "Für alle Kämpfer im Ausland 🌏",
+  "footer.data_source": "Datenquellen: Destatis (DE), e-Stat (JP), BPS (ID)"
+}

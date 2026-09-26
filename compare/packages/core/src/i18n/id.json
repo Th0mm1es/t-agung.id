@@ -1,0 +1,50 @@
+{
+  "app.name": "BandingHidup",
+  "app.tagline": "Perbandingan Biaya Hidup Realistis",
+  "app.domain": "compare.t-agung.id",
+
+  "nav.home": "Beranda",
+  "nav.compare": "Bandingkan",
+  "nav.about": "Tentang",
+  "nav.language": "Bahasa",
+
+  "hero.headline": "Perbandingan Biaya Hidup Realistis untuk Ausbildung di Jerman & Kenshusei di Jepang",
+  "hero.subheadline": "Khusus untuk peserta magang vokasi, mahasiswa, fresh graduate, dan pekerja entry-level. Bukan untuk konsultan, bukan untuk show-off.",
+  "hero.cta": "Mulai Perbandingan",
+  "hero.badge": "Gratis & Anonim",
+
+  "form.select_country": "Pilih Negara",
+  "form.select_city": "Pilih Kota",
+  "form.select_pathway": "Pilih Jalur Penghasilan",
+  "form.loading": "Memuat...",
+  "form.no_data": "Tidak ada data tersedia",
+
+  "country.DE": "Jerman",
+  "country.JP": "Jepang",
+  "country.ID": "Indonesia",
+
+  "pathway.ausbildung": "Ausbildung (Magang Vokasi Jerman)",
+  "pathway.technical_intern": "Kenshusei / Technical Intern (Magang Jepang)",
+  "pathway.student": "Mahasiswa",
+  "pathway.fresh_grad": "Fresh Graduate",
+  "pathway.custom": "Kustom / Lainnya",
+
+  "category.housing": "Tempat Tinggal",
+  "category.utilities": "Listrik, Air & Internet",
+  "category.food": "Makanan & Minuman",
+  "category.transport": "Transportasi",
+  "category.lifestyle": "Gaya Hidup & Hiburan",
+  "category.relocation": "Biaya Pindah (Satu Kali)",
+
+  "currency.eur": "Euro",
+  "currency.jpy": "Yen Jepang",
+  "currency.idr": "Rupiah Indonesia",
+  "currency.usd": "Dolar AS",
+
+  "disclaimer.title": "Perhatian Penting",
+  "disclaimer.text": "BandingHidup memberikan perkiraan perencanaan berdasarkan input pengguna dan data referensi yang tersedia. Ini BUKAN merupakan nasihat hukum, pajak, penggajian, visa, atau keuangan. Selalu konsultasikan dengan profesional yang qualified untuk keputusan penting.",
+
+  "footer.legal": "Bukan nasihat hukum, pajak, atau keuangan.",
+  "footer.made_with": "Dibuat untuk para pejuang luar negeri 🌏",
+  "footer.data_source": "Sumber data: Destatis (DE), e-Stat (JP), BPS (ID)"
+}

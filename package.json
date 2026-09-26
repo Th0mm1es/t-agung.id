@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "predev": "npm run build:search",
-    "build": "astro build && npm run build:search",
+    "build": "astro build && npm run build:search && pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build",
     "build:search": "npx pagefind --site dist --output-path public/pagefind",
     "preview": "astro preview",
-    "indexnow": "node scripts/indexnow-submit.mjs"
+    "indexnow": "node scripts/indexnow-submit.mjs",
+    "build:blog": "astro build && npm run build:search",
+    "build:compare": "pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",

@@ -1,0 +1,50 @@
+{
+  "app.name": "BandingHidup",
+  "app.tagline": "Realistic Cost-of-Living Comparison",
+  "app.domain": "compare.t-agung.id",
+
+  "nav.home": "Home",
+  "nav.compare": "Compare",
+  "nav.about": "About",
+  "nav.language": "Language",
+
+  "hero.headline": "Realistic Cost-of-Living Comparison for Ausbildung in Germany & Kenshusei in Japan",
+  "hero.subheadline": "Built specifically for vocational trainees, students, fresh graduates, and entry-level workers. Honest numbers, no fluff.",
+  "hero.cta": "Start Comparing",
+  "hero.badge": "Free & Anonymous",
+
+  "form.select_country": "Select Country",
+  "form.select_city": "Select City",
+  "form.select_pathway": "Select Income Pathway",
+  "form.loading": "Loading...",
+  "form.no_data": "No data available",
+
+  "country.DE": "Germany",
+  "country.JP": "Japan",
+  "country.ID": "Indonesia",
+
+  "pathway.ausbildung": "Ausbildung (German Vocational Training)",
+  "pathway.technical_intern": "Kenshusei / Technical Intern (Japan)",
+  "pathway.student": "Student",
+  "pathway.fresh_grad": "Fresh Graduate",
+  "pathway.custom": "Custom / Other",
+
+  "category.housing": "Housing",
+  "category.utilities": "Electricity, Water & Internet",
+  "category.food": "Food & Drinks",
+  "category.transport": "Transportation",
+  "category.lifestyle": "Lifestyle & Entertainment",
+  "category.relocation": "Relocation Costs (One-Time)",
+
+  "currency.eur": "Euro",
+  "currency.jpy": "Japanese Yen",
+  "currency.idr": "Indonesian Rupiah",
+  "currency.usd": "US Dollar",
+
+  "disclaimer.title": "Important Notice",
+  "disclaimer.text": "BandingHidup provides planning estimates based on user inputs and available reference data. It is NOT legal, tax, payroll, visa, or financial advice. Always consult qualified professionals for important decisions.",
+
+  "footer.legal": "Not legal, tax, or financial advice.",
+  "footer.made_with": "Made for overseas fighters 🌏",
+  "footer.data_source": "Data sources: Destatis (DE), e-Stat (JP), BPS (ID)"
+}
