@@ -2,7 +2,7 @@
 #Required fields
 title: "Kenapa OLED Mahal? Rahasia di Balik Lini Produksi yang Bikin Insinyur Pusing"
 description: "Dari mother glass Gen 8.5 dan 8.6 sampai FMM yang presisinya bikin pusing, kenapa bikin OLED itu susah dan mahal? Plus masa depan: oxide backplane, tandem stack, maskless, dan kapan OLED murah."
-pubDate: 2026-09-16
+pubDate: 2026-09-20
 category: "deepdive"
 cover: "../../assets/blog/DD_OLED/OLED-6-mother-glass.jpg"
 coverAlt: "Kenapa OLED Mahal? Rahasia di Balik Lini Produksi yang Bikin Insinyur Pusing"
@@ -41,7 +41,7 @@ relatedPosts:
   - oled-deepdive-5-lifetime-and-degradation
   - oled-deepdive-7-quantum-dot-qd-oled
 
-draft: true
+draft: false
 ---
 
 *Bagian 6 dari seri OLED Deep Dive*

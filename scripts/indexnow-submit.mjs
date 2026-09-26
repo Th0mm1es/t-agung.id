@@ -4,9 +4,8 @@ const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/blog38_cybercab_hmi_satu_layar/', 
-  'https://t-agung.id/blog/blog40_apple_iphone_duo_foldable_vs_galaxy/', 
-  'https://t-agung.id/blog/blog39_xiaomi_18_fold_wide_fold_xring_o3' 
+  'https://t-agung.id/blog/blog41_2nm_week_mediatek_dimensity_apple_m6_moore/', 
+  'https://t-agung.id/blog/oled-deepdive-5-lifetime-and-degradation/' 
 ];
 
 const body = {
