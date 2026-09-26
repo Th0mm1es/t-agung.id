@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { ProposalsAdminClient } from "@/components/admin/ProposalsAdminClient";
+import { AdminAuthGate } from "@/components/admin/AdminAuthGate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +12,9 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white selection:bg-brand-500 selection:text-white pb-16">
       <Suspense fallback={<div className="p-8 text-center text-white/50">Memuat Admin Portal...</div>}>
-        <ProposalsAdminClient />
+        <AdminAuthGate>
+          <ProposalsAdminClient />
+        </AdminAuthGate>
       </Suspense>
     </main>
   );
