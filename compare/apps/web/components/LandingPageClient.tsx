@@ -76,18 +76,11 @@ export function LandingPageClient() {
   const txt = (
     idStr: string,
     enStr: string,
-    deOrJaStr: string,
-    jaStr?: string
+    deStr: string,
+    jaStr: string
   ) => {
-    if (jaStr !== undefined) {
-      if (locale === "de") return deOrJaStr;
-      if (locale === "ja") return jaStr;
-      if (locale === "en") return enStr;
-      return idStr;
-    }
-    // 3-argument fallback: id, en, ja
-    if (locale === "de") return enStr;
-    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return deStr;
+    if (locale === "ja") return jaStr;
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -189,7 +182,7 @@ export function LandingPageClient() {
     },
     {
       flag: "🇯🇵",
-      title: txt("Biaya Tersembunyi di Jepang", "Hidden Costs in Japan", "日本で注意すべき想定外費用"),
+      title: txt("Biaya Tersembunyi di Jepang", "Hidden Costs in Japan", "Versteckte Kosten in Japan", "日本で注意すべき想定外費用"),
       items: [
         {
           label: "Juminzei (Pajak Penduduk Daerah)",
@@ -197,6 +190,7 @@ export function LandingPageClient() {
           note: txt(
             "⚠️ Hati-hati: Di tahun pertama nol, tapi mulai tahun ke-2 otomatis memotong gaji!",
             "⚠️ Watch out: Zero in year 1, but automatically deducted starting from Year 2!",
+            "⚠️ Achtung: Im 1. Jahr steuerfrei, ab dem 2. Jahr greift der automatische Gehaltsabzug!",
             "⚠️ 1年目は非課税ですが、2年目から前年所得に基づき天引きが始まります！"
           ),
         },
@@ -206,6 +200,7 @@ export function LandingPageClient() {
           note: txt(
             "Jika tidak tinggal di asrama pabrik, sewa apato mandiri memerlukan modal awal cukup besar.",
             "If renting independently outside factory dorms, upfront key money is required.",
+            "Außerhalb von Firmenwohnheimen fallen für private Wohnungen erhebliche Vorabkosten an (Kaution & Schlüsselgeld).",
             "一般アパートを借りる場合の敷金・礼金。"
           ),
         },
@@ -215,6 +210,7 @@ export function LandingPageClient() {
           note: txt(
             "Tagihan gas & listrik di bulan Desember-Februari biasanya naik 2x lipat dari musim panas.",
             "Winter heating gas bills can double during freezing months (Dec-Feb).",
+            "Heiz- und Stromkosten verdoppeln sich in den Wintermonaten (Dezember–Februar) im Vergleich zum Sommer.",
             "冬季（12月〜2月）の暖房・ガス代は夏季の約2倍に跳ね上がります。"
           ),
         },
@@ -295,11 +291,12 @@ export function LandingPageClient() {
                     {txt(
                       "Berapa Sisa Uang Bersihmu di ",
                       "What Is Your Real Take-Home in ",
+                      "Wie viel Netto bleibt dir in ",
                       "海外生活での実質手取り・貯蓄力 "
                     )}
                   </span>
                   <span className="text-gradient-brand">
-                    {txt("Jerman & Jepang?", "Germany & Japan?", "精密シミュレーター")}
+                    {txt("Jerman & Jepang?", "Germany & Japan?", "Deutschland & Japan?", "精密シミュレーター")}
                   </span>
                 </h1>
 
@@ -308,6 +305,7 @@ export function LandingPageClient() {
                   {txt(
                     "Jangan terjebak ilusi kurs nominal! Hitung uang saku kotor ke gaji bersih masuk rekening (net take-home pay), biaya sewa kamar, dan sisa tabungan kirim ke kampung.",
                     "Don't fall for exchange rate illusions. Calculate contract allowance to take-home pay, local room rent, and estimated remittance savings.",
+                    "Keine Wechselkurs-Illusionen: Berechnen Sie Ausbildungsvergütung/Bruttogehalt bis zum echten Nettoauszahlungsbetrag, Miete und Sparpotenzial.",
                     "名目為替の錯覚を防ぐ。額面給与から税金・社会保険料控除後の手取り額、家賃、生活費、本国送金可能額をリアルタイムに試算。"
                   )}
                 </p>
@@ -322,6 +320,7 @@ export function LandingPageClient() {
                       {txt(
                         "🚀 Hitung Anggaran Penuh (7 Langkah)",
                         "🚀 Open 7-Step Budget Planner",
+                        "🚀 7-Schritte Budgetplaner starten",
                         "🚀 7段階詳細プランナーを開く"
                       )}
                     </span>
@@ -337,6 +336,7 @@ export function LandingPageClient() {
                       {txt(
                         "Bandingkan Jalur Karir",
                         "Compare Career Pathways",
+                        "Karrierepfade vergleichen",
                         "キャリア経路を比較"
                       )}
                     </span>
@@ -347,18 +347,19 @@ export function LandingPageClient() {
                 <div className="flex flex-wrap gap-2.5 pt-2">
                   <FeatureBadge
                     icon="🔒"
-                    text={txt("100% Anonim", "100% Anonymous", "Keine Registrierung")}
+                    text={txt("100% Anonim", "100% Anonymous", "100% Anonym / Keine Registrierung", "100% 匿名（登録不要）")}
                   />
                   <FeatureBadge
                     icon="💰"
-                    text={txt("Gratis Selamanya", "Always Free", "Dauerhaft kostenlos")}
+                    text={txt("Gratis Selamanya", "Always Free", "Dauerhaft kostenlos", "完全無料")}
                   />
                   <FeatureBadge
                     icon="📊"
                     text={txt(
                       "Data Resmi 2026 (Destatis/e-Stat/BPS)",
                       "Official 2026 Stats Data",
-                      "Amtliche Statistik 2026"
+                      "Amtliche Statistik 2026",
+                      "公式政府統計 2026年基準"
                     )}
                   />
                 </div>
@@ -429,22 +430,22 @@ export function LandingPageClient() {
               <StatCard
                 emoji="🇩🇪"
                 value="8+ Kota"
-                label={txt("Jerman (Berlin, München, dll)", "German Cities", "ドイツの主要都市")}
+                label={txt("Jerman (Berlin, München, dll)", "German Cities", "Deutsche Städte (Berlin, München etc.)", "ドイツの主要都市")}
               />
               <StatCard
                 emoji="🇯🇵"
                 value="8+ Kota"
-                label={txt("Jepang (Tokyo, Osaka, dll)", "Japanese Cities", "日本の主要都市")}
+                label={txt("Jepang (Tokyo, Osaka, dll)", "Japanese Cities", "Japanische Städte (Tokio, Osaka etc.)", "日本の主要都市")}
               />
               <StatCard
                 emoji="💱"
                 value="Kurs Real-Time"
-                label={txt("EUR · JPY · IDR · USD", "Live Exchange Rates", "リアルタイム為替連動")}
+                label={txt("EUR · JPY · IDR · USD", "Live Exchange Rates", "Echtzeit-Wechselkurse (EUR · JPY · IDR · USD)", "リアルタイム為替連動")}
               />
               <StatCard
                 emoji="🛡️"
                 value="Pajak 2026"
-                label={txt("Steuerklasse & Shakai Hoken", "Official Tax Brackets", "最新税制・社会保険対応")}
+                label={txt("Steuerklasse & Shakai Hoken", "Official Tax Brackets", "Steuerklassen & Sozialversicherung 2026", "最新税制・社会保険対応")}
               />
             </div>
           </div>
@@ -459,24 +460,16 @@ export function LandingPageClient() {
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center space-y-3 max-w-2xl mx-auto">
               <span className="text-xs font-semibold text-[var(--accent)] uppercase tracking-widest font-mono">
-                {txt("FITUR UTAMA LENGKAP", "CORE FEATURE SUITE", "主要機能一覧")}
+                {txt("FITUR UTAMA LENGKAP", "CORE FEATURE SUITE", "HAUPTFUNKTIONEN", "主要機能一覧")}
               </span>
               <h2
                 id="features-headline"
                 className="text-2xl sm:text-4xl font-display font-bold text-[var(--text)]"
               >
-                {txt(
-                  "Pilih Simulator Sesuai Kebutuhanmu",
-                  "Choose Your Specific Calculator",
-                  "目的に合わせた精密シミュレーター"
-                )}
+                {txt("Pilih Simulator Sesuai Kebutuhanmu", "Choose Your Specific Calculator", "Passenden Rechner auswählen", "目的に合わせた精密シミュレーター")}
               </h2>
               <p className="text-sm text-[var(--muted)]">
-                {txt(
-                  "Tiap modul dirancang untuk menjawab keraguan spesifik sebelum menandatangani kontrak atau mengajukan visa.",
-                  "Each tool is designed to solve a specific financial dilemma before signing your contract or applying for a visa.",
-                  "渡航前の契約締結やビザ申請における不安を解消するためのツール群。"
-                )}
+                {txt("Tiap modul dirancang untuk menjawab keraguan spesifik sebelum menandatangani kontrak atau mengajukan visa.", "Each tool is designed to solve a specific financial dilemma before signing your contract or applying for a visa.", "Jedes Modul beantwortet gezielte finanzielle Fragen vor Vertragsunterzeichnung oder Visumantrag.", "渡航前の契約締結やビザ申請における不安を解消するためのツール群。")}
               </p>
             </div>
 
@@ -487,35 +480,23 @@ export function LandingPageClient() {
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">🌐</span>
                     <span className="badge-brand text-[10px]">
-                      {txt("Paling Dicari", "Most Popular", "一番人気")}
+                      {txt("Paling Dicari", "Most Popular", "Beliebtestes Tool", "一番人気")}
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
-                    {txt(
-                      "1. Berapa Gaji Setaraku?",
-                      "1. What Is My Equivalent Salary?",
-                      "1. 海外必要給与シミュレーター"
-                    )}
+                    {txt("1. Berapa Gaji Setaraku?", "1. What Is My Equivalent Salary?", "1. Welches Gehalt entspricht meinem Niveau?", "1. 海外必要給与シミュレーター")}
                   </h3>
                   <p className="text-xs font-semibold text-[var(--accent)] font-mono">
                     🥙 Döner · 🍜 Gyudon / Ramen · 🍛 Nasi Padang
                   </p>
                   <p className="text-xs text-[var(--muted)] leading-relaxed">
-                    {txt(
-                      "Berapa gaji kotor (gross) yang harus Anda dapatkan di Tokyo atau Berlin agar standar hidup dan daya beli Anda tetap sama dengan di Jakarta? Dilengkapi kalkulasi potongan pajak & asuransi sosial.",
-                      "Find out how much gross salary you need in Tokyo or Berlin to maintain the exact same lifestyle and purchasing power as in Jakarta.",
-                      "ジャカルタでの生活水準と購買力を東京やベルリンで維持するために必要な額面給与を精密算出。"
-                    )}
+                    {txt("Berapa gaji kotor (gross) yang harus Anda dapatkan di Tokyo atau Berlin agar standar hidup dan daya beli Anda tetap sama dengan di Jakarta? Dilengkapi kalkulasi potongan pajak & asuransi sosial.", "Find out how much gross salary you need in Tokyo or Berlin to maintain the exact same lifestyle and purchasing power as in Jakarta.", "Welches Bruttogehalt benötigen Sie in Tokio oder Berlin, um denselben Lebensstandard wie in Jakarta zu halten? Inklusive Steuern und Sozialabgaben.", "ジャカルタでの生活水準と購買力を東京やベルリンで維持するために必要な額面給与を精密算出。")}
                   </p>
                   <div className="pt-1">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[var(--surface-2)] text-[var(--accent)] border border-[var(--border)]">
                       <span>🎯</span>
                       <span>
-                        {txt(
-                          "Cocok untuk: Negosiasi tawaran kontrak kerja di luar negeri",
-                          "Best for: Overseas contract negotiation & salary offers",
-                          "海外就職・転職の給与交渉・査定に最適"
-                        )}
+                        {txt("Cocok untuk: Negosiasi tawaran kontrak kerja di luar negeri", "Best for: Overseas contract negotiation & salary offers", "Ideal für: Gehaltsverhandlungen bei Arbeitsverträgen im Ausland", "海外就職・転職の給与交渉・査定に最適")}
                       </span>
                     </span>
                   </div>
@@ -526,11 +507,7 @@ export function LandingPageClient() {
                     className="btn-primary w-full py-3 text-xs font-semibold flex items-center justify-center gap-2"
                   >
                     <span>
-                      {txt(
-                        "Hitung Gaji Setara Sekarang",
-                        "Calculate Equivalent Salary",
-                        "必要給与を計算する"
-                      )}
+                      {txt("Hitung Gaji Setara Sekarang", "Calculate Equivalent Salary", "Vergleichsgehalt berechnen", "必要給与を計算する")}
                     </span>
                     <span>→</span>
                   </Link>
@@ -543,35 +520,23 @@ export function LandingPageClient() {
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">🎓</span>
                     <span className="badge-accent text-[10px]">
-                      {txt("Side-by-Side", "Side-by-Side", "並列比較")}
+                      {txt("Side-by-Side", "Side-by-Side", "Direktvergleich", "並列比較")}
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-[var(--text)] group-hover:text-amber-500 transition-colors">
-                    {txt(
-                      "2. Magang & Fresh Grad",
-                      "2. Trainee & Fresh Grad Comparison",
-                      "2. 実習生・新卒キャリア比較"
-                    )}
+                    {txt("2. Magang & Fresh Grad", "2. Trainee & Fresh Grad Comparison", "2. Ausbildung & Berufseinsteiger", "2. 実習生・新卒キャリア比較")}
                   </h3>
                   <p className="text-xs font-semibold text-[var(--accent-warm)] font-mono">
                     Ausbildung 🇩🇪 · Kenshusei 🇯🇵 · Fresh Grad S1 🇮🇩
                   </p>
                   <p className="text-xs text-[var(--muted)] leading-relaxed">
-                    {txt(
-                      "Bandingkan uang saku Ausbildung di Jerman, gaji kenshusei di Jepang, dan pekerja pemula di Indonesia secara berdampingan. Lengkap dengan opsi input angka mandiri atau standar resmi kota.",
-                      "Compare vocational trainee allowances in Germany (Ausbildung), technical intern wages in Japan (Kenshusei), and entry-level salaries in Indonesia.",
-                      "ドイツのアウスビルドゥング、日本の技能実習、インドネシアの大卒初任給の生活費・手取りを2都市並列比較。"
-                    )}
+                    {txt("Bandingkan uang saku Ausbildung di Jerman, gaji kenshusei di Jepang, dan pekerja pemula di Indonesia secara berdampingan. Lengkap dengan opsi input angka mandiri atau standar resmi kota.", "Compare vocational trainee allowances in Germany (Ausbildung), technical intern wages in Japan (Kenshusei), and entry-level salaries in Indonesia.", "Vergleichen Sie Ausbildungsvergütung in Deutschland, Kenshusei-Gehalt in Japan und Einstiegsgehälter in Indonesien Seite an Seite mit echten Lebenshaltungskosten.", "ドイツのアウスビルドゥング、日本の技能実習、インドネシアの大卒初任給の生活費・手取りを2都市並列比較。")}
                   </p>
                   <div className="pt-1">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[var(--surface-2)] text-[var(--accent-warm)] border border-[var(--border)]">
                       <span>🎯</span>
                       <span>
-                        {txt(
-                          "Cocok untuk: Calon peserta Ausbildung, pemagang Kenshusei & Fresh Grad S1",
-                          "Best for: Ausbildung trainees, Kenshusei interns & Fresh Grads",
-                          "アウスビルドゥング志望者、技能実習生、新卒求職者向け"
-                        )}
+                        {txt("Cocok untuk: Calon peserta Ausbildung, pemagang Kenshusei & Fresh Grad S1", "Best for: Ausbildung trainees, Kenshusei interns & Fresh Grads", "Ideal für: Angehende Auszubildende, Kenshusei-Praktikanten und Absolventen", "アウスビルドゥング志望者、技能実習生、新卒求職者向け")}
                       </span>
                     </span>
                   </div>
@@ -582,11 +547,7 @@ export function LandingPageClient() {
                     className="btn-secondary w-full py-3 text-xs font-semibold flex items-center justify-center gap-2 hover:border-[var(--accent-warm)]"
                   >
                     <span>
-                      {txt(
-                        "Bandingkan Jalur Karir",
-                        "Compare Career Pathways",
-                        "キャリア経路を比較する"
-                      )}
+                      {txt("Bandingkan Jalur Karir", "Compare Career Pathways", "Karrierepfade vergleichen", "キャリア経路を比較する")}
                     </span>
                     <span>→</span>
                   </Link>
@@ -599,39 +560,23 @@ export function LandingPageClient() {
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">🧮</span>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-purple-500/15 text-purple-600 dark:text-purple-300 border border-purple-500/30">
-                      {txt("7 Langkah Mendalam", "Full 7-Step Planner", "7段階詳細プランナー")}
+                      {txt("7 Langkah Mendalam", "Full 7-Step Planner", "7-Schritte Detailanalyse", "7段階詳細プランナー")}
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-[var(--text)] group-hover:text-purple-500 transition-colors">
-                    {txt(
-                      "3. Kalkulator Anggaran Penuh",
-                      "3. Full 7-Step Budget Planner",
-                      "3. 完全渡航・生活費計算機"
-                    )}
+                    {txt("3. Kalkulator Anggaran Penuh", "3. Full 7-Step Budget Planner", "3. Vollständiger 7-Schritte Budgetplaner", "3. 完全渡航・生活費計算機")}
                   </h3>
                   <p className="text-xs font-semibold text-purple-500 font-mono">
-                    {txt(
-                      "Tiket · Visa · Deposit · Keranjang Belanja · Resiko",
-                      "Flights · Visa · Deposit · Basket · Financial Runway",
-                      "渡航費 · ビザ · 敷金 · 消費バスケット · リスク診断"
-                    )}
+                    {txt("Tiket · Visa · Deposit · Keranjang Belanja · Resiko", "Flights · Visa · Deposit · Basket · Financial Runway", "Flüge · Visum · Kaution · Warenkorb · Notgroschen", "渡航費 · ビザ · 敷金 · 消費バスケット · リスク診断")}
                   </p>
                   <p className="text-xs text-[var(--muted)] leading-relaxed">
-                    {txt(
-                      "Simulasi perencanaan kepindahan menyeluruh: hitung modal awal (tiket pesawat, visa, sewa awal), rincian belanja bulanan personal, dan diagnostik ketahanan finansial.",
-                      "Comprehensive relocation planner: calculate upfront costs (flights, visa, deposit), itemized grocery baskets, and financial runway diagnostics.",
-                      "初期費用（航空券、ビザ、敷金・礼金）、毎月の詳細な消費バスケット、生活防衛資金診断の包括計画。"
-                    )}
+                    {txt("Simulasi perencanaan kepindahan menyeluruh: hitung modal awal (tiket pesawat, visa, sewa awal), rincian belanja bulanan personal, dan diagnostik ketahanan finansial.", "Comprehensive relocation planner: calculate upfront costs (flights, visa, deposit), itemized grocery baskets, and financial runway diagnostics.", "Ganzheitlicher Umzugsplaner: Berechnen Sie Startkapital (Flüge, Visum, Kaution), monatliche Warenkörbe und finanzielle Notfallreserven.", "初期費用（航空券、ビザ、敷金・礼金）、毎月の詳細な消費バスケット、生活防衛資金診断の包括計画。")}
                   </p>
                   <div className="pt-1">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[var(--surface-2)] text-purple-600 dark:text-purple-300 border border-[var(--border)]">
                       <span>🎯</span>
                       <span>
-                        {txt(
-                          "Cocok untuk: Hitung modal awal pindah (tiket, visa, deposit sewa) & simulasi kas",
-                          "Best for: Upfront relocation capital (visa, flights, deposit) & cash flow",
-                          "渡航初期費用とキャッシュフロー予測に最適"
-                        )}
+                        {txt("Cocok untuk: Hitung modal awal pindah (tiket, visa, deposit sewa) & simulasi kas", "Best for: Upfront relocation capital (visa, flights, deposit) & cash flow", "Ideal für: Startkapitalplanung (Visum, Flüge, Kaution) & Cashflow-Sicherheit", "渡航初期費用とキャッシュフロー予測に最適")}
                       </span>
                     </span>
                   </div>
@@ -642,11 +587,7 @@ export function LandingPageClient() {
                     className="btn-secondary w-full py-3 text-xs font-semibold flex items-center justify-center gap-2 hover:border-purple-500"
                   >
                     <span>
-                      {txt(
-                        "Buka Kalkulator 7-Langkah",
-                        "Open 7-Step Calculator",
-                        "7段階計算機を開く"
-                      )}
+                      {txt("Buka Kalkulator 7-Langkah", "Open 7-Step Calculator", "7-Schritte-Rechner öffnen", "7段階計算機を開く")}
                     </span>
                     <span>→</span>
                   </Link>
@@ -659,35 +600,23 @@ export function LandingPageClient() {
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">📊</span>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 border border-cyan-500/30">
-                      {txt("Statistik Resmi", "Official Statistics", "公的政府統計基準")}
+                      {txt("Statistik Resmi", "Official Statistics", "Amtliche Statistik", "公的政府統計基準")}
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-[var(--text)] group-hover:text-cyan-500 transition-colors">
-                    {txt(
-                      "4. Posisi Persentil Gaji",
-                      "4. Income Percentile Radar",
-                      "4. 所得パーセンタイル診断"
-                    )}
+                    {txt("4. Posisi Persentil Gaji", "4. Income Percentile Radar", "4. Einkommens-Perzentil-Radar", "4. 所得パーセンタイル診断")}
                   </h3>
                   <p className="text-xs font-semibold text-cyan-600 dark:text-cyan-300 font-mono">
                     BPS Susenas · e-Stat MHLW · Destatis SOEP
                   </p>
                   <p className="text-xs text-[var(--muted)] leading-relaxed">
-                    {txt(
-                      "Cek posisi persentil gaji Anda di Indonesia (misal: Top 10% atau Median), serta bandingkan posisinya jika dikonversi secara nominal di Jerman dan Jepang.",
-                      "Evaluate your income percentile rank domestically (e.g. Top 10% or Median), and examine how that nominal amount ranks in Germany and Japan.",
-                      "国内所得順位（中央値や上位10%など）を診断し、為替換算した場合に現地でどのパーセンタイルに位置するかを検証。"
-                    )}
+                    {txt("Cek posisi persentil gaji Anda di Indonesia (misal: Top 10% atau Median), serta bandingkan posisinya jika dikonversi secara nominal di Jerman dan Jepang.", "Evaluate your income percentile rank domestically (e.g. Top 10% or Median), and examine how that nominal amount ranks in Germany and Japan.", "Ermitteln Sie Ihren Einkommensrang im Heimatland (z. B. Top 10 % oder Median) und vergleichen Sie Ihre Kaufkraft mit Deutschland und Japan.", "国内所得順位（中央値や上位10%など）を診断し、為替換算した場合に現地でどのパーセンタイルに位置するかを検証。")}
                   </p>
                   <div className="pt-1">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[var(--surface-2)] text-cyan-600 dark:text-cyan-300 border border-[var(--border)]">
                       <span>🎯</span>
                       <span>
-                        {txt(
-                          "Cocok untuk: Evaluasi peringkat pendapatan & hindari ilusi nilai tukar",
-                          "Best for: Income rank evaluation & avoiding exchange rate illusion",
-                          "所得順位の把握と名目為替の錯覚防止に最適"
-                        )}
+                        {txt("Cocok untuk: Evaluasi peringkat pendapatan & hindari ilusi nilai tukar", "Best for: Income rank evaluation & avoiding exchange rate illusion", "Ideal für: Realistische Gehaltseinstufung ohne Wechselkursillusion", "所得順位の把握と名目為替の錯覚防止に最適")}
                       </span>
                     </span>
                   </div>
@@ -698,11 +627,7 @@ export function LandingPageClient() {
                     className="btn-secondary w-full py-3 text-xs font-semibold flex items-center justify-center gap-2 hover:border-cyan-500"
                   >
                     <span>
-                      {txt(
-                        "Cek Persentil Gajiku",
-                        "Check My Percentile",
-                        "所得順位を診断する"
-                      )}
+                      {txt("Cek Persentil Gajiku", "Check My Percentile", "Mein Perzentil prüfen", "所得順位を診断する")}
                     </span>
                     <span>→</span>
                   </Link>
@@ -721,21 +646,13 @@ export function LandingPageClient() {
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center space-y-3 max-w-2xl mx-auto">
               <span className="text-xs font-semibold text-amber-500 uppercase tracking-widest font-mono">
-                {txt("⚠️ PERINGATAN PENTING", "⚠️ ESSENTIAL WATCH-OUTS", "⚠️ 渡航前の必須注意点")}
+                {txt("⚠️ PERINGATAN PENTING", "⚠️ ESSENTIAL WATCH-OUTS", "⚠️ WICHTIGE WARNHINWEISE", "⚠️ 渡航前の必須注意点")}
               </span>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
-                {txt(
-                  "Biaya Wajib & Tersembunyi yang Sering Lupa Dihitung",
-                  "Mandatory Hidden Costs Often Overlooked",
-                  "見落としがちな必須経費・初期費用"
-                )}
+                {txt("Biaya Wajib & Tersembunyi yang Sering Lupa Dihitung", "Mandatory Hidden Costs Often Overlooked", "Versteckte Pflichtabgaben, die oft vergessen werden", "見落としがちな必須経費・初期費用")}
               </h2>
               <p className="text-sm text-[var(--muted)]">
-                {txt(
-                  "Banyak agen LPK hanya memaparkan gaji kotor tanpa merinci potongan wajib ini. Catat dan masukkan dalam anggaran Anda!",
-                  "Many agencies only advertise gross salary without mentioning these non-negotiable costs. Factor them into your plan!",
-                  "募集要項の額面だけに惑わされず、法的に義務付けられている控除や初期費用を正しく把握しましょう。"
-                )}
+                {txt("Banyak agen LPK hanya memaparkan gaji kotor tanpa merinci potongan wajib ini. Catat dan masukkan dalam anggaran Anda!", "Many agencies only advertise gross salary without mentioning these non-negotiable costs. Factor them into your plan!", "Viele Vermittlungsagenturen werben nur mit dem Bruttogehalt ohne Pflichtabgaben zu erwähnen. Planen Sie diese fest ein!", "募集要項の額面だけに惑わされず、法的に義務付けられている控除や初期費用を正しく把握しましょう。")}
               </p>
             </div>
 
@@ -785,21 +702,13 @@ export function LandingPageClient() {
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="text-center space-y-3 max-w-xl mx-auto">
               <span className="text-xs font-semibold text-[var(--accent)] uppercase tracking-widest font-mono">
-                {txt("DAYA BELI NYATA", "REAL PURCHASING POWER", "実質購買力指標")}
+                {txt("DAYA BELI NYATA", "REAL PURCHASING POWER", "ECHTE KAUFKRAFT", "実質購買力指標")}
               </span>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
-                {txt(
-                  "Indeks Kenyang: 1 Jam Kerja Dapat Apa?",
-                  "Indeks Kenyang: What Does 1 Hour Buy?",
-                  "満腹指数（Indeks Kenyang）：1時間の労働で買えるもの"
-                )}
+                {txt("Indeks Kenyang: 1 Jam Kerja Dapat Apa?", "Indeks Kenyang: What Does 1 Hour Buy?", "Sättigungsindex: Was kauft 1 Arbeitsstunde?", "満腹指数（Indeks Kenyang）：1時間の労働で買えるもの")}
               </h2>
               <p className="text-sm text-[var(--muted)]">
-                {txt(
-                  "Membandingkan upah dengan harga makanan pokok setempat adalah cara termudah memahami standar hidup riil.",
-                  "Comparing hourly wages against staple meals is the most intuitive way to grasp actual quality of life.",
-                  "時給を現地の定番食料の価格と比較することで、生活の実質的な豊かさを直感的に把握できます。"
-                )}
+                {txt("Membandingkan upah dengan harga makanan pokok setempat adalah cara termudah memahami standar hidup riil.", "Comparing hourly wages against staple meals is the most intuitive way to grasp actual quality of life.", "Der Vergleich von Stundenlöhnen mit Grundnahrungsmitteln zeigt den echten Lebensstandard am verständlichsten.", "時給を現地の定番食料の価格と比較することで、生活の実質的な豊かさを直感的に把握できます。")}
               </p>
             </div>
 
@@ -861,21 +770,13 @@ export function LandingPageClient() {
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center space-y-3 max-w-xl mx-auto">
               <span className="text-xs font-semibold text-[var(--accent)] uppercase tracking-widest font-mono">
-                {txt("EDUKASI CALON PESERTA", "EXPAT DICTIONARY", "用語解説")}
+                {txt("EDUKASI CALON PESERTA", "EXPAT DICTIONARY", "EXPAT-LEXIKON", "用語解説")}
               </span>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
-                {txt(
-                  "Kamus Istilah Penting Anak Rantau",
-                  "Essential Expat Terminology",
-                  "渡航前に知っておくべき必須用語"
-                )}
+                {txt("Kamus Istilah Penting Anak Rantau", "Essential Expat Terminology", "Wichtige Fachbegriffe für Auslandsschaffende", "渡航前に知っておくべき必須用語")}
               </h2>
               <p className="text-sm text-[var(--muted)]">
-                {txt(
-                  "Pahami istilah-istilah di slip gaji dan kontrak agar tidak mudah dibodohi oknum agen nakal.",
-                  "Master the fine print on your payslip and contract so you never get taken advantage of.",
-                  "給与明細や雇用契約書に頻出する最重要用語を平易に解説。"
-                )}
+                {txt("Pahami istilah-istilah di slip gaji dan kontrak agar tidak mudah dibodohi oknum agen nakal.", "Master the fine print on your payslip and contract so you never get taken advantage of.", "Verstehen Sie die Klauseln in Gehaltsabrechnungen und Verträgen, um böse Überraschungen zu vermeiden.", "給与明細や雇用契約書に頻出する最重要用語を平易に解説。")}
               </p>
             </div>
 
@@ -912,14 +813,10 @@ export function LandingPageClient() {
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
-                {txt("Untuk Siapa Ini?", "Who Is This For?", "誰のためのサービスか？")}
+                {txt("Untuk Siapa Ini?", "Who Is This For?", "Für wen ist dieser Rechner?", "誰のためのサービスか？")}
               </h2>
               <p className="text-[var(--muted)] max-w-xl mx-auto text-sm">
-                {txt(
-                  "Dibuat khusus untuk mereka yang benar-benar butuh data jujur, bukan sekadar brosur agen.",
-                  "Built for people who need genuine numbers before making life-changing career moves.",
-                  "夢のパンフレットではなく、客観的で真実の数字を必要とする方のために。"
-                )}
+                {txt("Dibuat khusus untuk mereka yang benar-benar butuh data jujur, bukan sekadar brosur agen.", "Built for people who need genuine numbers before making life-changing career moves.", "Entwickelt für Menschen, die ehrliche Daten statt Werbebroschüren von Vermittlungsagenturen brauchen.", "夢のパンフレットではなく、客観的で真実の数字を必要とする方のために。")}
               </p>
             </div>
 
@@ -927,42 +824,18 @@ export function LandingPageClient() {
               {[
                 {
                   emoji: "🏭",
-                  title: txt(
-                    "Kenshusei / Ginou Jisshusei",
-                    "Kenshusei / Technical Intern",
-                    "技能実習生・特定技能"
-                  ),
-                  desc: txt(
-                    "Pahami perbedaan gaji kotor vs gaji bersih masuk rekening (net take-home), biaya asrama, dan sisa uang yang bisa dikirim ke orang tua di kampung.",
-                    "Understand gross salary vs net take-home pay, company dorm deductions, and actual remittance potential.",
-                    "額面給与と実際の手取り、寮費、手元に残る実質貯蓄額・本国送金可能額を明瞭に把握。"
-                  ),
+                  title: txt("Kenshusei / Ginou Jisshusei", "Kenshusei / Technical Intern", "Kenshusei / Technische Praktikanten (Japan)", "技能実習生・特定技能"),
+                  desc: txt("Pahami perbedaan gaji kotor vs gaji bersih masuk rekening (net take-home), biaya asrama, dan sisa uang yang bisa dikirim ke orang tua di kampung.", "Understand gross salary vs net take-home pay, company dorm deductions, and actual remittance potential.", "Verstehen Sie Bruttogehalt vs. Nettoauszahlung, Wohnheimabzüge und tatsächliches Spar- und Überweisungspotenzial nach Hause.", "額面給与と実際の手取り、寮費、手元に残る実質貯蓄額・本国送金可能額を明瞭に把握。"),
                 },
                 {
                   emoji: "🔧",
-                  title: txt(
-                    "Ausbildung (Vokasi Jerman)",
-                    "Ausbildung (German Vocational)",
-                    "アウスビルドゥング（独職業訓練）"
-                  ),
-                  desc: txt(
-                    "Berapa yang benar-benar tersisa dari uang saku €900 - €1.400 setelah asuransi kesehatan wajib dan sewa kamar WG? Kota mana yang ramah kantong?",
-                    "How much remains after mandatory public health insurance and WG rent? Which cities offer the best savings runway?",
-                    "月€900〜€1,400の手当から公的保険とWG家賃を引いた後の実質残高を試算。"
-                  ),
+                  title: txt("Ausbildung (Vokasi Jerman)", "Ausbildung (German Vocational)", "Duale Ausbildung in Deutschland", "アウスビルドゥング（独職業訓練）"),
+                  desc: txt("Berapa yang benar-benar tersisa dari uang saku €900 - €1.400 setelah asuransi kesehatan wajib dan sewa kamar WG? Kota mana yang ramah kantong?", "How much remains after mandatory public health insurance and WG rent? Which cities offer the best savings runway?", "Wie viel bleibt von der Vergütung (€900–€1.400) nach Krankenversicherung und WG-Miete wirklich übrig? Welche Städte sind am bezahlbarsten?", "月€900〜€1,400の手当から公的保険とWG家賃を引いた後の実質残高を試算。"),
                 },
                 {
                   emoji: "🎓",
-                  title: txt(
-                    "Mahasiswa & Fresh Graduate",
-                    "Students & Fresh Graduates",
-                    "留学生・新卒求職者"
-                  ),
-                  desc: txt(
-                    "Pertimbangkan kuliah S1/S2 atau karir pertama di luar negeri. Data statistik pemerintah riil, transparan, dan tanpa kepentingan sponsor agen.",
-                    "Compare study or entry-level job opportunities abroad with neutral, official government data.",
-                    "海外留学や初の海外就職。エージェントの宣伝に左右されない公的統計に基づく客観データ。"
-                  ),
+                  title: txt("Mahasiswa & Fresh Graduate", "Students & Fresh Graduates", "Studierende & Hochschulabsolventen", "留学生・新卒求職者"),
+                  desc: txt("Pertimbangkan kuliah S1/S2 atau karir pertama di luar negeri. Data statistik pemerintah riil, transparan, dan tanpa kepentingan sponsor agen.", "Compare study or entry-level job opportunities abroad with neutral, official government data.", "Planen Sie Studium oder den ersten Karriereschritt im Ausland mit neutralen, amtlichen Regierungsdaten ohne Agenturinteressen.", "海外留学や初の海外就職。エージェントの宣伝に左右されない公的統計に基づく客観データ。"),
                 },
               ].map((card) => (
                 <div key={card.title} className="tagung-card-hover p-6 space-y-3">

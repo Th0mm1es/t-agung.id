@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
 export function CommentsSection() {
   const { locale } = useI18n();
+  const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Check if Isso script is already loaded
@@ -17,13 +19,28 @@ export function CommentsSection() {
       script.src = "https://comments.t-agung.id/js/embed.min.js";
       script.setAttribute("data-isso", "https://comments.t-agung.id/");
       script.async = true;
+      script.onerror = () => setHasError(true);
       document.body.appendChild(script);
     } else {
       // Re-init if window.Isso is already present
       try {
         (window as any).Isso?.init();
-      } catch {}
+      } catch {
+        setHasError(true);
+      }
     }
+
+    // Gracefully detect if Isso was blocked by CORS or failed to mount within 3 seconds
+    const timer = setTimeout(() => {
+      const threadEl = document.getElementById("isso-thread");
+      if (threadEl && threadEl.children.length === 0) {
+        setHasError(true);
+      } else if (threadEl && threadEl.children.length > 0) {
+        setIsLoaded(true);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const txt = (idStr: string, enStr: string, deStr: string, jaStr: string) => {
@@ -121,6 +138,30 @@ export function CommentsSection() {
             background: "var(--surface)",
           }}
         >
+          {hasError && !isLoaded && (
+            <div className="p-4 mb-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs space-y-2">
+              <div className="flex items-center gap-2 font-semibold">
+                <span>⚙️</span>
+                <span>
+                  {txt(
+                    "Koneksi Server Komentar Sedang Disinkronkan",
+                    "Comments Service Syncing Cross-Origin Access",
+                    "Kommentardienst synchronisiert Cross-Origin-Zugriff",
+                    "コメントサーバーの接続許可を同期中"
+                  )}
+                </span>
+              </div>
+              <p className="text-amber-200/80 leading-relaxed">
+                {txt(
+                  "Layanan komentar mandiri (Isso) sedang memperbarui izin CORS untuk subdomain compare.t-agung.id. Anda tetap dapat mengirimkan koreksi data, saran, atau pertanyaan langsung ke Thomas Agung via LinkedIn di atas.",
+                  "The standalone comment service (Isso) is updating its CORS allowlist for compare.t-agung.id. In the meantime, you can reach Thomas Agung directly on LinkedIn above.",
+                  "Der Kommentardienst (Isso) aktualisiert derzeit seine CORS-Ursprünge für compare.t-agung.id. Sie können Thomas Agung direkt auf LinkedIn kontaktieren.",
+                  "コメントサーバー（Isso）のCORS設定を更新中です。お問い合わせやデータ修正のご提案は、上記のLinkedInより管理者までお気軽にご連絡ください。"
+                )}
+              </p>
+            </div>
+          )}
+
           <section id="isso-thread" className="tagung-comments-thread"></section>
           <noscript>
             <p className="text-xs text-[var(--muted)]">
