@@ -66,19 +66,29 @@ const PROFILE_CONFIGS: ProfileConfig[] = [
 
 export function Step5Lifestyle({ state, dispatch, onNext, onBack }: Step5Props) {
   const { locale } = useI18n();
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = state.country === "DE" ? "EUR" : "JPY";
-  const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
+  const currencyLocale = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
 
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="space-y-2">
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Profil Gaya Hidup", "Lifestyle Profile", "生活水準・ライフスタイル")}
         </h2>
-        <p className="text-white/50">
+        <p className="text-fg-muted">
           {txt(
             "Pilih baseline pengeluaran harianmu. Kamu bisa override detail di langkah selanjutnya.",
             "Choose your daily spending baseline. You can override details in the next step.",
@@ -109,21 +119,21 @@ export function Step5Lifestyle({ state, dispatch, onNext, onBack }: Step5Props) 
                 <div className="flex items-start gap-3">
                   <span className="text-2xl flex-shrink-0">{cfg.icon}</span>
                   <div>
-                    <div className="font-semibold text-white">
+                    <div className="font-semibold text-[var(--text)]">
                       {locale === "ja" ? cfg.labelJa : locale === "en" ? cfg.labelEn : cfg.labelId}
                     </div>
-                    <p className="text-sm text-white/50 mt-0.5 leading-relaxed">
+                    <p className="text-sm text-fg-muted mt-0.5 leading-relaxed">
                       {locale === "ja" ? cfg.descJa : locale === "en" ? cfg.descEn : cfg.descId}
                     </p>
 
                     {cfg.profile === "minimum_viable" && (
-                      <div className="mt-2 text-xs px-2 py-1 rounded" style={{ background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.3)", color: "#f87171" }}>
+                      <div className="mt-2 text-xs px-2 py-1 rounded" style={{ background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.3)", color: "#ef4444" }}>
                         ⚠️ {txt("Perencanaan dasar yang dibatasi, bukan rekomendasi kenyamanan", "Constrained planning baseline, not a comfort recommendation", "制約付きの最低限基準であり、快適な生活推奨値ではありません")}
                       </div>
                     )}
 
                     {/* Preview line items */}
-                    <div className="mt-3 grid grid-cols-2 gap-1 text-xs text-white/40">
+                    <div className="mt-3 grid grid-cols-2 gap-1 text-xs text-fg-soft">
                       {[
                         { label: txt("Makanan", "Food", "食費"), value: basket.monthlyFoodTotal },
                         { label: txt("Transport", "Transport", "交通費"), value: basket.monthlyTransportTotal },
@@ -140,14 +150,14 @@ export function Step5Lifestyle({ state, dispatch, onNext, onBack }: Step5Props) 
                 </div>
 
                 <div className="flex-shrink-0 text-right">
-                  <div className="text-xs text-white/40 mb-0.5">
+                  <div className="text-xs text-fg-soft mb-0.5">
                     {txt("Total bulanan", "Monthly total", "月間生活費合計")}
                   </div>
                   <div className="font-bold text-lg" style={{ color: cfg.color }}>
                     {formatCurrency(total, currency, currencyLocale)}
                   </div>
                   {isSelected && (
-                    <div className="mt-1 w-6 h-6 rounded-full flex items-center justify-center text-xs text-white ml-auto" style={{ background: cfg.color }}>
+                    <div className="mt-1 w-6 h-6 rounded-full flex items-center justify-center text-xs text-[var(--text)] ml-auto" style={{ background: cfg.color }}>
                       ✓
                     </div>
                   )}

@@ -34,6 +34,8 @@ export interface WizardState {
   pathway: PathwayCode | null;
 
   // Step 3: Income
+  familyStatus: "single" | "married" | "married_children";
+  numChildren: number;
   grossMonthlyMinorUnits: bigint;
   ausbildungTrainingYear: TrainingYear;
   japaneseDeductions: JapaneseTraineeDeductions;
@@ -77,6 +79,8 @@ export const INITIAL_STATE: WizardState = {
   cityId: "",
   cityName: "Berlin",
   pathway: null,
+  familyStatus: "single",
+  numChildren: 0,
   grossMonthlyMinorUnits: 0n,
   ausbildungTrainingYear: 1,
   japaneseDeductions: DEFAULT_JP_DEDUCTIONS,
@@ -106,6 +110,7 @@ export type WizardAction =
   | { type: "SET_COUNTRY"; country: CountryCode; defaultDepositMonths: number; defaultKeyMoney: number }
   | { type: "SET_CITY"; cityId: string; cityName: string }
   | { type: "SET_PATHWAY"; pathway: PathwayCode }
+  | { type: "SET_FAMILY_STRUCTURE"; familyStatus: "single" | "married" | "married_children"; numChildren: number }
   | { type: "SET_GROSS"; amount: bigint }
   | { type: "SET_TRAINING_YEAR"; year: TrainingYear }
   | { type: "SET_JP_DEDUCTION"; field: keyof JapaneseTraineeDeductions; value: bigint }
@@ -123,6 +128,7 @@ export type WizardAction =
   | { type: "SET_SAVINGS"; amount: bigint }
   | { type: "SET_LIFESTYLE"; profile: LifestyleProfile }
   | { type: "SET_BASKET_OVERRIDE"; key: keyof BasketOverrides; unitCost?: bigint; frequency?: number }
+  | { type: "LOAD_PERSISTED_STATE"; payload: WizardState }
   | { type: "RESET" };
 
 // ─── Reducer ──────────────────────────────────────────────────────────────────
@@ -135,6 +141,8 @@ export function wizardReducer(state: WizardState, action: WizardAction): WizardS
       return { ...state, currentStep: Math.min(7, state.currentStep + 1) };
     case "PREV_STEP":
       return { ...state, currentStep: Math.max(1, state.currentStep - 1) };
+    case "SET_FAMILY_STRUCTURE":
+      return { ...state, familyStatus: action.familyStatus, numChildren: action.numChildren };
 
     case "SET_REF_LOCATION":
       return {
@@ -223,7 +231,31 @@ export function wizardReducer(state: WizardState, action: WizardAction): WizardS
     case "RESET":
       return INITIAL_STATE;
 
+    case "LOAD_PERSISTED_STATE":
+      return { ...action.payload };
+
     default:
       return state;
+  }
+}
+
+// ─── Persistence Helpers (bigint safe) ────────────────────────────────────────
+
+export function serializeWizardState(state: WizardState): string {
+  return JSON.stringify(state, (_key, value) =>
+    typeof value === "bigint" ? { __type: "bigint", val: value.toString() } : value
+  );
+}
+
+export function deserializeWizardState(json: string): WizardState | null {
+  try {
+    return JSON.parse(json, (_key, value) => {
+      if (value && typeof value === "object" && value.__type === "bigint") {
+        return BigInt(value.val);
+      }
+      return value;
+    });
+  } catch {
+    return null;
   }
 }

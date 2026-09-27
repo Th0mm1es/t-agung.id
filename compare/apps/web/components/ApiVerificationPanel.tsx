@@ -49,8 +49,8 @@ const COUNTRY_FLAGS: Record<string, string> = {
 
 function LoadingSpinner() {
   return (
-    <div className="flex items-center gap-2 text-brand-400">
-      <div className="w-4 h-4 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
+    <div className="flex items-center gap-2 text-[var(--accent)]">
+      <div className="w-4 h-4 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
       <span className="text-sm">Memuat...</span>
     </div>
   );
@@ -60,7 +60,7 @@ function StatusDot({ ok, warning }: { ok: boolean; warning?: boolean }) {
   return (
     <span
       className={`inline-block w-2 h-2 rounded-full ${
-        ok ? "bg-brand-400 animate-pulse" : warning ? "bg-amber-400" : "bg-red-400"
+        ok ? "bg-[var(--accent)] animate-pulse" : warning ? "bg-amber-400" : "bg-red-400"
       }`}
     />
   );
@@ -122,13 +122,13 @@ export function CountryCityPathwaySelector() {
       <div className="flex items-center justify-between">
         <h2
           id="api-verification-heading"
-          className="text-lg font-semibold text-white"
+          className="text-lg font-semibold text-[var(--text)]"
         >
           {locale === "id" ? "Verifikasi Koneksi Data" : "Live Data Verification"}
         </h2>
         <div className="flex items-center gap-2 text-sm">
           <StatusDot ok={isConnected} warning={isTableMissing} />
-          <span className={isConnected ? "text-brand-400" : isTableMissing ? "text-amber-400" : "text-red-400"}>
+          <span className={isConnected ? "text-[var(--accent)]" : isTableMissing ? "text-amber-400" : "text-red-400"}>
             {countriesLoading
               ? "Connecting..."
               : isConnected
@@ -146,7 +146,7 @@ export function CountryCityPathwaySelector() {
       <div className="space-y-2">
         <label
           htmlFor="country-select"
-          className="block text-sm font-medium text-white/70"
+          className="block text-sm font-medium text-fg-70"
         >
           {t("form.select_country")}
         </label>
@@ -169,7 +169,7 @@ export function CountryCityPathwaySelector() {
             {((countriesError as any)?.code === "PGRST205" ||
               (countriesError as any)?.message?.includes("schema cache") ||
               (countriesError as any)?.message?.includes("countries")) && (
-              <p className="text-xs text-white/70">
+              <p className="text-xs text-fg-70">
                 {locale === "id"
                   ? "Buka Supabase SQL Editor lalu jalankan file 'supabase/full_setup.sql'."
                   : "Open Supabase SQL Editor and run 'supabase/full_setup.sql'."}
@@ -194,7 +194,7 @@ export function CountryCityPathwaySelector() {
                 </option>
               ))}
             </select>
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-brand-400 text-xs">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--accent)] text-xs">
               ▾
             </div>
           </div>
@@ -205,7 +205,7 @@ export function CountryCityPathwaySelector() {
       <div className="space-y-2">
         <label
           htmlFor="city-select"
-          className="block text-sm font-medium text-white/70"
+          className="block text-sm font-medium text-fg-70"
         >
           {t("form.select_city")}
         </label>
@@ -234,7 +234,7 @@ export function CountryCityPathwaySelector() {
               </option>
             ))}
           </select>
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-brand-400 text-xs">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--accent)] text-xs">
             ▾
           </div>
         </div>
@@ -244,7 +244,7 @@ export function CountryCityPathwaySelector() {
       <div className="space-y-2">
         <label
           htmlFor="pathway-select"
-          className="block text-sm font-medium text-white/70"
+          className="block text-sm font-medium text-fg-70"
         >
           {t("form.select_pathway")}
         </label>
@@ -273,7 +273,7 @@ export function CountryCityPathwaySelector() {
               </option>
             ))}
           </select>
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-brand-400 text-xs">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--accent)] text-xs">
             ▾
           </div>
         </div>
@@ -288,32 +288,32 @@ export function CountryCityPathwaySelector() {
             border: "1px solid rgba(40, 144, 109, 0.2)",
           }}
         >
-          <p className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
+          <p className="text-xs font-semibold text-[var(--accent)] uppercase tracking-wider">
             {locale === "id" ? "Pilihan Saat Ini" : "Current Selection"}
           </p>
           <div className="grid grid-cols-3 gap-3 text-sm">
             <div>
-              <p className="text-white/50 text-xs">
+              <p className="text-fg-muted text-xs">
                 {locale === "id" ? "Negara" : "Country"}
               </p>
-              <p className="text-white font-medium">
+              <p className="text-[var(--text)] font-medium">
                 {COUNTRY_FLAGS[selectedCountry.code]}{" "}
                 {locale === "id" ? selectedCountry.name_id : selectedCountry.name_en}
               </p>
             </div>
             <div>
-              <p className="text-white/50 text-xs">
+              <p className="text-fg-muted text-xs">
                 {locale === "id" ? "Kota" : "City"}
               </p>
-              <p className="text-white font-medium">
+              <p className="text-[var(--text)] font-medium">
                 {selectedCity ? selectedCity.name : "—"}
               </p>
             </div>
             <div>
-              <p className="text-white/50 text-xs">
+              <p className="text-fg-muted text-xs">
                 {locale === "id" ? "Jalur" : "Pathway"}
               </p>
-              <p className="text-white font-medium text-xs">
+              <p className="text-[var(--text)] font-medium text-xs">
                 {selectedPathwayId
                   ? t(
                       pathways?.find((p) => p.id === selectedPathwayId)
@@ -327,7 +327,7 @@ export function CountryCityPathwaySelector() {
       )}
 
       {/* Data source note */}
-      <p className="text-xs text-white/30 text-center">
+      <p className="text-xs text-fg-soft text-center">
         {t("footer.data_source")}
       </p>
     </div>

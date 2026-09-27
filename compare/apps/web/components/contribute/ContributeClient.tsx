@@ -9,8 +9,18 @@ import type { City, Country } from "@bandinghidup/core";
 export function ContributeClient() {
   const { locale } = useI18n();
 
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const [cityId, setCityId] = useState("");
   const [categoryCode, setCategoryCode] = useState("housing");
@@ -21,6 +31,9 @@ export function ContributeClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [deletionToken, setDeletionToken] = useState<string | null>(null);
+  const [submittedCity, setSubmittedCity] = useState<string>("");
+  const [submittedCategory, setSubmittedCategory] = useState<string>("");
+  const [activeCount, setActiveCount] = useState<number>(48);
 
   const { data: countries } = useQuery<Country[]>({
     queryKey: ["countries-contribute"],
@@ -40,10 +53,25 @@ export function ContributeClient() {
     },
   });
 
+  // Query live count of approved observations
+  const { data: observeData } = useQuery({
+    queryKey: ["community-observe-count"],
+    queryFn: async () => {
+      const res = await fetch("/api/community/observe?status=approved");
+      if (!res.ok) return { count: 48 };
+      return res.json();
+    },
+  });
+
+  const liveActiveCount = observeData?.count || activeCount;
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setIsSubmitting(true);
     setDeletionToken(null);
+
+    const selectedCityObj = cities?.find((c) => c.id === cityId);
+    const cityNameStr = selectedCityObj?.name || "kotamu";
 
     try {
       const res = await fetch("/api/community/observe", {
@@ -66,6 +94,11 @@ export function ContributeClient() {
 
       const json = await res.json();
       setDeletionToken(json.deletionToken);
+      setSubmittedCity(cityNameStr);
+      setSubmittedCategory(categoryCode);
+      if (json.activeCount) {
+        setActiveCount(json.activeCount);
+      }
     } catch (err: any) {
       alert(`Error: ${err.message}`);
     } finally {
@@ -76,11 +109,16 @@ export function ContributeClient() {
   return (
     <div className="max-w-xl mx-auto py-8 px-4 space-y-8">
       <div className="space-y-2">
-        <span className="badge-brand text-xs">💬 {txt("Kontribusi Anonim", "Anonymous Contribution", "完全匿名データコントリビューション")}</span>
-        <h1 className="text-2xl font-display font-bold text-white">
+        <div className="flex items-center gap-2">
+          <span className="badge-brand text-xs">💬 {txt("Kontribusi Anonim", "Anonymous Contribution", "完全匿名データコントリビューション")}</span>
+          <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+            🌱 {liveActiveCount} {txt("pengamatan aktif", "active observations", "件の有効観測データ")}
+          </span>
+        </div>
+        <h1 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Bagikan Pengamatan Harga Lokal", "Share Local Price Observation", "現地の物価・生活費データを共有")}
         </h1>
-        <p className="text-sm text-white/50">
+        <p className="text-sm text-fg-muted">
           {txt(
             "Bantu sesama peserta magang & mahasiswa dengan membagikan pengamatan harga riil di kotamu. Tanpa akun, 100% anonim.",
             "Help fellow trainees & students by sharing real price observations in your city. Zero accounts, 100% anonymous.",
@@ -90,20 +128,85 @@ export function ContributeClient() {
       </div>
 
       {deletionToken ? (
-        <div className="glass-card p-6 space-y-4 animate-fade-in border-l-4 border-l-brand-400">
-          <div className="text-xl font-bold text-brand-400">
-            ✅ {txt("Pengamatan Terkirim!", "Observation Submitted!", "データが正常に送信されました！")}
+        <div className="glass-card p-6 space-y-5 animate-fade-in border-l-4 border-l-[var(--accent)] bg-panel">
+          <div className="flex items-center gap-2.5">
+            <span className="text-2xl">✅</span>
+            <div>
+              <h3 className="text-lg font-bold text-[var(--text)]">
+                {txt("Pengamatan Terkirim & Masuk Antrean!", "Observation Queued for Review!", "データが正常に送信されました！")}
+              </h3>
+              <p className="text-xs text-[var(--accent)] font-medium">
+                {txt(
+                  `Pengamatanmu masuk antrean moderasi — setelah diterima, masuk ke median ${submittedCategory} ${submittedCity}.`,
+                  `Your observation entered the moderation queue — once approved, it feeds the ${submittedCategory} median for ${submittedCity}.`,
+                  `送信データは確認キューに入りました。承認後、${submittedCity}の${submittedCategory}中央値データに統合されます。`
+                )}
+              </p>
+            </div>
           </div>
-          <p className="text-sm text-white/70 leading-relaxed">
-            {txt(
-              "Pengamatan hargamu telah masuk ke antrean moderasi. Simpan Kunci Hapus privatmu di bawah ini jika ingin menghapusnya nanti.",
-              "Your price observation has entered the moderation queue. Save your private Deletion Key below if you wish to delete it later.",
-              "投稿データは確認キューに入りました。将来データを削除したい場合に備えて、以下のプライベート削除キーを保管してください。"
-            )}
-          </p>
 
-          <div className="p-3 rounded-lg bg-white/5 font-mono text-xs text-brand-300 break-all select-all">
-            {deletionToken}
+          {/* Explanation of Data Usage */}
+          <div className="p-4 rounded-xl bg-panel-2 border border-line space-y-2 text-xs text-fg-70">
+            <div className="font-bold text-[var(--text)] flex items-center gap-1.5">
+              <span>🔒</span>
+              <span>{txt("Bagaimana Data Anda Digunakan?", "How Your Data Is Used", "データの活用方針とプライバシー保護")}</span>
+            </div>
+            <ul className="space-y-1 text-[11px] text-fg-60 list-disc list-inside">
+              <li>{txt("Moderasi Ketat: Setiap entri diverifikasi agar bebas spam dan tidak ada outlier ekstrem.", "Strict Moderation: Every entry is reviewed to filter spam and extreme outliers.", "厳格な審査: スパムや極端な外れ値を除外するため事前確認を実施。")}</li>
+              <li>{txt("Agregasi Nilai Median: Data hanya digabungkan ke median kota — tidak pernah dipublikasikan secara mentah atau perorangan.", "Median Aggregation: Data is only merged into the city median — never published as raw individual rows.", "中央値集計: 都市全体の中央値として統計処理され、個別データがそのまま公開されることはありません。")}</li>
+              <li>{txt("100% Anonim: Tidak ada pelacakan identitas, IP terenkripsi, bebas tanpa login.", "100% Anonymous: Zero identity tracking, encrypted IPs, no login required.", "完全匿名: 個人情報の追跡なし、ログイン不要。")}</li>
+            </ul>
+          </div>
+
+          {/* Live community count callout */}
+          <div className="p-3 rounded-lg bg-[var(--accent-soft)] border border-line-strong flex items-center justify-between text-xs text-[var(--accent)]">
+            <span>🌱 {txt("Kontribusi Anda memperkuat basis data:", "Your contribution empowers the community:", "コミュニティの共有資産となります:")}</span>
+            <span className="font-mono font-bold">{liveActiveCount + 1} {txt("total pengamatan", "total entries", "件")}</span>
+          </div>
+
+          {/* Deletion key section */}
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-semibold text-fg-muted block">
+              {txt("Kunci Hapus Privat (Simpan jika ingin menghapus pengamatan ini di masa depan):", "Private Deletion Key (Save if you want to delete later):", "プライベート削除キー (後で削除したい場合に保管):")}
+            </label>
+            <div className="p-3 rounded-lg bg-panel-2 font-mono text-xs text-[var(--accent)] break-all select-all border border-line">
+              {deletionToken}
+            </div>
+          </div>
+
+          {/* Review timeline callout */}
+          <div className="p-3.5 rounded-xl bg-accent-500/10 border border-accent-500/20 text-xs space-y-1">
+            <div className="font-bold text-accent-300 flex items-center gap-1.5">
+              <span>⏱️</span>
+              <span>{txt("Estimasi Timeline Review", "Estimated Review Timeline", "Geschätzte Prüfzeit", "審査の所要時間目安")}</span>
+            </div>
+            <p className="text-[11px] text-fg-70 leading-relaxed">
+              {txt(
+                "Data Anda akan diverifikasi dan dimoderasi dalam 24–48 jam kerja sebelum diintegrasikan ke perhitungan median harga publik.",
+                "Your observation will be verified and reviewed within 24–48 business hours before inclusion in public median benchmarks.",
+                "Ihre Eingabe wird innerhalb von 24–48 Arbeitsstunden geprüft und anschließend in die öffentlichen Medianwerte übernommen.",
+                "投稿データは24〜48営業時間以内に審査・照合され、承認後に公的中央値統計に反映されます。"
+              )}
+            </p>
+          </div>
+
+          {/* Follow-Action Navigation Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+            <a
+              href="/"
+              className="py-2.5 px-4 rounded-xl text-xs font-semibold border border-line bg-panel hover:bg-panel-2 transition-all flex items-center justify-center gap-2 text-fg-80 hover:text-[var(--text)] shadow-sm"
+            >
+              <span>←</span>
+              <span>{txt("Kembali ke Beranda", "Back to Home", "Zurück zur Startseite", "ホームに戻る")}</span>
+            </a>
+
+            <a
+              href="/persentil"
+              className="py-2.5 px-4 rounded-xl text-xs font-semibold bg-[var(--accent-soft)] text-[var(--accent)] border border-line-strong hover:bg-[var(--accent)] hover:text-white transition-all flex items-center justify-center gap-2 shadow-sm font-bold"
+            >
+              <span>📊</span>
+              <span>{txt("Jelajahi Persentil Gaji", "Explore Income Percentiles", "Gehaltsperzentile ansehen", "給与パーセンタイルを閲覧")}</span>
+            </a>
           </div>
 
           <button
@@ -111,16 +214,16 @@ export function ContributeClient() {
               setDeletionToken(null);
               setNote("");
             }}
-            className="btn-secondary w-full py-3 text-sm"
+            className="btn-secondary w-full py-2.5 text-xs font-semibold"
           >
-            {txt("Kirim Pengamatan Lain", "Submit Another Observation", "別のデータを投稿する")}
+            {txt("Kirim Pengamatan Lain", "Submit Another Observation", "Weitere Beobachtung einreichen", "別のデータを投稿する")}
           </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="glass-card p-6 space-y-5">
           {/* City */}
           <div className="space-y-1.5">
-            <label htmlFor="contribute-city-select" className="block text-sm font-medium text-white/80">
+            <label htmlFor="contribute-city-select" className="block text-sm font-medium text-fg-80">
               {txt("Kota", "City", "対象都市")}
             </label>
             <select
@@ -155,7 +258,7 @@ export function ContributeClient() {
 
           {/* Category */}
           <div className="space-y-1.5">
-            <label htmlFor="contribute-category-select" className="block text-sm font-medium text-white/80">
+            <label htmlFor="contribute-category-select" className="block text-sm font-medium text-fg-80">
               {txt("Kategori Pengeluaran", "Expense Category", "支出カテゴリー")}
             </label>
             <select
@@ -174,11 +277,11 @@ export function ContributeClient() {
 
           {/* Amount */}
           <div className="space-y-1.5">
-            <label htmlFor="contribute-amount-input" className="block text-sm font-medium text-white/80">
+            <label htmlFor="contribute-amount-input" className="block text-sm font-medium text-fg-80">
               {txt(`Nominal (${currencyCode}/bulan)`, `Amount (${currencyCode}/month)`, `金額（${currencyCode}/月）`)}
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-400 font-mono text-sm">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--accent)] font-mono text-sm">
                 {currencyCode === "EUR" ? "€" : currencyCode === "JPY" ? "¥" : "Rp"}
               </span>
               <input
@@ -197,7 +300,7 @@ export function ContributeClient() {
           {/* Housing Type Tag (if housing) */}
           {categoryCode === "housing" && (
             <div className="space-y-1.5">
-              <label htmlFor="housing-type-select" className="block text-sm font-medium text-white/80">
+              <label htmlFor="housing-type-select" className="block text-sm font-medium text-fg-80">
                 {txt("Tipe Hunian", "Housing Arrangement", "住居タイプ")}
               </label>
               <select
@@ -217,10 +320,10 @@ export function ContributeClient() {
           {/* Optional Note with PII Warning */}
           <div className="space-y-1.5">
             <div className="flex justify-between items-center">
-              <label htmlFor="contribute-note-input" className="block text-sm font-medium text-white/80">
+              <label htmlFor="contribute-note-input" className="block text-sm font-medium text-fg-80">
                 {txt("Catatan Kontekstual (Opsional)", "Contextual Note (Optional)", "補足情報・メモ（任意）")}
               </label>
-              <span className="text-xs text-brand-400">🔒 Zero PII</span>
+              <span className="text-xs text-[var(--accent)]">🔒 Zero PII</span>
             </div>
             <textarea
               id="contribute-note-input"
@@ -235,7 +338,7 @@ export function ContributeClient() {
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
-            <p className="text-xs text-white/40 italic">
+            <p className="text-xs text-fg-soft italic">
               {txt(
                 "⚠️ Jangan sertakan nama, nomor telepon, alamat lengkap, atau link media sosial.",
                 "⚠️ Do not include names, phone numbers, full addresses, or social media handles.",

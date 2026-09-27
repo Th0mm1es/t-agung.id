@@ -12,22 +12,28 @@
   --surface-2: #1b252b;
   --surface-3: #223038;
   --text: #e8f3f2;
+  --text-90: rgba(232, 243, 242, 0.90);
+  --text-80: rgba(232, 243, 242, 0.80);
+  --text-70: rgba(232, 243, 242, 0.70);
+  --text-60: rgba(232, 243, 242, 0.60);
+  --text-50: rgba(232, 243, 242, 0.50);
+  --text-40: rgba(232, 243, 242, 0.40);
   --muted: #9fb3b6;
   --soft: #7b9094;
   --border: rgba(99, 216, 212, 0.14);
-  --border-strong: rgba(99, 216, 212, 0.28);
+  --border-strong: #63d8d438;
   --accent: #2aa9a6;
   --accent-hover: #63d8d4;
   --accent-soft: rgba(42, 169, 166, 0.14);
-  --accent-warm: #ffa528;
+  --highlight: #e3b341;
   --header-bg: rgba(15, 20, 23, 0.90);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.5);
 
-  /* Radius tokens matching t-agung.id */
-  --radius-lg: 1.25rem;
-  --radius-md: 1rem;
-  --radius-sm: 0.75rem;
+  /* Radius tokens matching t-agung.id blog */
+  --radius-lg: 1.4rem;
+  --radius-md: 1.1rem;
+  --radius-sm: 0.85rem;
 }
 
 [data-theme="light"] {
@@ -39,14 +45,20 @@
   --surface-2: #e9f0ee;
   --surface-3: #dde7e4;
   --text: #1a2423;
+  --text-90: rgba(26, 36, 35, 0.90);
+  --text-80: rgba(26, 36, 35, 0.80);
+  --text-70: rgba(26, 36, 35, 0.70);
+  --text-60: rgba(26, 36, 35, 0.60);
+  --text-50: rgba(26, 36, 35, 0.50);
+  --text-40: rgba(26, 36, 35, 0.40);
   --muted: #4e6562;
   --soft: #6c8581;
   --border: rgba(42, 169, 166, 0.18);
-  --border-strong: rgba(42, 169, 166, 0.35);
+  --border-strong: #2aa9a647;
   --accent: #1e8280;
   --accent-hover: #2aa9a6;
   --accent-soft: rgba(30, 130, 128, 0.12);
-  --accent-warm: #d97706;
+  --highlight: #e3b341;
   --header-bg: rgba(244, 247, 246, 0.92);
   --shadow-card: 0 4px 18px rgba(26, 36, 35, 0.08);
   --shadow-hover: 0 8px 28px rgba(26, 36, 35, 0.14);
@@ -69,7 +81,7 @@ body {
   background-color: var(--bg);
   background-image: 
     radial-gradient(ellipse at 15% 15%, var(--accent-soft) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 85%, rgba(249, 134, 7, 0.05) 0%, transparent 60%);
+    radial-gradient(ellipse at 85% 85%, rgba(227, 179, 65, 0.05) 0%, transparent 60%);
   color: var(--text);
   min-height: 100vh;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -193,9 +205,9 @@ h1, h2, h3, h4, h5, h6 {
 
   .badge-accent {
     @apply badge;
-    background: rgba(249, 134, 7, 0.12);
-    border: 1px solid rgba(249, 134, 7, 0.3);
-    color: var(--accent-warm);
+    background: rgba(227, 179, 65, 0.14);
+    border: 1px solid rgba(227, 179, 65, 0.35);
+    color: var(--highlight);
   }
 
   /* Text Gradients */
@@ -207,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg, #ffbf4f 0%, #ffa528 50%, #f98607 100%);
+    background: linear-gradient(135deg, #e3b341 0%, #b98a1f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

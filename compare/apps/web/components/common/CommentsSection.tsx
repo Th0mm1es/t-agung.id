@@ -80,10 +80,10 @@ export function CommentsSection() {
 
           <p className="text-sm text-[var(--muted)] leading-relaxed">
             {txt(
-              "Punya masukan estimasi biaya, koreksi data gaji, atau pertanyaan seputar Ausbildung & Kenshusei? Tuliskan komentar Anda di bawah secara anonim atau hubungi admin langsung via LinkedIn:",
-              "Have feedback on living costs, salary adjustments, or questions about Ausbildung & Kenshusei? Post your comment below anonymously or connect with the admin via LinkedIn:",
-              "Haben Sie Feedback zu Lebenshaltungskosten, Gehaltskorrekturen oder Fragen? Hinterlassen Sie unten Ihren Kommentar oder kontaktieren Sie den Administrator direkt via LinkedIn:",
-              "生活費や給与データの補正、制度に関するご質問やご意見がございましたら、下記にコメントをご記入いただくか、LinkedInより管理者へご連絡ください:"
+              "Punya masukan estimasi biaya, koreksi data gaji, atau pertanyaan seputar Ausbildung & Kenshusei? Tuliskan komentar Anda di bawah atau hubungi saya langsung:",
+              "Have feedback on living costs, salary adjustments, or questions about Ausbildung & Kenshusei? Leave your comments below or contact me directly:",
+              "Haben Sie Feedback zu Lebenshaltungskosten, Gehaltskorrekturen oder Fragen? Hinterlassen Sie unten Ihren Kommentar oder kontaktieren Sie mich direkt:",
+              "生活費や給与データの補正、制度に関するご質問やご意見がございましたら、下記にコメントをご記入いただくか、私まで直接ご連絡ください:"
             )}
           </p>
 
@@ -116,7 +116,7 @@ export function CommentsSection() {
               href="https://www.linkedin.com/in/thomasagung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-[var(--text)] transition-transform hover:scale-[1.02]"
               style={{
                 background: "#0a66c2",
                 boxShadow: "0 2px 8px rgba(10, 102, 194, 0.3)",

@@ -96,3 +96,53 @@ export function calculateFamilyHousehold(input: FamilyScalingInput): FamilyScali
     familyGroceryMultiplier: groceryMultiplier,
   };
 }
+
+export function calculateChildBenefit(country: CountryCode, numChildren: number): {
+  monthlyBenefitMinorUnits: bigint;
+  monthlyBenefitMajor: number;
+  benefitNameId: string;
+  benefitNameEn: string;
+  benefitNameDe: string;
+  benefitNameJa: string;
+} {
+  if (numChildren <= 0) {
+    return {
+      monthlyBenefitMinorUnits: 0n,
+      monthlyBenefitMajor: 0,
+      benefitNameId: "-",
+      benefitNameEn: "-",
+      benefitNameDe: "-",
+      benefitNameJa: "-",
+    };
+  }
+  if (country === "DE") {
+    const minor = DE_KINDERGELD_PER_CHILD_CENTS * BigInt(numChildren);
+    return {
+      monthlyBenefitMinorUnits: minor,
+      monthlyBenefitMajor: 255 * numChildren,
+      benefitNameId: `Tunjangan Anak (Kindergeld: €${255 * numChildren}/bln)`,
+      benefitNameEn: `Child Benefit (Kindergeld: €${255 * numChildren}/mo)`,
+      benefitNameDe: `Kindergeld (€${255 * numChildren}/Monat)`,
+      benefitNameJa: `Kindergeld（ドイツ子供手当: €${255 * numChildren}/月）`,
+    };
+  }
+  if (country === "JP") {
+    const minor = 15000n * BigInt(numChildren);
+    return {
+      monthlyBenefitMinorUnits: minor,
+      monthlyBenefitMajor: 15000 * numChildren,
+      benefitNameId: `Tunjangan Anak Jepang (Kodomo Teate: ¥${(15000 * numChildren).toLocaleString()}/bln)`,
+      benefitNameEn: `Japan Child Allowance (Jido Teate: ¥${(15000 * numChildren).toLocaleString()}/mo)`,
+      benefitNameDe: `Kindergeld Japan (Jido Teate: ¥${(15000 * numChildren).toLocaleString()}/Monat)`,
+      benefitNameJa: `児童手当（¥${(15000 * numChildren).toLocaleString()}/月）`,
+    };
+  }
+  return {
+    monthlyBenefitMinorUnits: 0n,
+    monthlyBenefitMajor: 0,
+    benefitNameId: "-",
+    benefitNameEn: "-",
+    benefitNameDe: "-",
+    benefitNameJa: "-",
+  };
+}

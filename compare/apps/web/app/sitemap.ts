@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/wizard", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/gaji-setara", priority: 0.85, changeFrequency: "daily" as const },
     { path: "/persentil", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/metode", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/contribute", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 

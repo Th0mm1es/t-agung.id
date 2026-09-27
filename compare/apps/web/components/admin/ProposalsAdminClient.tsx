@@ -137,12 +137,12 @@ export function ProposalsAdminClient() {
         <div>
           <div className="flex items-center gap-2">
             <span className="badge-brand text-xs">🛡️ Data Governance</span>
-            <span className="text-xs text-white/40 font-mono">Stage 2 & Stage 3 Pipeline</span>
+            <span className="text-xs text-fg-soft font-mono">Stage 2 & Stage 3 Pipeline</span>
           </div>
-          <h1 className="text-2xl font-display font-bold text-white mt-1">
+          <h1 className="text-2xl font-display font-bold text-[var(--text)] mt-1">
             Admin Proposal & Community Portal
           </h1>
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-fg-muted">
             Review scraped data proposals and anonymous community price observations.
           </p>
         </div>
@@ -157,13 +157,13 @@ export function ProposalsAdminClient() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex border-b border-white/10 text-sm gap-6 flex-wrap">
+      <div className="flex border-b border-line text-sm gap-6 flex-wrap">
         <button
           onClick={() => setActiveTab("pending")}
           className={`pb-3 font-medium transition-all ${
             activeTab === "pending"
-              ? "border-b-2 border-brand-400 text-brand-400 font-bold"
-              : "text-white/50 hover:text-white"
+              ? "border-b-2 border-[var(--accent)] text-[var(--accent)] font-bold"
+              : "text-fg-muted hover:text-[var(--text)]"
           }`}
         >
           ⏳ Pending Proposals {proposals && activeTab === "pending" && `(${filteredProposals?.length ?? 0})`}
@@ -173,8 +173,8 @@ export function ProposalsAdminClient() {
           onClick={() => setActiveTab("community")}
           className={`pb-3 font-medium transition-all ${
             activeTab === "community"
-              ? "border-b-2 border-brand-400 text-brand-400 font-bold"
-              : "text-white/50 hover:text-white"
+              ? "border-b-2 border-[var(--accent)] text-[var(--accent)] font-bold"
+              : "text-fg-muted hover:text-[var(--text)]"
           }`}
         >
           💬 Community Moderation
@@ -184,8 +184,8 @@ export function ProposalsAdminClient() {
           onClick={() => setActiveTab("approved")}
           className={`pb-3 font-medium transition-all ${
             activeTab === "approved"
-              ? "border-b-2 border-brand-400 text-brand-400 font-bold"
-              : "text-white/50 hover:text-white"
+              ? "border-b-2 border-[var(--accent)] text-[var(--accent)] font-bold"
+              : "text-fg-muted hover:text-[var(--text)]"
           }`}
         >
           ✅ Approved History
@@ -195,8 +195,8 @@ export function ProposalsAdminClient() {
           onClick={() => setActiveTab("create")}
           className={`pb-3 font-medium transition-all ${
             activeTab === "create"
-              ? "border-b-2 border-brand-400 text-brand-400 font-bold"
-              : "text-white/50 hover:text-white"
+              ? "border-b-2 border-[var(--accent)] text-[var(--accent)] font-bold"
+              : "text-fg-muted hover:text-[var(--text)]"
           }`}
         >
           🧪 Proposal Creator
@@ -207,15 +207,15 @@ export function ProposalsAdminClient() {
       {activeTab !== "create" && (
         <div className="flex items-center justify-between text-sm">
           <div className="flex items-center gap-2">
-            <span className="text-white/50 text-xs">Filter Country:</span>
+            <span className="text-fg-muted text-xs">Filter Country:</span>
             {(["ALL", "DE", "JP", "ID"] as const).map((c) => (
               <button
                 key={c}
                 onClick={() => setFilterCountry(c)}
                 className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
                   filterCountry === c
-                    ? "bg-brand-500 text-white"
-                    : "bg-white/5 text-white/60 hover:text-white"
+                    ? "bg-[var(--accent)] text-white"
+                    : "bg-panel-2 text-fg-60 hover:text-[var(--text)]"
                 }`}
               >
                 {c === "DE" ? "🇩🇪 Germany" : c === "JP" ? "🇯🇵 Japan" : c === "ID" ? "🇮🇩 Indonesia" : "All Countries"}
@@ -223,7 +223,7 @@ export function ProposalsAdminClient() {
             ))}
           </div>
 
-          <span className="text-xs text-white/40">
+          <span className="text-xs text-fg-soft">
             Strict Proposal-Only Ingestion Active
           </span>
         </div>
@@ -233,7 +233,7 @@ export function ProposalsAdminClient() {
       {(activeTab === "pending" || activeTab === "approved") && (
         <div className="space-y-4">
           {proposalsLoading ? (
-            <div className="py-12 text-center text-white/50 text-sm">Loading proposals from staging table...</div>
+            <div className="py-12 text-center text-fg-muted text-sm">Loading proposals from staging table...</div>
           ) : filteredProposals && filteredProposals.length > 0 ? (
             filteredProposals.map((p) => {
               const delta = p.percentage_delta_vs_current;
@@ -242,23 +242,23 @@ export function ProposalsAdminClient() {
               return (
                 <div
                   key={p.id}
-                  className="glass-card p-5 space-y-4 transition-all hover:border-brand-500/40"
+                  className="glass-card p-5 space-y-4 transition-all hover:border-line-strong"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-bold text-white text-base">
+                        <span className="font-bold text-[var(--text)] text-base">
                           {p.cities?.name ?? "City"}
                         </span>
                         <span className="badge-brand text-xs uppercase">
                           {p.category_code}
                         </span>
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/60">
+                        <span className="text-xs px-2 py-0.5 rounded-full bg-panel-2 text-fg-60">
                           {p.data_sources?.name ?? "Source"} (Tier {p.data_sources?.source_tier ?? 1})
                         </span>
                       </div>
 
-                      <p className="text-xs text-white/40 mt-1">
+                      <p className="text-xs text-fg-soft mt-1">
                         Submitted: {new Date(p.created_at).toLocaleString()}
                       </p>
                     </div>
@@ -276,49 +276,49 @@ export function ProposalsAdminClient() {
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-3 rounded-xl bg-white/5 border border-white/5 text-sm">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-3 rounded-xl bg-panel-2 border border-line text-sm">
                     <div>
-                      <div className="text-xs text-white/50">Proposed Price</div>
+                      <div className="text-xs text-fg-muted">Proposed Price</div>
                       <div className="font-mono font-bold text-gradient-brand text-lg">
                         {formatCurrency(BigInt(p.proposed_value_minor_units), p.currency_code, locale === "id" ? "id-ID" : "en-US")}
                       </div>
                     </div>
 
                     <div>
-                      <div className="text-xs text-white/50">Percentage Delta</div>
+                      <div className="text-xs text-fg-muted">Percentage Delta</div>
                       <div className="font-mono font-semibold">
                         {delta !== null ? (
-                          <span className={isLargeDelta ? "text-amber-400 font-bold" : "text-white/80"}>
+                          <span className={isLargeDelta ? "text-amber-400 font-bold" : "text-fg-80"}>
                             {delta > 0 ? `+${delta}%` : `${delta}%`}
                           </span>
                         ) : (
-                          <span className="text-white/30">New Benchmark</span>
+                          <span className="text-fg-soft">New Benchmark</span>
                         )}
                       </div>
                     </div>
 
                     <div>
-                      <div className="text-xs text-white/50">Confidence Score</div>
-                      <div className="font-mono text-white/80 font-medium">
+                      <div className="text-xs text-fg-muted">Confidence Score</div>
+                      <div className="font-mono text-fg-80 font-medium">
                         {(p.confidence_score * 100).toFixed(0)}%
                       </div>
                     </div>
 
                     <div>
-                      <div className="text-xs text-white/50">Currency</div>
-                      <div className="font-mono text-white/80">{p.currency_code}</div>
+                      <div className="text-xs text-fg-muted">Currency</div>
+                      <div className="font-mono text-fg-80">{p.currency_code}</div>
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 text-xs text-white/70">
+                  <div className="space-y-1.5 text-xs text-fg-70">
                     <p className="leading-relaxed">
-                      <span className="font-semibold text-white/50">Rationale: </span>
+                      <span className="font-semibold text-fg-muted">Rationale: </span>
                       {p.rationale}
                     </p>
                   </div>
 
                   {p.status === "pending" && (
-                    <div className="flex gap-3 pt-2 border-t border-white/10">
+                    <div className="flex gap-3 pt-2 border-t border-line">
                       <button
                         onClick={() => actionMutation.mutate({ proposalId: p.id, action: "approve" })}
                         disabled={actionMutation.isPending}
@@ -341,7 +341,7 @@ export function ProposalsAdminClient() {
             })
           ) : (
             <div className="glass-card p-8 text-center space-y-3">
-              <p className="text-white/60 text-sm">
+              <p className="text-fg-60 text-sm">
                 No proposals found in the staging queue.
               </p>
               <button onClick={() => setActiveTab("create")} className="btn-secondary text-xs px-4 py-2">
@@ -356,37 +356,37 @@ export function ProposalsAdminClient() {
       {activeTab === "community" && (
         <div className="space-y-4">
           {observationsLoading ? (
-            <div className="py-12 text-center text-white/50 text-sm">Loading community submissions...</div>
+            <div className="py-12 text-center text-fg-muted text-sm">Loading community submissions...</div>
           ) : observations && observations.length > 0 ? (
             observations.map((obs) => (
-              <div key={obs.id} className="glass-card p-5 space-y-3 border-l-4 border-l-brand-400">
+              <div key={obs.id} className="glass-card p-5 space-y-3 border-l-4 border-l-[var(--accent)]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-white text-base">{obs.cities?.name}</span>
+                    <span className="font-bold text-[var(--text)] text-base">{obs.cities?.name}</span>
                     <span className="badge-brand text-xs uppercase">{obs.category_code}</span>
                     {obs.housing_type && (
-                      <span className="text-xs px-2 py-0.5 rounded bg-white/10 text-white/70">
+                      <span className="text-xs px-2 py-0.5 rounded bg-panel-2 text-fg-70">
                         {obs.housing_type}
                       </span>
                     )}
                   </div>
 
-                  <span className="text-xs text-white/40">
+                  <span className="text-xs text-fg-soft">
                     {new Date(obs.created_at).toLocaleString()}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-4 py-2 border-y border-white/5">
+                <div className="flex items-center gap-4 py-2 border-y border-line">
                   <div>
-                    <span className="text-xs text-white/50 block">Submitted Amount</span>
-                    <span className="font-mono text-xl font-bold text-brand-400">
+                    <span className="text-xs text-fg-muted block">Submitted Amount</span>
+                    <span className="font-mono text-xl font-bold text-[var(--accent)]">
                       {formatCurrency(BigInt(obs.amount_minor_units), obs.currency_code, locale === "id" ? "id-ID" : "en-US")}
                     </span>
                   </div>
 
                   {obs.note && (
-                    <div className="flex-1 pl-4 border-l border-white/10 text-xs text-white/70">
-                      <span className="text-white/40 block font-semibold">Sanitized Note:</span>
+                    <div className="flex-1 pl-4 border-l border-line text-xs text-fg-70">
+                      <span className="text-fg-soft block font-semibold">Sanitized Note:</span>
                       <p className="italic">{obs.note}</p>
                     </div>
                   )}
@@ -419,7 +419,7 @@ export function ProposalsAdminClient() {
             ))
           ) : (
             <div className="glass-card p-8 text-center space-y-3">
-              <p className="text-white/60 text-sm">No pending community observations requiring moderation.</p>
+              <p className="text-fg-60 text-sm">No pending community observations requiring moderation.</p>
               <a href="/contribute" className="btn-secondary text-xs px-4 py-2 inline-block">
                 Submit an Observation at /contribute →
               </a>
@@ -432,8 +432,8 @@ export function ProposalsAdminClient() {
       {activeTab === "create" && (
         <div className="glass-card p-6 space-y-6">
           <div>
-            <h2 className="text-lg font-bold text-white">Manual Test Proposal Creator</h2>
-            <p className="text-xs text-white/50 mt-0.5">
+            <h2 className="text-lg font-bold text-[var(--text)]">Manual Test Proposal Creator</h2>
+            <p className="text-xs text-fg-muted mt-0.5">
               Simulate a proposal submission from Hermes or Apify directly into the staging table.
             </p>
           </div>
@@ -447,7 +447,7 @@ export function ProposalsAdminClient() {
           <form onSubmit={handleCreateProposal} className="space-y-4 text-sm">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="block text-xs text-white/60">Target City</label>
+                <label className="block text-xs text-fg-60">Target City</label>
                 <select
                   required
                   className="form-select text-sm"
@@ -474,7 +474,7 @@ export function ProposalsAdminClient() {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs text-white/60">Category Code</label>
+                <label className="block text-xs text-fg-60">Category Code</label>
                 <select
                   className="form-select text-sm"
                   value={formCategory}
@@ -491,7 +491,7 @@ export function ProposalsAdminClient() {
 
             <div className="grid grid-cols-3 gap-4">
               <div className="space-y-1">
-                <label className="block text-xs text-white/60">Currency</label>
+                <label className="block text-xs text-fg-60">Currency</label>
                 <select
                   className="form-select text-sm"
                   value={formCurrency}
@@ -504,7 +504,7 @@ export function ProposalsAdminClient() {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs text-white/60">Proposed Amount (Major Units)</label>
+                <label className="block text-xs text-fg-60">Proposed Amount (Major Units)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -517,7 +517,7 @@ export function ProposalsAdminClient() {
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs text-white/60">Confidence Score (0-1)</label>
+                <label className="block text-xs text-fg-60">Confidence Score (0-1)</label>
                 <input
                   type="number"
                   step="0.05"
@@ -531,7 +531,7 @@ export function ProposalsAdminClient() {
             </div>
 
             <div className="space-y-1">
-              <label className="block text-xs text-white/60">Rationale</label>
+              <label className="block text-xs text-fg-60">Rationale</label>
               <textarea
                 required
                 rows={2}

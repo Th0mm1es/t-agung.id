@@ -67,6 +67,8 @@ export interface ScenarioInput {
   customDeductionRate?: number | undefined;
   /** If user enters net directly, skip calculation */
   manualNetMonthlyMinorUnits?: bigint | undefined;
+  familyStatus?: "single" | "married" | "married_children" | undefined;
+  numChildren?: number | undefined;
 
   // Step 4: Housing
   housingType: HousingType;

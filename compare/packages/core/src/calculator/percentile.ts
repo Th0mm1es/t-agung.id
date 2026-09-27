@@ -19,7 +19,7 @@ export interface IncomePercentileAnchor {
 
 /**
  * Standard calibrated percentile anchors for formal individual monthly gross income.
- * Updatable via Hermes cronjob into Supabase `income_percentiles`.
+ * Updatable via automated cronjob into Supabase `income_percentiles`.
  */
 export const DEFAULT_PERCENTILE_ANCHORS: Record<PercentileCountry, IncomePercentileAnchor[]> = {
   ID: [
@@ -61,6 +61,7 @@ export interface PercentileCalculationResult {
   description: {
     id: string;
     en: string;
+    de: string;
     ja: string;
   };
 }
@@ -126,9 +127,9 @@ export function calculateIncomePercentile(
   const topPercentage = 100 - percentile;
 
   const countryNames = {
-    ID: { id: "Indonesia", en: "Indonesia", ja: "インドネシア" },
-    JP: { id: "Jepang", en: "Japan", ja: "日本" },
-    DE: { id: "Jerman", en: "Germany", ja: "ドイツ" },
+    ID: { id: "Indonesia", en: "Indonesia", de: "Indonesien", ja: "インドネシア" },
+    JP: { id: "Jepang", en: "Japan", de: "Japan", ja: "日本" },
+    DE: { id: "Jerman", en: "Germany", de: "Deutschland", ja: "ドイツ" },
   };
 
   const cName = countryNames[country];
@@ -136,6 +137,7 @@ export function calculateIncomePercentile(
   const description = {
     id: `Penghasilan Anda berada di persentil ke-${percentile} (Top ${topPercentage}%) di ${cName.id}. Sekitar ${percentile}% pekerja memiliki pendapatan di bawah angka ini.`,
     en: `Your income ranks in the ${percentile}th percentile (Top ${topPercentage}%) in ${cName.en}. About ${percentile}% of workers earn less than this.`,
+    de: `Ihr Einkommen liegt im ${percentile}. Perzentil (Top ${topPercentage}%) in ${cName.de}. Rund ${percentile}% der Beschäftigten verdienen weniger als diesen Betrag.`,
     ja: `あなたの月収は${cName.ja}の所得上位${topPercentage}%（パーセンタイル第${percentile}位）に位置します。就業者の約${percentile}%がこの金額を下回っています。`,
   };
 

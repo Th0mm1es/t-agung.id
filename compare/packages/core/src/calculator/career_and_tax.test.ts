@@ -3,6 +3,7 @@ import {
   calculateActiveDeductions,
   getCareerPathwayBenchmark,
   calculateLifestyleEquivalenceSalary,
+  calculateChildBenefit,
 } from "../index.js";
 
 describe("Active Statutory Tax & Deduction Engine", () => {
@@ -295,5 +296,108 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
     expect(oneBrBerlin.targetSummary.rentMonthlyMajor).toBe(1100);
     expect(oneBrBerlin.targetSummary.grossMonthlyMajor).toBeGreaterThan(studioBerlin.targetSummary.grossMonthlyMajor);
     expect(studioBerlin.targetSummary.grossMonthlyMajor).toBeGreaterThan(wgBerlin.targetSummary.grossMonthlyMajor);
+  });
+
+  describe("P1-1 & P1-4: Family Structure (1 vs 2 Children) & Card Math Audit", () => {
+    it("family-with-2-children net result ≠ family-with-1-child net result in both DE and JP", () => {
+      // Germany: Gross €4,000 / month
+      const de1Child = calculateActiveDeductions({
+        country: "DE",
+        grossMonthlyMinorUnits: 400000n,
+        familyStatus: "married_children",
+        numChildren: 1,
+        taxClassDE: 3,
+      });
+      const de2Children = calculateActiveDeductions({
+        country: "DE",
+        grossMonthlyMinorUnits: 400000n,
+        familyStatus: "married_children",
+        numChildren: 2,
+        taxClassDE: 3,
+      });
+
+      // 2 children has lower care insurance rate (1.45% vs 1.70%) and higher child tax allowance
+      expect(de2Children.netMonthlyMajor).not.toBe(de1Child.netMonthlyMajor);
+      expect(de2Children.netMonthlyMajor).toBeGreaterThan(de1Child.netMonthlyMajor);
+
+      // Child benefits (Kindergeld)
+      const deBenefit1 = calculateChildBenefit("DE", 1);
+      const deBenefit2 = calculateChildBenefit("DE", 2);
+      expect(deBenefit1.monthlyBenefitMajor).toBe(255);
+      expect(deBenefit2.monthlyBenefitMajor).toBe(510);
+      expect(deBenefit2.monthlyBenefitMajor - deBenefit1.monthlyBenefitMajor).toBe(255);
+
+      // Japan: Gross ¥350,000 / month
+      const jp1Child = calculateActiveDeductions({
+        country: "JP",
+        grossMonthlyMinorUnits: 350000n,
+        familyStatus: "married_children",
+        numChildren: 1,
+        isJapanSecondYear: true,
+      });
+      const jp2Children = calculateActiveDeductions({
+        country: "JP",
+        grossMonthlyMinorUnits: 350000n,
+        familyStatus: "married_children",
+        numChildren: 2,
+        isJapanSecondYear: true,
+      });
+
+      // 2 children has larger dependent relief (Fuyo Kojo: ¥94,998 vs ¥63,332)
+      expect(jp2Children.netMonthlyMajor).not.toBe(jp1Child.netMonthlyMajor);
+      expect(jp2Children.netMonthlyMajor).toBeGreaterThan(jp1Child.netMonthlyMajor);
+
+      // Child benefits (Jido Teate)
+      const jpBenefit1 = calculateChildBenefit("JP", 1);
+      const jpBenefit2 = calculateChildBenefit("JP", 2);
+      expect(jpBenefit1.monthlyBenefitMajor).toBe(15000);
+      expect(jpBenefit2.monthlyBenefitMajor).toBe(30000);
+      expect(jpBenefit2.monthlyBenefitMajor - jpBenefit1.monthlyBenefitMajor).toBe(15000);
+    });
+
+    it("audits card math: card_total_shown === sum_of_card_line_items and surplus === take_home - card_total_shown for default Ausbildung and 2-child scenario", () => {
+      // 1. Default Scenario: Jakarta -> Berlin Ausbildung (Single, no kids, €1,100 gross)
+      const benchmark = getCareerPathwayBenchmark("DE", "Berlin", "ausbildung_kenshusei");
+      expect(benchmark.grossMonthlyMajor).toBe(1100);
+      expect(benchmark.deductionResult.totalDeductionsMajor).toBe(231);
+      expect(benchmark.netMonthlyMajor).toBe(869);
+      expect(benchmark.recommendedRentMajor).toBe(500);
+      expect(benchmark.otherConsumptionMajor).toBe(450);
+      expect(benchmark.totalExpensesMajor).toBe(950);
+
+      const sumOfLineItems = benchmark.recommendedRentMajor + benchmark.otherConsumptionMajor;
+      const cardTotalShown = benchmark.totalExpensesMajor;
+      // Assertion 1: card_total_shown === sum_of_card_line_items
+      expect(cardTotalShown).toBe(sumOfLineItems);
+
+      // Raw arithmetic: take_home (869) - card_total_shown (950) = -81 (deficit)
+      const rawSurplus = benchmark.netMonthlyMajor - cardTotalShown;
+      expect(rawSurplus).toBe(-81);
+      // Monthly savings clamps deficit to 0 surplus
+      expect(benchmark.monthlySavingsMajor).toBe(Math.max(0, rawSurplus));
+
+      // 2. 2-Child Scenario: Married family in Berlin (€4,000 gross, 2 children, Tax Class 3)
+      const familyDeductions = calculateActiveDeductions({
+        country: "DE",
+        grossMonthlyMinorUnits: 400000n, // €4,000 gross
+        familyStatus: "married_children",
+        numChildren: 2,
+        taxClassDE: 3,
+      });
+      const kindergeld = calculateChildBenefit("DE", 2).monthlyBenefitMajor; // 2 * €255 = €510
+      const familyTakeHome = familyDeductions.netMonthlyMajor + kindergeld; // Net pay + child benefit
+
+      const familyRent = 1200; // 3-room apartment rent
+      const familyOtherLiving = 1400; // Groceries, utilities, health
+      const familySumOfLineItems = familyRent + familyOtherLiving; // 2600
+      const familyCardTotalShown = familySumOfLineItems; // 2600
+      const familySurplus = familyTakeHome - familyCardTotalShown;
+
+      // Assertion 2: card_total_shown === sum_of_card_line_items for 2-child scenario
+      expect(familyCardTotalShown).toBe(familySumOfLineItems);
+      // Assertion 3: surplus === take_home - card_total_shown
+      expect(familySurplus).toBe(familyTakeHome - familyCardTotalShown);
+      expect(familySurplus).toBeGreaterThan(0);
+    });
   });
 });

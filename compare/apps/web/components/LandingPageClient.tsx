@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 import { useCurrency } from "@/lib/currencyContext";
 import { QuickHeroSimulator, type PathwayPreset } from "@/components/home/QuickHeroSimulator";
+import { SavedScenarios } from "@/components/home/SavedScenarios";
 import { CommentsSection } from "@/components/common/CommentsSection";
 
 // ─── Stat Card ────────────────────────────────────────────────────────────────
@@ -351,7 +352,12 @@ export function LandingPageClient() {
                   />
                   <FeatureBadge
                     icon="💰"
-                    text={txt("Gratis Selamanya", "Always Free", "Dauerhaft kostenlos", "完全無料")}
+                    text={txt(
+                      "Gratis untuk mendukung masa depan Anda",
+                      "Free — supporting your future",
+                      "Kostenlos — für Ihre Zukunft",
+                      "無料 — あなたの未来のために"
+                    )}
                   />
                   <FeatureBadge
                     icon="📊"
@@ -403,12 +409,13 @@ export function LandingPageClient() {
                 </noscript>
               </div>
 
-              {/* Right Column: Live Interactive Quick Simulator */}
-              <div className="lg:col-span-6 w-full">
+              {/* Right Column: Live Interactive Quick Simulator & Saved Scenarios */}
+              <div className="lg:col-span-6 w-full space-y-4">
                 <QuickHeroSimulator
                   selectedPathway={selectedPathway}
                   onPathwayChange={setSelectedPathway}
                 />
+                <SavedScenarios />
               </div>
             </div>
           </div>
@@ -496,7 +503,12 @@ export function LandingPageClient() {
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[var(--surface-2)] text-[var(--accent)] border border-[var(--border)]">
                       <span>🎯</span>
                       <span>
-                        {txt("Cocok untuk: Negosiasi tawaran kontrak kerja di luar negeri", "Best for: Overseas contract negotiation & salary offers", "Ideal für: Gehaltsverhandlungen bei Arbeitsverträgen im Ausland", "海外就職・転職の給与交渉・査定に最適")}
+                        {txt(
+                          "Cocok untuk: Negosiasi tawaran kontrak kerja di luar negeri dan melihat kesejahteraan Anda sekarang",
+                          "Best for: Negotiating overseas contract offers and assessing your current real living standard",
+                          "Ideal für: Gehaltsverhandlungen bei Arbeitsverträgen im Ausland und Einblick in Ihren aktuellen Lebensstandard",
+                          "海外就職・転職の給与交渉および現在の生活水準・実質購買力の把握に最適"
+                        )}
                       </span>
                     </span>
                   </div>

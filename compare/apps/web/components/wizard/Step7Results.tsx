@@ -6,6 +6,8 @@ import { useI18n } from "@/lib/i18n";
 import { formatCurrency } from "@bandinghidup/core";
 import { saveScenario } from "@/lib/storage/scenarioStore";
 import { PriceCorrectionModal } from "@/components/common/PriceCorrectionModal";
+import { ShareResultCardModal } from "@/components/common/ShareResultCardModal";
+import { SubscribeOptIn } from "@/components/common/SubscribeOptIn";
 import type { ScenarioResult, DiagnosticResult } from "@bandinghidup/core";
 
 interface Step7Props {
@@ -17,9 +19,9 @@ interface Step7Props {
 
 function DiagnosticCard({ diag }: { diag: DiagnosticResult }) {
   const colors = {
-    red:   { bg: "rgba(239, 68, 68, 0.08)",    border: "rgba(239, 68, 68, 0.3)",    text: "#f87171", dot: "🔴" },
-    amber: { bg: "rgba(249, 134, 7, 0.08)",    border: "rgba(249, 134, 7, 0.3)",    text: "#ffa528", dot: "🟡" },
-    green: { bg: "rgba(40, 144, 109, 0.08)",   border: "rgba(40, 144, 109, 0.3)",   text: "#4ade80", dot: "🟢" },
+    red:   { bg: "rgba(239, 68, 68, 0.08)",    border: "rgba(239, 68, 68, 0.3)",    text: "#ef4444", dot: "🔴" },
+    amber: { bg: "rgba(249, 134, 7, 0.08)",    border: "rgba(249, 134, 7, 0.3)",    text: "var(--highlight)", dot: "🟡" },
+    green: { bg: "var(--accent-soft)",   border: "var(--border-strong)",   text: "var(--accent)", dot: "🟢" },
   };
   const c = colors[diag.level];
 
@@ -29,8 +31,8 @@ function DiagnosticCard({ diag }: { diag: DiagnosticResult }) {
         <span className="text-sm">{c.dot}</span>
         <span className="font-semibold text-sm" style={{ color: c.text }}>{diag.title}</span>
       </div>
-      <p className="text-sm text-white/60 leading-relaxed">{diag.message}</p>
-      <p className="text-xs text-white/40 leading-relaxed">💡 {diag.suggestion}</p>
+      <p className="text-sm text-fg-60 leading-relaxed">{diag.message}</p>
+      <p className="text-xs text-fg-soft leading-relaxed">💡 {diag.suggestion}</p>
     </div>
   );
 }
@@ -45,12 +47,23 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
     categoryLabel: string;
     currentValueMajor: number;
   } | null>(null);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = result.input.country === "DE" ? "EUR" : "JPY";
-  const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
+  const currencyLocale = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
   const isPositive = result.monthlyBalance >= 0n;
 
   const refCurrency = referenceResult ? (referenceResult.input.country === "DE" ? "EUR" : referenceResult.input.country === "JP" ? "JPY" : "IDR") : "IDR";
@@ -113,16 +126,16 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
       <div className="space-y-1">
         <div className="flex items-center gap-2">
           <span className="badge-brand text-xs">⚖️ {txt("Perbandingan Anggaran Penuh", "Full Budget Simulation", "総合予算シミュレーション比較")}</span>
-          <span className="text-xs text-white/40 font-mono">{txt("Kota #1 sebagai Acuan", "City #1 as Baseline", "都市#1を基準都市として設定")}</span>
+          <span className="text-xs text-fg-soft font-mono">{txt("Kota #1 sebagai Acuan", "City #1 as Baseline", "都市#1を基準都市として設定")}</span>
         </div>
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Hasil Perhitungan & Estimasi Anggaran Penuh", "Full Budget Simulation Results", "総合予算シミュレーション結果")}
         </h2>
-        <p className="text-white/50 text-sm">
+        <p className="text-fg-muted text-sm">
           {referenceResult ? (
             <span>
               {txt("Perbandingan: ", "Comparison: ", "都市比較：")}
-              <strong className="text-brand-300">#1 {referenceResult.input.cityName} ({referenceResult.input.country})</strong> vs{" "}
+              <strong className="text-[var(--accent)]">#1 {referenceResult.input.cityName} ({referenceResult.input.country})</strong> vs{" "}
               <strong className="text-accent-300">#2 {result.input.cityName} ({result.input.country})</strong> • {currentPathwayName}
             </span>
           ) : (
@@ -133,9 +146,9 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
       {/* ── Dual-City Side-by-Side Comparison Card ─────────────────────── */}
       {referenceResult && (
-        <div className="glass-card p-5 space-y-4 border border-brand-500/30 bg-gradient-to-br from-brand-500/5 to-transparent">
+        <div className="glass-card p-5 space-y-4 border border-line-strong bg-gradient-to-br from-[var(--accent)]/5 to-transparent">
           <div className="flex items-center justify-between">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-400 flex items-center gap-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] flex items-center gap-2">
               <span>🏛️</span>
               <span>{txt("Ringkasan Perbandingan: Kota #1 (Acuan) vs Kota #2 (Tujuan)", "Comparison Summary: City #1 (Baseline) vs City #2 (Destination)", "比較サマリー：都市#1（基準）vs 都市#2（移住先）")}</span>
             </h3>
@@ -144,16 +157,16 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Column 1: Reference (#1) */}
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+            <div className="p-4 rounded-xl bg-panel-2 border border-line space-y-3">
               <div className="flex items-center justify-between">
                 <span className="badge-brand text-[10px] font-bold">{txt("#1 Kota Acuan", "#1 Baseline City", "#1 基準都市")}</span>
-                <span className="text-xs font-mono font-bold text-white">{referenceResult.input.cityName} ({referenceResult.input.country})</span>
+                <span className="text-xs font-mono font-bold text-[var(--text)]">{referenceResult.input.cityName} ({referenceResult.input.country})</span>
               </div>
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between items-center">
-                  <span className="text-white/60">{txt("Gaji Kotor Bulanan:", "Gross Monthly Salary:", "月額総支給（額面）:")}</span>
-                  <span className="font-mono text-white font-semibold whitespace-nowrap tabular-nums">
+                  <span className="text-fg-60">{txt("Gaji Kotor Bulanan:", "Gross Monthly Salary:", "月額総支給（額面）:")}</span>
+                  <span className="font-mono text-[var(--text)] font-semibold whitespace-nowrap tabular-nums">
                     {formatCurrency(referenceResult.income.grossMonthly, refCurrency, currencyLocale)}
                   </span>
                 </div>
@@ -163,26 +176,26 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     - {formatCurrency(referenceResult.income.totalDeductions, refCurrency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center font-bold text-brand-300">
+                <div className="flex justify-between items-center font-bold text-[var(--accent)]">
                   <span>{txt("Gaji Bersih (Net):", "Net Salary (Take-Home):", "手取り月給（Net）:")}</span>
                   <span className="font-mono whitespace-nowrap tabular-nums">
                     {formatCurrency(referenceResult.income.netMonthly, refCurrency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-white/70 pt-1 border-t border-white/5">
+                <div className="flex justify-between items-center text-fg-70 pt-1 border-t border-line">
                   <span>{txt("Sewa Tempat Tinggal:", "Housing Rent:", "家賃・住居費:")}</span>
                   <span className="font-mono whitespace-nowrap tabular-nums">
                     - {formatCurrency(referenceResult.monthlyExpenses.housingRent, refCurrency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-white/70">
+                <div className="flex justify-between items-center text-fg-70">
                   <span>{txt("Konsumsi & Makanan:", "Living & Food Costs:", "食費・生活消費支出:")}</span>
                   <span className="font-mono whitespace-nowrap tabular-nums">
                     - {formatCurrency(referenceResult.monthlyExpenses.food + referenceResult.monthlyExpenses.utilities + referenceResult.monthlyExpenses.transport, refCurrency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center pt-2 border-t border-white/10 font-bold text-sm">
-                  <span className="text-white/90">{txt("Sisa Tabungan Bulanan:", "Net Monthly Savings:", "月間手残り・貯蓄額:")}</span>
+                <div className="flex justify-between items-center pt-2 border-t border-line font-bold text-sm">
+                  <span className="text-fg-90">{txt("Sisa Tabungan Bulanan:", "Net Monthly Savings:", "月間手残り・貯蓄額:")}</span>
                   <span className={`font-mono whitespace-nowrap tabular-nums ${referenceResult.monthlyBalance >= 0n ? "text-emerald-400" : "text-red-400"}`}>
                     {referenceResult.monthlyBalance >= 0n ? "+" : "-"}
                     {formatCurrency(referenceResult.monthlyBalance < 0n ? referenceResult.monthlyBalance * -1n : referenceResult.monthlyBalance, refCurrency, currencyLocale)}
@@ -195,13 +208,13 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             <div className="p-4 rounded-xl bg-accent-500/10 border border-accent-500/30 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="badge-accent text-[10px] font-bold">{txt("#2 Kota Tujuan", "#2 Destination City", "#2 移住先都市")}</span>
-                <span className="text-xs font-mono font-bold text-white">{result.input.cityName} ({result.input.country})</span>
+                <span className="text-xs font-mono font-bold text-[var(--text)]">{result.input.cityName} ({result.input.country})</span>
               </div>
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between items-center">
-                  <span className="text-white/60">{txt("Gaji Kotor Bulanan:", "Gross Monthly Salary:", "月額総支給（額面）:")}</span>
-                  <span className="font-mono text-white font-semibold whitespace-nowrap tabular-nums">
+                  <span className="text-fg-60">{txt("Gaji Kotor Bulanan:", "Gross Monthly Salary:", "月額総支給（額面）:")}</span>
+                  <span className="font-mono text-[var(--text)] font-semibold whitespace-nowrap tabular-nums">
                     {formatCurrency(result.income.grossMonthly, currency, currencyLocale)}
                   </span>
                 </div>
@@ -217,20 +230,48 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     {formatCurrency(result.income.netMonthly, currency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-white/70 pt-1 border-t border-white/5">
+                <div className="flex justify-between items-center text-fg-70 pt-1 border-t border-line">
                   <span>{txt("Sewa Tempat Tinggal:", "Housing Rent:", "家賃・住居費:")}</span>
                   <span className="font-mono whitespace-nowrap tabular-nums">
                     - {formatCurrency(result.monthlyExpenses.housingRent, currency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-white/70">
+                <div className="flex justify-between items-center text-fg-70">
                   <span>{txt("Konsumsi & Makanan:", "Living & Food Costs:", "食費・生活消費支出:")}</span>
                   <span className="font-mono whitespace-nowrap tabular-nums">
                     - {formatCurrency(result.monthlyExpenses.food + result.monthlyExpenses.utilities + result.monthlyExpenses.transport, currency, currencyLocale)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center pt-2 border-t border-white/10 font-bold text-sm">
-                  <span className="text-white/90">{txt("Sisa Tabungan Bulanan:", "Net Monthly Savings:", "月間手残り・貯蓄額:")}</span>
+                {result.input.familyStatus === "married_children" && (result.input.numChildren ?? 0) > 0 && (
+                  <div className="flex justify-between items-center text-emerald-400 font-medium">
+                    <span>
+                      {result.input.country === "DE"
+                        ? txt(
+                            `Tunjangan Anak (Kindergeld ${result.input.numChildren}x €255):`,
+                            `Child Benefit (Kindergeld ${result.input.numChildren}x €255):`,
+                            `Kindergeld (${result.input.numChildren}x €255):`,
+                            `Kindergeld（ドイツ子供手当 ${result.input.numChildren}x €255）:`
+                          )
+                        : txt(
+                            `Tunjangan Anak Jepang (Jido Teate ${result.input.numChildren}x ¥15.000):`,
+                            `Child Allowance (Jido Teate ${result.input.numChildren}x ¥15,000):`,
+                            `Kindergeld Japan (Jido Teate ${result.input.numChildren}x ¥15.000):`,
+                            `児童手当（${result.input.numChildren}x ¥15,000）:`
+                          )}
+                    </span>
+                    <span className="font-mono whitespace-nowrap tabular-nums font-semibold">
+                      + {formatCurrency(
+                        result.input.country === "DE"
+                          ? BigInt((result.input.numChildren || 1) * 25500)
+                          : BigInt((result.input.numChildren || 1) * 15000),
+                        currency,
+                        currencyLocale
+                      )}
+                    </span>
+                  </div>
+                )}
+                <div className="flex justify-between items-center pt-2 border-t border-line font-bold text-sm">
+                  <span className="text-fg-90">{txt("Sisa Tabungan Bulanan:", "Net Monthly Savings:", "月間手残り・貯蓄額:")}</span>
                   <span className={`font-mono whitespace-nowrap tabular-nums ${result.monthlyBalance >= 0n ? "text-emerald-400" : "text-red-400"}`}>
                     {result.monthlyBalance >= 0n ? "+" : "-"}
                     {formatCurrency(result.monthlyBalance < 0n ? result.monthlyBalance * -1n : result.monthlyBalance, currency, currencyLocale)}
@@ -280,7 +321,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             </button>
           </div>
 
-          <p className="text-xs text-white/50">
+          <p className="text-xs text-fg-muted">
             {txt(
               `Standar perbandingan daya beli internasional (harga 1 Big Mac lokal: ${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}).`,
               `International purchasing power parity benchmark (local 1 Big Mac: ${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}).`,
@@ -289,30 +330,30 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-              <p className="text-xs text-white/40 mb-1">{txt("Sewa Bulanan", "Monthly Rent", "月額家賃")}</p>
+            <div className="p-3 rounded-xl bg-panel-2 border border-line">
+              <p className="text-xs text-fg-soft mb-1">{txt("Sewa Bulanan", "Monthly Rent", "月額家賃")}</p>
               <p className="text-lg font-bold font-mono text-amber-400">{result.bigMacIndex.rentInBigMacs}</p>
-              <p className="text-[10px] text-white/30">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
+              <p className="text-[10px] text-fg-soft">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-              <p className="text-xs text-white/40 mb-1">{txt("Gaji Bersih", "Net Salary", "手取り月給")}</p>
-              <p className="text-lg font-bold font-mono text-brand-400">{result.bigMacIndex.netSalaryInBigMacs}</p>
-              <p className="text-[10px] text-white/30">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
+            <div className="p-3 rounded-xl bg-panel-2 border border-line">
+              <p className="text-xs text-fg-soft mb-1">{txt("Gaji Bersih", "Net Salary", "手取り月給")}</p>
+              <p className="text-lg font-bold font-mono text-[var(--accent)]">{result.bigMacIndex.netSalaryInBigMacs}</p>
+              <p className="text-[10px] text-fg-soft">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-              <p className="text-xs text-white/40 mb-1">{txt("Sisa Tabungan", "Net Savings", "月間貯蓄額")}</p>
+            <div className="p-3 rounded-xl bg-panel-2 border border-line">
+              <p className="text-xs text-fg-soft mb-1">{txt("Sisa Tabungan", "Net Savings", "月間貯蓄額")}</p>
               <p className={`text-lg font-bold font-mono ${result.bigMacIndex.monthlySavingsInBigMacs >= 0 ? "text-emerald-400" : "text-red-400"}`}>
                 {result.bigMacIndex.monthlySavingsInBigMacs >= 0 ? "+" : ""}{result.bigMacIndex.monthlySavingsInBigMacs}
               </p>
-              <p className="text-[10px] text-white/30">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
+              <p className="text-[10px] text-fg-soft">{txt("porsi Big Mac", "Big Macs", "個分")}</p>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-              <p className="text-xs text-white/40 mb-1">{txt("Waktu Kerja / Burger", "Work Time / Burger", "労働時間 / バーガー1個")}</p>
+            <div className="p-3 rounded-xl bg-panel-2 border border-line">
+              <p className="text-xs text-fg-soft mb-1">{txt("Waktu Kerja / Burger", "Work Time / Burger", "労働時間 / バーガー1個")}</p>
               <p className="text-lg font-bold font-mono text-cyan-300">~{result.bigMacIndex.workMinutesPerBigMac}</p>
-              <p className="text-[10px] text-white/30">{txt("menit kerja", "working mins", "分間の労働")}</p>
+              <p className="text-[10px] text-fg-soft">{txt("menit kerja", "working mins", "分間の労働")}</p>
             </div>
           </div>
         </div>
@@ -320,7 +361,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
       {/* ── Monthly Cash Flow Card for Target ──────────────────────── */}
       <div className="glass-card p-5 space-y-4">
-        <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+        <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
           {txt(`💰 Rincian Arus Kas di ${result.input.cityName}`, `💰 Monthly Cash Flow in ${result.input.cityName}`, `💰 ${result.input.cityName} での月間キャッシュフロー明細`)}
         </h3>
 
@@ -329,7 +370,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             {
               label: txt("Gaji Kotor (Brutto / Gakumen)", "Gross Salary (Brutto)", "額面総支給（Gross）"),
               value: result.income.grossMonthly,
-              color: "text-white",
+              color: "text-[var(--text)]",
             },
             {
               label: txt(`Potongan Pajak & Asuransi (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `Tax & Social Deductions (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `税金・社会保険料控除 (${Math.round(result.income.effectiveDeductionRate * 100)}%)`),
@@ -339,11 +380,11 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             {
               label: txt("Gaji Bersih / Net Take-Home (Netto)", "Net Salary (Take-Home / Netto)", "手取り月給（Netto）"),
               value: result.income.netMonthly,
-              color: "text-brand-400 font-semibold",
+              color: "text-[var(--accent)] font-semibold",
             },
           ].map(({ label, value, color }) => (
             <div key={label} className="flex items-center justify-between py-1">
-              <span className="text-sm text-white/60">{label}</span>
+              <span className="text-sm text-fg-60">{label}</span>
               <span className={`text-sm font-mono ${color}`}>
                 {value < 0n
                   ? `- ${formatCurrency(value * -1n, currency, currencyLocale)}`
@@ -352,7 +393,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             </div>
           ))}
 
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-panel-2" />
 
           {[
             {
@@ -383,7 +424,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
           ].map(({ code, label, value }) => (
             <div key={label} className="flex items-center justify-between py-0.5 group">
               <div className="flex items-center gap-1.5">
-                <span className="text-sm text-white/50">{label}</span>
+                <span className="text-sm text-fg-muted">{label}</span>
                 <button
                   onClick={() =>
                     setActiveCorrection({
@@ -393,22 +434,22 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     })
                   }
                   title={txt("Koreksi harga ini", "Correct this price", "この価格を修正")}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity text-xs text-white/40 hover:text-brand-300"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity text-xs text-fg-soft hover:text-[var(--accent)]"
                 >
                   ✏️
                 </button>
               </div>
-              <span className="text-sm font-mono text-white/60">- {formatCurrency(value, currency, currencyLocale)}</span>
+              <span className="text-sm font-mono text-fg-60">- {formatCurrency(value, currency, currencyLocale)}</span>
             </div>
           ))}
 
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-panel-2" />
 
           <div className="flex items-center justify-between py-2">
-            <span className="font-semibold text-white">
+            <span className="font-semibold text-[var(--text)]">
               {txt("Sisa Uang Bulanan", "Monthly Balance", "月間余剰金・貯蓄可能額")}
             </span>
-            <span className={`text-xl font-bold font-mono ${isPositive ? "text-brand-400" : "text-red-400"}`}>
+            <span className={`text-xl font-bold font-mono ${isPositive ? "text-[var(--accent)]" : "text-red-400"}`}>
               {isPositive ? "+" : "- "}
               {formatCurrency(result.monthlyBalance < 0n ? result.monthlyBalance * -1n : result.monthlyBalance, currency, currencyLocale)}
             </span>
@@ -418,7 +459,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
       {/* ── Upfront Relocation Card ─────────────────────────────────── */}
       <div className="glass-card p-5 space-y-4">
-        <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+        <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
           {txt("📦 Biaya Awal / Pindah (Satu Kali)", "📦 Relocation Costs (One-Time)", "📦 初期費用・渡航移住コスト（一回限り）")}
         </h3>
 
@@ -448,15 +489,15 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             },
           ].map(({ label, value }) => (
             <div key={label} className="flex items-center justify-between">
-              <span className="text-white/50">{label}</span>
-              <span className="font-mono text-white/70">{formatCurrency(value, currency, currencyLocale)}</span>
+              <span className="text-fg-muted">{label}</span>
+              <span className="font-mono text-fg-70">{formatCurrency(value, currency, currencyLocale)}</span>
             </div>
           ))}
 
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-panel-2" />
 
           <div className="flex items-center justify-between py-1">
-            <span className="font-semibold text-white">{txt("Total Biaya Awal", "Total Upfront", "初期移住費用合計")}</span>
+            <span className="font-semibold text-[var(--text)]">{txt("Total Biaya Awal", "Total Upfront", "初期移住費用合計")}</span>
             <span className="text-lg font-bold font-mono text-accent-400">
               {formatCurrency(result.upfrontRelocationTotal, currency, currencyLocale)}
             </span>
@@ -464,10 +505,10 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
           {/* Advisor Runway & Capital Diagnostic */}
           {result.input.availableSavingsMinorUnits > 0n && (
-            <div className="pt-2 border-t border-white/10 space-y-2 text-xs">
+            <div className="pt-2 border-t border-line space-y-2 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-white/60">{txt("Modal Tabungan yang Dimiliki:", "Available Savings:", "保有自己資金・貯蓄:")}</span>
-                <span className="font-mono font-semibold text-white">
+                <span className="text-fg-60">{txt("Modal Tabungan yang Dimiliki:", "Available Savings:", "保有自己資金・貯蓄:")}</span>
+                <span className="font-mono font-semibold text-[var(--text)]">
                   {formatCurrency(result.input.availableSavingsMinorUnits, currency, currencyLocale)}
                 </span>
               </div>
@@ -477,7 +518,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     <span>⚠️</span>
                     <span>{txt("Defisit Modal Awal:", "Initial Capital Deficit:", "初期資金不足額:")} -{formatCurrency(result.upfrontRelocationTotal - result.input.availableSavingsMinorUnits, currency, currencyLocale)}</span>
                   </div>
-                  <p className="text-[11px] text-white/70">
+                  <p className="text-[11px] text-fg-70">
                     {txt(
                       "Tabungan Anda belum mencukupi total biaya awal pindah. Disarankan negosiasi akomodasi asrama perusahaan tanpa deposit atau program talangan LPK.",
                       "Available savings are insufficient for full move-in costs. Consider company dormitory options or sponsor assistance.",
@@ -501,7 +542,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
       {/* ── Diagnostics Cards ────────────────────────────────────────── */}
       {result.diagnostics.length > 0 && (
         <div className="space-y-3">
-          <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+          <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
             {txt("🔍 Analisis & Catatan Penting", "🔍 Diagnostics & Insights", "🔍 診断レポート＆留意事項")}
           </h3>
           <div className="space-y-2">
@@ -515,8 +556,17 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
       {/* ── Action Buttons ──────────────────────────────────────────── */}
       <div className="space-y-3 pt-2">
         <button
+          type="button"
+          onClick={() => setIsShareModalOpen(true)}
+          className="btn-primary w-full py-3.5 text-sm flex items-center justify-center gap-2 shadow-sm font-semibold"
+        >
+          <span>✨</span>
+          <span>{txt("Salin / Bagikan Kartu Hasil (PNG 1080×1350)", "Share Result Card (PNG 1080×1350)", "結果カードを画像共有 (PNG 1080×1350)")}</span>
+        </button>
+
+        <button
           onClick={handleCompare}
-          className="btn-secondary w-full py-3.5 text-sm flex items-center justify-center gap-2 border-brand-500/40 text-brand-300 hover:bg-brand-500/10"
+          className="btn-secondary w-full py-3 text-sm flex items-center justify-center gap-2 border-line-strong text-[var(--accent)] hover:bg-[var(--accent-soft)]"
         >
           <span>⚖️</span>
           <span>{txt("Bandingkan Berdampingan di Menu Magang & Fresh Grad", "Compare in Magang & Fresh Grad Menu", "実習生・新卒キャリア比較で並べて確認")}</span>
@@ -526,7 +576,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
           <button
             onClick={handleSave}
             disabled={saving || saved}
-            className={`btn-secondary py-3 text-sm flex items-center justify-center gap-2 ${saved ? "text-brand-400 border-brand-500/40" : ""}`}
+            className={`btn-secondary py-3 text-sm flex items-center justify-center gap-2 ${saved ? "text-[var(--accent)] border-line-strong" : ""}`}
           >
             <span>{saved ? "✓" : "💾"}</span>
             <span>{saved ? txt("Tersimpan", "Saved", "保存済み") : txt("Simpan Hasil", "Save Result", "結果を保存")}</span>
@@ -534,12 +584,35 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
           <button
             onClick={onReset}
-            className="btn-secondary py-3 text-sm text-white/50 hover:text-white"
+            className="btn-secondary py-3 text-sm text-fg-muted hover:text-[var(--text)]"
           >
             ↺ {txt("Mulai Ulang", "Start Over", "最初からやり直す")}
           </button>
         </div>
       </div>
+
+      {/* Subscribe Opt-In */}
+      <SubscribeOptIn cityName={result.input.cityName} countryCode={result.input.country} />
+
+      {/* Share Card Modal (1080x1350 PNG) */}
+      <ShareResultCardModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        data={{
+          title: txt(`Simulasi Hidup di ${result.input.cityName}`, `Living Simulation in ${result.input.cityName}`, `Lebenshaltungssimulation für ${result.input.cityName}`, `${result.input.cityName}の生活費シミュレーション`),
+          targetCity: result.input.cityName,
+          targetCountry: result.input.country,
+          grossSalaryText: formatCurrency(result.income.grossMonthly, currency, currencyLocale),
+          netSalaryText: formatCurrency(result.income.netMonthly, currency, currencyLocale),
+          expensesText: formatCurrency(result.monthlyExpenses.housingRent + result.monthlyExpenses.food + result.monthlyExpenses.utilities + result.monthlyExpenses.transport, currency, currencyLocale),
+          savingsText: `${result.monthlyBalance >= 0n ? "+" : ""}${formatCurrency(result.monthlyBalance, currency, currencyLocale)}`,
+          foodIndexText: toMajor(result.monthlyBalance, currency) > 0
+            ? txt("Surplus Keuangan Sehat", "Healthy Financial Surplus", "Solider finanzieller Überschuss", "黒字（健全な家計）")
+            : txt("Perlu Penyesuaian Anggaran", "Budget Adjustment Needed", "Budgetanpassung erforderlich", "予算調整が必要"),
+          badgeText: `${txt("Tabungan Bersih", "Net Savings", "Netto-Ersparnis", "実質手残り")}: ${formatCurrency(result.monthlyBalance, currency, currencyLocale)} ${txt("/ bln", "/ mo", "/ Monat", "/ 月")}`,
+          periodicityText: txt("Wizard 7-Langkah · Per Bulan", "7-Step Budget · Monthly", "7-Schritte-Planer · Monatlich", "7段階プランナー · 月額"),
+        }}
+      />
 
       {/* Price Correction Modal */}
       {activeCorrection && (

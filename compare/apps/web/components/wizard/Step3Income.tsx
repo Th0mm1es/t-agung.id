@@ -94,13 +94,13 @@ function CurrencyInput({
   return (
     <div className="space-y-1.5">
       <div className="flex items-center justify-between">
-        <label htmlFor={id} className="block text-sm font-medium text-white/70">
+        <label htmlFor={id} className="block text-sm font-medium text-fg-70">
           {label}
         </label>
-        {hint && <span className="text-xs text-white/40">{hint}</span>}
+        {hint && <span className="text-xs text-fg-soft">{hint}</span>}
       </div>
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-400 font-mono text-sm select-none">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--accent)] font-mono text-sm select-none">
           {symbol}
         </span>
         <input
@@ -130,11 +130,21 @@ const JAPAN_CITY_WAGE_DATA: Record<string, { hourly: number; gross: bigint; labe
 
 export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
   const { locale } = useI18n();
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = state.country === "DE" ? "EUR" : "JPY";
-  const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
+  const currencyLocale = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
 
   // Regional Japanese wage calculation based on selected city in Step 1
   const cityWageInfo = JAPAN_CITY_WAGE_DATA[state.cityName] ?? {
@@ -227,10 +237,10 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="space-y-2">
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Penghasilan & Potongan", "Income & Deductions", "給与・法定控除")}
         </h2>
-        <p className="text-white/50">
+        <p className="text-fg-muted">
           {state.pathway === "ausbildung"
             ? txt(
                 "Masukkan uang saku kotor (Brutto) Ausbildungmu.",
@@ -261,14 +271,14 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
           }}
         >
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold text-brand-400">
+            <p className="text-xs font-semibold text-[var(--accent)]">
               {txt(
                 "📊 Referensi Gaji Ausbildung 2026 (rata-rata nasional)",
                 "📊 2026 Ausbildung Stipend Reference (national average)",
                 "📊 2026年 Ausbildung手当基準 (全国平均)"
               )}
             </p>
-            <span className="text-[10px] text-white/40">
+            <span className="text-[10px] text-fg-soft">
               {txt("Klik untuk isi otomatis", "Click to auto-fill", "クリックで自動入力")}
             </span>
           </div>
@@ -288,14 +298,14 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                 className={`p-2 rounded-lg text-center transition-all ${
                   state.ausbildungTrainingYear === year &&
                   state.grossMonthlyMinorUnits === AUSBILDUNG_REFERENCE_GROSS[year]
-                    ? "ring-1 ring-brand-400 bg-brand-500/20"
-                    : "bg-white/5 hover:bg-white/10"
+                    ? "ring-1 ring-[var(--accent-soft)] bg-[var(--accent-soft)]"
+                    : "bg-panel-2 hover:bg-panel-2"
                 }`}
               >
-                <div className="text-white/50 text-xs">
+                <div className="text-fg-muted text-xs">
                   {txt(`Tahun ke-${year}`, `Year ${year}`, `第${year}年目`)}
                 </div>
-                <div className="text-white font-medium">
+                <div className="text-[var(--text)] font-medium">
                   {formatCurrency(AUSBILDUNG_REFERENCE_GROSS[year], "EUR", currencyLocale)}
                 </div>
               </button>
@@ -314,14 +324,14 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
           }}
         >
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold text-brand-400">
+            <p className="text-xs font-semibold text-[var(--accent)]">
               {txt(
                 "📊 Estimasi Gaji Kenshusei Jepang (Gaji Kotor & Bersih)",
                 "📊 Japanese Trainee Wage Estimates (Gross & Net)",
                 "📊 日本・実習生賃金目安 (額面・手取り)"
               )}
             </p>
-            <span className="text-[10px] text-white/40">
+            <span className="text-[10px] text-fg-soft">
               {txt("Klik untuk isi otomatis", "Click to auto-fill", "クリックで自動入力")}
             </span>
           </div>
@@ -359,15 +369,15 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                   onClick={() => applyJapanesePreset(ref.gross, ref.net)}
                   className={`p-2.5 rounded-lg text-left transition-all border ${
                     isSelected
-                      ? "ring-1 ring-brand-400 bg-brand-500/20 border-brand-400/50"
-                      : "bg-white/5 hover:bg-white/10 border-white/5"
+                      ? "ring-1 ring-[var(--accent-soft)] bg-[var(--accent-soft)] border-[var(--accent)]/50"
+                      : "bg-panel-2 hover:bg-panel-2 border-line"
                   }`}
                 >
-                  <div className="text-brand-300 font-semibold text-xs truncate">{ref.title}</div>
-                  <div className="text-white font-mono font-bold text-sm mt-0.5">
+                  <div className="text-[var(--accent)] font-semibold text-xs truncate">{ref.title}</div>
+                  <div className="text-[var(--text)] font-mono font-bold text-sm mt-0.5">
                     {formatCurrency(ref.gross, "JPY", currencyLocale)}
                   </div>
-                  <div className="text-[11px] text-white/60 font-mono">
+                  <div className="text-[11px] text-fg-60 font-mono">
                     {txt("Bersih: ~", "Net: ~", "手取り概算: ~")}
                     {formatCurrency(ref.net, "JPY", currencyLocale)}
                   </div>
@@ -380,23 +390,67 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
 
       {/* Household Composition Selector */}
       <div className="space-y-2">
-        <label htmlFor="family-comp-select" className="block text-sm font-medium text-white/70">
+        <label htmlFor="family-comp-select" className="block text-sm font-medium text-fg-70">
           {txt("Komposisi Rumah Tangga", "Household Composition", "世帯構成")}
         </label>
         <select
           id="family-comp-select"
           className="form-select text-sm"
-          value={state.lifestyleProfile === "comfortable" ? "family" : "single"}
+          value={
+            state.familyStatus === "married_children"
+              ? state.numChildren >= 2
+                ? "family_2"
+                : "family_1"
+              : state.familyStatus === "married"
+              ? "couple"
+              : "single"
+          }
           onChange={(e) => {
-            if (e.target.value === "family") {
+            const val = e.target.value;
+            if (val === "single") {
+              dispatch({ type: "SET_FAMILY_STRUCTURE", familyStatus: "single", numChildren: 0 });
+            } else if (val === "couple") {
+              dispatch({ type: "SET_FAMILY_STRUCTURE", familyStatus: "married", numChildren: 0 });
+            } else if (val === "family_1") {
+              dispatch({ type: "SET_FAMILY_STRUCTURE", familyStatus: "married_children", numChildren: 1 });
+              dispatch({ type: "SET_LIFESTYLE", profile: "comfortable" });
+            } else if (val === "family_2") {
+              dispatch({ type: "SET_FAMILY_STRUCTURE", familyStatus: "married_children", numChildren: 2 });
               dispatch({ type: "SET_LIFESTYLE", profile: "comfortable" });
             }
           }}
         >
           <option value="single">{txt("Lajang (1 Dewasa)", "Single (1 Adult)", "単身 (大人1名)")}</option>
-          <option value="couple">{txt("Pasangan (Menikah / Mitra)", "Couple (Partner / Married)", "夫婦・同居カップル (大人2名)")}</option>
-          <option value="family">{txt("Keluarga dengan Anak (Kita / Hoiku-en)", "Family with Children (Kita / Hoiku-en)", "子育て世帯 (保育園・幼稚園)")}</option>
+          <option value="couple">{txt("Menikah (Tanpa Anak)", "Married (No Children)", "既婚・子なし (大人2名)")}</option>
+          <option value="family_1">{txt("Keluarga dengan 1 Anak", "Family with 1 Child", "家族（子ども1名）")}</option>
+          <option value="family_2">{txt("Keluarga dengan 2 Anak", "Family with 2 Children", "家族（子ども2名）")}</option>
         </select>
+
+        {/* Dynamic Age-Limit Note based on Destination Country */}
+        {(state.familyStatus === "married_children" || true) && (
+          <div className="text-[11px] text-fg-muted bg-panel-2 p-2 rounded-lg border border-line flex items-start gap-1.5">
+            <span className="text-accent-400">ℹ️</span>
+            <span>
+              {state.country === "DE"
+                ? txt(
+                    "Kindergeld (€255/anak/bln) berlaku untuk anak <18 th (maks 25 th jika masih pendidikan/training).",
+                    "Kindergeld (€255/child/mo) applies for children <18 yo (up to 25 yo if in education/training).",
+                    "Kindergeld（ドイツ子供手当 €255/月/人）は18歳未満対象（教育・訓練中は最長25歳まで）。"
+                  )
+                : state.country === "JP"
+                ? txt(
+                    "Tunjangan Anak Jepang (Jido Teate ¥15.000/anak/bln) berlaku untuk anak <18 th; ada batas penghasilan orang tua.",
+                    "Japan Child Allowance (¥15,000/child/mo) applies for children <18 yo; parent income caps apply.",
+                    "児童手当（月額15,000円/人）は高校生年代（18歳到達後最初の3月31日）まで支給されます。"
+                  )
+                : txt(
+                    "Penyesuaian PTKP & tunjangan anak berlaku sesuai status tanggungan pajak resmi (K/1, K/2).",
+                    "PTKP tax relief applies based on official tax dependent status (K/1, K/2).",
+                    "扶養親族控除（PTKP K/1, K/2）は公式な税制要件に基づいて適用されます。"
+                  )}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Payslip Net Mode Toggle */}
@@ -416,7 +470,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
             }
           }}
           className={`relative w-10 h-5 rounded-full transition-colors ${
-            state.useManualNet ? "bg-brand-500" : "bg-white/20"
+            state.useManualNet ? "bg-[var(--accent)]" : "bg-panel-3"
           }`}
           role="switch"
           aria-checked={state.useManualNet}
@@ -427,7 +481,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
             }`}
           />
         </button>
-        <span className="text-sm text-white/60">
+        <span className="text-sm text-fg-60">
           {txt(
             "Saya punya slip gaji (masukkan netto langsung)",
             "I have a payslip (enter net pay directly)",
@@ -540,7 +594,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold text-white/70">
+              <span className="text-sm font-semibold text-fg-70">
                 {txt("Potongan Kontrak (賃金控除)", "Contract Deductions (賃金控除)", "給与天引き項目 (賃金控除)")}
               </span>
               <span
@@ -548,7 +602,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                 style={{
                   background: "rgba(249, 134, 7, 0.15)",
                   border: "1px solid rgba(249, 134, 7, 0.3)",
-                  color: "#ffa528",
+                  color: "var(--highlight)",
                 }}
               >
                 {txt("Rincian Dari Kontrak / Slip", "Contract Breakdown", "雇用契約・明細書の控除内訳")}
@@ -577,7 +631,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                 value: BigInt(Math.round(Number(gross) * 0.006)),
               });
             }}
-            className="w-full py-2.5 px-3 rounded-xl bg-brand-500/10 hover:bg-brand-500/20 border border-brand-500/30 text-brand-300 text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+            className="w-full py-2.5 px-3 rounded-xl bg-[var(--accent-soft)] hover:bg-[var(--accent-soft)] border border-line-strong text-[var(--accent)] text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
           >
             <span>✨</span>
             <span>
@@ -692,8 +746,8 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                     onClick={() => dispatch({ type: "SET_JP_DEDUCTION", field, value: s.val })}
                     className={`text-[10px] px-2 py-0.5 rounded-md border transition-all ${
                       state.japaneseDeductions[field] === s.val
-                        ? "bg-brand-500/20 border-brand-400/50 text-brand-300 font-semibold"
-                        : "bg-white/5 border-white/5 text-white/50 hover:text-white/80 hover:bg-white/10"
+                        ? "bg-[var(--accent-soft)] border-[var(--accent)]/50 text-[var(--accent)] font-semibold"
+                        : "bg-panel-2 border-line text-fg-muted hover:text-fg-80 hover:bg-panel-2"
                     }`}
                   >
                     {s.label}
@@ -716,7 +770,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-white/50 mb-0.5">
+              <p className="text-xs text-fg-muted mb-0.5">
                 {txt("Estimasi Gaji Bersih / Net Take-Home", "Estimated Net Salary", "手取り概算 (差引支給額)")}
               </p>
               <p className="text-xl font-bold text-gradient-brand">
@@ -724,10 +778,10 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
               </p>
             </div>
             <div className="text-right">
-              <p className="text-xs text-white/50 mb-0.5">
+              <p className="text-xs text-fg-muted mb-0.5">
                 {txt("Potongan efektif", "Effective deduction", "実質控除率")}
               </p>
-              <p className="text-sm font-semibold text-white/70">
+              <p className="text-sm font-semibold text-fg-70">
                 {Math.round(computedNet.effectiveDeductionRate * 100)}%
               </p>
             </div>

@@ -13,17 +13,27 @@ interface Step1Props {
   onNext: () => void;
 }
 
-const COUNTRY_CONFIG: Record<CountryCode, { flag: string; label: string; labelId: string; labelJa: string; depositMonths: number; keyMoney: number }> = {
-  DE: { flag: "🇩🇪", label: "Germany", labelId: "Jerman", labelJa: "ドイツ", depositMonths: 2, keyMoney: 0 },
-  JP: { flag: "🇯🇵", label: "Japan", labelId: "Jepang", labelJa: "日本", depositMonths: 1, keyMoney: 1 },
-  ID: { flag: "🇮🇩", label: "Indonesia", labelId: "Indonesia", labelJa: "インドネシア", depositMonths: 1, keyMoney: 0 },
+const COUNTRY_CONFIG: Record<CountryCode, { flag: string; label: string; labelId: string; labelDe: string; labelJa: string; depositMonths: number; keyMoney: number }> = {
+  DE: { flag: "🇩🇪", label: "Germany", labelId: "Jerman", labelDe: "Deutschland", labelJa: "ドイツ", depositMonths: 2, keyMoney: 0 },
+  JP: { flag: "🇯🇵", label: "Japan", labelId: "Jepang", labelDe: "Japan", labelJa: "日本", depositMonths: 1, keyMoney: 1 },
+  ID: { flag: "🇮🇩", label: "Indonesia", labelId: "Indonesia", labelDe: "Indonesien", labelJa: "インドネシア", depositMonths: 1, keyMoney: 0 },
 };
 
 export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
   const { locale } = useI18n();
 
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const { data: countries, isLoading: countriesLoading } = useQuery({
     queryKey: ["countries"],
@@ -79,14 +89,14 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
           <span className="badge-brand text-xs">
             {txt("⚖️ Perbandingan Dual-Kota", "⚖️ Dual-City Comparison", "⚖️ 2都市並行比較")}
           </span>
-          <span className="text-xs text-white/40 font-mono">
+          <span className="text-xs text-fg-soft font-mono">
             {txt("Kota #1 sebagai Acuan", "City #1 as Baseline", "基準都市 #1")}
           </span>
         </div>
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Tentukan Kota Acuan & Kota Tujuan", "Select Reference & Destination Cities", "基準都市と渡航先都市を選択")}
         </h2>
-        <p className="text-white/50 text-sm">
+        <p className="text-fg-muted text-sm">
           {txt(
             "Pilih kota asal Anda sebagai acuan pembanding (#1), dan kota impian tujuan Anda (#2) untuk analisis komparatif penuh.",
             "Choose your baseline reference city (#1) and target destination (#2) for side-by-side budgeting.",
@@ -96,9 +106,9 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
       </div>
 
       {/* ── Section 1: Reference City (#1 Acuan) ───────────────────────── */}
-      <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-4">
+      <div className="p-5 rounded-2xl bg-panel-2 border border-line space-y-4">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-brand-400 uppercase tracking-wider">
+          <span className="text-xs font-bold text-[var(--accent)] uppercase tracking-wider">
             {txt(
               "📍 Kota #1: Kota Acuan Pembanding (Reference)",
               "📍 City #1: Baseline Reference City",
@@ -112,7 +122,7 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div>
-            <label className="block text-[11px] text-white/60 mb-1">
+            <label className="block text-[11px] text-fg-60 mb-1">
               {txt("Negara Acuan", "Baseline Country", "基準国")}
             </label>
             <select
@@ -136,7 +146,7 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
           </div>
 
           <div>
-            <label className="block text-[11px] text-white/60 mb-1">
+            <label className="block text-[11px] text-fg-60 mb-1">
               {txt("Kota Acuan", "Baseline City", "基準都市")}
             </label>
             <select
@@ -203,17 +213,17 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
                 }}
                 className={`relative p-5 rounded-2xl text-left transition-all duration-200 ${
                   isSelected
-                    ? "ring-2 ring-brand-400 bg-brand-500/15 border-brand-500/50"
-                    : "bg-white/5 border-white/10 hover:border-white/20"
+                    ? "ring-2 ring-[var(--accent-soft)] bg-[var(--accent-soft)] border-line-strong"
+                    : "bg-panel-2 border-line hover:border-line-strong"
                 }`}
                 style={{ border: `1px solid ${isSelected ? "rgba(40, 144, 109, 0.5)" : "rgba(255,255,255,0.08)"}` }}
               >
                 <div className="text-3xl mb-2">{cfg.flag}</div>
-                <div className="font-semibold text-white text-base">
+                <div className="font-semibold text-[var(--text)] text-base">
                   {locale === "ja" ? cfg.labelJa : locale === "en" ? cfg.label : cfg.labelId}
                 </div>
                 {code === "DE" && (
-                  <div className="text-xs text-brand-300 mt-0.5 font-mono">
+                  <div className="text-xs text-[var(--accent)] mt-0.5 font-mono">
                     {txt("Ausbildung & Fresh Grad", "Vocational & Graduates", "職業訓練 & 大卒初任給")}
                   </div>
                 )}
@@ -223,7 +233,7 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
                   </div>
                 )}
                 {isSelected && (
-                  <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-brand-500 flex items-center justify-center text-xs text-white">
+                  <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[var(--accent)] flex items-center justify-center text-xs text-white">
                     ✓
                   </div>
                 )}
@@ -235,7 +245,7 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
         {/* City Selector for Destination */}
         {state.country && (
           <div className="space-y-1.5 animate-slide-up">
-            <label htmlFor="wizard-city-select" className="block text-xs font-medium text-white/70">
+            <label htmlFor="wizard-city-select" className="block text-xs font-medium text-fg-70">
               {txt("Pilih Kota Tujuan Spesifik:", "Select Specific Target City:", "渡航先の具体都市を選択:")}
             </label>
             <div className="relative">

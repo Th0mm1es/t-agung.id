@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContributePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white selection:bg-brand-500 selection:text-white pb-16">
-      <Suspense fallback={<div className="p-8 text-center text-white/50">Memuat form kontribusi...</div>}>
+    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] selection:bg-[var(--accent-soft)] selection:text-[var(--text)] pb-16">
+      <Suspense fallback={<div className="p-8 text-center text-fg-muted">Memuat form kontribusi...</div>}>
         <ContributeClient />
       </Suspense>
     </main>

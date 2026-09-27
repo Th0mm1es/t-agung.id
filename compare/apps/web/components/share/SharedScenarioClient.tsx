@@ -30,7 +30,7 @@ export function SharedScenarioClient({ token, result }: SharedScenarioClientProp
   return (
     <div className="max-w-xl mx-auto py-8 px-4 space-y-6">
       {/* Unlisted Banner */}
-      <div className="rounded-xl p-4 flex items-center justify-between gap-3 bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs">
+      <div className="rounded-xl p-4 flex items-center justify-between gap-3 bg-[var(--accent-soft)] border border-line-strong text-[var(--accent)] text-xs">
         <div className="flex items-center gap-2">
           <span>🔒</span>
           <span>
@@ -41,57 +41,57 @@ export function SharedScenarioClient({ token, result }: SharedScenarioClientProp
             )}
           </span>
         </div>
-        <span className="font-mono text-white/40">noindex</span>
+        <span className="font-mono text-fg-soft">noindex</span>
       </div>
 
       <div className="space-y-1">
-        <h1 className="text-2xl font-display font-bold text-white">
+        <h1 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Simulasi Biaya Hidup", "Cost of Living Simulation", "生活費シミュレーション")} — {result.input.cityName}
         </h1>
-        <p className="text-white/50 text-sm">
+        <p className="text-fg-muted text-sm">
           {result.input.pathway} • {result.input.cityName} ({result.input.country})
         </p>
       </div>
 
       {/* Monthly Cash Flow Card */}
       <div className="glass-card p-5 space-y-4">
-        <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+        <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
           💰 {txt("Cash Flow Bulanan", "Monthly Cash Flow", "月間キャッシュフロー")}
         </h3>
 
         <div className="space-y-2 text-sm">
           <div className="flex justify-between py-1">
-            <span className="text-white/60">{txt("Gaji Kotor (Brutto)", "Gross Salary (Brutto)", "額面総支給（Gross）")}</span>
+            <span className="text-fg-60">{txt("Gaji Kotor (Brutto)", "Gross Salary (Brutto)", "額面総支給（Gross）")}</span>
             <span className="font-mono font-medium">{formatCurrency(result.income.grossMonthly, currency, currencyLocale)}</span>
           </div>
 
           <div className="flex justify-between py-1">
-            <span className="text-white/60">{txt("Gaji Bersih / Net Take-Home", "Net Salary (Take-Home)", "手取り月給（Netto）")}</span>
-            <span className="font-mono font-semibold text-brand-400">{formatCurrency(result.income.netMonthly, currency, currencyLocale)}</span>
+            <span className="text-fg-60">{txt("Gaji Bersih / Net Take-Home", "Net Salary (Take-Home)", "手取り月給（Netto）")}</span>
+            <span className="font-mono font-semibold text-[var(--accent)]">{formatCurrency(result.income.netMonthly, currency, currencyLocale)}</span>
           </div>
 
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-panel-2" />
 
-          <div className="flex justify-between py-0.5 text-white/50">
+          <div className="flex justify-between py-0.5 text-fg-muted">
             <span>{txt("Sewa / Tempat Tinggal", "Housing & Rent", "家賃・住まい")}</span>
             <span className="font-mono">- {formatCurrency(result.monthlyExpenses.housingRent, currency, currencyLocale)}</span>
           </div>
 
-          <div className="flex justify-between py-0.5 text-white/50">
+          <div className="flex justify-between py-0.5 text-fg-muted">
             <span>{txt("Makanan & Minuman", "Food & Groceries", "食費・飲食")}</span>
             <span className="font-mono">- {formatCurrency(result.monthlyExpenses.food, currency, currencyLocale)}</span>
           </div>
 
-          <div className="flex justify-between py-0.5 text-white/50">
+          <div className="flex justify-between py-0.5 text-fg-muted">
             <span>{txt("Transportasi & Utilitas", "Transport & Utilities", "交通費・光熱通信費")}</span>
             <span className="font-mono">- {formatCurrency(result.monthlyExpenses.transport + result.monthlyExpenses.utilities, currency, currencyLocale)}</span>
           </div>
 
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-panel-2" />
 
           <div className="flex items-center justify-between py-2">
-            <span className="font-semibold text-white">{txt("Sisa Uang Bulanan", "Monthly Balance", "月間手残り・貯蓄額")}</span>
-            <span className={`text-xl font-bold font-mono ${isPositive ? "text-brand-400" : "text-red-400"}`}>
+            <span className="font-semibold text-[var(--text)]">{txt("Sisa Uang Bulanan", "Monthly Balance", "月間手残り・貯蓄額")}</span>
+            <span className={`text-xl font-bold font-mono ${isPositive ? "text-[var(--accent)]" : "text-red-400"}`}>
               {isPositive ? "+" : "- "}
               {formatCurrency(result.monthlyBalance < 0n ? result.monthlyBalance * -1n : result.monthlyBalance, currency, currencyLocale)}
             </span>
@@ -101,11 +101,11 @@ export function SharedScenarioClient({ token, result }: SharedScenarioClientProp
 
       {/* Upfront Card */}
       <div className="glass-card p-5 space-y-3">
-        <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
+        <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
           📦 {txt("Biaya Pindah (Satu Kali)", "Move-In Costs (One-Time)", "初期移住費用（一回限り）")}
         </h3>
         <div className="flex items-center justify-between font-mono">
-          <span className="text-sm text-white/70">{txt("Total Biaya Awal", "Total Upfront", "初期費用合計")}</span>
+          <span className="text-sm text-fg-70">{txt("Total Biaya Awal", "Total Upfront", "初期費用合計")}</span>
           <span className="text-lg font-bold text-orange-300">
             {formatCurrency(result.upfrontRelocationTotal, currency, currencyLocale)}
           </span>

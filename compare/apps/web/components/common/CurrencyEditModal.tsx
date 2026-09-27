@@ -50,23 +50,23 @@ export function CurrencyEditModal({ isOpen, onClose }: CurrencyEditModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="glass-card max-w-md w-full p-6 space-y-5 border border-white/15 shadow-2xl relative">
+      <div className="glass-card max-w-md w-full p-6 space-y-5 border border-line shadow-2xl relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl">💱</span>
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-[var(--text)]">
               {locale === "id" ? "Sesuaikan Nilai Kurs Mata Uang" : locale === "ja" ? "為替レートの手動調整" : "Adjust Custom Exchange Rates"}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="text-white/40 hover:text-white text-lg transition-colors"
+            className="text-fg-soft hover:text-[var(--text)] text-lg transition-colors"
           >
             ✕
           </button>
         </div>
 
-        <p className="text-xs text-white/60 leading-relaxed">
+        <p className="text-xs text-fg-60 leading-relaxed">
           {locale === "id"
             ? "Sesuaikan nilai tukar sesuai kurs riil yang dikenakan bank, transfer antar-negara (Wise/PayPal), atau estimasi pribadi Anda (Basis: 1 EUR)."
             : locale === "ja"
@@ -77,12 +77,12 @@ export function CurrencyEditModal({ isOpen, onClose }: CurrencyEditModalProps) {
         <form onSubmit={handleSave} className="space-y-4 text-sm">
           <div className="space-y-3">
             {/* 1 EUR to IDR */}
-            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
-              <label className="text-xs font-semibold text-white/80">
+            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-panel-2 border border-line">
+              <label className="text-xs font-semibold text-fg-80">
                 1 EUR &rarr; IDR (Rp)
               </label>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-white/50">Rp</span>
+                <span className="text-xs text-fg-muted">Rp</span>
                 <input
                   type="number"
                   step="10"
@@ -95,12 +95,12 @@ export function CurrencyEditModal({ isOpen, onClose }: CurrencyEditModalProps) {
             </div>
 
             {/* 1 EUR to JPY */}
-            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
-              <label className="text-xs font-semibold text-white/80">
+            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-panel-2 border border-line">
+              <label className="text-xs font-semibold text-fg-80">
                 1 EUR &rarr; JPY (¥)
               </label>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-white/50">¥</span>
+                <span className="text-xs text-fg-muted">¥</span>
                 <input
                   type="number"
                   step="0.1"
@@ -113,12 +113,12 @@ export function CurrencyEditModal({ isOpen, onClose }: CurrencyEditModalProps) {
             </div>
 
             {/* 1 EUR to USD */}
-            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
-              <label className="text-xs font-semibold text-white/80">
+            <div className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-panel-2 border border-line">
+              <label className="text-xs font-semibold text-fg-80">
                 1 EUR &rarr; USD ($)
               </label>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-white/50">$</span>
+                <span className="text-xs text-fg-muted">$</span>
                 <input
                   type="number"
                   step="0.01"
@@ -141,7 +141,7 @@ export function CurrencyEditModal({ isOpen, onClose }: CurrencyEditModalProps) {
                 ↺ {locale === "id" ? "Reset ke Kurs Resmi" : locale === "ja" ? "公定レートにリセット" : "Reset to Official Rates"}
               </button>
             ) : (
-              <span className="text-[11px] text-white/40">
+              <span className="text-[11px] text-fg-soft">
                 {locale === "id" ? "✓ Menggunakan kurs resmi live" : locale === "ja" ? "✓ リアルタイム公定レートを使用中" : "✓ Using live official rates"}
               </span>
             )}

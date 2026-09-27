@@ -5,6 +5,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { ReactQueryProvider } from "@/lib/react-query-provider";
 import { CurrencyProvider } from "@/lib/currencyContext";
 import { Navbar } from "@/components/layout/Navbar";
+import { NetlifyShield } from "@/components/common/NetlifyShield";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
 
@@ -76,13 +77,14 @@ export const metadata: Metadata = {
       "Gratis, anonim, jujur. Biaya hidup Jerman vs Jepang untuk magang vokasi.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e1a16",
-  colorScheme: "dark",
+  themeColor: "var(--surface)",
+  colorScheme: "dark light",
   width: "device-width",
   initialScale: 1,
 };
@@ -105,6 +107,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
     >
       <body suppressHydrationWarning>
+        <NetlifyShield />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

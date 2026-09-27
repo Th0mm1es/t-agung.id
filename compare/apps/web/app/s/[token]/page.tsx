@@ -45,7 +45,7 @@ export default async function SharedScenarioPage({ params }: Props) {
   const snapshot = shared.scenario_snapshot;
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white selection:bg-brand-500 selection:text-white pb-16">
+    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] selection:bg-[var(--accent-soft)] selection:text-[var(--text)] pb-16">
       <head>
         <meta name="robots" content="noindex, nofollow" />
       </head>

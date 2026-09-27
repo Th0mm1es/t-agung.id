@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 import { useCurrency } from "@/lib/currencyContext";
 import { calculateActiveDeductions } from "@bandinghidup/core";
+import { ShareResultCardModal } from "@/components/common/ShareResultCardModal";
 
 export type PathwayPreset = "kenshusei" | "ausbildung" | "indonesia";
 
@@ -64,10 +65,10 @@ const PRESETS: Record<PathwayPreset, PresetData> = {
     },
     stapleMeal: {
       name: {
-        id: "mangkok Gyudon / Ramen",
-        en: "Gyudon bowls / Ramen",
-        de: "Gyudon Schalen / Ramen",
-        ja: "牛丼・ラーメン",
+        id: "mangkuk Gyudon",
+        en: "bowls of gyudon",
+        de: "Gyudon-Schalen",
+        ja: "ラーメン",
       },
       price: 600, // ¥600
     },
@@ -195,6 +196,33 @@ export function QuickHeroSimulator({
   const [grossInput, setGrossInput] = useState<number>(preset.defaultGross);
   const [rentCost, setRentCost] = useState<number>(preset.defaultRent);
   const [livingCost, setLivingCost] = useState<number>(preset.defaultLiving);
+  const [showDetails, setShowDetails] = useState<boolean>(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [saveSuccessMsg, setSaveSuccessMsg] = useState("");
+
+  // Listen for scenario reload events from SavedScenarios component
+  useEffect(() => {
+    const handleLoadScenario = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        const { pathway, gross, rent, living } = customEvent.detail;
+        if (pathway && PRESETS[pathway as PathwayPreset]) {
+          if (onPathwayChange) {
+            onPathwayChange(pathway as PathwayPreset);
+          }
+          setInternalPathway(pathway as PathwayPreset);
+        }
+        if (typeof gross === "number") setGrossInput(gross);
+        if (typeof rent === "number") setRentCost(rent);
+        if (typeof living === "number") setLivingCost(living);
+      }
+    };
+
+    window.addEventListener("bandinghidup:load-scenario", handleLoadScenario);
+    return () => {
+      window.removeEventListener("bandinghidup:load-scenario", handleLoadScenario);
+    };
+  }, [onPathwayChange]);
 
   // When changing preset, reset numbers
   const handleSelectPreset = (key: PathwayPreset) => {
@@ -206,6 +234,29 @@ export function QuickHeroSimulator({
     setGrossInput(p.defaultGross);
     setRentCost(p.defaultRent);
     setLivingCost(p.defaultLiving);
+  };
+
+  const handleSaveScenario = () => {
+    try {
+      const stored = localStorage.getItem("bandinghidup_saved_scenarios");
+      const currentList = stored ? JSON.parse(stored) : [];
+      const newScenario = {
+        id: `sc_${Date.now()}`,
+        label: `${preset.name[locale] || preset.name.en}`,
+        pathway: activePathway,
+        gross: grossInput,
+        rent: rentCost,
+        living: livingCost,
+        currencySymbol: preset.currencySymbol,
+        netSavingsText: `${preset.currencySymbol}${remainingSavings.toLocaleString()}`,
+        savedAt: new Date().toISOString(),
+      };
+      const updated = [newScenario, ...currentList.filter((s: any) => s.pathway !== activePathway)].slice(0, 3);
+      localStorage.setItem("bandinghidup_saved_scenarios", JSON.stringify(updated));
+      window.dispatchEvent(new CustomEvent("bandinghidup:scenario-saved"));
+      setSaveSuccessMsg(txt("Tersimpan!", "Saved!", "Gespeichert!", "保存完了!"));
+      setTimeout(() => setSaveSuccessMsg(""), 2500);
+    } catch {}
   };
 
   // Realistic Multi-Country Progressive Deductions Engine
@@ -457,116 +508,7 @@ export function QuickHeroSimulator({
         </div>
       </div>
 
-      {/* Visual Stacked Expense Split Bar */}
-      <div className="space-y-1.5">
-        <div className="flex justify-between text-[11px] text-[var(--muted)]">
-          <span>
-            {txt(
-              "Alokasi Gaji & Pengeluaran:",
-              "Where Money Goes:",
-              "Aufteilung Ihrer Vergütung:",
-              "総支給額の配分内訳:"
-            )}
-          </span>
-          <span className="font-mono text-[var(--accent)] font-semibold">
-            {txt("Gaji Bersih: ", "Net: ", "Netto: ", "手取り: ")}
-            {fmt(netTakeHome)}
-          </span>
-        </div>
-
-        <div className="w-full h-3 bg-[var(--surface-3)] rounded-full overflow-hidden flex shadow-inner border border-[var(--border)]">
-          <div
-            style={{ width: `${taxPct}%` }}
-            className="h-full bg-red-400 transition-all duration-300"
-            title={`Pajak & Jaminan Sosial: ~${taxPct}%`}
-          />
-          <div
-            style={{ width: `${rentPct}%` }}
-            className="h-full bg-purple-400 transition-all duration-300"
-            title={`Biaya Sewa: ~${rentPct}%`}
-          />
-          <div
-            style={{ width: `${livingPct}%` }}
-            className="h-full bg-amber-400 transition-all duration-300"
-            title={`Biaya Makan & Hidup: ~${livingPct}%`}
-          />
-          <div
-            style={{ width: `${Math.max(0, savingsPct)}%` }}
-            className="h-full bg-teal-400 transition-all duration-300"
-            title={`Sisa Tabungan: ~${Math.max(0, savingsPct)}%`}
-          />
-        </div>
-
-        {/* Legend */}
-        <div className="flex items-center justify-between text-[10px] text-[var(--soft)] pt-0.5 flex-wrap gap-1">
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-red-400 inline-block" />
-            <span>{txt("Pajak/Asuransi", "Tax/Deductions", "Steuer/Abzüge", "税・社会保険")} (~{taxPct}%)</span>
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-purple-400 inline-block" />
-            <span>{txt("Sewa", "Rent", "Warmmiete", "家賃・寮費")} (~{rentPct}%)</span>
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
-            <span>{txt("Makan", "Living", "Lebenshaltung", "食費・生活")} (~{livingPct}%)</span>
-          </span>
-          <span className="flex items-center gap-1 font-semibold text-[var(--accent)]">
-            <span className="w-2 h-2 rounded-full bg-teal-400 inline-block" />
-            <span>{txt("Tabungan", "Savings", "Ersparnis", "貯蓄・送金")} (~{Math.max(0, savingsPct)}%)</span>
-          </span>
-        </div>
-      </div>
-
-      {/* Main Breakdown Numbers Grid */}
-      <div className="grid grid-cols-2 gap-2 text-xs">
-        {/* Net Take-Home */}
-        <div className="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] space-y-1">
-          <div className="text-[11px] text-[var(--muted)]">
-            {txt(
-              "💵 Gaji Bersih Masuk Rekening",
-              "💵 Net Take-Home Pay",
-              "💵 Netto-Auszahlung",
-              "💵 手取り額（差引支給額）"
-            )}
-          </div>
-          <div className="text-base font-bold text-[var(--text)] font-mono">
-            {fmt(netTakeHome)}
-          </div>
-          <div className="text-[10px] text-[var(--accent)] font-mono font-medium">
-            ≈ {netMeals} {preset.stapleMeal.name[locale] ?? preset.stapleMeal.name.en}
-          </div>
-          <div className="text-[10px] text-[var(--soft)] font-mono">
-            ≈ {fmtIdr(netTakeHomeInIdr)}{" "}
-            <span className="text-[9px] opacity-75">
-              {txt("(kurs saja)", "(FX only)", "(nur Kurs)", "(名目換算)")}
-            </span>
-          </div>
-        </div>
-
-        {/* Rent & Living Total */}
-        <div className="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] space-y-1">
-          <div className="text-[11px] text-[var(--muted)]">
-            {txt(
-              "🏠 Sewa & Kebutuhan Pokok",
-              "🏠 Rent & Living Expenses",
-              "🏠 Warmmiete & Lebensbedarf",
-              "🏠 家賃＋基本生活費"
-            )}
-          </div>
-          <div className="text-base font-bold text-[var(--text)] font-mono">
-            - {fmt(totalExpenses)}
-          </div>
-          <div className="text-[10px] text-[var(--soft)] truncate">
-            {preset.rentLabel[locale] ?? preset.rentLabel.en}
-          </div>
-          <div className="text-[10px] text-[var(--soft)] font-mono">
-            {txt("Sewa", "Rent", "Miete", "家賃")} {fmt(rentCost)} + {txt("Makan", "Food", "Essen", "食費")} {fmt(livingCost)}
-          </div>
-        </div>
-      </div>
-
-      {/* Net Remaining Savings Highlight Card */}
+      {/* Net Remaining Savings Headline Highlight Card */}
       <div
         className="p-4 rounded-xl border space-y-2.5"
         style={{
@@ -597,7 +539,7 @@ export function QuickHeroSimulator({
         </div>
 
         <div className="flex items-baseline justify-between">
-          <div className="text-xl font-bold font-mono text-[var(--text)]">
+          <div className="text-xl sm:text-2xl font-bold font-mono text-[var(--text)]">
             {remainingSavings >= 0 ? "+" : "-"}
             {fmt(remainingSavings)}
             <span className="text-xs font-normal text-[var(--muted)] ml-1">
@@ -620,7 +562,7 @@ export function QuickHeroSimulator({
           </div>
         </div>
 
-        {/* Primary Purchasing Power Metric Highlight */}
+        {/* Primary Purchasing Power Metric Highlight (Indeks Kenyang) */}
         <div className="p-2.5 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-between text-[11px]">
           <span className="text-[var(--text)] font-medium flex items-center gap-1.5">
             <span>🍽️</span>
@@ -659,31 +601,176 @@ export function QuickHeroSimulator({
             <span>→</span>
           </Link>
         </div>
-
-        {/* Assumptions Note */}
-        <div className="text-[10px] text-[var(--soft)] pt-2 border-t border-[var(--border)] leading-relaxed">
-          {preset.countryCode === "DE"
-            ? txt(
-                `*Asumsi Jerman: Status lajang (Steuerklasse 1), potongan progresif Lohnsteuer (PPh) + Asuransi Sosial wajib (Kranken-/Renten-/Arbeitslosen-/Pflegeversicherung total ~${effectiveDeductionPct}%). Masak sendiri & tinggal di WG.`,
-                `*Germany Assumptions: Single (Tax Class 1), progressive income tax + statutory social security (~${effectiveDeductionPct}% total deduction). Self-cooking & shared flat (WG).`,
-                `*Annahmen Deutschland: Steuerklasse 1 (ledig), progressive Lohnsteuer + gesetzliche Sozialversicherung (~${effectiveDeductionPct}% Gesamtabzug). Selbstkochen & WG-Zimmer.`,
-                `*ドイツ前提条件: 独身（税区分1級）、累進所得税＋公的社会保険料（総控除率 約${effectiveDeductionPct}%）。WGシェアハウス入居・自炊生活。`
-              )
-            : preset.countryCode === "JP"
-            ? txt(
-                `*Asumsi Jepang: Kenshusei / Tokutei tahun ke-1 (bebas pajak penduduk Juminzei), asuransi Shakai Hoken & Koyo Hoken (~${effectiveDeductionPct}%). Asrama pabrik & masak sendiri.`,
-                `*Japan Assumptions: Trainee 1st year (resident tax exempt), Shakai Hoken & employment insurance (~${effectiveDeductionPct}%). Company dorm & self-cooking.`,
-                `*Annahmen Japan: 1. Praktikumsjahr (keine Einwohnersteuer), Sozialversicherung & Arbeitslosenversicherung (~${effectiveDeductionPct}%). Firmenwohnheim & Selbstkochen.`,
-                `*日本前提条件: 技能実習・特定技能1年目（住民税非課税）、社会保険・雇用保険天引き（約${effectiveDeductionPct}%）。会社寮・自炊生活。`
-              )
-            : txt(
-                `*Asumsi Indonesia: Status PTKP TK/0, BPJS Ketenagakerjaan (JHT, JP) & Kesehatan + PPh 21 tarif efektif (~${effectiveDeductionPct}%). Kost mandiri.`,
-                `*Indonesia Assumptions: Single (TK/0), BPJS social security & effective PPh 21 income tax (~${effectiveDeductionPct}%). Rented room (Kost).`,
-                `*Annahmen Indonesien: Ledig (TK/0), gesetzliche Sozialabgaben & PPh 21 (~${effectiveDeductionPct}%). Kost-Zimmer.`,
-                `*インドネシア前提条件: 単身（扶養控除TK/0）、BPJS社会保険＋所得税実効税率（約${effectiveDeductionPct}%）。単身Kost賃貸。`
-              )}
-        </div>
       </div>
+
+      {/* Progressive Disclosure Toggle Button */}
+      <button
+        type="button"
+        id="quick-simulator-toggle-details"
+        onClick={() => setShowDetails(!showDetails)}
+        className="w-full py-2 px-3 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] hover:bg-[var(--surface-3)] text-xs text-[var(--accent)] font-medium flex items-center justify-between transition-colors cursor-pointer"
+        aria-expanded={showDetails}
+      >
+        <span className="flex items-center gap-1.5">
+          <span className="text-[10px]">{showDetails ? "▲" : "▼"}</span>
+          <span>
+            {showDetails
+              ? txt(
+                  "Sembunyikan Rincian Alokasi",
+                  "Hide Allocation Details",
+                  "Aufteilungsdetails ausblenden",
+                  "内訳詳細を閉じる"
+                )
+              : txt(
+                  "Lihat detail ▾ (Alokasi, Pajak & Sewa)",
+                  "Show details ▾ (Breakdown, Taxes & Rent)",
+                  "Details anzeigen ▾ (Steuern, Miete, Essen)",
+                  "内訳詳細を表示 ▾"
+                )}
+          </span>
+        </span>
+        <span className="text-[10px] text-[var(--soft)] font-mono">
+          {showDetails ? "−" : "+"}
+        </span>
+      </button>
+
+      {/* Collapsible Secondary Details */}
+      {showDetails && (
+        <div className="space-y-4 pt-1 animate-fade-in">
+          {/* Visual Stacked Expense Split Bar */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-[11px] text-[var(--muted)]">
+              <span>
+                {txt(
+                  "Alokasi Gaji & Pengeluaran:",
+                  "Where Money Goes:",
+                  "Aufteilung Ihrer Vergütung:",
+                  "総支給額の配分内訳:"
+                )}
+              </span>
+              <span className="font-mono text-[var(--accent)] font-semibold">
+                {txt("Gaji Bersih: ", "Net: ", "Netto: ", "手取り: ")}
+                {fmt(netTakeHome)}
+              </span>
+            </div>
+
+            <div className="w-full h-3 bg-[var(--surface-3)] rounded-full overflow-hidden flex shadow-inner border border-[var(--border)]">
+              <div
+                style={{ width: `${taxPct}%` }}
+                className="h-full bg-red-400 transition-all duration-300"
+                title={`Pajak & Jaminan Sosial: ~${taxPct}%`}
+              />
+              <div
+                style={{ width: `${rentPct}%` }}
+                className="h-full bg-purple-400 transition-all duration-300"
+                title={`Biaya Sewa: ~${rentPct}%`}
+              />
+              <div
+                style={{ width: `${livingPct}%` }}
+                className="h-full bg-amber-400 transition-all duration-300"
+                title={`Biaya Makan & Hidup: ~${livingPct}%`}
+              />
+              <div
+                style={{ width: `${Math.max(0, savingsPct)}%` }}
+                className="h-full bg-teal-400 transition-all duration-300"
+                title={`Sisa Tabungan: ~${Math.max(0, savingsPct)}%`}
+              />
+            </div>
+
+            {/* Legend */}
+            <div className="flex items-center justify-between text-[10px] text-[var(--soft)] pt-0.5 flex-wrap gap-1">
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-red-400 inline-block" />
+                <span>{txt("Pajak/Asuransi", "Tax/Deductions", "Steuer/Abzüge", "税・社会保険")} (~{taxPct}%)</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-purple-400 inline-block" />
+                <span>{txt("Sewa", "Rent", "Warmmiete", "家賃・寮費")} (~{rentPct}%)</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
+                <span>{txt("Makan", "Living", "Lebenshaltung", "食費・生活")} (~{livingPct}%)</span>
+              </span>
+              <span className="flex items-center gap-1 font-semibold text-[var(--accent)]">
+                <span className="w-2 h-2 rounded-full bg-teal-400 inline-block" />
+                <span>{txt("Tabungan", "Savings", "Ersparnis", "貯蓄・送金")} (~{Math.max(0, savingsPct)}%)</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Main Breakdown Numbers Grid */}
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            {/* Net Take-Home */}
+            <div className="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] space-y-1">
+              <div className="text-[11px] text-[var(--muted)]">
+                {txt(
+                  "💵 Gaji Bersih Masuk Rekening",
+                  "💵 Net Take-Home Pay",
+                  "💵 Netto-Auszahlung",
+                  "💵 手取り額（差引支給額）"
+                )}
+              </div>
+              <div className="text-base font-bold text-[var(--text)] font-mono">
+                {fmt(netTakeHome)}
+              </div>
+              <div className="text-[10px] text-[var(--accent)] font-mono font-medium">
+                ≈ {netMeals} {preset.stapleMeal.name[locale] ?? preset.stapleMeal.name.en}
+              </div>
+              <div className="text-[10px] text-[var(--soft)] font-mono">
+                ≈ {fmtIdr(netTakeHomeInIdr)}{" "}
+                <span className="text-[9px] opacity-75">
+                  {txt("(kurs saja)", "(FX only)", "(nur Kurs)", "(名目換算)")}
+                </span>
+              </div>
+            </div>
+
+            {/* Rent & Living Total */}
+            <div className="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] space-y-1">
+              <div className="text-[11px] text-[var(--muted)]">
+                {txt(
+                  "🏠 Sewa & Kebutuhan Pokok",
+                  "🏠 Rent & Living Expenses",
+                  "🏠 Warmmiete & Lebensbedarf",
+                  "🏠 家賃＋基本生活費"
+                )}
+              </div>
+              <div className="text-base font-bold text-[var(--text)] font-mono">
+                - {fmt(totalExpenses)}
+              </div>
+              <div className="text-[10px] text-[var(--soft)] truncate">
+                {preset.rentLabel[locale] ?? preset.rentLabel.en}
+              </div>
+              <div className="text-[10px] text-[var(--soft)] font-mono">
+                {txt("Sewa", "Rent", "Miete", "家賃")} {fmt(rentCost)} + {txt("Makan", "Food", "Essen", "食費")} {fmt(livingCost)}
+              </div>
+            </div>
+          </div>
+
+          {/* Assumptions Note */}
+          <div className="text-[10px] text-[var(--soft)] pt-2 border-t border-[var(--border)] leading-relaxed">
+            {preset.countryCode === "DE"
+              ? txt(
+                  `*Asumsi Jerman: Status lajang (Steuerklasse 1), potongan progresif Lohnsteuer (PPh) + Asuransi Sosial wajib (Kranken-/Renten-/Arbeitslosen-/Pflegeversicherung total ~${effectiveDeductionPct}%). Masak sendiri & tinggal di WG.`,
+                  `*Germany Assumptions: Single (Tax Class 1), progressive income tax + statutory social security (~${effectiveDeductionPct}% total deduction). Self-cooking & shared flat (WG).`,
+                  `*Annahmen Deutschland: Steuerklasse 1 (ledig), progressive Lohnsteuer + gesetzliche Sozialversicherung (~${effectiveDeductionPct}% Gesamtabzug). Selbstkochen & WG-Zimmer.`,
+                  `*ドイツ前提条件: 独身（税区分1級）、累進所得税＋公的社会保険料（総控除率 約${effectiveDeductionPct}%）。WGシェアハウス入居・自炊生活。`
+                )
+              : preset.countryCode === "JP"
+              ? txt(
+                  `*Asumsi Jepang: Kenshusei / Tokutei tahun ke-1 (bebas pajak penduduk Juminzei), asuransi Shakai Hoken & Koyo Hoken (~${effectiveDeductionPct}%). Asrama pabrik & masak sendiri.`,
+                  `*Japan Assumptions: Trainee 1st year (resident tax exempt), Shakai Hoken & employment insurance (~${effectiveDeductionPct}%). Company dorm & self-cooking.`,
+                  `*Annahmen Japan: 1. Praktikumsjahr (keine Einwohnersteuer), Sozialversicherung & Arbeitslosenversicherung (~${effectiveDeductionPct}%). Firmenwohnheim & Selbstkochen.`,
+                  `*日本前提条件: 技能実習・特定技能1年目（住民税非課税）、社会保険・雇用保険天引き（約${effectiveDeductionPct}%）。会社寮・自炊生活。`
+                )
+              : txt(
+                  `*Asumsi Indonesia: Status PTKP TK/0, BPJS Ketenagakerjaan (JHT, JP) & Kesehatan + PPh 21 tarif efektif (~${effectiveDeductionPct}%). Kost mandiri.`,
+                  `*Indonesia Assumptions: Single (TK/0), BPJS social security & effective PPh 21 income tax (~${effectiveDeductionPct}%). Rented room (Kost).`,
+                  `*Annahmen Indonesien: Ledig (TK/0), gesetzliche Sozialabgaben & PPh 21 (~${effectiveDeductionPct}%). Kost-Zimmer.`,
+                  `*インドネシア前提条件: 単身（扶養控除TK/0）、BPJS社会保険＋所得税実効税率（約${effectiveDeductionPct}%）。単身Kost賃貸。`
+                )}
+          </div>
+        </div>
+      )}
 
       {/* CTA Buttons */}
       <div className="space-y-2 pt-1">
@@ -739,7 +826,48 @@ export function QuickHeroSimulator({
             </span>
           </a>
         </div>
+
+        {/* Retention Actions: Save Scenario & Export Card PNG */}
+        <div className="grid grid-cols-2 gap-2 pt-0.5">
+          <button
+            type="button"
+            onClick={handleSaveScenario}
+            className="py-1.5 px-2.5 rounded-lg border border-line bg-panel-2 hover:bg-panel-3 text-[11px] font-medium text-[var(--accent)] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+          >
+            <span>💾</span>
+            <span>{saveSuccessMsg || txt("Simpan Skenario", "Save Scenario", "Szenario speichern", "シミュレーション保存")}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsShareModalOpen(true)}
+            className="py-1.5 px-2.5 rounded-lg border border-line bg-panel-2 hover:bg-panel-3 text-[11px] font-medium text-accent-300 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+          >
+            <span>✨</span>
+            <span>{txt("Kartu Hasil PNG", "Result Card PNG", "Ergebniskarte", "結果カード出力")}</span>
+          </button>
+        </div>
       </div>
+
+      {/* Share Card Modal (1080x1350 PNG) */}
+      <ShareResultCardModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        data={{
+          title: preset.name[locale] || preset.name.en,
+          sourceCity: preset.countryCode === "ID" ? "Jakarta" : "Tokyo",
+          sourceCountry: preset.countryCode === "ID" ? "Indonesia" : "Jepang",
+          targetCity: preset.countryCode === "DE" ? "Berlin" : preset.countryCode === "JP" ? "Tokyo" : "Jakarta",
+          targetCountry: preset.countryCode,
+          grossSalaryText: `${preset.currencySymbol}${grossInput.toLocaleString()}`,
+          netSalaryText: `${preset.currencySymbol}${netTakeHome.toLocaleString()}`,
+          expensesText: `${preset.currencySymbol}${totalExpenses.toLocaleString()}`,
+          savingsText: `${preset.currencySymbol}${remainingSavings.toLocaleString()}`,
+          foodIndexText: `~${savingsMeals} ${preset.stapleMeal.name[locale] || preset.stapleMeal.name.en} / ${txt("bln", "mo", "M.", "月")}`,
+          badgeText: `${txt("Gaji Bersih", "Net Salary", "Nettogehalt", "手取り")}: ${preset.currencySymbol}${netTakeHome.toLocaleString()} (${txt("Potongan", "Deductions", "Abzüge", "控除")} ~${effectiveDeductionPct}%)`,
+          periodicityText: `${preset.name[locale] || preset.name.en} · ${txt("Per Bulan", "Monthly", "Monatlich", "月額")}`,
+        }}
+      />
     </div>
   );
 }

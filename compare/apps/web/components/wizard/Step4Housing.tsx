@@ -27,9 +27,9 @@ function CurrencyInput({ id, label, value, onChange, currency }: {
   const displayValue = value === 0n ? "" : (Number(value) / (currency === "EUR" ? 100 : 1)).toString();
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="block text-sm font-medium text-white/70">{label}</label>
+      <label htmlFor={id} className="block text-sm font-medium text-fg-70">{label}</label>
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-400 font-mono text-sm select-none">{symbol}</span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--accent)] font-mono text-sm select-none">{symbol}</span>
         <input
           id={id}
           type="text"
@@ -57,11 +57,21 @@ function CurrencyInput({ id, label, value, onChange, currency }: {
 
 export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
   const { locale } = useI18n();
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = state.country === "DE" ? "EUR" : "JPY";
-  const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
+  const currencyLocale = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
   const benchmarks = state.country === "DE" ? DE_HOUSING_BENCHMARKS : JP_HOUSING_BENCHMARKS;
 
   // Auto-populate rent with benchmark midpoint if 0n
@@ -86,10 +96,10 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="space-y-2">
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Tempat Tinggal & Biaya Pindah", "Housing & Moving Costs", "住居・初期移住費用")}
         </h2>
-        <p className="text-white/50">
+        <p className="text-fg-muted">
           {txt("Pilih tipe hunian dan estimasi biaya awal pindah.", "Choose housing type and estimate your move-in costs.", "住居タイプを選択し、敷金や初期費用を見積もります。")}
         </p>
       </div>
@@ -117,20 +127,20 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
                 // Auto set employer provided for dormitory
                 dispatch({ type: "SET_EMPLOYER_PROVIDED", value: h.type === "dormitory" });
               }}
-              className={`p-4 rounded-xl text-left transition-all ${isSelected ? "ring-2 ring-brand-400" : ""}`}
+              className={`p-4 rounded-xl text-left transition-all ${isSelected ? "ring-2 ring-[var(--accent-soft)]" : ""}`}
               style={{ background: isSelected ? "rgba(40, 144, 109, 0.15)" : "rgba(28, 46, 34, 0.5)", border: `1px solid ${isSelected ? "rgba(40, 144, 109, 0.5)" : "rgba(255,255,255,0.08)"}` }}
             >
               <div className="text-xl mb-2">{h.iconDE}</div>
-              <div className="text-sm font-medium text-white leading-tight">{label}</div>
-              <div className="text-xs text-brand-400 mt-1">{rangeText}</div>
+              <div className="text-sm font-medium text-[var(--text)] leading-tight">{label}</div>
+              <div className="text-xs text-[var(--accent)] mt-1">{rangeText}</div>
             </button>
           );
         })}
       </div>
 
       {/* Commuter Zone Trade-Off (Stage 4) */}
-      <div className="rounded-xl p-4 space-y-2 bg-white/5 border border-white/10">
-        <label htmlFor="commuter-zone-select" className="block text-xs font-semibold text-brand-400 uppercase tracking-wider">
+      <div className="rounded-xl p-4 space-y-2 bg-panel-2 border border-line">
+        <label htmlFor="commuter-zone-select" className="block text-xs font-semibold text-[var(--accent)] uppercase tracking-wider">
           🚇 {txt("Zona Hunian & Commuter Trade-Off", "Housing Zone & Commuter Trade-Off", "居住エリアと通勤費トレードオフ")}
         </label>
         <select
@@ -151,11 +161,11 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
       <div className="flex items-center gap-3">
         <button id="employer-provided-toggle"
           onClick={() => dispatch({ type: "SET_EMPLOYER_PROVIDED", value: !state.isEmployerProvidedHousing })}
-          className={`relative w-10 h-5 rounded-full transition-colors ${state.isEmployerProvidedHousing ? "bg-brand-500" : "bg-white/20"}`}
+          className={`relative w-10 h-5 rounded-full transition-colors ${state.isEmployerProvidedHousing ? "bg-[var(--accent)]" : "bg-panel-3"}`}
           role="switch" aria-checked={state.isEmployerProvidedHousing}>
           <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${state.isEmployerProvidedHousing ? "translate-x-5" : "translate-x-0"}`} />
         </button>
-        <span className="text-sm text-white/60">
+        <span className="text-sm text-fg-60">
           {txt("Akomodasi disediakan majikan (sudah dipotong dari gaji)", "Employer-provided housing (already deducted from wage)", "会社提供の住居（給与天引き済み）")}
         </span>
       </div>
@@ -174,14 +184,14 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
 
       {/* Relocation Details */}
       <div className="space-y-4">
-        <h3 className="text-sm font-semibold text-white/70 flex items-center gap-2">
+        <h3 className="text-sm font-semibold text-fg-70 flex items-center gap-2">
           <span>📦</span>
           {txt("Biaya Awal Pindah (Satu Kali)", "One-Time Move-In Costs", "初期移住費用 (一時金)")}
         </h3>
 
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
-            <label htmlFor="deposit-months" className="block text-xs text-white/50">
+            <label htmlFor="deposit-months" className="block text-xs text-fg-muted">
               {txt(
                 `Uang Jaminan (${state.country === "JP" ? "敷金 Shikikin" : "Kaution"})`,
                 `Deposit (${state.country === "JP" ? "Shikikin 敷金" : "Kaution"})`,
@@ -199,7 +209,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
           </div>
 
           <div className="space-y-1.5">
-            <label htmlFor="key-money-months" className="block text-xs text-white/50">
+            <label htmlFor="key-money-months" className="block text-xs text-fg-muted">
               {txt("Uang Kunci (礼金 Reikin)", "Key Money (礼金 Reikin)", "礼金 (Reikin)")}
             </label>
             <select id="key-money-months" className="form-select text-sm" value={state.keyMoneyMonths}
@@ -212,7 +222,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
               ))}
             </select>
             {state.country === "DE" && (
-              <p className="text-xs text-white/30">
+              <p className="text-xs text-fg-soft">
                 {txt("Tidak ada di Jerman", "Not applicable in Germany", "ドイツには存在しません")}
               </p>
             )}
@@ -238,7 +248,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
         <div className="rounded-xl p-4 space-y-1" style={{ background: "rgba(249, 134, 7, 0.08)", border: "1px solid rgba(249, 134, 7, 0.2)" }}>
           <p className="text-xs text-orange-400/70">{txt("Total Biaya Pindah (Satu Kali)", "Total Move-In Cost (One-Time)", "初期費用合計 (一時金)")}</p>
           <p className="text-xl font-bold text-orange-300">{formatCurrency(upfrontTotal, currency, currencyLocale)}</p>
-          <p className="text-xs text-white/30">{txt("Tidak termasuk dalam cash flow bulanan", "Not included in monthly cash flow", "月々の経常収支には含まれません")}</p>
+          <p className="text-xs text-fg-soft">{txt("Tidak termasuk dalam cash flow bulanan", "Not included in monthly cash flow", "月々の経常収支には含まれません")}</p>
         </div>
       )}
 

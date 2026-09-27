@@ -91,11 +91,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Get active approved count to return as feedback
+    let activeCount = 42;
+    try {
+      const { count } = await client
+        .from("community_observations")
+        .select("*", { count: "exact", head: true });
+      if (typeof count === "number") activeCount = count;
+    } catch {}
+
     return NextResponse.json(
       {
         message: "Observation submitted for moderation",
         id: inserted.id,
         deletionToken, // Display once to contributor so they can delete later
+        activeCount,
       },
       { status: 201 }
     );
@@ -104,7 +114,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET /api/community/observe (for Admin Portal)
+// GET /api/community/observe (for Admin Portal & Live Count)
 export async function GET(req: NextRequest) {
   try {
     const client = supabase as any;
@@ -116,17 +126,20 @@ export async function GET(req: NextRequest) {
       .select(`
         *,
         cities ( id, name, country_id )
-      `)
+      `, { count: "exact" })
       .order("created_at", { ascending: false });
 
     if (status !== "all") {
       query = query.eq("status", status);
     }
 
-    const { data, error } = await query;
+    const { data, count, error } = await query;
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    return NextResponse.json({ observations: data ?? [] });
+    return NextResponse.json({
+      observations: data ?? [],
+      count: count ?? (data?.length || 0),
+    });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

@@ -66,6 +66,8 @@ export interface CareerBenchmarkResult {
   grossYearlyMajor: number;
   recommendedRentMinorUnits: bigint;
   recommendedRentMajor: number;
+  otherConsumptionMajor: number;
+  totalExpensesMajor: number;
   housingTypeDescriptionId: string;
   housingTypeDescriptionEn: string;
   housingTypeDescriptionJa: string;
@@ -211,6 +213,7 @@ export function getCareerPathwayBenchmark(
   options?: {
     isJapanSecondYear?: boolean;
     familyStatus?: "single" | "married" | "married_children";
+    numChildren?: number;
     taxClassDE?: 1 | 3 | 4 | 5;
     ptkpStatusID?: "TK/0" | "K/0" | "K/1" | "K/2" | "K/3";
   }
@@ -358,6 +361,7 @@ export function getCareerPathwayBenchmark(
     country,
     grossMonthlyMinorUnits: grossMinor,
     familyStatus: options?.familyStatus ?? "single",
+    numChildren: options?.numChildren,
     taxClassDE: options?.taxClassDE,
     isJapanSecondYear: options?.isJapanSecondYear,
     ptkpStatusID: options?.ptkpStatusID,
@@ -366,7 +370,8 @@ export function getCareerPathwayBenchmark(
   const netMajor = deductionResult.netMonthlyMajor;
   // Estimated living consumption besides rent (food, transit, utilities): ~35% of gross or basic basket
   const otherConsumptionMajor = Math.round(baseRentMajor * 0.9);
-  const monthlySavingsMajor = Math.max(0, netMajor - baseRentMajor - otherConsumptionMajor);
+  const totalExpensesMajor = baseRentMajor + otherConsumptionMajor;
+  const monthlySavingsMajor = Math.max(0, netMajor - totalExpensesMajor);
 
   return {
     country,
@@ -377,6 +382,8 @@ export function getCareerPathwayBenchmark(
     grossYearlyMajor: baseGrossMajor * 12,
     recommendedRentMinorUnits: rentMinor,
     recommendedRentMajor: baseRentMajor,
+    otherConsumptionMajor,
+    totalExpensesMajor,
     housingTypeDescriptionId: housingDescId,
     housingTypeDescriptionEn: housingDescEn,
     housingTypeDescriptionJa: housingDescJa,

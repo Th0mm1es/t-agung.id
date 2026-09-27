@@ -190,7 +190,7 @@ export type { AusbildungDetailedResult } from "./calculator/pathways/ausbildung.
 export { calculateJapanTraineeDetailed, JP_EMPLOYER_DORM_CAP_YEN } from "./calculator/pathways/japan_trainee.js";
 export type { JapanTraineeDetailedResult } from "./calculator/pathways/japan_trainee.js";
 
-export { calculateFamilyHousehold, DE_KINDERGELD_PER_CHILD_CENTS, DE_KITA_FEE_PER_CHILD_CENTS, JP_HOIKUEN_FEE_PER_CHILD_YEN } from "./calculator/family/childcare.js";
+export { calculateFamilyHousehold, calculateChildBenefit, DE_KINDERGELD_PER_CHILD_CENTS, DE_KITA_FEE_PER_CHILD_CENTS, JP_HOIKUEN_FEE_PER_CHILD_YEN } from "./calculator/family/childcare.js";
 export type { FamilyComposition, FamilyScalingInput, FamilyScalingResult } from "./calculator/family/childcare.js";
 
 export { calculateCommuterTradeoff, SUBURBAN_RENT_DISCOUNT_MULTIPLIER } from "./calculator/commuter/tradeoff.js";

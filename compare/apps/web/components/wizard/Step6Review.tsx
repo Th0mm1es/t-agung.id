@@ -13,11 +13,21 @@ interface Step6Props {
 
 export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
   const { locale } = useI18n();
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return enStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = state.country === "DE" ? "EUR" : "JPY";
-  const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
+  const currencyLocale = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
   const basket = buildExpenseBasket(state.country ?? "DE", state.lifestyleProfile, state.basketOverrides);
 
   const items = [
@@ -33,10 +43,10 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="space-y-2">
-        <h2 className="text-2xl font-display font-bold text-white">
+        <h2 className="text-2xl font-display font-bold text-[var(--text)]">
           {txt("Review & Override", "Review & Override", "生活費の詳細確認・手動調整")}
         </h2>
-        <p className="text-white/50">
+        <p className="text-fg-muted">
           {txt(
             "Semua nilai bisa kamu sesuaikan. Perubahan langsung terlihat di hasil.",
             "All values are editable. Changes reflect immediately in results.",
@@ -47,7 +57,7 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
 
       {/* Line Items Table */}
       <div className="space-y-2">
-        <div className="grid grid-cols-[1fr,auto,auto,auto] gap-3 text-xs text-white/40 px-1 pb-1 border-b border-white/10">
+        <div className="grid grid-cols-[1fr,auto,auto,auto] gap-3 text-xs text-fg-soft px-1 pb-1 border-b border-line">
           <span>{txt("Kategori", "Category", "項目")}</span>
           <span className="text-right">{txt("Harga/kali", "Unit Cost", "単価")}</span>
           <span className="text-right">{txt("Frekuensi", "Times/mo", "月間頻度")}</span>
@@ -61,8 +71,8 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
             style={{ background: item.isOverridden ? "rgba(40, 144, 109, 0.05)" : "transparent" }}
           >
             <div>
-              <div className="text-sm text-white font-medium">{label}</div>
-              <div className="text-xs text-white/30">{example}</div>
+              <div className="text-sm text-[var(--text)] font-medium">{label}</div>
+              <div className="text-xs text-fg-soft">{example}</div>
             </div>
 
             {/* Unit cost editable */}
@@ -71,7 +81,7 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
                 id={`override-unit-${key}`}
                 type="number"
                 min="0"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-right text-sm text-white focus:border-brand-500 focus:outline-none"
+                className="w-full bg-panel-2 border border-line rounded-lg px-2 py-1.5 text-right text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none"
                 value={Number(item.unitCostMinorUnits) / (currency === "EUR" ? 100 : 1)}
                 onChange={(e) => {
                   const raw = parseFloat(e.target.value);
@@ -89,7 +99,7 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
                 type="number"
                 min="1"
                 max="60"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-right text-sm text-white focus:border-brand-500 focus:outline-none"
+                className="w-full bg-panel-2 border border-line rounded-lg px-2 py-1.5 text-right text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none"
                 value={item.monthlyFrequency}
                 onChange={(e) => {
                   const freq = parseInt(e.target.value);
@@ -100,17 +110,17 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
             </div>
 
             {/* Monthly total */}
-            <div className={`text-sm font-medium text-right ${item.isOverridden ? "text-brand-400" : "text-white/70"}`}>
+            <div className={`text-sm font-medium text-right ${item.isOverridden ? "text-[var(--accent)]" : "text-fg-70"}`}>
               {formatCurrency(item.monthlyTotalMinorUnits, currency, currencyLocale)}
             </div>
           </div>
         ))}
 
-        <div className="flex items-center justify-between pt-3 border-t border-white/10">
-          <span className="text-sm font-semibold text-white">
+        <div className="flex items-center justify-between pt-3 border-t border-line">
+          <span className="text-sm font-semibold text-[var(--text)]">
             {txt("Total Pengeluaran Gaya Hidup", "Lifestyle Expenses Total", "月間生活費合計")}
           </span>
-          <span className="text-brand-400 font-bold">
+          <span className="text-[var(--accent)] font-bold">
             {formatCurrency(basket.monthlyGrandTotal, currency, currencyLocale)}
           </span>
         </div>
