@@ -3,7 +3,7 @@
 title: "Jony Ive Dewa Design Masuk Ferrari, Luce Kontroversial: Bedah OLED yang Sebenarnya Inovatif"
 description: "Dewa desain Apple Jony Ive debut di Ferrari Luce, internet hancur, saham jatuh 5 miliar dollar, tapi teknologi OLED kokpit-nya benar-benar ngerubah industri."
 pubDate: 2026-06-24
-category: "automotive"
+category: "otomotif"
 cover: "../../assets/blog/21/21.jony-ive-ferrari-luce.jpg"
 coverAlt: "Visual representation of Jony Ive Dewa Design Masuk Ferrari, Luce Kontroversial: Bedah OLED yang Sebenarnya Inovatif"
 

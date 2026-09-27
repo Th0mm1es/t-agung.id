@@ -1,11 +1,11 @@
 const host = 't-agung.id';
-const key = process.env.INDEXNOW_KEY;
+const key = 91e21496916c42b18f8dd02d747a8421;
 const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [
   'https://t-agung.id/', 
-  'https://t-agung.id/blog/blog41_2nm_week_mediatek_dimensity_apple_m6_moore/', 
-  'https://t-agung.id/blog/oled-deepdive-5-lifetime-and-degradation/' 
+  'https://t-agung.id/blog/blog42_recall_gagang_pintu_china_4_juta/', 
+  'https://t-agung.id/blog/oled-deepdive-6-manufacturing/' 
 ];
 
 const body = {

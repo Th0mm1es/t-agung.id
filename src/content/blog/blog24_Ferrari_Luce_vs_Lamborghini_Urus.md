@@ -3,7 +3,7 @@
 title: "Ferrari Luce vs Lamborghini Urus SE: Dua Pendekatan, Satu Masa Depan"
 description: "Ferrari Luce listrik murni berhadapan dengan Lamborghini Urus SE hybrid. Dua filosofi berbeda dalam mencapai performa puncak. Dari powertrain, kokpit HMI, hingga inovasi yang belum pernah dilihat sebelumnya."
 pubDate: 2026-07-01
-category: "automotive"
+category: "otomotif"
 cover: "../../assets/blog/24/luce_interior.jpg"
 coverAlt: "Visual representation of Ferrari Luce vs Lamborghini Urus SE: Dua Pendekatan, Satu Masa Depan"
 

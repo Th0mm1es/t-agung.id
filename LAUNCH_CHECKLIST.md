@@ -1,153 +1,146 @@
-# 🚀 Launch Checklist: BandingHidup (compare.t-agung.id)
+# 🚀 Launch Checklist: BandingHidup (compare.t-agung.id) — v4 Launch Polish
 
-Runbook to take the BandingHidup purchasing-power comparison product live on `compare.t-agung.id` alongside the `t-agung.id` Astro blog.
-
----
-
-## 1. Prerequisites
-
-- [ ] **pnpm installed**: Verify via `pnpm -v` (version 9.x recommended; enable via `corepack enable` or `npm i -g pnpm@9`).
-- [ ] **Git configured**: Working tree clean (or untracked blog drafts left untouched), origin connected to `https://github.com/Th0mm1es/t-agung.id.git`.
-- [ ] **Netlify Account**: Access to the Netlify team dashboard currently hosting the `t-agung.id` production site.
-- [ ] **DNS Access**: Access to Cloudflare or your DNS registrar for `t-agung.id`.
+Single source of truth runbook to take the BandingHidup purchasing-power comparison product live on `compare.t-agung.id` alongside the `t-agung.id` Astro blog.
 
 ---
 
-## 2. Create the Compare Netlify Site
+## 1. Netlify Site: Environment Variables & Build Settings
 
-1. In the Netlify Dashboard, click **Add new site** → **Import an existing project**.
-2. Select your repository: `Th0mm1es/t-agung.id`.
-3. Configure Site Settings:
-   - **Base directory**: `compare`
-   - **Build command**: `pnpm run build`
-   - **Publish directory**: `apps/web/.next`
-4. In **Site configuration → Environment variables**, add the following variables:
+- [x] **Base directory**: `compare` (in the unified `Th0mm1es/t-agung.id` repository)
+- [x] **Build command**: `pnpm run build`
+- [x] **Publish directory**: `apps/web/.next`
+- [x] **Node version**: 20.x (`NODE_VERSION = 20`)
+- [x] **Next.js plugin**: `@netlify/plugin-nextjs` configured in `netlify.toml`
 
-| Variable Name | Required / Optional | Scope | Where to Get Value |
+### Environment Variables Matrix (Set in Netlify Dashboard → Site configuration → Environment variables)
+
+| Variable Name | Required | Scope | Purpose & Source |
 |---|:---:|:---:|---|
-| `NEXT_PUBLIC_APP_DOMAIN` | **Required** | All | Set to `https://compare.t-agung.id` |
-| `NEXT_PUBLIC_BLOG_URL` | **Required** | All | Set to `https://t-agung.id` |
-| `NEXT_PUBLIC_DEFAULT_LOCALE` | Optional | All | Set to `id` |
-| `NEXT_PUBLIC_SUPABASE_URL` | **Required** | All | Supabase Dashboard → Project Settings → API → Project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | **Required** | All | Supabase Dashboard → Project Settings → API → `anon` public key |
-| `SUPABASE_SERVICE_ROLE_KEY` | **Required (SECRET)** | **Server only (Functions)** | Supabase Dashboard → Project Settings → API → `service_role` secret (Bypasses RLS) |
-| `NEXT_PUBLIC_ALLOW_DIRECT_BENCHMARK_UPDATES` | Optional | All | Set to `true` |
-| `DESTATIS_USERNAME` | Optional | Server only | Destatis GENESIS-Online login (from local `compare/apps/web/.env.local`) |
-| `DESTATIS_PASSWORD` | Optional | Server only | Destatis GENESIS-Online password (from local `compare/apps/web/.env.local`) |
+| `NEXT_PUBLIC_APP_DOMAIN` | **Required** | All | `https://compare.t-agung.id` |
+| `NEXT_PUBLIC_BLOG_URL` | **Required** | All | `https://t-agung.id` |
+| `NEXT_PUBLIC_DEFAULT_LOCALE` | Optional | All | `id` |
+| `NEXT_PUBLIC_SUPABASE_URL` | **Required** | All | Supabase Project Settings → API → Project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | **Required** | All | Supabase Project Settings → API → `anon` public key |
+| `SUPABASE_SERVICE_ROLE_KEY` | **Required (SECRET)** | **Server only (Functions)** | Supabase Project Settings → API → `service_role` secret (Bypasses RLS) |
+| `NEXT_PUBLIC_ALLOW_DIRECT_BENCHMARK_UPDATES` | Optional | All | `true` |
+| `DESTATIS_USERNAME` | Optional | Server only | Destatis GENESIS-Online login (from `.env.local`) |
+| `DESTATIS_PASSWORD` | Optional | Server only | Destatis GENESIS-Online password (from `.env.local`) |
 | `DESTATIS_API_BASE_URL` | Optional | Server only | `https://www-genesis.destatis.de/genesisWS/rest/2020` |
-| `ESTAT_APP_ID` | Optional | Server only | e-Stat Japan Application ID (from local `compare/apps/web/.env.local`) |
+| `ESTAT_APP_ID` | Optional | Server only | e-Stat Japan Application ID (from `.env.local`) |
 | `ESTAT_API_BASE_URL` | Optional | Server only | `https://api.e-stat.go.jp/rest/3.0/app/json` |
-| `BPS_API_KEY` | Optional | Server only | Badan Pusat Statistik Web API key |
+| `BPS_API_KEY` | Optional | Server only | BPS Web API Key (from `.env.local`) |
 | `BPS_API_BASE_URL` | Optional | Server only | `https://webapi.bps.go.id/v1/api` |
-| `FRED_API_KEY` | Optional | Server only | Federal Reserve Bank of St. Louis economic data API key |
+| `FRED_API_KEY` | Optional | Server only | FRED Economic Data API Key |
 | `FRED_API_BASE_URL` | Optional | Server only | `https://api.stlouisfed.org/fred` |
-| `BLS_API_KEY` | Optional | Server only | Bureau of Labor Statistics API key |
-| `BLS_API_BASE_URL` | Optional | Server only | `https://api.bls.gov/publicAPI/v2` |
-| `CENSUS_API_KEY` | Optional | Server only | US Census Bureau data API key |
-| `DATA_GOV_API_KEY` | Optional | Server only | Data.gov API key |
 
-> 🔒 **Security Notice:** `SUPABASE_SERVICE_ROLE_KEY` is a privileged, secret key. Set it ONLY in the Netlify Dashboard (or local `.env.local`). Never commit it to git or paste it in public forums.
+> 🔒 **Security Notice:** Never paste `SUPABASE_SERVICE_ROLE_KEY` into git or public logs. Values reside securely in Netlify dashboard environment variables and local `.env.local`.
 
 ---
 
-## 3. Staging Smoke Test
+## 2. "Powered by Netlify" Badge
 
-Before attaching the custom subdomain, test the generated staging URL (`https://<random-hash>.netlify.app`):
+- [x] **DONE in Netlify Console (2026-09-27)**: Toggled OFF at `Site configuration → Build & deploy → Continuous deployment → "Powered by Netlify" → Hide`.
+- [x] **In-Repo Fallback Shield Active**: `components/common/NetlifyShield.tsx` mounted in `app/layout.tsx`. If the badge is ever re-injected due to a Netlify platform reset or site migration, the client-side stylesheet selector and MutationObserver automatically remove `/.netlify/scripts/hud` and hide all badge host nodes.
+- **Troubleshooting Note**: If badge ever reappears, re-toggle in Netlify console or rely on the in-repo client-side shield.
 
-- [ ] **Homepage 200 in all 4 locales**:
-  - `/?lang=id` (Indonesian default)
-  - `/?lang=en` (English)
-  - `/?lang=de` (German, verify full glossary translations render)
-  - `/?lang=ja` (Japanese)
-- [ ] **Simulator Computes**:
-  - Move salary slider to test calculation.
-  - Verify headline output displays meal purchasing power (e.g. `~145 porsi Gyudon / bulan`).
-  - Verify Rupiah conversion is labeled `(nominal kurs saja · bukan daya beli)`.
-- [ ] **DE Tax Progressive Calculation**:
-  - Select Germany preset and move gross to €5,000.
-  - Verify breakdown shows progressive income tax separate from social security (~38.4%–42.0% total deduction, not flat 20.5%).
-- [ ] **Data Freshness Indicator**:
-  - Check the timestamp below the hero: `Kurs & harga diperbarui: <real date>`.
-- [ ] **WhatsApp Share & Scenario Sharing**:
-  - Click WhatsApp share button and confirm pre-filled text in the active locale.
-  - Open `/s/<token>` page to ensure personal scenario retrieval works.
-- [ ] **Admin & Health Endpoints**:
-  - `/admin`: Password protection gate renders.
-  - `/api/health`: Returns JSON status `{"status":"ok"}`.
-- [ ] **SEO Plumbing**:
-  - `/robots.txt`: Disallows `/s/` and `/admin`, allows public routes.
-  - `/sitemap.xml`: Generates valid XML with canonical `https://compare.t-agung.id`.
-- [ ] **OpenGraph Image & Favicon**:
-  - Verify `/icon.svg` renders as tab icon.
-  - Test `/opengraph-image` in social card previewer (WhatsApp/Telegram/Facebook debugger).
-- [ ] **Persona On-Ramp Buttons**:
+---
+
+## 3. DNS Configuration & SSL Certificate
+
+- [x] **Registrar**: Porkbun (`t-agung.id`)
+- [x] **DNS Management**: Cloudflare DNS
+- [x] **CNAME Record**:
+  - **Type**: `CNAME`
+  - **Name**: `compare`
+  - **Content / Target**: `compare-t-agung.netlify.app`
+  - **Proxy status**: `Proxied (Orange cloud)` (Cloudflare Universal SSL edge + Netlify Let's Encrypt origin)
+- [x] **SSL / TLS Encryption**: Full / Strict in Cloudflare, certificate status active and valid.
+
+---
+
+## 4. Favicon & Social Card (OG Preview) Re-Check
+
+- [x] **Favicon**: `/icon.svg` returns HTTP 200 with SVG brand mark (`#2aa9a6` teal & `#e3b341` gold).
+- [x] **Favicon Redirect Route**: `/favicon.ico` cleanly redirects (307) to `/icon.svg` via `app/favicon.ico/route.ts` — eliminating 404 errors in legacy browser crawlers.
+- [x] **OpenGraph Preview**: `/opengraph-image` returns dynamic 1200×630 branded social card.
+- [ ] **Social Debugger Links**:
+  - Facebook Sharing Debugger: `https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fcompare.t-agung.id`
+  - X / Twitter Card Validator: `https://cards-dev.twitter.com/validator`
+  - LinkedIn Post Inspector: `https://www.linkedin.com/post-inspector/inspect/https%3A%2F%2Fcompare.t-agung.id`
+
+---
+
+## 5. Staging Smoke Test (12 Checkpoints)
+
+Execute against `https://<site-name>.netlify.app` or `https://compare.t-agung.id`:
+
+- [ ] **1. All 4 Locales on Homepage**:
+  - Indonesian (`/?lang=id`), English (`/?lang=en`), German (`/?lang=de`), Japanese (`/?lang=ja`).
+- [ ] **2. Light Mode Complete Legibility (P0-1 Proof)**:
+  - Toggle theme to `light` via Navbar switcher.
+  - Verify every text element, card, table, and input is crisp, dark, and 100% legible on `/`, `/compare`, `/gaji-setara`, `/persentil`, `/wizard`, `/contribute`, `/metode`.
+  - Zero invisible white-on-white text.
+- [ ] **3. DE Progressive Tax at €5.000 Gross**:
+  - On `/gaji-setara` or home simulator, select Germany and set gross to €5.000 / month.
+  - Verify progressive income tax (Lohnsteuer) is itemized separately from social security (effective rate ~38%–42%, NOT flat 20.5%).
+- [ ] **4. Japan Pathway & Trainee Tax Exemption**:
+  - Select Kenshusei / Tokutei pathway. Verify 1st-year resident tax (Juminzei) exemption applies correctly.
+- [ ] **5. Persona On-Ramp Buttons**:
   - Click `🇯🇵 Pindah ke Jepang`, `🇩🇪 Pindah ke Jerman`, and `⚖️ Bandingkan 2 Kota` to confirm instant preset selection and scroll.
-- [ ] **Mobile Viewport**:
-  - Open Chrome DevTools in iPhone/Android viewport; verify no horizontal scroll on the hero simulator.
-
----
-
-## 4. Go Live (Custom Domain & DNS)
-
-1. In Netlify Site Settings for the compare site:
-   - Navigate to **Domain management** → **Add custom domain**.
-   - Enter `compare.t-agung.id`.
-2. Netlify will display the CNAME target: `<site-name>.netlify.app`.
-3. In your DNS Management (Cloudflare for `t-agung.id`):
-   - **Type**: `CNAME`
-   - **Name**: `compare`
-   - **Target**: `<site-name>.netlify.app`
-   - **Proxy status**: **Proxied (Orange cloud)** (terminates TLS at edge; Netlify provisions the cert).
-4. Wait for SSL certificate issuance (typically 1–5 minutes).
-
----
-
-## 5. After Propagation
-
-- [ ] Re-run the Section 3 smoke test against `https://compare.t-agung.id`.
-- [ ] **Spot-check 3 apex blog URLs** to ensure zero side-effects on `t-agung.id`:
-  - `https://t-agung.id/`
-  - `https://t-agung.id/blog`
-  - `https://t-agung.id/blog/blog41_2nm_week_mediatek_dimensity_apple_m6_moore/`
-- [ ] *(Optional & Gated)*: Apply the blog outbound navigation link (see Step 7 in launch brief).
+- [ ] **6. Share Scenario Token (`/s/<token>`)**:
+  - Save or load a scenario URL token; verify scenario state restores with exact parameters.
+- [ ] **7. Saved Scenarios Round-Trip (P2 Retention 1)**:
+  - Save up to 3 scenarios in localStorage on homepage.
+  - Click "Muat ke Simulator" (1-click reload); verify inputs restore instantly.
+  - Delete individual scenario.
+- [ ] **8. Result Card PNG Generation (P2 Retention 2)**:
+  - On `/gaji-setara`, `/compare`, or `/wizard` Step 7, click "Salin / Bagikan Kartu Hasil (PNG 1080×1350)".
+  - Verify canvas renders crisp 1080×1350 preview image.
+  - Test "Unduh Gambar (PNG)" and WhatsApp share link.
+- [ ] **9. One-Field Email Subscribe Round-Trip (P2 Retention 3)**:
+  - Enter email in "Pantau Perubahan Biaya" box.
+  - POST to `/api/subscribe` returns 200 JSON success response.
+- [ ] **10. Health Check Endpoint**:
+  - `GET /api/health` returns `{"status":"ok","uptime":...}` with HTTP 200.
+- [ ] **11. SEO Crawlers**:
+  - `/robots.txt` disallows `/admin` and `/s/`, allows public pages.
+  - `/sitemap.xml` generates valid XML including `/metode`, `/gaji-setara`, `/persentil`, `/compare`, `/wizard`, `/contribute`.
+- [ ] **12. Comments Integration (Isso)**:
+  - `comments.t-agung.id` connects and loads without CORS origin blocking.
 
 ---
 
 ## 6. Data Sync Automation
 
-- [ ] Confirm GitHub repository secrets are set in GitHub (`Settings → Secrets and variables → Actions`):
+- [ ] Confirm GitHub repository secrets are set in `Th0mm1es/t-agung.id` (`Settings → Secrets and variables → Actions`):
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `SUPABASE_SERVICE_ROLE_KEY`
-  - `DESTATIS_USERNAME` / `DESTATIS_PASSWORD` (if applicable)
-  - `ESTAT_APP_ID` / `BPS_API_KEY` / `FRED_API_KEY` / `BLS_API_KEY`
-- [ ] In GitHub Actions tab, trigger the **Periodic Data Sync & Benchmark Refresh** workflow manually via `workflow_dispatch`.
-- [ ] Confirm workflow completes successfully and exchange rates in Supabase show current date.
+  - `ESTAT_APP_ID`, `BPS_API_KEY`, `FRED_API_KEY` (if syncing live APIs)
+- [ ] In GitHub Actions, trigger the **Periodic Data Sync & Benchmark Refresh** workflow manually via `workflow_dispatch`.
+- [ ] Confirm workflow completes successfully and exchange rates in Supabase display the fresh date.
 
 ---
 
-## 7. Post-Launch Review (24 Hours)
+## 7. Go-Live Re-Test (Blog Isolation Spot-Check)
 
-- [ ] Netlify SSL certificate status is green with automatic renewal active.
-- [ ] Check Netlify Functions log for `/api/benchmarks/correction` and `/api/proposals` — ensure no 500 errors.
-- [ ] Comments section (`comments.t-agung.id`) connects and loads without CORS errors.
-- [ ] **Security audit**: If `SUPABASE_SERVICE_ROLE_KEY` was ever copied or shared in unencrypted channels, rotate it in the Supabase Dashboard and update Netlify environment variables.
+Verify that deployment of `compare.t-agung.id` has caused ZERO disturbances to the main blog:
+
+- [ ] `https://t-agung.id/` (Homepage loads with original Astro design and post listings)
+- [ ] `https://t-agung.id/blog` (Blog archive page intact)
+- [ ] `https://t-agung.id/blog/blog41_2nm_week_mediatek_dimensity_apple_m6_moore/` (Individual blog post renders with code blocks and Isso comments)
 
 ---
 
 ## 8. Rollback Plan
 
-If an unforeseen issue occurs:
-1. **Instant DNS Rollback**:
-   - In Cloudflare DNS, delete or disable the `compare` CNAME record.
-   - `compare.t-agung.id` will immediately stop resolving. The blog `t-agung.id` remains 100% operational.
+If a critical rollback is required:
+1. **Instant DNS Rollback (30 Seconds)**:
+   - In Cloudflare DNS, delete or pause the `compare` CNAME record.
+   - `compare.t-agung.id` will stop resolving. The apex blog `t-agung.id` remains 100% active.
 2. **Git Rollback**:
-   - Revert the single integration commit:
+   - Revert commit or redeploy previous git tag:
      ```bash
-     git revert launch-v1
+     git revert HEAD
      git push origin main
      ```
-   - Because all compare code resides in the self-contained `compare/` directory, removing it has zero impact on the Astro blog.
-
----
-
-Live on: ____________________ (date), verified by: ____________________
+   - Rollback tag reference: `launch-v0` / `launch-v1`.

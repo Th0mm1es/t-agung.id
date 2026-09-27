@@ -2,7 +2,7 @@
 title: "Tesla Cybercab: Satu Layar Besar, Gak Ada Setir, dan HMI yang Menantang Logika"
 description: "Tesla Cybercab mulai beroperasi di Austin. Satu layar sentuh besar, nol tombol fisik, nol setir. Dari sudut pandang HMI engineer, apa yang benar dan apa yang kurang?"
 pubDate: 2026-09-05
-category: "produk"
+category: "otomotif"
 cover: "../../assets/blog/38/Tesla_Cybercab_hero.jpg"
 coverAlt: "Kabin Tesla Cybercab: dua kursi lounge, satu layar sentuh besar di tengah, tanpa setir dan tanpa panel instrumen"
 tags: ["tesla", "cybercab", "robotaxi", "HMI", "self-driving", "layar sentuh", "desain kabin"]
