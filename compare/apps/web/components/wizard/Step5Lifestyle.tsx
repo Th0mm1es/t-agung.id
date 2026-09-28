@@ -4,6 +4,7 @@ import { useI18n } from "@/lib/i18n";
 import { buildExpenseBasket, formatCurrency, LIFESTYLE_PROFILES } from "@bandinghidup/core";
 import type { LifestyleProfile } from "@bandinghidup/core";
 import type { WizardState, WizardAction } from "./wizardState";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step5Props {
   state: WizardState;
@@ -74,7 +75,7 @@ export function Step5Lifestyle({ state, dispatch, onNext, onBack }: Step5Props) 
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };

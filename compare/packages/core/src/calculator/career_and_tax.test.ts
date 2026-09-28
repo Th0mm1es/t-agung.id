@@ -4,6 +4,8 @@ import {
   getCareerPathwayBenchmark,
   calculateLifestyleEquivalenceSalary,
   calculateChildBenefit,
+  type CountryCode,
+  type CareerPathwayCode,
 } from "../index.js";
 
 describe("Active Statutory Tax & Deduction Engine", () => {
@@ -373,10 +375,23 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
       // Raw arithmetic: take_home (869) - card_total_shown (950) = -81 (deficit)
       const rawSurplus = benchmark.netMonthlyMajor - cardTotalShown;
       expect(rawSurplus).toBe(-81);
-      // Monthly savings clamps deficit to 0 surplus
-      expect(benchmark.monthlySavingsMajor).toBe(Math.max(0, rawSurplus));
+      // Monthly savings MUST NOT be clamped to 0: true signed surplus (-81)
+      expect(benchmark.monthlySavingsMajor).toBe(rawSurplus);
 
-      // 2. 2-Child Scenario: Married family in Berlin (€4,000 gross, 2 children, Tax Class 3)
+      // Scenario 2: High-rent city (Munich Ausbildung, higher rent €700)
+      const munichBenchmark = getCareerPathwayBenchmark("DE", "Munich", "ausbildung_kenshusei");
+      const munichExpenses = munichBenchmark.recommendedRentMajor + munichBenchmark.otherConsumptionMajor;
+      const expectedMunichSurplus = munichBenchmark.netMonthlyMajor - munichExpenses;
+      expect(expectedMunichSurplus).toBeLessThan(0);
+      expect(munichBenchmark.monthlySavingsMajor).toBe(expectedMunichSurplus);
+
+      // Scenario 3: Positive surplus scenario (Tokyo Fresh Grad S1)
+      const tokyoGrad = getCareerPathwayBenchmark("JP", "Tokyo", "fresh_grad_s1");
+      const tokyoExpenses = tokyoGrad.recommendedRentMajor + tokyoGrad.otherConsumptionMajor;
+      const expectedTokyoSurplus = tokyoGrad.netMonthlyMajor - tokyoExpenses;
+      expect(tokyoGrad.monthlySavingsMajor).toBe(expectedTokyoSurplus);
+
+      // 4. 2-Child Scenario: Married family in Berlin (€4,000 gross, 2 children, Tax Class 3)
       const familyDeductions = calculateActiveDeductions({
         country: "DE",
         grossMonthlyMinorUnits: 400000n, // €4,000 gross
@@ -393,11 +408,31 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
       const familyCardTotalShown = familySumOfLineItems; // 2600
       const familySurplus = familyTakeHome - familyCardTotalShown;
 
-      // Assertion 2: card_total_shown === sum_of_card_line_items for 2-child scenario
+      // Assertion: card_total_shown === sum_of_card_line_items for 2-child scenario
       expect(familyCardTotalShown).toBe(familySumOfLineItems);
-      // Assertion 3: surplus === take_home - card_total_shown
+      // Assertion: surplus === take_home - card_total_shown
       expect(familySurplus).toBe(familyTakeHome - familyCardTotalShown);
       expect(familySurplus).toBeGreaterThan(0);
+    });
+
+    it("asserts card data arithmetic reconciles: savings === takeHome - (rent + otherExpenses) for benchmarks", () => {
+      const cases: Array<[CountryCode, string, CareerPathwayCode]> = [
+        ["DE", "Berlin", "ausbildung_kenshusei"],
+        ["DE", "Munich", "ausbildung_kenshusei"],
+        ["JP", "Tokyo", "ausbildung_kenshusei"],
+        ["JP", "Tokyo", "fresh_grad_s1"],
+        ["ID", "Jakarta", "fresh_grad_s1"],
+      ];
+
+      for (const [country, city, pathway] of cases) {
+        const b = getCareerPathwayBenchmark(country, city, pathway);
+        const cardTotal = b.recommendedRentMajor + b.otherConsumptionMajor;
+        const cardSavings = b.netMonthlyMajor - cardTotal;
+        expect(b.totalExpensesMajor).toBe(cardTotal);
+        expect(b.monthlySavingsMajor).toBe(cardSavings);
+        // Take-home minus (rent + otherExpenses) exactly equals monthlySavingsMajor
+        expect(b.netMonthlyMajor - (b.recommendedRentMajor + b.otherConsumptionMajor)).toBe(b.monthlySavingsMajor);
+      }
     });
   });
 });

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EquivalenceCalculatorClient } from "@/components/equivalence/EquivalenceCalculatorClient";
+import { CommentsSection } from "@/components/common/CommentsSection";
 
 export const metadata: Metadata = {
   title: "Berapa Gaji Setaraku? — Ekivalen Gaya Hidup & Gaji",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function GajiSetaraPage() {
-  return <EquivalenceCalculatorClient />;
+  return (
+    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] pb-16">
+      <EquivalenceCalculatorClient />
+      <CommentsSection threadId="gaji-setara" />
+    </main>
+  );
 }

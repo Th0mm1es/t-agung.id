@@ -3,6 +3,7 @@
 import { useI18n } from "@/lib/i18n";
 import { buildExpenseBasket, formatCurrency } from "@bandinghidup/core";
 import type { WizardState, WizardAction } from "./wizardState";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step6Props {
   state: WizardState;
@@ -21,7 +22,7 @@ export function Step6Review({ state, dispatch, onNext, onBack }: Step6Props) {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };

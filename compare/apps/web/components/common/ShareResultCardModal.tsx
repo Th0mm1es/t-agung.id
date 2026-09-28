@@ -359,26 +359,34 @@ export function ShareResultCardModal({
     // Card 3: Sisa Tabungan
     ctx.beginPath();
     ctx.fillStyle = COLOR_CARD_BG;
-    ctx.strokeStyle = "rgba(74, 222, 128, 0.35)";
+    const isDeficit = (data.savingsText || "").includes("-") || (data.savingsText || "").includes("−");
+    ctx.strokeStyle = isDeficit ? "rgba(248, 113, 113, 0.45)" : "rgba(74, 222, 128, 0.35)";
     ctx.lineWidth = 1.5;
     ctx.roundRect(714, colY, colWidth, colH, 20);
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = COLOR_GREEN;
+    ctx.fillStyle = isDeficit ? COLOR_RED : COLOR_GREEN;
     ctx.font = "bold 20px sans-serif";
     ctx.fillText(
-      txt(
-        "SISA TABUNGAN",
-        "MONTHLY SURPLUS",
-        "MONATLICHER ÜBERSCHUSS",
-        "実質貯蓄可能額"
-      ),
+      isDeficit
+        ? txt(
+            "DEFISIT BULANAN",
+            "MONTHLY DEFICIT",
+            "MONATLICHES DEFIZIT",
+            "月間赤字"
+          )
+        : txt(
+            "SISA TABUNGAN",
+            "MONTHLY SURPLUS",
+            "MONATLICHER ÜBERSCHUSS",
+            "実質貯蓄可能額"
+          ),
       714 + colWidth / 2,
       colY + 40
     );
 
-    ctx.fillStyle = COLOR_TEXT_HEAD;
+    ctx.fillStyle = isDeficit ? COLOR_RED : COLOR_TEXT_HEAD;
     ctx.font = "bold 32px sans-serif";
     ctx.fillText(data.savingsText || "+€0", 714 + colWidth / 2, colY + 104);
 
@@ -396,12 +404,12 @@ export function ShareResultCardModal({
     );
 
     // ── Itemized Deduction & Arithmetic Transparency Strip ────────────
-    const stripY = 800;
+    const stripY = 795;
     ctx.beginPath();
     ctx.fillStyle = "rgba(15, 23, 27, 0.85)";
     ctx.strokeStyle = "rgba(244, 247, 246, 0.18)";
     ctx.lineWidth = 1;
-    ctx.roundRect(80, stripY, 920, 52, 14);
+    ctx.roundRect(80, stripY, 920, 64, 14);
     ctx.fill();
     ctx.stroke();
 
@@ -415,13 +423,25 @@ export function ShareResultCardModal({
     const taxDetail =
       data.taxText ||
       data.deductionsText ||
-      txt("Deduksi Pajak & Sosial", "Tax & Social Deductions", "Steuern & Abgaben", "税金・社会保険控除");
-    const stripText = `🏠 ${rentDetail}   ·   🍽️ ${livingDetail}   ·   🏛️ ${taxDetail}`;
+      txt("Deduksi Otomatis", "Automatic Deductions", "Gesetzliche Abzüge", "法定控除");
 
+    // Line 1: Cost components (Rent + Living) that sum exactly to total living costs
+    const stripCostText = `🏠 ${rentDetail}   ·   🍽️ ${livingDetail}`;
     ctx.textAlign = "center";
+    ctx.fillStyle = COLOR_TEXT_HEAD;
+    ctx.font = "bold 16px sans-serif";
+    ctx.fillText(stripCostText, 540, stripY + 22);
+
+    // Line 2: Separate note explaining payroll tax & social contributions are pre-deducted
+    const taxNote = `🏛️ ${taxDetail} · ${txt(
+      "pajak & sosial (sudah dipotong sebelum gaji bersih)",
+      "taxes & social contributions (already deducted before take-home pay)",
+      "Steuern & Sozialabgaben (bereits abgezogen vor Netto)",
+      "税金・社会保険料（手取り前に控除済）"
+    )}`;
     ctx.fillStyle = COLOR_TEXT_MUTED;
-    ctx.font = "16px sans-serif";
-    ctx.fillText(stripText, 540, stripY + 26);
+    ctx.font = "14px sans-serif";
+    ctx.fillText(taxNote, 540, stripY + 47);
 
     // ── Indeks Kenyang Section ────────────────────────────────────────
     const kenyangY = 874;

@@ -3,6 +3,7 @@
 import { useI18n } from "@/lib/i18n";
 import type { WizardState, WizardAction } from "./wizardState";
 import type { PathwayCode } from "@bandinghidup/core";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step2Props {
   state: WizardState;
@@ -116,7 +117,7 @@ export function Step2Pathway({ state, dispatch, onNext, onBack }: Step2Props) {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };

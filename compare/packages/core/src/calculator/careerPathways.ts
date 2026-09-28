@@ -371,7 +371,7 @@ export function getCareerPathwayBenchmark(
   // Estimated living consumption besides rent (food, transit, utilities): ~35% of gross or basic basket
   const otherConsumptionMajor = Math.round(baseRentMajor * 0.9);
   const totalExpensesMajor = baseRentMajor + otherConsumptionMajor;
-  const monthlySavingsMajor = Math.max(0, netMajor - totalExpensesMajor);
+  const monthlySavingsMajor = netMajor - totalExpensesMajor;
 
   return {
     country,

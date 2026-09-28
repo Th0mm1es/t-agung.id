@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase";
 import type { Country, City } from "@bandinghidup/core";
 import type { WizardState, WizardAction } from "./wizardState";
 import type { CountryCode } from "@bandinghidup/core";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step1Props {
   state: WizardState;
@@ -30,7 +31,7 @@ export function Step1Destination({ state, dispatch, onNext }: Step1Props) {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };

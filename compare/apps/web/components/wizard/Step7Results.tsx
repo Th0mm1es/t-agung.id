@@ -8,7 +8,9 @@ import { saveScenario } from "@/lib/storage/scenarioStore";
 import { PriceCorrectionModal } from "@/components/common/PriceCorrectionModal";
 import { ShareResultCardModal } from "@/components/common/ShareResultCardModal";
 import { SubscribeOptIn } from "@/components/common/SubscribeOptIn";
+import { CommentsSection } from "@/components/common/CommentsSection";
 import type { ScenarioResult, DiagnosticResult } from "@bandinghidup/core";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step7Props {
   result: ScenarioResult;
@@ -57,7 +59,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -325,6 +327,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
             {txt(
               `Standar perbandingan daya beli internasional (harga 1 Big Mac lokal: ${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}).`,
               `International purchasing power parity benchmark (local 1 Big Mac: ${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}).`,
+              `Internationaler Kaufkraftparitäts-Benchmark (lokaler Big Mac: ${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}).`,
               `購買力平価（PPP）の国際比較指標（現地ビッグマック1個：${currency === "EUR" ? "€" : "¥"}${result.bigMacIndex.bigMacPriceMajor.toLocaleString()}）`
             )}
           </p>
@@ -362,7 +365,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
       {/* ── Monthly Cash Flow Card for Target ──────────────────────── */}
       <div className="glass-card p-5 space-y-4">
         <h3 className="text-sm font-semibold text-fg-60 uppercase tracking-wider">
-          {txt(`💰 Rincian Arus Kas di ${result.input.cityName}`, `💰 Monthly Cash Flow in ${result.input.cityName}`, `💰 ${result.input.cityName} での月間キャッシュフロー明細`)}
+          {txt(`💰 Rincian Arus Kas di ${result.input.cityName}`, `💰 Monthly Cash Flow in ${result.input.cityName}`, `💰 Monatlicher Cashflow in ${result.input.cityName}`, `💰 ${result.input.cityName} での月間キャッシュフロー明細`)}
         </h3>
 
         <div className="space-y-2">
@@ -373,7 +376,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
               color: "text-[var(--text)]",
             },
             {
-              label: txt(`Potongan Pajak & Asuransi (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `Tax & Social Deductions (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `税金・社会保険料控除 (${Math.round(result.income.effectiveDeductionRate * 100)}%)`),
+              label: txt(`Potongan Pajak & Asuransi (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `Tax & Social Deductions (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `Steuern & Sozialabgaben (${Math.round(result.income.effectiveDeductionRate * 100)}%)`, `税金・社会保険料控除 (${Math.round(result.income.effectiveDeductionRate * 100)}%)`),
               value: -result.income.totalDeductions,
               color: "text-red-400",
             },
@@ -469,6 +472,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
               label: txt(
                 `Deposit (${result.input.relocationInput?.depositMonths ?? (result.input.country === "DE" ? 3 : 1)} bln)`,
                 `Deposit (${result.input.relocationInput?.depositMonths ?? (result.input.country === "DE" ? 3 : 1)} mo)`,
+                `Kaution (${result.input.relocationInput?.depositMonths ?? (result.input.country === "DE" ? 3 : 1)} Mon.)`,
                 `敷金・デポジット (${result.input.relocationInput?.depositMonths ?? (result.input.country === "DE" ? 3 : 1)}ヶ月分)`
               ),
               value: result.upfrontDepositAmount,
@@ -593,6 +597,9 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
 
       {/* Subscribe Opt-In */}
       <SubscribeOptIn cityName={result.input.cityName} countryCode={result.input.country} />
+
+      {/* Route-Specific Discussions (Wizard) */}
+      <CommentsSection threadId="wizard" />
 
       {/* Share Card Modal (1080x1350 PNG) */}
       <ShareResultCardModal

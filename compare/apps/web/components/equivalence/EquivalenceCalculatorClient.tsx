@@ -32,6 +32,7 @@ import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { ShareResultCardModal } from "@/components/common/ShareResultCardModal";
 import { SubscribeOptIn } from "@/components/common/SubscribeOptIn";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 const FALLBACK_CITIES_BY_COUNTRY: Record<CountryCode, string[]> = {
   DE: ["Berlin", "Munich", "Frankfurt am Main", "Hamburg", "Cologne", "Stuttgart", "Dusseldorf", "Nuremberg", "Leipzig", "Dresden"],
@@ -262,7 +263,7 @@ export function EquivalenceCalculatorClient() {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -1186,6 +1187,7 @@ export function EquivalenceCalculatorClient() {
                   {txt(
                     `Estimasi bersih tiba di tanah air: ~${remitIdrText} / bln`,
                     `Estimated net arriving: ~${remitIdrText} / mo`,
+                    `Geschätzter Netto-Eingang in der Heimat: ~${remitIdrText} / Monat`,
                     `手取り送金見積もり: 約 ${remitIdrText} / 月`
                   )}
                 </div>
@@ -1211,6 +1213,7 @@ export function EquivalenceCalculatorClient() {
               {txt(
                 `Simpan skenario ke browser, bagikan via WhatsApp, atau unduh infografis PNG 1080×1350.`,
                 `Save scenario locally, share via WhatsApp, or download high-res 1080×1350 PNG card.`,
+                `Speichern Sie das Szenario im Browser, teilen Sie es per WhatsApp oder laden Sie die PNG-Infografikkarte (1080×1350) herunter.`,
                 `シミュレーションをブラウザに保存、WhatsAppで共有、または高画質PNGカード（1080×1350）を出力。`
               )}
             </p>
@@ -1298,10 +1301,10 @@ export function EquivalenceCalculatorClient() {
             <div className="flex items-baseline justify-between pt-1">
               <div>
                 <div className="text-xl sm:text-2xl font-extrabold text-[var(--text)]">
-                  {txt("Persentil ke-", "Percentile ", "第")}{sourcePercentile.percentile}{txt("", "", "パーセンタイル")}
+                  {txt("Persentil ke-", "Percentile ", "Perzentil ", "第")}{sourcePercentile.percentile}{txt("", "", "", "パーセンタイル")}
                 </div>
                 <div className="text-xs text-fg-muted font-mono">
-                  {sourceCur}{Math.round(equivalenceResult.sourceSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : "en-US")} / {txt("bln gross", "mo gross", "月額面")}
+                  {sourceCur}{Math.round(equivalenceResult.sourceSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : locale === "de" ? "de-DE" : locale === "ja" ? "ja-JP" : "en-US")} / {txt("bln gross", "mo gross", "M. brutto", "月額面")}
                 </div>
               </div>
               <div className="text-right">
@@ -1427,6 +1430,7 @@ export function EquivalenceCalculatorClient() {
               {txt(
                 `Di ${sourceCityName}, gaji acuan Anda menempati posisi Top ${sourcePercentile.topPercentage}% (${sourcePercentile.ratioToMedian}x median). Agar dapat mempertahankan gaya hidup & daya beli yang sama di ${targetCityName}, gaji target yang Anda minta (${targetCur}${Math.round(equivalenceResult.targetSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : "en-US")} gross) menempatkan Anda di posisi Top ${targetPercentile.topPercentage}% (${targetPercentile.ratioToMedian}x median nasional ${targetCountry}).`,
                 `In ${sourceCityName}, your reference salary ranks at Top ${sourcePercentile.topPercentage}% (${sourcePercentile.ratioToMedian}x median). To maintain the equivalent lifestyle in ${targetCityName}, your required contract salary places you at Top ${targetPercentile.topPercentage}% (${targetPercentile.ratioToMedian}x median in ${targetCountry}).`,
+                `In ${sourceCityName} liegt Ihr Referenzgehalt in den oberen ${sourcePercentile.topPercentage}% (${sourcePercentile.ratioToMedian}x Median). Um denselben Lebensstandard in ${targetCityName} beizubehalten, platziert Sie das erforderliche Zielgehalt (${targetCur}${Math.round(equivalenceResult.targetSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : "de-DE")} Brutto) in den oberen ${targetPercentile.topPercentage}% (${targetPercentile.ratioToMedian}x nationaler Median in ${targetCountry}).`,
                 `${sourceCityName}では、現在の基準給与は上位${sourcePercentile.topPercentage}%（中央値の${sourcePercentile.ratioToMedian}倍）に位置しています。${targetCityName}で同等の生活水準を維持するために必要な契約給与（月額面 ${targetCur}${Math.round(equivalenceResult.targetSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : "en-US")}）は、渡航先国の給与分布において上位${targetPercentile.topPercentage}%（中央値の${targetPercentile.ratioToMedian}倍）に相当します。`
               )}
             </p>

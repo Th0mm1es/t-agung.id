@@ -21,6 +21,7 @@ import {
 } from "@/lib/exchangeRate";
 import { ShareResultCardModal } from "@/components/common/ShareResultCardModal";
 import { SubscribeOptIn } from "@/components/common/SubscribeOptIn";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 export function CompareClient() {
   const { locale, t } = useI18n();
@@ -99,7 +100,7 @@ export function CompareClient() {
       const netVal = overrideNetA
         ? parseFloat(overrideNetA)
         : Math.round(grossVal * (1 - res.deductionResult.effectiveDeductionRate));
-      const savings = Math.max(0, netVal - rentVal - Math.round(rentVal * 0.9));
+      const savings = netVal - rentVal - Math.round(rentVal * 0.9);
 
       return {
         ...res,
@@ -127,7 +128,7 @@ export function CompareClient() {
       const netVal = overrideNetB
         ? parseFloat(overrideNetB)
         : Math.round(grossVal * (1 - res.deductionResult.effectiveDeductionRate));
-      const savings = Math.max(0, netVal - rentVal - Math.round(rentVal * 0.9));
+      const savings = netVal - rentVal - Math.round(rentVal * 0.9);
 
       return {
         ...res,
@@ -151,7 +152,7 @@ export function CompareClient() {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -320,6 +321,7 @@ export function CompareClient() {
             {txt(
               `Selisih Konversi (${refCurrency}):`,
               `Conversion Difference (${refCurrency}):`,
+              `Währungsdifferenz (${refCurrency}):`,
               `換算差額 (${refCurrency}):`
             )}
           </div>
@@ -345,6 +347,7 @@ export function CompareClient() {
                 {txt(
                   `Estimasi bersih tiba di tanah air: ~${remitIdrTextB} / bln`,
                   `Estimated net arriving: ~${remitIdrTextB} / mo`,
+                  `Geschätzter Netto-Eingang in der Heimat: ~${remitIdrTextB} / Monat`,
                   `手取り送金見積もり: 約 ${remitIdrTextB} / 月`
                 )}
               </div>
@@ -922,6 +925,7 @@ export function CompareClient() {
               {txt(
                 `Simpan simulasi ke browser, bagikan via WhatsApp, atau unduh kartu infografis PNG 1080×1350.`,
                 `Save simulation locally, share via WhatsApp, or download high-res 1080×1350 PNG card.`,
+                `Speichern Sie die Simulation im Browser, teilen Sie sie per WhatsApp oder laden Sie die PNG-Infografikkarte (1080×1350) herunter.`,
                 `シミュレーションをブラウザに保存、WhatsAppで共有、または高画質PNGカード（1080×1350）を出力。`
               )}
             </p>

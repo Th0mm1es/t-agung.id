@@ -136,10 +136,37 @@ export function WizardClient() {
     dispatch({ type: "RESET" });
   };
 
+  const txt = (idStr: string, enStr: string, deStr: string, jaStr: string) => {
+    if (locale === "ja") return jaStr;
+    if (locale === "de") return deStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
+
   const containerClass = state.currentStep === 7 ? "max-w-5xl" : "max-w-xl";
 
   return (
     <div className={`${containerClass} mx-auto py-8 px-4 space-y-6 transition-all duration-300`}>
+      {/* Dynamic Translated Header */}
+      <div className="text-center pt-2 pb-1">
+        <h1 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
+          {txt(
+            "Kalkulator Anggaran Penuh (7 Langkah)",
+            "Full Budget Calculator (7 Steps)",
+            "Vollständiger Budget-Rechner (7 Schritte)",
+            "7段階 詳細予算シミュレーター"
+          )}
+        </h1>
+        <p className="text-xs sm:text-sm text-[var(--muted)] mt-1 max-w-xl mx-auto">
+          {txt(
+            "Perencanaan modal awal, gaji bersih, pengeluaran riil, dan diagnostik ketahanan finansial Ausbildung & Kenshusei.",
+            "Upfront relocation capital, net take-home pay, realistic expenses, and financial runway diagnostics for Ausbildung & Kenshusei.",
+            "Startkapital, Netto-Auszahlung, reale Lebenshaltungskosten und finanzielle Resilienz-Diagnose für Ausbildung & Kenshusei.",
+            "初期移住費用、実質手取り、実勢生活費、およびAusbildung・技能実習の財務健全性シミュレーション。"
+          )}
+        </p>
+      </div>
+
       {/* Escape Link back to Quick Simulator */}
       <div className="flex items-center justify-between pb-1 text-xs">
         <Link

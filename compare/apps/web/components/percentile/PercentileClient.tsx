@@ -10,6 +10,7 @@ import {
   type PercentileCountry,
   DEFAULT_PERCENTILE_ANCHORS,
 } from "@bandinghidup/core";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 export function PercentileClient() {
   const { locale } = useI18n();
@@ -23,7 +24,7 @@ export function PercentileClient() {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };

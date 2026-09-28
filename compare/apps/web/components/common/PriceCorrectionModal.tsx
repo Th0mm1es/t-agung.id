@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface PriceCorrectionModalProps {
   isOpen: boolean;
@@ -27,8 +28,18 @@ export function PriceCorrectionModal({
   onSuccess,
 }: PriceCorrectionModalProps) {
   const { locale } = useI18n();
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const [newPrice, setNewPrice] = useState(currentValueMajor.toString());
   const [userName, setUserName] = useState("");
@@ -131,7 +142,7 @@ export function PriceCorrectionModal({
 
             <div>
               <label className="block text-xs font-semibold text-fg-70 mb-1">
-                {txt(`Harga Saat Ini (${currencySymbol})`, `Current Value (${currencySymbol})`, `現在の登録価格 (${currencySymbol})`)}
+                {txt(`Harga Saat Ini (${currencySymbol})`, `Current Value (${currencySymbol})`, `Aktueller Preis (${currencySymbol})`, `現在の登録価格 (${currencySymbol})`)}
               </label>
               <div className="font-mono text-sm text-fg-soft bg-panel-2 p-2.5 rounded-lg border border-line">
                 {currencySymbol} {currentValueMajor.toLocaleString()}
@@ -140,7 +151,7 @@ export function PriceCorrectionModal({
 
             <div>
               <label className="block text-xs font-semibold text-fg-70 mb-1">
-                {txt(`Harga Baru / Hasil Pengamatan (${currencySymbol})`, `New Observed Price (${currencySymbol})`, `新しい実勢価格 (${currencySymbol})`)}
+                {txt(`Harga Baru / Hasil Pengamatan (${currencySymbol})`, `New Observed Price (${currencySymbol})`, `Neuer beobachteter Preis (${currencySymbol})`, `新しい実勢価格 (${currencySymbol})`)}
               </label>
               <input
                 type="number"

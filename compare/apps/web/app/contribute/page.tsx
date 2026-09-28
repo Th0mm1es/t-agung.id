@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { ContributeClient } from "@/components/contribute/ContributeClient";
+import { CommentsSection } from "@/components/common/CommentsSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function ContributePage() {
       <Suspense fallback={<div className="p-8 text-center text-fg-muted">Memuat form kontribusi...</div>}>
         <ContributeClient />
       </Suspense>
+      <CommentsSection threadId="contribute" />
     </main>
   );
 }

@@ -10,6 +10,7 @@ import {
   formatCurrency,
 } from "@bandinghidup/core";
 import type { WizardState, WizardAction } from "./wizardState";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step3Props {
   state: WizardState;
@@ -138,7 +139,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -303,7 +304,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                 }`}
               >
                 <div className="text-fg-muted text-xs">
-                  {txt(`Tahun ke-${year}`, `Year ${year}`, `第${year}年目`)}
+                  {txt(`Tahun ke-${year}`, `Year ${year}`, `Jahr ${year}`, `第${year}年目`)}
                 </div>
                 <div className="text-[var(--text)] font-medium">
                   {formatCurrency(AUSBILDUNG_REFERENCE_GROSS[year], "EUR", currencyLocale)}
@@ -497,6 +498,7 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
           label={txt(
             `Gaji Kotor / Gakumen (${currency}/bulan)`,
             `Gross Income / Gakumen (${currency}/month)`,
+            `Bruttoeinkommen (${currency}/Monat)`,
             `額面給与 (${currency}/月)`
           )}
           value={state.grossMonthlyMinorUnits}
@@ -570,6 +572,11 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
                     "JPY",
                     currencyLocale
                   )}, but gross income is ¥0.`,
+                  `Sie haben Abzüge von ${formatCurrency(
+                    totalContractDeductions,
+                    "JPY",
+                    currencyLocale
+                  )} eingegeben, aber das Bruttoeinkommen beträgt noch ¥0.`,
                   `控除額 ${formatCurrency(
                     totalContractDeductions,
                     "JPY",

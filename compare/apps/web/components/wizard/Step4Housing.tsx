@@ -5,6 +5,7 @@ import { useI18n } from "@/lib/i18n";
 import { formatCurrency, DE_HOUSING_BENCHMARKS, JP_HOUSING_BENCHMARKS } from "@bandinghidup/core";
 import type { HousingType } from "@bandinghidup/core";
 import type { WizardState, WizardAction } from "./wizardState";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface Step4Props {
   state: WizardState;
@@ -65,7 +66,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -172,7 +173,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
 
       {/* Rent Input */}
       <CurrencyInput id="monthly-rent-input"
-        label={txt(`Sewa Bulanan (${currency}/bulan)`, `Monthly Rent (${currency}/month)`, `月額家賃 (${currency}/月)`)}
+        label={txt(`Sewa Bulanan (${currency}/bulan)`, `Monthly Rent (${currency}/month)`, `Monatsmiete (${currency}/Monat)`, `月額家賃 (${currency}/月)`)}
         value={state.monthlyRentMinorUnits} onChange={(v) => dispatch({ type: "SET_MONTHLY_RENT", amount: v })}
         currency={currency} locale={locale} />
 
@@ -195,6 +196,7 @@ export function Step4Housing({ state, dispatch, onNext, onBack }: Step4Props) {
               {txt(
                 `Uang Jaminan (${state.country === "JP" ? "敷金 Shikikin" : "Kaution"})`,
                 `Deposit (${state.country === "JP" ? "Shikikin 敷金" : "Kaution"})`,
+                `Kaution (${state.country === "JP" ? "敷金 Shikikin" : "Kaution"})`,
                 `敷金・保証金 (${state.country === "JP" ? "敷金" : "Kaution"})`
               )}
             </label>

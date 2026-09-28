@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useI18n } from "@/lib/i18n";
 import { supabase } from "@/lib/supabase";
 import type { City, Country } from "@bandinghidup/core";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 export function ContributeClient() {
   const { locale } = useI18n();
@@ -17,7 +18,7 @@ export function ContributeClient() {
       return idStr;
     }
     if (locale === "ja") return deOrJaStr;
-    if (locale === "de") return enStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
     if (locale === "en") return enStr;
     return idStr;
   };
@@ -139,6 +140,7 @@ export function ContributeClient() {
                 {txt(
                   `Pengamatanmu masuk antrean moderasi — setelah diterima, masuk ke median ${submittedCategory} ${submittedCity}.`,
                   `Your observation entered the moderation queue — once approved, it feeds the ${submittedCategory} median for ${submittedCity}.`,
+                  `Ihre Beobachtung ist in der Moderationswarteschlange – nach Freigabe fließt sie in den Median für ${submittedCategory} in ${submittedCity} ein.`,
                   `送信データは確認キューに入りました。承認後、${submittedCity}の${submittedCategory}中央値データに統合されます。`
                 )}
               </p>
@@ -278,7 +280,7 @@ export function ContributeClient() {
           {/* Amount */}
           <div className="space-y-1.5">
             <label htmlFor="contribute-amount-input" className="block text-sm font-medium text-fg-80">
-              {txt(`Nominal (${currencyCode}/bulan)`, `Amount (${currencyCode}/month)`, `金額（${currencyCode}/月）`)}
+              {txt(`Nominal (${currencyCode}/bulan)`, `Amount (${currencyCode}/month)`, `Betrag (${currencyCode}/Monat)`, `金額（${currencyCode}/月）`)}
             </label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--accent)] font-mono text-sm">

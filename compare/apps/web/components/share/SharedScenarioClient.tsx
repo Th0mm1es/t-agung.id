@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { formatCurrency, type ScenarioResult } from "@bandinghidup/core";
 import { saveScenario } from "@/lib/storage/scenarioStore";
+import DE_INLINE from "@/locales/de_inlines.json";
 
 interface SharedScenarioClientProps {
   token: string;
@@ -14,8 +15,18 @@ export function SharedScenarioClient({ token, result }: SharedScenarioClientProp
   const { locale } = useI18n();
   const router = useRouter();
 
-  const txt = (idStr: string, enStr: string, jaStr: string) =>
-    locale === "ja" ? jaStr : locale === "en" ? enStr : idStr;
+  const txt = (idStr: string, enStr: string, deOrJaStr: string, jaStr?: string) => {
+    if (jaStr !== undefined) {
+      if (locale === "ja") return jaStr;
+      if (locale === "de") return deOrJaStr;
+      if (locale === "en") return enStr;
+      return idStr;
+    }
+    if (locale === "ja") return deOrJaStr;
+    if (locale === "de") return (DE_INLINE as Record<string, string>)[idStr] ?? (console.warn("[i18n] missing de inline:", idStr), enStr);
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   const currency = result.input.country === "DE" ? "EUR" : "JPY";
   const currencyLocale = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";

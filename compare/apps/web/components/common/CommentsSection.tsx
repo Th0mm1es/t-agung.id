@@ -3,12 +3,21 @@
 import React, { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
-export function CommentsSection() {
+interface CommentsSectionProps {
+  threadId?: string;
+}
+
+export function CommentsSection({ threadId = "home" }: CommentsSectionProps) {
   const { locale } = useI18n();
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    const threadEl = document.getElementById("isso-thread");
+    if (threadEl) {
+      threadEl.setAttribute("data-isso-id", threadId);
+    }
+
     // Check if Isso script is already loaded
     const scriptId = "isso-embed-script";
     let script = document.getElementById(scriptId) as HTMLScriptElement | null;
@@ -18,6 +27,7 @@ export function CommentsSection() {
       script.id = scriptId;
       script.src = "https://comments.t-agung.id/js/embed.min.js";
       script.setAttribute("data-isso", "https://comments.t-agung.id/");
+      script.setAttribute("data-isso-require-author", "true");
       script.async = true;
       script.onerror = () => setHasError(true);
       document.body.appendChild(script);
@@ -25,6 +35,7 @@ export function CommentsSection() {
       // Re-init if window.Isso is already present
       try {
         (window as any).Isso?.init();
+        (window as any).Isso?.fetchComments();
       } catch {
         setHasError(true);
       }
@@ -32,16 +43,16 @@ export function CommentsSection() {
 
     // Gracefully detect if Isso was blocked by CORS or failed to mount within 3 seconds
     const timer = setTimeout(() => {
-      const threadEl = document.getElementById("isso-thread");
-      if (threadEl && threadEl.children.length === 0) {
+      const el = document.getElementById("isso-thread");
+      if (el && el.children.length === 0) {
         setHasError(true);
-      } else if (threadEl && threadEl.children.length > 0) {
+      } else if (el && el.children.length > 0) {
         setIsLoaded(true);
       }
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [threadId]);
 
   const txt = (idStr: string, enStr: string, deStr: string, jaStr: string) => {
     if (locale === "de") return deStr;
@@ -162,7 +173,7 @@ export function CommentsSection() {
             </div>
           )}
 
-          <section id="isso-thread" className="tagung-comments-thread"></section>
+          <section id="isso-thread" data-isso-id={threadId} className="tagung-comments-thread"></section>
           <noscript>
             <p className="text-xs text-[var(--muted)]">
               {txt(

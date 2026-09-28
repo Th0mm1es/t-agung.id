@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { CompareClient } from "@/components/compare/CompareClient";
+import { CommentsSection } from "@/components/common/CommentsSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function ComparePage() {
       <Suspense fallback={<div className="p-8 text-center text-fg-muted">Memuat perbandingan...</div>}>
         <CompareClient />
       </Suspense>
+      <CommentsSection threadId="compare" />
     </main>
   );
 }

@@ -861,7 +861,7 @@ export function LandingPageClient() {
         </section>
 
         {/* ── Section: Isso Comments & Admin Contact ─────────────────────── */}
-        <CommentsSection />
+        <CommentsSection threadId="home" />
       </main>
 
       {/* ── Footer ──────────────────────────────────────────────────────── */}
