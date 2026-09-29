@@ -5,7 +5,7 @@ import { calculateFamilyHousehold } from "./family/childcare.js";
 import { calculateCommuterTradeoff } from "./commuter/tradeoff.js";
 
 describe("Stage 4 — Ausbildung Detailed Engine", () => {
-  it("applies tax exemption when gross is below Grundfreibetrag (€982)", () => {
+  it("applies tax exemption when gross is below Grundfreibetrag (€1,029/mo, 2026)", () => {
     const gross = 95000n; // €950/mo
     const res = calculateAusbildungDetailed(gross, 1);
 
@@ -52,7 +52,7 @@ describe("Stage 4 — Family & Childcare Module", () => {
 
     expect(res.scaledHousingRent).toBeGreaterThan(50000n);
     expect(res.scaledGroceryCost).toBeGreaterThan(20000n);
-    expect(res.monthlyKindergeldAllowance).toBe(51000n); // 2 × €255 = €510
+    expect(res.monthlyKindergeldAllowance).toBe(51800n); // 2 × €259 = €518 (Kindergeld 2026)
   });
 });
 

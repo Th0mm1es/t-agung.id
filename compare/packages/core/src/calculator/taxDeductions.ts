@@ -82,8 +82,9 @@ function calculateGermanyDeductions(input: ActiveDeductionInput): ActiveDeductio
   const pensionRate = 0.093;
   const pensionCents = BigInt(Math.round(grossMajor * pensionRate * 100));
 
-  // Krankenversicherung (KV): 7.3% statutory base + 0.8% avg Zusatzbeitrag = 8.1%
-  const healthRate = 0.081;
+  // Krankenversicherung (KV): 7.3% statutory base + 2.9% avg Zusatzbeitrag 2026 = 10.2%
+  // Zusatzbeitrag avg: 2024: 1.7% → 2025: 2.5% → 2026: 2.9% (BMG, GKV-Beitragssatzstabilisierung)
+  const healthRate = 0.102;
   const healthCents = BigInt(Math.round(grossMajor * healthRate * 100));
 
   // Arbeitslosenversicherung (AV): 1.3%
@@ -98,8 +99,9 @@ function calculateGermanyDeductions(input: ActiveDeductionInput): ActiveDeductio
   const socialSecurityDeductible = (Number(totalSocialSecurityCents) / 100) * 0.85; // ~85% deductible under § 10 EStG
 
   // 2. Income Tax (Lohnsteuer)
-  // Monthly Grundfreibetrag 2026: €982 for Tax Class 1/4; ~€1,964 for Tax Class 3
-  const monthlyAllowance = taxClass === 3 ? 1964 : 982;
+  // Monthly Grundfreibetrag 2026: €12,348/yr → €1,029/mo for Tax Class 1/4; ~€2,058/mo for Tax Class 3
+  // Source: BMF 2026 (EStG §32a). (2024 figure was €982/mo — stale, replaced 2026-09-29.)
+  const monthlyAllowance = taxClass === 3 ? 2058 : 1029;
   const childAllowanceDeduction = numChildren > 0 ? numChildren * 250 : 0; // Tax relief proxy
   const taxableBase = Math.max(0, grossMajor - monthlyAllowance - socialSecurityDeductible - childAllowanceDeduction);
 

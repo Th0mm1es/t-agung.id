@@ -434,9 +434,9 @@ export function Step3Income({ state, dispatch, onNext, onBack }: Step3Props) {
             <span>
               {state.country === "DE"
                 ? txt(
-                    "Kindergeld (€255/anak/bln) berlaku untuk anak <18 th (maks 25 th jika masih pendidikan/training).",
-                    "Kindergeld (€255/child/mo) applies for children <18 yo (up to 25 yo if in education/training).",
-                    "Kindergeld（ドイツ子供手当 €255/月/人）は18歳未満対象（教育・訓練中は最長25歳まで）。"
+                    "Kindergeld (€259/anak/bln) berlaku untuk anak <18 th (maks 25 th jika masih pendidikan/training).",
+                    "Kindergeld (€259/child/mo) applies for children <18 yo (up to 25 yo if in education/training).",
+                    "Kindergeld（ドイツ子供手当 €259/月/人）は18歳未満対象（教育・訓練中は最長25歳まで）。"
                   )
                 : state.country === "JP"
                 ? txt(

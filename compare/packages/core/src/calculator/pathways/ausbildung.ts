@@ -3,17 +3,17 @@
  *
  * Detailed Germany Ausbildung stipend progression (Years 1-3),
  * statutory social security employee share (~19.6%), and
- * Grundfreibetrag (€11,784/yr) annual tax exemption logic.
+ * Grundfreibetrag (€12,348/yr, 2026) annual tax exemption logic.
  */
 
 import Decimal from "decimal.js";
 import { GERMANY_SUFFICIENCY_BENCHMARK_CENTS, type TrainingYear } from "../income.js";
 
-/** 2026 German Grundfreibetrag (annual tax-free allowance) in cents: €11,784 */
-export const DE_GRUNDFREIBETRAG_ANNUAL_CENTS = 1178400n; // €11,784.00
+/** German Grundfreibetrag 2026 (annual tax-free allowance) in cents: €12,348 (BMF 2026; 2024 was €11,784) */
+export const DE_GRUNDFREIBETRAG_ANNUAL_CENTS = 1234800n; // €12,348.00
 
-/** Monthly tax-free threshold: €982.00 / month */
-export const DE_GRUNDFREIBETRAG_MONTHLY_CENTS = 98200n; // €982.00
+/** Monthly tax-free threshold: €1,029.00 / month (€12,348/12, 2026) */
+export const DE_GRUNDFREIBETRAG_MONTHLY_CENTS = 102900n; // €1,029.00
 
 export interface AusbildungDetailedResult {
   trainingYear: TrainingYear;

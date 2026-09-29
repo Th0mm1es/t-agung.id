@@ -862,7 +862,7 @@ export function QuickHeroSimulator({
           grossSalaryText: `${preset.currencySymbol}${grossInput.toLocaleString()}`,
           netSalaryText: `${preset.currencySymbol}${netTakeHome.toLocaleString()}`,
           expensesText: `${preset.currencySymbol}${totalExpenses.toLocaleString()}`,
-          savingsText: `${preset.currencySymbol}${remainingSavings.toLocaleString()}`,
+          savingsText: `${remainingSavings >= 0 ? "+" : "−"}${preset.currencySymbol}${Math.abs(remainingSavings).toLocaleString()}`,
           foodIndexText: `~${savingsMeals} ${preset.stapleMeal.name[locale] || preset.stapleMeal.name.en} / ${txt("bln", "mo", "M.", "月")}`,
           badgeText: `${txt("Gaji Bersih", "Net Salary", "Nettogehalt", "手取り")}: ${preset.currencySymbol}${netTakeHome.toLocaleString()} (${txt("Potongan", "Deductions", "Abzüge", "控除")} ~${effectiveDeductionPct}%)`,
           periodicityText: `${preset.name[locale] || preset.name.en} · ${txt("Per Bulan", "Monthly", "Monatlich", "月額")}`,

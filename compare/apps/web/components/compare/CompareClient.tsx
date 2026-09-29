@@ -162,11 +162,13 @@ export function CompareClient() {
 
   const formatMoney = (val: number, c: CountryCode) => {
     const loc = locale === "de" ? "de-DE" : locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : "en-US";
-    return new Intl.NumberFormat(loc, {
+    const isNeg = val < 0;
+    const formatted = new Intl.NumberFormat(loc, {
       style: "currency",
       currency: curCode(c),
       maximumFractionDigits: 0,
-    }).format(Math.round(val));
+    }).format(Math.round(Math.abs(val)));
+    return isNeg ? `−${formatted}` : formatted;
   };
 
   // Convert to common reference currency
@@ -202,7 +204,7 @@ export function CompareClient() {
         rent: benchmarkB.recommendedRentMajor,
         living: benchmarkB.otherConsumptionMajor,
         currencySymbol: curSymbol(countryB),
-        netSavingsText: `${curSymbol(countryB)}${benchmarkB.monthlySavingsMajor.toLocaleString(locale === "id" ? "id-ID" : "en-US")}`,
+        netSavingsText: `${benchmarkB.monthlySavingsMajor >= 0 ? "+" : ""}${formatMoney(benchmarkB.monthlySavingsMajor, countryB)}`,
         savedAt: new Date().toISOString(),
       };
       const updated = [newScenario, ...currentList.filter((s: any) => s.id !== newScenario.id)].slice(0, 3);
@@ -217,28 +219,26 @@ export function CompareClient() {
     const textMsg = encodeURIComponent(
       `📊 Komparasi Karir & Daya Beli di BandingHidup:\n` +
       `${cityNameA} (${curSymbol(countryA)}${benchmarkA.grossMonthlyMajor.toLocaleString(locale === "id" ? "id-ID" : "en-US")}) vs ${cityNameB} (${curSymbol(countryB)}${benchmarkB.grossMonthlyMajor.toLocaleString(locale === "id" ? "id-ID" : "en-US")})\n` +
-      `Gaji Bersih ${cityNameB}: ${curSymbol(countryB)}${benchmarkB.netMonthlyMajor.toLocaleString(locale === "id" ? "id-ID" : "en-US")}\n` +
-      `Tabungan ${cityNameB}: +${curSymbol(countryB)}${benchmarkB.monthlySavingsMajor.toLocaleString(locale === "id" ? "id-ID" : "en-US")}\n\n` +
+      `Gaji Bersih ${cityNameB}: ${formatMoney(benchmarkB.netMonthlyMajor, countryB)}\n` +
+      `${benchmarkB.monthlySavingsMajor >= 0 ? "Tabungan" : "Defisit"} ${cityNameB}: ${benchmarkB.monthlySavingsMajor >= 0 ? "+" : ""}${formatMoney(benchmarkB.monthlySavingsMajor, countryB)}\n\n` +
       `Cek simulasi lengkap di https://compare.t-agung.id/compare`
     );
     window.open(`https://wa.me/?text=${textMsg}`, "_blank");
   };
 
-  // Remittance arriving in IDR for Column B
-  const remitTargetMajorB = Math.max(
-    100,
-    Math.round(
-      benchmarkB.monthlySavingsMajor > 0
-        ? benchmarkB.monthlySavingsMajor
-        : benchmarkB.netMonthlyMajor * 0.25
-    )
-  );
+  // Remittance arriving in IDR for Column B.
+  // Only when Column B actually generates a positive surplus — never fabricate a
+  // remittance from 25% of net when the scenario is in deficit (audit v7 M5/M11).
+  const hasSurplusB = benchmarkB.monthlySavingsMajor > 0;
+  const remitTargetMajorB = hasSurplusB
+    ? Math.max(100, Math.round(benchmarkB.monthlySavingsMajor))
+    : 0;
   const remitFeeB =
     remitTargetMajorB * REMITTANCE_MARGIN_RATE +
     (countryB === "DE" ? REMITTANCE_FLAT_FEE_EUR : countryB === "JP" ? REMITTANCE_FLAT_FEE_JPY : 0);
   const remitNetArrivingB = Math.max(0, remitTargetMajorB - remitFeeB);
   const remitIdrTextB = useMemo(() => {
-    if (!exchangeRates) return "Rp 0";
+    if (!exchangeRates || remitTargetMajorB <= 0) return "Rp 0";
     const minor = BigInt(Math.round(remitNetArrivingB * (countryB === "DE" ? 100 : 1)));
     const conv = convertCurrency(minor, curCode(countryB), "IDR", exchangeRates);
     return formatConverted(conv, "IDR", locale === "id" ? "id-ID" : "en-US");
@@ -333,7 +333,7 @@ export function CompareClient() {
       </div>
 
       {/* ── Remittance / Kirim ke Orang Tua Callout ── */}
-      {countryB !== "ID" && (
+      {countryB !== "ID" && hasSurplusB && (
         <div className="p-4 rounded-2xl bg-panel-2 border border-line flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-xl shrink-0">
@@ -524,8 +524,8 @@ export function CompareClient() {
 
               <div className="flex justify-between items-center pt-2 border-t border-line font-bold text-sm">
                 <span className="text-fg-90">{t("compare.discretionary_savings")}</span>
-                <span className="font-mono text-emerald-400">
-                  + {formatMoney(benchmarkA.monthlySavingsMajor, countryA)}
+                <span className={`font-mono ${benchmarkA.monthlySavingsMajor >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                  {benchmarkA.monthlySavingsMajor >= 0 ? `+ ${formatMoney(benchmarkA.monthlySavingsMajor, countryA)}` : formatMoney(benchmarkA.monthlySavingsMajor, countryA)}
                 </span>
               </div>
               <div className="text-right text-[10px] text-fg-soft font-mono">
@@ -798,8 +798,8 @@ export function CompareClient() {
 
               <div className="flex justify-between items-center pt-2 border-t border-line font-bold text-sm">
                 <span className="text-fg-90">{t("compare.discretionary_savings")}</span>
-                <span className="font-mono text-emerald-400">
-                  + {formatMoney(benchmarkB.monthlySavingsMajor, countryB)}
+                <span className={`font-mono ${benchmarkB.monthlySavingsMajor >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                  {benchmarkB.monthlySavingsMajor >= 0 ? `+ ${formatMoney(benchmarkB.monthlySavingsMajor, countryB)}` : formatMoney(benchmarkB.monthlySavingsMajor, countryB)}
                 </span>
               </div>
               <div className="text-right text-[10px] text-fg-soft font-mono">
@@ -978,13 +978,13 @@ export function CompareClient() {
           netSalaryText: `${formatMoney(benchmarkB.netMonthlyMajor, countryB)}`,
           expensesText: `${formatMoney(benchmarkB.totalExpensesMajor || (benchmarkB.recommendedRentMajor + (benchmarkB.otherConsumptionMajor || 0)), countryB)}`,
           savingsText: `${benchmarkB.monthlySavingsMajor >= 0 ? "+" : ""}${formatMoney(benchmarkB.monthlySavingsMajor, countryB)}`,
-          foodIndexText: `${txt("Surplus", "Surplus", "Überschuss", "黒字")}: ${formatMoney(benchmarkB.monthlySavingsMajor, countryB)} / ${txt("bln", "mo", "M.", "月")}`,
+          foodIndexText: `${benchmarkB.monthlySavingsMajor >= 0 ? txt("Surplus", "Surplus", "Überschuss", "黒字") : txt("Defisit", "Deficit", "Defizit", "赤字")}: ${benchmarkB.monthlySavingsMajor >= 0 ? "+" : ""}${formatMoney(benchmarkB.monthlySavingsMajor, countryB)} / ${txt("bln", "mo", "M.", "月")}`,
           badgeText: `${txt("Gaji Bersih", "Net Salary", "Nettogehalt", "手取り")} ${cityNameB}: ${formatMoney(benchmarkB.netMonthlyMajor, countryB)}`,
           periodicityText: txt("Perbandingan Jalur Karir · Per Bulan", "Career Pathway Comparison · Monthly", "Karrierepfad-Vergleich · Monatlich", "キャリアパス比較 · 月額"),
           rentText: `${formatMoney(benchmarkB.recommendedRentMajor, countryB)}`,
           otherExpensesText: `${formatMoney(benchmarkB.otherConsumptionMajor || 0, countryB)}`,
           deductionsText: `${formatMoney(benchmarkB.deductionResult.totalDeductionsMajor, countryB)}`,
-          remittanceIdrText: countryB !== "ID" ? remitIdrTextB : undefined,
+          remittanceIdrText: countryB !== "ID" && remitTargetMajorB > 0 ? remitIdrTextB : undefined,
         }}
       />
     </div>

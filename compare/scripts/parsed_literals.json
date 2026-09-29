@@ -1,0 +1,2444 @@
+{
+  "🌐 Gaya Hidup & Gaji Setara": {
+    "en": "🌐 Lifestyle & Salary Equivalence",
+    "ja": "🌐 生活水準・必要給与シミュレーター",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 337
+  },
+  "Berapa Gaji Setaraku di Luar Negeri?": {
+    "en": "What Is My Equivalent Salary Abroad?",
+    "ja": "海外で同等の生活水準を保つための必要給与シミュレーター",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 342
+  },
+  "Hitung secara realistis berapa gaji kotor (gross) yang harus Anda dapatkan di negara tujuan agar standar hidup Anda tidak turun. Dilengkapi simulasi potongan pajak & asuransi aktif sesuai struktur keluarga, sewa tempat tinggal, serta berbagai pilihan logika daya beli riil.": {
+    "en": "Calculate the exact gross salary you need abroad to preserve your domestic lifestyle, factoring in interactive statutory tax/social deductions, family dependents, local rent, and real purchasing power parities.",
+    "ja": "生活水準を落とさずに海外移住・転職するために必要な額面年収・月給を精密に逆算。家族構成に応じた税金・社会保険料の天引きシミュレーション、都市別家賃相場、購買力平価（PPP）指数を統合。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 349
+  },
+  "1. Parameter Simulasi & Lokasi": {
+    "en": "1. Simulation Parameters & Locations",
+    "ja": "1. シミュレーション条件・都市設定",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 362
+  },
+  "Tentukan kota asal, kota tujuan, struktur rumah tangga, dan acuan gaya hidup untuk menghitung kesetaraan daya beli.": {
+    "en": "Specify origin, destination, household structure, and lifestyle benchmark to calculate real parity.",
+    "ja": "出発地、目的地、世帯構成、および基準とする物価指標を選択してください。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 365
+  },
+  "📍 Kondisi Anda Saat Ini (Kota Asal)": {
+    "en": "📍 Current Status (Origin City)",
+    "ja": "📍 現在の状況（出発地・現職）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 377
+  },
+  "Baseline Acuan": {
+    "en": "Baseline Reference",
+    "ja": "基準ベースライン",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 378
+  },
+  "Negara Asal": {
+    "en": "Home Country",
+    "ja": "基準国",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 295
+  },
+  "Jepang": {
+    "en": "Japan",
+    "ja": "日本",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 580
+  },
+  "Jerman": {
+    "en": "Germany",
+    "ja": "ドイツ",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 579
+  },
+  "Kota Asal": {
+    "en": "Source City",
+    "ja": "都市",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 413
+  },
+  "Sewa:": {
+    "en": "Rent:",
+    "ja": "家賃:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 601
+  },
+  "Acuan": {
+    "en": "Baseline",
+    "ja": "基準",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 612
+  },
+  "Makan:": {
+    "en": "Food:",
+    "ja": "食費:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 608
+  },
+  "Gaji Kotor / Gross Saat Ini:": {
+    "en": "Current Gross Salary:",
+    "ja": "現在の額面給与（Gross）:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 448
+  },
+  "Periode:": {
+    "en": "Period:",
+    "ja": "期間:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 451
+  },
+  "Per Bulan (Monthly)": {
+    "en": "Monthly",
+    "ja": "月給（月額）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 457
+  },
+  "Per Tahun (Yearly)": {
+    "en": "Annual / Yearly",
+    "ja": "年収（年額）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 458
+  },
+  "bulan": {
+    "en": "mo",
+    "ja": "月",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 477
+  },
+  "tahun": {
+    "en": "yr",
+    "ja": "年",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 478
+  },
+  "Statistik Resmi": {
+    "en": "Official Data",
+    "ja": "公的統計データ",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 480
+  },
+  "👨‍👩‍👧 Komposisi Keluarga & Tanggungan:": {
+    "en": "👨‍👩‍👧 Household & Dependents:",
+    "ja": "👨‍👩‍👧 家族構成・扶養人数:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 487
+  },
+  "🇩🇪 Jerman: Tunjangan anak (Kindergeld €259/bln/anak) berlaku s.d. 18 th (atau 25 th jika kuliah/Ausbildung).": {
+    "en": "🇩🇪 Germany: Child benefit (Kindergeld €259/mo/child) applies up to 18 (or 25 if studying/Ausbildung).",
+    "ja": "🇩🇪 ドイツ: 児童手当（Kindergeld €259/月/子）は18歳まで（就学・職業訓練中は最長25歳まで）支給。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 535
+  },
+  "🇯🇵 Jepang: Tunjangan anak (Jido Teate ¥15.000/bln) berlaku hingga anak menyelesaikan SMA (<18 th).": {
+    "en": "🇯🇵 Japan: Child allowance (Jido Teate ¥15,000/mo) applies through high school graduation (<18 yrs).",
+    "ja": "🇯🇵 日本: 児童手当（月額15,000円）は高校生年代（18歳の年度末）まで支給。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 541
+  },
+  "🇮🇩 Indonesia: Pengurang PTKP tanggungan anak (Rp 4.5jt/thn/anak, maks 3) berlaku untuk anak belum berpenghasilan.": {
+    "en": "🇮🇩 Indonesia: PTKP child relief (Rp 4.5m/yr/child, max 3) applies for non-earning dependents.",
+    "ja": "🇮🇩 インドネシア: 扶養控除（PTKP子供1人あたり年間450万ルピア、最大3人）が適用されます。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 546
+  },
+  "🎯 Kota Tujuan yang Dituju": {
+    "en": "🎯 Target Destination",
+    "ja": "🎯 移住・転職先の都市（目的地）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 559
+  },
+  "Tujuan Relokasi": {
+    "en": "Relocation Target",
+    "ja": "移住目的地",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 560
+  },
+  "Negara Tujuan": {
+    "en": "Target Country",
+    "ja": "渡航先（国）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 566
+  },
+  "Kota Tujuan": {
+    "en": "Target City",
+    "ja": "都市",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 587
+  },
+  "Pilihan Indeks Daya Beli Riil:": {
+    "en": "Real Purchasing Power Benchmark:",
+    "ja": "実質購買力平価（PPP）指数の選択:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 621
+  },
+  "Döner · Udon · Mie Ayam": {
+    "en": "Döner · Udon · Street Eats",
+    "ja": "ドネルケバブ・うどん・ローカル食",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 637
+  },
+  "Standar The Economist": {
+    "en": "The Economist Standard",
+    "ja": "エコノミスト誌の世界標準指数",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 655
+  },
+  "Cappuccino · Kopi Susu": {
+    "en": "Cappuccino · Specialty Coffee",
+    "ja": "カプチーノ・カフェ生活指数",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 673
+  },
+  "Keranjang Konsumsi BPS/Destatis": {
+    "en": "Official BPS/Destatis Basket",
+    "ja": "公的消費者物価・生活費バスケット",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 691
+  },
+  "Tipe & Ukuran Tempat Tinggal (Acuan Biaya Sewa):": {
+    "en": "Housing Type & Reference Apartment Size:",
+    "ja": "住居タイプ・広さ（家賃基準）:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 706
+  },
+  "Hemat (WG-Zimmer / Share / Kos Non-AC ~15 m²)": {
+    "en": "Budget (Shared Room / WG / Co-living ~15 m²)",
+    "ja": "節約（WGシェアハウス・個室 ~15 m²）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 711
+  },
+  "Standar Mandiri (Studio / 1K / Kos AC ~20–30 m²)": {
+    "en": "Independent Standard (Studio / 1K / 1-Room ~20–30 m²)",
+    "ja": "標準単身（ワンルーム / 1K ~20–30 m²）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 713
+  },
+  "Lapang / Keluarga (2-Zimmer / 1LDK / Kontrakan ~45–60 m²)": {
+    "en": "Spacious / Family (1-2 Bedroom / 1LDK ~45–60 m²)",
+    "ja": "ファミリー・広め（1LDK / 2部屋 ~45–60 m²）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 714
+  },
+  "🛏️ Kamar Bersama / WG": {
+    "en": "🛏️ Shared Room / WG",
+    "ja": "🛏️ シェアハウス / 個室",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 729
+  },
+  "WG-Zimmer (DE), Sharehouse (JP), atau Kost Non-AC Kamar Mandi Luar (ID).": {
+    "en": "WG-Zimmer (DE), Sharehouse (JP), or shared bathroom rental (ID).",
+    "ja": "ドイツのWG個室、日本のシェアハウス、インドネシアの標準コス。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 733
+  },
+  "🏠 Studio / 1K / Kos AC": {
+    "en": "🏠 Studio / 1K / Private",
+    "ja": "🏠 ワンルーム / 1K",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 751
+  },
+  "Default": {
+    "en": "Default",
+    "ja": "標準",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 753
+  },
+  "1-Zimmer-Wohnung (DE), 1K/1R (JP), atau Kost Eksklusif AC KM Dalam (ID).": {
+    "en": "1-Zimmer-Wohnung (DE), 1K/1R (JP), or ensuite private room (ID).",
+    "ja": "ドイツの1 Zimmer、日本の1K/1Rマンション、バス・エアコン付。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 757
+  },
+  "🛋️ Apartemen 1-2 Kamar": {
+    "en": "🛋️ 1-2 Bedroom Apartment",
+    "ja": "🛋️ 1LDK / 2部屋アパート",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 775
+  },
+  "2-Zimmer-Wohnung (DE), 1LDK (JP), atau Apartemen 1-BR / Kontrakan Rumah (ID).": {
+    "en": "2-Zimmer-Wohnung (DE), 1LDK (JP), or 1-bedroom flat (ID).",
+    "ja": "ドイツの2 Zimmer、日本の1LDK、広めの独立居住空間。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 779
+  },
+  "Logika Kesetaraan Daya Beli yang Ingin Dicapai:": {
+    "en": "Target Purchasing Power Parity Logic:",
+    "ja": "目指す実質購買力・生活水準の均衡ロジック:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 795
+  },
+  "Pilih fokus kesetaraan hidup Anda": {
+    "en": "Select your equivalence priority",
+    "ja": "優先する生活水準の基準を選択してください",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 803
+  },
+  "🪙 Sisa Uang & Tabungan Setara": {
+    "en": "🪙 Same Savings & Discretionary",
+    "ja": "🪙 自由裁量・実質貯金額の一致",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 818
+  },
+  "Rekomendasi": {
+    "en": "Recommended",
+    "ja": "推奨値",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 914
+  },
+  "Mempertahankan jumlah sisa uang / kapasitas belanja riil yang sama setelah membayar sewa & kebutuhan dasar.": {
+    "en": "Preserve the exact same discretionary surplus and real savings capacity after paying rent & essential living costs.",
+    "ja": "家賃や生活費を支払った後の「自由に使えるお金・貯蓄力」の実質的な価値を保ちます。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 824
+  },
+  "💵 Gaji Bersih (Net) Setara": {
+    "en": "💵 Same Take-Home Pay (Net)",
+    "ja": "💵 手取り額面購買力の一致",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 842
+  },
+  "Menyamakan total daya beli seluruh uang yang dibawa pulang (Take Home Pay) dalam unit makanan riil.": {
+    "en": "Equalize the total purchasing power of take-home pay in real local consumption units.",
+    "ja": "手取り給与（Take Home Pay）全体の購買力を、現地物価水準に合わせて均等化します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 845
+  },
+  "💼 Gaji Kotor (Gross) Setara": {
+    "en": "💼 Same Contract Gross",
+    "ja": "💼 契約額面（Gross）の一致",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 863
+  },
+  "Menyamakan nilai kontrak kerja bruto secara langsung berdasarkan rasio paritas harga indeks tanpa memotong pajak lebih dahulu.": {
+    "en": "Directly benchmark the gross contract offer against the price parity ratio without prior tax adjustments.",
+    "ja": "税金の差を考慮せず、単純な物価バスケット比率で額面契約額をそのまま換算します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 866
+  },
+  "Sesuaikan Harga Acuan & Sewa Hunian Kustom (Opsional)": {
+    "en": "Customize Price & Rent Benchmarks (Optional)",
+    "ja": "物価基準・家賃の手動微調整（任意）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 881
+  },
+  "Sewa": {
+    "en": "Rent",
+    "ja": "家賃",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 936
+  },
+  "Rekomendasi:": {
+    "en": "Recommended:",
+    "ja": "推奨家賃:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 946
+  },
+  "1. Gaji Bersih (Take Home Pay):": {
+    "en": "1. Net Take-Home Pay:",
+    "ja": "1. 手取り月給:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1095
+  },
+  "2. Total Deduksi (Pajak & Asuransi):": {
+    "en": "2. Total Deductions (Tax & Social):",
+    "ja": "2. 天引き総額:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1106
+  },
+  "3. Total Konsumsi (Sewa + Rutin):": {
+    "en": "3. Total Living (Rent + Utilities):",
+    "ja": "3. 生活費総額:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1120
+  },
+  "4. Sisa Belanja & Tabungan:": {
+    "en": "4. Discretionary & Savings:",
+    "ja": "4. 自由裁量余剰金・貯蓄:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1131
+  },
+  "🏠 Sewa:": {
+    "en": "🏠 Rent:",
+    "ja": "🏠 家賃:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1151
+  },
+  "THP": {
+    "en": "Net",
+    "ja": "手取り",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1151
+  },
+  "(Aman)": {
+    "en": "(Healthy)",
+    "ja": "(適正)",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1151
+  },
+  "(Moderat)": {
+    "en": "(Moderate)",
+    "ja": "(標準)",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1151
+  },
+  "(Beban Tinggi)": {
+    "en": "(High Burden)",
+    "ja": "(高負担)",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1151
+  },
+  "📈 Tabungan:": {
+    "en": "📈 Savings:",
+    "ja": "📈 貯蓄率:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1154
+  },
+  "Daya Beli": {
+    "en": "Purchasing Power",
+    "ja": "購買力:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1162
+  },
+  "porsi / bln": {
+    "en": "servings / mo",
+    "ja": "食 / 月",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1165
+  },
+  "Kondisi Anda Saat Ini (Acuan)": {
+    "en": "Current Baseline (Origin)",
+    "ja": "現在の状況（基準）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1072
+  },
+  "Per Tahun": {
+    "en": "Yearly",
+    "ja": "年額",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1075
+  },
+  "Per Bulan": {
+    "en": "Monthly",
+    "ja": "月額",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1075
+  },
+  "thn kotor": {
+    "en": "yr gross",
+    "ja": "年額面",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1083
+  },
+  "bln kotor": {
+    "en": "mo gross",
+    "ja": "月額面",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1083
+  },
+  "Potensi Kirim Uang ke Keluarga di Indonesia": {
+    "en": "Remittance Potential to Family in Indonesia",
+    "ja": "インドネシアの家族への送金目安",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 342
+  },
+  "Simulasi alokasi surplus tabungan / ~25% THP via transfer transparan (estimasi fee Wise ~1.5%).": {
+    "en": "Assumes surplus or ~25% net pay allocation via transparent mid-market rates (~1.5% Wise fee).",
+    "ja": "実質手取りの約25%または貯蓄余力を送金した場合の試算（Wise等の送金手数料約1.5%を考慮）。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1194
+  },
+  "Aksi & Bagikan Hasil Simulasi": {
+    "en": "Actions & Share Equivalence",
+    "ja": "アクション・シミュレーション結果を保存/共有",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1207
+  },
+  "Simpan Skenario": {
+    "en": "Save Scenario",
+    "ja": "保存",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 939
+  },
+  "Buat Kartu Hasil PNG": {
+    "en": "Generate Card PNG",
+    "ja": "結果カード出力",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 957
+  },
+  "Posisi Persentil & Status Ekonomi Nasional": {
+    "en": "National Income Percentile & Economic Standing",
+    "ja": "国内所得パーセンタイル・経済階層の位置づけ",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1260
+  },
+  "Bandingkan kelas pendapatan Anda di kota asal dengan kelas pendapatan dari gaji target di kota tujuan.": {
+    "en": "Compare your income percentile at home with the required target salary percentile in your destination.",
+    "ja": "出発地の国内給与分布におけるあなたの位置と、渡航先で要求される目標給与の相対的な位置を比較します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1268
+  },
+  "Distribusi Upah Resmi": {
+    "en": "Official Wage Distribution",
+    "ja": "公的賃金統計分布",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1276
+  },
+  "Kota Asal (Acuan)": {
+    "en": "Origin Reference",
+    "ja": "出発地（基準都市）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1287
+  },
+  "Vs Median Nasional:": {
+    "en": "Vs National Median:",
+    "ja": "全国中央値比:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1377
+  },
+  "Median": {
+    "en": "Median",
+    "ja": "倍",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1380
+  },
+  "P50 (Median)": {
+    "en": "P50 (Median)",
+    "ja": "P50 (中央値)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 221
+  },
+  "P99 (Top 1%)": {
+    "en": "P99 (Top 1%)",
+    "ja": "P99 (上位1% 最高所得層)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 396
+  },
+  "Status Kelas:": {
+    "en": "Economic Bracket:",
+    "ja": "階層区分:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1411
+  },
+  "Kota Tujuan (Target)": {
+    "en": "Destination Target",
+    "ja": "目的地（目標都市）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1355
+  },
+  "Analisis Mobilitas Sosio-Ekonomi:": {
+    "en": "Socioeconomic Mobility Insight:",
+    "ja": "社会経済的モビリティ分析・格差評価:",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1424
+  },
+  "Rincian Deduksi Aktif & Simulasi Pengeluaran Mendalam": {
+    "en": "Active Statutory Deductions & Itemized Consumption",
+    "ja": "控除明細および生活費内訳の詳細シミュレーション",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1445
+  },
+  "Pajak dan potongan jaminan sosial dihitung secara aktif berdasarkan aturan resmi negara masing-masing.": {
+    "en": "Taxes and statutory social contributions are calculated interactively based on national laws.",
+    "ja": "各国の最新法令（所得税・社会保険料等）に基づき天引き額を動的に算出しています。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1453
+  },
+  "Simulasi Interaktif": {
+    "en": "Interactive Simulation",
+    "ja": "インタラクティブ試算",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1460
+  },
+  "📋 Ringkasan Lengkap": {
+    "en": "📋 Full Summary",
+    "ja": "📋 総合サマリー",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1466
+  },
+  "🏛️ Pajak Penghasilan": {
+    "en": "🏛️ Income Tax",
+    "ja": "🏛️ 所得税・住民税",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1467
+  },
+  "🏥 Jaminan Sosial / Asuransi": {
+    "en": "🏥 Social Security",
+    "ja": "🏥 社会保険料",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1468
+  },
+  "🏠 Sewa & Konsumsi": {
+    "en": "🏠 Rent & Living",
+    "ja": "🏠 家賃・生活費",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1469
+  },
+  "⚙️ Opsi Pajak Khusus Negara": {
+    "en": "⚙️ Country-Specific Tax Profiles",
+    "ja": "⚙️ 国別税制オプション",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1489
+  },
+  "🇩🇪 Steuerklasse (Jerman)": {
+    "en": "🇩🇪 Tax Class (Germany)",
+    "ja": "🇩🇪 税区分（Steuerklasse）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1497
+  },
+  "Kelas 1 (Lajang)": {
+    "en": "Class 1 (Single)",
+    "ja": "税区分1（独身・単身）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1504
+  },
+  "Kelas 3 (Pencari Nafkah Utama)": {
+    "en": "Class 3 (Primary Earner)",
+    "ja": "税区分3（主たる稼ぎ手）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1505
+  },
+  "Kelas 4 (Gaji Suami-Istri Setara)": {
+    "en": "Class 4 (Equal Spouses)",
+    "ja": "税区分4（共働き同等）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1506
+  },
+  "Kelas 5 (Pencari Nafkah Sekunder)": {
+    "en": "Class 5 (Secondary Earner)",
+    "ja": "税区分5（従たる稼ぎ手）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1507
+  },
+  "🇯🇵 Status Tahun Kerja (Jepang)": {
+    "en": "🇯🇵 Resident Year (Japan)",
+    "ja": "🇯🇵 在住年数区分（住民税）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1516
+  },
+  "Tahun ke-1 (Bebas Pajak Daerah)": {
+    "en": "Year 1 (Exempt from Inhabitant Tax)",
+    "ja": "1年目（前年所得なし・住民税非課税）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1523
+  },
+  "Tahun ke-2+ (Kena Juminzei ~10%)": {
+    "en": "Year 2+ (Subject to Juminzei ~10%)",
+    "ja": "2年目以降（住民税 約10%課税）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1524
+  },
+  "🇮🇩 Kategori PTKP PPh 21 (RI)": {
+    "en": "🇮🇩 PTKP Tax Bracket (ID)",
+    "ja": "🇮🇩 インドネシア基礎控除枠（PTKP）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1533
+  },
+  "Komponen Rincian": {
+    "en": "Itemized Component",
+    "ja": "内訳項目",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1557
+  },
+  "Keterangan": {
+    "en": "Notes & Regulatory Basis",
+    "ja": "備考・適用制度",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1560
+  },
+  "Gaji Kotor Bulanan (Brutto)": {
+    "en": "Monthly Gross Salary",
+    "ja": "額面月給（Gross）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1566
+  },
+  "Kontrak kerja bruto": {
+    "en": "Gross contract employment",
+    "ja": "契約上の総支給額",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1575
+  },
+  "Total Deduksi Pajak & Asuransi": {
+    "en": "Total Deductions (Tax & Social)",
+    "ja": "控除合計（税金＋社会保険）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1581
+  },
+  "Gaji Bersih (Take Home Pay)": {
+    "en": "Net Take-Home Pay",
+    "ja": "手取り月給（Net）",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1596
+  },
+  "Uang cair ke rekening bank": {
+    "en": "Net deposit to bank account",
+    "ja": "銀行口座への実支給額",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1605
+  },
+  "Estimasi Biaya Sewa Hunian": {
+    "en": "Estimated Housing Rent",
+    "ja": "推定家賃",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1611
+  },
+  "Konsumsi & Kebutuhan Rutin Lainnya": {
+    "en": "Other Living & Utilities",
+    "ja": "食費・光熱費・雑費",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1626
+  },
+  "Makan, transport, utilitas dasar": {
+    "en": "Food, commute, utilities",
+    "ja": "食費、交通費、生活必需品",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1635
+  },
+  "Sisa Uang Belanja & Tabungan": {
+    "en": "Discretionary & Net Savings",
+    "ja": "自由裁量余剰金・貯金可能額",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1641
+  },
+  "Daya beli sisa uang terjaga seimbang!": {
+    "en": "Real surplus purchasing power fully preserved!",
+    "ja": "余剰金の実質的な購買力が完全に維持されています！",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1650
+  },
+  "Jenis Pajak": {
+    "en": "Tax Item",
+    "ja": "税金項目",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1664
+  },
+  "Dasar Hukum": {
+    "en": "Legal Citation",
+    "ja": "法的根拠",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1667
+  },
+  "Pajak Penghasilan (Income / Wage Tax)": {
+    "en": "Income / Wage Tax",
+    "ja": "所得税 / 賃金税",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1673
+  },
+  "Program Jaminan Sosial": {
+    "en": "Social Security Program",
+    "ja": "公的社会保険制度",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1706
+  },
+  "Cakupan Perlindungan": {
+    "en": "Coverage",
+    "ja": "適用範囲",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1709
+  },
+  "Total Potongan Asuransi Wajib": {
+    "en": "Total Mandatory Social Contributions",
+    "ja": "公的社会保険料合計",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1715
+  },
+  "Pos Konsumsi Riil": {
+    "en": "Consumption Item",
+    "ja": "生活費項目",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1748
+  },
+  "Benchmark Metrik": {
+    "en": "Benchmark Standard",
+    "ja": "基準指標",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1751
+  },
+  "Sewa Hunian Standar": {
+    "en": "Reference Housing Rent",
+    "ja": "基準家賃",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1757
+  },
+  "Makan & Kebutuhan Harian": {
+    "en": "Food & Daily Consumption",
+    "ja": "食費・日常消費",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1771
+  },
+  "Konsultasi Indeks: Pilihan Indeks Daya Beli yang Tepat untuk Anda": {
+    "en": "Index Consultation: Choosing the Right Purchasing Power Benchmark",
+    "ja": "指数解説：あなたに最適な購買力平価基準の選び方",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1794
+  },
+  "Paling realistis untuk pekerja pemula dan mahasiswa perantau. Mengukur harga makanan cepat saji lokal yang menjadi santapan harian (Döner Kebab di Jerman, Gyudon/Udon di Jepang, Mie Ayam di Indonesia).": {
+    "en": "Most realistic for entry-level workers and students. Benchmarks common daily street meals (Döner Kebab in Germany, Gyudon/Udon in Japan, Mie Ayam in Indonesia).",
+    "ja": "新社会人や留学生に最も現実的な指標。日常的なローカルファストフード（ドイツのドネルケバブ、日本の牛丼・うどん、インドネシアのミーアヤム）を基準にします。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1813
+  },
+  "Metrik standar internasional ciptaan The Economist sejak 1986. Standar komposisi burger McDonald's identik di seluruh dunia, mencerminkan gabungan biaya sewa komersial lokal, bahan baku, dan upah tenaga kerja.": {
+    "en": "The Economist's renowned international benchmark since 1986. Standardized McDonald's burgers reflect local commercial rents, commodity prices, and service wages.",
+    "ja": "1986年より英エコノミスト誌が発表している国際比較基準。世界同一品質のマクドナルド商品を通じ、現地の商業賃料・原材料費・人件費を包括的に反映します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1827
+  },
+  "Indikator gaya hidup urban pekerja modern & tech professionals. Mengukur biaya secangkir cappuccino / specialty coffee di kedai kopi kota metropolitan sebagai representasi pengeluaran rekreasi sosial harian.": {
+    "en": "Urban lifestyle metric for modern professionals. Measures specialty coffee costs in metropolitan cafes, reflecting daily social and recreational expenditure.",
+    "ja": "都市部のオフィスワーカーやIT専門職向けライフスタイル指標。主要都市カフェのカプチーノ価格をもとに、日々の社交・余暇活動費用の購買力を測定します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1841
+  },
+  "Paritas keranjang konsumsi statistik resmi (BPS Indonesia, Destatis Jerman, e-Stat Jepang) mencakup bahan pokok supermarket, biaya kebersihan, transportasi, dan telekomunikasi.": {
+    "en": "Official statistical consumption basket parity (Destatis, e-Stat, BPS) covering supermarket staples, household items, transit, and connectivity.",
+    "ja": "各国の公的統計（独Destatis、日e-Stat、尼BPS）による総合消費者物価バスケット。食料品・日用品・交通・通信費を包括します。",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1855
+  },
+  "🏛️ Sumber Pajak: Destatis § 32a EStG (DE) · NTA & MHLW (JP) · PP 58/2023 & BPJS (ID)": {
+    "en": "🏛️ Statutory Sources: Destatis § 32a EStG (DE) · NTA & MHLW (JP) · PP 58/2023 & BPJS (ID)",
+    "ja": "🏛️ 法定根拠：独所得税法§32a (DE) · 国税庁・厚労省 (JP) · PP 58/2023・BPJS (ID)",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1866
+  },
+  "📊 Kurs Konversi: Real-time ECB via Wise / Central Banks": {
+    "en": "📊 Exchange Rates: Real-time ECB via Wise / Central Banks",
+    "ja": "📊 為替レート：欧州中央銀行（ECB）/ 各国中央銀行リアルタイム公示相場",
+    "file": "apps/web/components/equivalence/EquivalenceCalculatorClient.tsx",
+    "line": 1873
+  },
+  "🎓 Komparasi Dua Kolom": {
+    "en": "🎓 Side-by-Side Dual Column",
+    "ja": "🎓 2列並行比較",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 252
+  },
+  "Tolok Ukur Karir Tahap 4": {
+    "en": "Stage 4 Career Benchmark",
+    "ja": "第4段階 キャリアベンチマーク",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 255
+  },
+  "Perbandingan Magang & Fresh Graduate": {
+    "en": "Trainee & Fresh Graduate Dual-City Comparison",
+    "ja": "インターン・新卒 2都市給与比較",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 259
+  },
+  "Bandingkan uang saku Ausbildung di Jerman, gaji kenshusei di Jepang, dan fresh graduate di Indonesia secara berdampingan. Lengkap dengan potongan pajak resmi, biaya sewa hunian, dan analisis ketahanan finansial.": {
+    "en": "Compare vocational training stipends, intern wages, and fresh grad entry-level salaries side-by-side with statutory payroll deductions, accommodation costs, and net savings.",
+    "ja": "ドイツのAusbildung手当、日本の技能実習・新卒初任給、インドネシアの新卒初任給を並行比較。法定控除（税金・社会保険）、推奨家賃、手元に残る実質貯蓄可能額を完全シミュレーション。",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 266
+  },
+  "Perbandingan Potensi Tabungan Bulanan Bersih": {
+    "en": "Net Monthly Savings Potential Comparison",
+    "ja": "月間実質貯蓄ポテンシャル比較",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 303
+  },
+  "/ bulan": {
+    "en": "/ month",
+    "ja": "/ 月",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 804
+  },
+  "Simulasi alokasi ~25% THP atau sisa tabungan via kurs pasar transparan (estimasi fee Wise ~1.5%).": {
+    "en": "Assumes ~25% net pay or surplus allocation via transparent mid-market rates (~1.5% Wise fee).",
+    "ja": "実質手取りの約25%または貯蓄余力を送金した場合の試算（Wise等の送金手数料約1.5%を考慮）。",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 355
+  },
+  "Kolom 1: Skenario Acuan (A)": {
+    "en": "Column 1: Baseline Scenario (A)",
+    "ja": "第1列: 基準シナリオ (A)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 372
+  },
+  "Negara Acuan": {
+    "en": "Baseline Country",
+    "ja": "基準国",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 127
+  },
+  "🇮🇩 Indonesia": {
+    "en": "🇮🇩 Indonesia",
+    "ja": "🇮🇩 インドネシア",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 143
+  },
+  "🇯🇵 Jepang": {
+    "en": "🇯🇵 Japan",
+    "ja": "🇯🇵 日本",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 144
+  },
+  "🇩🇪 Jerman": {
+    "en": "🇩🇪 Germany",
+    "ja": "🇩🇪 ドイツ",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 145
+  },
+  "Kota Acuan": {
+    "en": "Baseline City",
+    "ja": "基準都市",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 151
+  },
+  "Jalur Karir / Kategori Pekerja:": {
+    "en": "Career Pathway / Category:",
+    "ja": "キャリア区分 / 就労形態:",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 701
+  },
+  "Pajak Daerah (Juminzei):": {
+    "en": "Resident Tax (Juminzei):",
+    "ja": "住民税 (前年度課税):",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 729
+  },
+  "Tahun ke-2+ (Kena Juminzei)": {
+    "en": "Year 2+ (Subject to Juminzei)",
+    "ja": "2年目以降 (住民税あり)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 741
+  },
+  "Tahun ke-1 (Bebas Pajak)": {
+    "en": "Year 1 (No Juminzei)",
+    "ja": "1年目 (住民税免除)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 742
+  },
+  "Gaji Kotor Resmi (Gross)": {
+    "en": "Official Gross Salary",
+    "ja": "法定額面給与 (Gross)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 754
+  },
+  "Setara": {
+    "en": "Eq.",
+    "ja": "換算約",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 763
+  },
+  "/ tahun": {
+    "en": "/ year",
+    "ja": "/ 年",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 763
+  },
+  "Status Finansial:": {
+    "en": "Financial Health:",
+    "ja": "財務健全性ステータス:",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 810
+  },
+  "🟢 Surplus Sehat (Bisa Menabung)": {
+    "en": "🟢 Healthy Surplus (Able to Save)",
+    "ja": "🟢 黒字 (貯蓄可能)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 819
+  },
+  "🟡 Impas / Cukup Mandiri": {
+    "en": "🟡 Break-even / Self-sufficient",
+    "ja": "🟡 収支均衡 (生活維持可能)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 821
+  },
+  "🔴 Defisit / Butuh Subsidi": {
+    "en": "🔴 Deficit / Needs Support",
+    "ja": "🔴 赤字 (補助が必要)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 822
+  },
+  "Potensi Tabungan 1 Tahun:": {
+    "en": "1-Year Savings Potential:",
+    "ja": "年間貯蓄ポテンシャル:",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 826
+  },
+  "Akumulasi Kontrak (3 Thn):": {
+    "en": "3-Year Contract Total:",
+    "ja": "契約期間累計 (3年分):",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 833
+  },
+  "💡 Fakta Kontrak & Bonus:": {
+    "en": "💡 Contract Facts & Bonuses:",
+    "ja": "💡 契約・賞与の留意点:",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 844
+  },
+  "⚙️ Sesuaikan Angka Mandiri (Kota A)": {
+    "en": "⚙️ Custom Override (City A)",
+    "ja": "⚙️ 手動調整 (都市A)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 582
+  },
+  "Gaji Kotor Kustom": {
+    "en": "Custom Gross Salary",
+    "ja": "カスタム額面給与",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 862
+  },
+  "Sewa Hunian Kustom": {
+    "en": "Custom Rent",
+    "ja": "カスタム家賃",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 874
+  },
+  "Gaji Bersih Kustom (Bila Tahu Angka Pasti)": {
+    "en": "Custom Net Salary (If known)",
+    "ja": "カスタム手取り額 (既知の場合)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 886
+  },
+  "Reset ke Standar Resmi": {
+    "en": "Reset to Official Defaults",
+    "ja": "公式標準値にリセット",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 906
+  },
+  "Kolom 2: Skenario Pembanding (B)": {
+    "en": "Column 2: Comparison Scenario (B)",
+    "ja": "第2列: 比較シナリオ (B)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 646
+  },
+  "Negara Pembanding": {
+    "en": "Comparison Country",
+    "ja": "比較国",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 657
+  },
+  "Kota Pembanding": {
+    "en": "Comparison City",
+    "ja": "比較都市",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 678
+  },
+  "⚙️ Sesuaikan Angka Mandiri (Kota B)": {
+    "en": "⚙️ Custom Override (City B)",
+    "ja": "⚙️ 手動調整 (都市B)",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 856
+  },
+  "Aksi & Bagikan Hasil Perbandingan": {
+    "en": "Actions & Share Comparison",
+    "ja": "アクション・比較結果を保存/共有",
+    "file": "apps/web/components/compare/CompareClient.tsx",
+    "line": 920
+  },
+  "Perbandingan Anggaran Penuh": {
+    "en": "Full Budget Simulation",
+    "ja": "総合予算シミュレーション比較",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 130
+  },
+  "Kota #1 sebagai Acuan": {
+    "en": "City #1 as Baseline",
+    "ja": "基準都市 #1",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 94
+  },
+  "Hasil Perhitungan & Estimasi Anggaran Penuh": {
+    "en": "Full Budget Simulation Results",
+    "ja": "総合予算シミュレーション結果",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 134
+  },
+  "Perbandingan: ": {
+    "en": "Comparison: ",
+    "ja": "都市比較：",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 139
+  },
+  "Ringkasan Perbandingan: Kota #1 (Acuan) vs Kota #2 (Tujuan)": {
+    "en": "Comparison Summary: City #1 (Baseline) vs City #2 (Destination)",
+    "ja": "比較サマリー：都市#1（基準）vs 都市#2（移住先）",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 155
+  },
+  "#1 Kota Acuan": {
+    "en": "#1 Baseline City",
+    "ja": "#1 基準都市",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 164
+  },
+  "Gaji Kotor Bulanan:": {
+    "en": "Gross Monthly Salary:",
+    "ja": "月額総支給（額面）:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 218
+  },
+  "Deduksi Pajak & Asuransi:": {
+    "en": "Tax & Social Deductions:",
+    "ja": "税金・社会保険料控除:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 224
+  },
+  "Gaji Bersih (Net):": {
+    "en": "Net Salary (Take-Home):",
+    "ja": "手取り月給（Net）:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 230
+  },
+  "Sewa Tempat Tinggal:": {
+    "en": "Housing Rent:",
+    "ja": "家賃・住居費:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 236
+  },
+  "Konsumsi & Makanan:": {
+    "en": "Living & Food Costs:",
+    "ja": "食費・生活消費支出:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 242
+  },
+  "Sisa Tabungan Bulanan:": {
+    "en": "Net Monthly Savings:",
+    "ja": "月間手残り・貯蓄額:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 276
+  },
+  "#2 Kota Tujuan": {
+    "en": "#2 Destination City",
+    "ja": "#2 移住先都市",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 212
+  },
+  "Skenario ini perlu perhatian serius: Pengeluaran melebihi pemasukan atau tabungan darurat tipis.": {
+    "en": "This scenario needs serious attention: Expenses exceed income or emergency runway is short.",
+    "ja": "注意が必要なシナリオ：支出が収入を上回っているか、緊急予備資金が不足しています。",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 293
+  },
+  "Big Mac Index & Daya Beli Riil": {
+    "en": "Big Mac Index & Real Purchasing Power",
+    "ja": "ビッグマック指数＆実質購買力",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 309
+  },
+  "Koreksi Harga": {
+    "en": "Edit Price",
+    "ja": "価格を修正",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 322
+  },
+  "Sewa Bulanan": {
+    "en": "Monthly Rent",
+    "ja": "月額家賃",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 337
+  },
+  "porsi Big Mac": {
+    "en": "Big Macs",
+    "ja": "個分",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 353
+  },
+  "Gaji Bersih": {
+    "en": "Net Salary",
+    "ja": "手取り月給",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 343
+  },
+  "Sisa Tabungan": {
+    "en": "Net Savings",
+    "ja": "月間貯蓄額",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 349
+  },
+  "Waktu Kerja / Burger": {
+    "en": "Work Time / Burger",
+    "ja": "労働時間 / バーガー1個",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 357
+  },
+  "menit kerja": {
+    "en": "working mins",
+    "ja": "分間の労働",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 359
+  },
+  "Gaji Kotor (Brutto / Gakumen)": {
+    "en": "Gross Salary (Brutto)",
+    "ja": "額面総支給（Gross）",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 374
+  },
+  "Gaji Bersih / Net Take-Home (Netto)": {
+    "en": "Net Salary (Take-Home / Netto)",
+    "ja": "手取り月給（Netto）",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 384
+  },
+  "Sewa / Tempat Tinggal": {
+    "en": "Housing & Rent",
+    "ja": "家賃・住まい",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 87
+  },
+  "Makanan & Minuman": {
+    "en": "Food & Groceries",
+    "ja": "食費・飲食",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 92
+  },
+  "Transportasi": {
+    "en": "Transportation",
+    "ja": "交通費・定期代",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 39
+  },
+  "Listrik, Air & Internet": {
+    "en": "Utilities & Internet",
+    "ja": "水道光熱費＆通信",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 419
+  },
+  "Gaya Hidup & Hiburan": {
+    "en": "Lifestyle & Leisure",
+    "ja": "趣味・娯楽・交際費",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 424
+  },
+  "Koreksi harga ini": {
+    "en": "Correct this price",
+    "ja": "この価格を修正",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 439
+  },
+  "Sisa Uang Bulanan": {
+    "en": "Monthly Balance",
+    "ja": "月間手残り・貯蓄額",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 104
+  },
+  "📦 Biaya Awal / Pindah (Satu Kali)": {
+    "en": "📦 Relocation Costs (One-Time)",
+    "ja": "📦 初期費用・渡航移住コスト（一回限り）",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 466
+  },
+  "Uang Kunci (Reikin)": {
+    "en": "Key Money (Reikin)",
+    "ja": "礼金（敷引）",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 481
+  },
+  "Biaya Agen": {
+    "en": "Agency Fee",
+    "ja": "仲介手数料",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 484
+  },
+  "Setup Awal & Darurat": {
+    "en": "Setup & Cushion",
+    "ja": "生活立ち上げ準備金・予備費",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 487
+  },
+  "Tiket Pesawat & Visa": {
+    "en": "Travel & Visa",
+    "ja": "航空券・ビザ申請費用",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 491
+  },
+  "Total Biaya Awal": {
+    "en": "Total Upfront",
+    "ja": "初期費用合計",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 119
+  },
+  "Modal Tabungan yang Dimiliki:": {
+    "en": "Available Savings:",
+    "ja": "保有自己資金・貯蓄:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 514
+  },
+  "Defisit Modal Awal:": {
+    "en": "Initial Capital Deficit:",
+    "ja": "初期資金不足額:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 523
+  },
+  "Tabungan Anda belum mencukupi total biaya awal pindah. Disarankan negosiasi akomodasi asrama perusahaan tanpa deposit atau program talangan LPK.": {
+    "en": "Available savings are insufficient for full move-in costs. Consider company dormitory options or sponsor assistance.",
+    "ja": "初期費用に対して自己資金が不足しています。敷金不要の社員寮・社宅の利用や、渡航資金支援制度の活用を検討してください。",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 526
+  },
+  "✓ Modal awal pindah terpenuhi": {
+    "en": "✓ Upfront relocation costs covered",
+    "ja": "✓ 初期移住費用は十分にカバーされています",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 535
+  },
+  "Cadangan:": {
+    "en": "Reserve:",
+    "ja": "余剰予備資金:",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 537
+  },
+  "🔍 Analisis & Catatan Penting": {
+    "en": "🔍 Diagnostics & Insights",
+    "ja": "🔍 診断レポート＆留意事項",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 550
+  },
+  "Salin / Bagikan Kartu Hasil (PNG 1080×1350)": {
+    "en": "Share Result Card (PNG 1080×1350)",
+    "ja": "結果カードを画像共有 (PNG 1080×1350)",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 568
+  },
+  "Bandingkan Berdampingan di Menu Magang & Fresh Grad": {
+    "en": "Compare in Magang & Fresh Grad Menu",
+    "ja": "実習生・新卒キャリア比較で並べて確認",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 576
+  },
+  "Tersimpan": {
+    "en": "Saved",
+    "ja": "保存済み",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 586
+  },
+  "Simpan Hasil": {
+    "en": "Save Result",
+    "ja": "結果を保存",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 586
+  },
+  "Mulai Ulang": {
+    "en": "Start Over",
+    "ja": "最初からやり直す",
+    "file": "apps/web/components/wizard/Step7Results.tsx",
+    "line": 593
+  },
+  "Penghasilan & Potongan": {
+    "en": "Income & Deductions",
+    "ja": "給与・法定控除",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 242
+  },
+  "Masukkan uang saku kotor (Brutto) Ausbildungmu.": {
+    "en": "Enter your Ausbildung gross stipend.",
+    "ja": "Ausbildungの月額支給額（額面/Brutto）を入力してください。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 246
+  },
+  "Masukkan gaji kotor (Gakumen) dan semua potongan kontrak dari majikan.": {
+    "en": "Enter your gross wage (Gakumen) and all employer contract deductions.",
+    "ja": "基本給（額面）および受入機関からの天引き項目を入力してください。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 252
+  },
+  "Masukkan penghasilan bulananmu.": {
+    "en": "Enter your monthly income.",
+    "ja": "月額給与を入力してください。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 257
+  },
+  "📊 Referensi Gaji Ausbildung 2026 (rata-rata nasional)": {
+    "en": "📊 2026 Ausbildung Stipend Reference (national average)",
+    "ja": "📊 2026年 Ausbildung手当基準 (全国平均)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 276
+  },
+  "Klik untuk isi otomatis": {
+    "en": "Click to auto-fill",
+    "ja": "クリックで自動入力",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 336
+  },
+  "📊 Estimasi Gaji Kenshusei Jepang (Gaji Kotor & Bersih)": {
+    "en": "📊 Japanese Trainee Wage Estimates (Gross & Net)",
+    "ja": "📊 日本・実習生賃金目安 (額面・手取り)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 329
+  },
+  "Sesuai UMR prefektur pilihan": {
+    "en": "Based on selected prefecture",
+    "ja": "選択都道府県の地域別最低賃金",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 345
+  },
+  "Standar Nasional": {
+    "en": "National Standard",
+    "ja": "全国標準水準",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 351
+  },
+  "Rata-rata nasional magang": {
+    "en": "Average trainee contract",
+    "ja": "全国実習生平均契約",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 352
+  },
+  "Kota + Lembur (+20j)": {
+    "en": "Metro + Overtime (+20h)",
+    "ja": "都市部＋残業20時間",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 358
+  },
+  "Termasuk lembur ~20 jam/bln": {
+    "en": "With ~20h overtime",
+    "ja": "月約20時間の時間外手当含む",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 359
+  },
+  "Bersih: ~": {
+    "en": "Net: ~",
+    "ja": "手取り概算: ~",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 382
+  },
+  "Komposisi Rumah Tangga": {
+    "en": "Household Composition",
+    "ja": "世帯構成",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 395
+  },
+  "Lajang (1 Dewasa)": {
+    "en": "Single (1 Adult)",
+    "ja": "単身 (大人1名)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 424
+  },
+  "Menikah (Tanpa Anak)": {
+    "en": "Married (No Children)",
+    "ja": "既婚・子なし (大人2名)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 425
+  },
+  "Keluarga dengan 1 Anak": {
+    "en": "Family with 1 Child",
+    "ja": "家族（子ども1名）",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 426
+  },
+  "Keluarga dengan 2 Anak": {
+    "en": "Family with 2 Children",
+    "ja": "家族（子ども2名）",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 427
+  },
+  "Kindergeld (€259/anak/bln) berlaku untuk anak <18 th (maks 25 th jika masih pendidikan/training).": {
+    "en": "Kindergeld (€259/child/mo) applies for children <18 yo (up to 25 yo if in education/training).",
+    "ja": "Kindergeld（ドイツ子供手当 €259/月/人）は18歳未満対象（教育・訓練中は最長25歳まで）。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 436
+  },
+  "Tunjangan Anak Jepang (Jido Teate ¥15.000/anak/bln) berlaku untuk anak <18 th; ada batas penghasilan orang tua.": {
+    "en": "Japan Child Allowance (¥15,000/child/mo) applies for children <18 yo; parent income caps apply.",
+    "ja": "児童手当（月額15,000円/人）は高校生年代（18歳到達後最初の3月31日）まで支給されます。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 442
+  },
+  "Penyesuaian PTKP & tunjangan anak berlaku sesuai status tanggungan pajak resmi (K/1, K/2).": {
+    "en": "PTKP tax relief applies based on official tax dependent status (K/1, K/2).",
+    "ja": "扶養親族控除（PTKP K/1, K/2）は公式な税制要件に基づいて適用されます。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 447
+  },
+  "Saya punya slip gaji (masukkan netto langsung)": {
+    "en": "I have a payslip (enter net pay directly)",
+    "ja": "給与明細あり（手取り額を直接入力）",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 486
+  },
+  "⚠️ Wajib diisi": {
+    "en": "⚠️ Required",
+    "ja": "⚠️ 入力必須",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 511
+  },
+  "Ketik gaji kotor kamu atau klik salah satu tombol referensi di atas.": {
+    "en": "Type your gross income or click one of the reference buttons above.",
+    "ja": "額面給与を入力するか、上記の参考水準ボタンをクリックしてください。",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 519
+  },
+  "Gaji Bersih / Net Take-Home (dari slip gaji)": {
+    "en": "Net Pay (from payslip)",
+    "ja": "手取り給与 (給与明細の実支給額)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 533
+  },
+  "Gaji Kotor (Gakumen) Belum Diisi": {
+    "en": "Gross Income (Gakumen) Not Filled",
+    "ja": "額面給与が未入力です",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 556
+  },
+  "Gunakan Standar ¥180.000": {
+    "en": "Use Standard ¥180,000",
+    "ja": "標準額 ¥180,000 を適用",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 594
+  },
+  "Potongan Kontrak (賃金控除)": {
+    "en": "Contract Deductions (賃金控除)",
+    "ja": "給与天引き項目 (賃金控除)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 605
+  },
+  "Rincian Dari Kontrak / Slip": {
+    "en": "Contract Breakdown",
+    "ja": "雇用契約・明細書の控除内訳",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 615
+  },
+  "Isi Otomatis Estimasi Standar Jepang (Asrama ¥20rb, Listrik ¥8rb, Asuransi ~15%)": {
+    "en": "Auto-fill Standard Contract Deductions (Dorm ¥20k, Utilities ¥8k, Insurance ~15%)",
+    "ja": "日本の標準天引き額を一括自動入力 (寮費2万円・光熱費8千円・社保約15%)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 645
+  },
+  "Asrama ¥20.000": {
+    "en": "Dorm ¥20k",
+    "ja": "寮費 20,000円",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 663
+  },
+  "Sharehouse ¥35.000": {
+    "en": "Sharehouse ¥35k",
+    "ja": "シェアハウス 35,000円",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 664
+  },
+  "Standar ¥8.000": {
+    "en": "Standard ¥8k",
+    "ja": "標準 8,000円",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 676
+  },
+  "Hemat ¥5.000": {
+    "en": "Frugal ¥5k",
+    "ja": "節約 5,000円",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 677
+  },
+  "Hitung 14.5%": {
+    "en": "Calc 14.5%",
+    "ja": "14.5%自動計算",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 690
+  },
+  "Hitung 0.6%": {
+    "en": "Calc 0.6%",
+    "ja": "0.6%自動計算",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 705
+  },
+  "¥0 (Masak Sendiri)": {
+    "en": "¥0 (Self cook)",
+    "ja": "0円 (自炊)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 719
+  },
+  "Katering ¥15.000": {
+    "en": "Catering ¥15k",
+    "ja": "給食 15,000円",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 720
+  },
+  "Estimasi Gaji Bersih / Net Take-Home": {
+    "en": "Estimated Net Salary",
+    "ja": "手取り概算 (差引支給額)",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 781
+  },
+  "Potongan efektif": {
+    "en": "Effective deduction",
+    "ja": "実質控除率",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 789
+  },
+  "⚠️ Masukkan Gaji Bersih (dari slip) atau Gaji Kotor untuk melanjutkan": {
+    "en": "⚠️ Please enter Net Pay or Gross Income to continue",
+    "ja": "⚠️ 次へ進むには手取り額または額面給与を入力してください",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 804
+  },
+  "⚠️ Masukkan Gaji Kotor / Gakumen di atas untuk melanjutkan ke langkah berikutnya": {
+    "en": "⚠️ Please enter Gross Income / Gakumen above to continue",
+    "ja": "⚠️ 次へ進むには上記の額面給与を入力してください",
+    "file": "apps/web/components/wizard/Step3Income.tsx",
+    "line": 809
+  },
+  "Kembali": {
+    "en": "Back",
+    "ja": "戻る",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 131
+  },
+  "Lanjut →": {
+    "en": "Continue →",
+    "ja": "次へ進む →",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 261
+  },
+  "📊 Radar Distribusi Pendapatan": {
+    "en": "📊 Income Distribution Radar",
+    "ja": "📊 所得分布レーダー",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 65
+  },
+  "Pilih Negara Asal Acuan:": {
+    "en": "Select Reference Country:",
+    "ja": "基準国を選択:",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 94
+  },
+  "🇮🇩 Indonesia (Rupiah - IDR)": {
+    "en": "🇮🇩 Indonesia (Rupiah - IDR)",
+    "ja": "🇮🇩 インドネシア (ルピア - IDR)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 107
+  },
+  "🇯🇵 Jepang (Yen - JPY)": {
+    "en": "🇯🇵 Japan (Yen - JPY)",
+    "ja": "🇯🇵 日本 (円 - JPY)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 108
+  },
+  "🇩🇪 Jerman (Euro - EUR)": {
+    "en": "🇩🇪 Germany (Euro - EUR)",
+    "ja": "🇩🇪 ドイツ (ユーロ - EUR)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 109
+  },
+  "Gaji Kotor / Gross Bulanan:": {
+    "en": "Gross Monthly Income:",
+    "ja": "額面月収 (Gross):",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 115
+  },
+  "Contoh:": {
+    "en": "Presets:",
+    "ja": "目安例:",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 131
+  },
+  "UMR Jakarta (5,4 jt)": {
+    "en": "Jakarta Min Wage (5.4m)",
+    "ja": "ジャカルタ最低賃金 (540万Rp)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 136
+  },
+  "Fresh Grad S1 (8,5 jt)": {
+    "en": "Fresh Grad Bachelor (8.5m)",
+    "ja": "大卒初任給 (850万Rp)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 139
+  },
+  "Mid-Level (15 jt)": {
+    "en": "Mid-Level (15m)",
+    "ja": "中堅専門職 (1500万Rp)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 142
+  },
+  "Senior Lead (30 jt)": {
+    "en": "Senior Lead (30m)",
+    "ja": "シニアリーダー (3000万Rp)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 145
+  },
+  "Mindestlohn (€2.224)": {
+    "en": "Min. Wage (€2,224)",
+    "ja": "法定最低賃金 (€2,224)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 152
+  },
+  "Median Jerman (€3.650)": {
+    "en": "German Median (€3,650)",
+    "ja": "独中央値 (€3,650)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 155
+  },
+  "Tech/Engineer (€5.500)": {
+    "en": "Tech/Engineer (€5,500)",
+    "ja": "IT技術職 (€5,500)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 158
+  },
+  "Upah Minimum (¥180k)": {
+    "en": "Min. Wage (¥180k)",
+    "ja": "法定最低賃金 (月給換算18万円)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 165
+  },
+  "Fresh Grad (¥240k)": {
+    "en": "Fresh Grad (¥240k)",
+    "ja": "大卒初任給 (24万円)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 168
+  },
+  "Median Jepang (¥320k)": {
+    "en": "Japan Median (¥320k)",
+    "ja": "日本中央値 (32万円)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 171
+  },
+  "Peringkat Nasional Anda": {
+    "en": "National Percentile Rank",
+    "ja": "国内パーセンタイル順位",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 184
+  },
+  "Rasio terhadap Median Nasional:": {
+    "en": "Ratio to National Median:",
+    "ja": "国内中央値比:",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 202
+  },
+  "P1 (Bawah)": {
+    "en": "P1 (Bottom)",
+    "ja": "P1 (下位)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 219
+  },
+  "P90 (Top 10%)": {
+    "en": "P90 (Top 10%)",
+    "ja": "P90 (上位10%)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 223
+  },
+  "Catatan Penasihat Finansial: Waspadai Ilusi Nilai Tukar (Exchange Rate Illusion)": {
+    "en": "Financial Advisor Note: Beware the Exchange Rate Illusion",
+    "ja": "ファイナンシャルアドバイザーの助言: 為替レートの錯覚に注意",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 239
+  },
+  "Gaji Rp 10.000.000 menempatkan Anda di kelas atas nasional Indonesia (Top 15%), namun jika dikonversi secara nominal hanya setara ~€491 di Jerman (kurs €1 ≈ Rp 20.364). Di Jerman, upah minimum resmi (Mindestlohn) adalah €2.224/bulan (€13.90/jam × 160 jam). Angka konversi nominal murni tidak mencerminkan daya beli riil karena biaya hidup dasar dan struktur upah di negara tujuan jauh lebih tinggi.": {
+    "en": "An income of IDR 10,000,000 places you in Indonesia's national upper tier (Top 15%), yet nominally converts to only ~€491 in Germany (rate €1 ≈ Rp 20.364). In Germany, the official gross minimum wage (Mindestlohn) is €2,224/month (€13.90/hr × 160h). Nominal conversions fail to reflect real purchasing power because baseline living costs and wage floors in destination countries are significantly higher.",
+    "ja": "月収1,000万ルピアはインドネシア国内の上位15%に位置しますが、名目為替換算（€1 ≒ Rp 20,364）するとドイツでは約491ユーロに過ぎません。ドイツの法定最低賃金は月額2,224ユーロです（€13.90/時間 × 160時間）。現地の物価水準や基礎生活費が根本的に異なるため、単なる名目換算値だけでは実質的な購買力を測ることはできません。",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 248
+  },
+  "Konversi mata uang pasar murni tidak memperhitungkan perbedaan struktur pajak wajib dan biaya hidup lokal. Gunakan Menu 1 (Berapa Gaji Setaraku) untuk menghitung angka negosiasi kontrak yang melindungi standar hidup riil Anda.": {
+    "en": "Market exchange rates do not account for mandatory tax deductions and local living costs. Use Menu 1 (Equivalent Salary) to calculate target contract salaries that preserve your real living standards.",
+    "ja": "市場為替レートによる換算は、現地の法定税・社会保険控除や住居費などの生活コストを反映していません。「第1の柱: 等価給与計算」を活用し、実質的な生活水準を維持できる交渉基準額を算出してください。",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 253
+  },
+  "Posisi Gaji Ini Jika Dikonversi di Negara Lain": {
+    "en": "Equivalent Position in Other Countries",
+    "ja": "他国における名目換算後の所得ポジション",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 266
+  },
+  "Nilai Konversi Nominal:": {
+    "en": "Nominal Converted Value:",
+    "ja": "名目換算月収:",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 301
+  },
+  "/ bln": {
+    "en": "/ mo",
+    "ja": "/ 月",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 304
+  },
+  "Posisi Persentil:": {
+    "en": "Percentile Rank:",
+    "ja": "パーセンタイル順位:",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 310
+  },
+  "Tabel Acuan Persentil Nasional (Anchor Points)": {
+    "en": "National Percentile Calibration Anchors",
+    "ja": "国家所得パーセンタイル基準表 (アンカーポイント)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 340
+  },
+  "Persentil": {
+    "en": "Percentile",
+    "ja": "パーセンタイル",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 352
+  },
+  "🇮🇩 Indonesia (IDR)": {
+    "en": "🇮🇩 Indonesia (IDR)",
+    "ja": "🇮🇩 インドネシア (IDR)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 353
+  },
+  "🇯🇵 Jepang (JPY)": {
+    "en": "🇯🇵 Japan (JPY)",
+    "ja": "🇯🇵 日本 (JPY)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 354
+  },
+  "🇩🇪 Jerman (EUR)": {
+    "en": "🇩🇪 Germany (EUR)",
+    "ja": "🇩🇪 ドイツ (EUR)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 355
+  },
+  "P10 (Pekerja Bawah)": {
+    "en": "P10 (Entry / Lower Tier)",
+    "ja": "P10 (低所得層 / 見習い)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 360
+  },
+  "P25 (Entry Level / Trainee)": {
+    "en": "P25 (Entry Level / Trainee)",
+    "ja": "P25 (新卒・若手層)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 366
+  },
+  "P50 (Median Nasional)": {
+    "en": "P50 (National Median)",
+    "ja": "P50 (国内中央値)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 372
+  },
+  "P75 (Senior Specialist)": {
+    "en": "P75 (Senior Specialist)",
+    "ja": "P75 (中堅・専門職層)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 378
+  },
+  "P90 (Top 10% Nasional)": {
+    "en": "P90 (Top 10% National)",
+    "ja": "P90 (上位10% 上位所得層)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 384
+  },
+  "P95 (Top 5%)": {
+    "en": "P95 (Top 5%)",
+    "ja": "P95 (上位5% 富裕層)",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 390
+  },
+  "Perbandingan antar negara dihitung dengan menggabungkan posisi persentil domestik di masing-masing negara dengan paritas daya beli riil (PPP). Konversi mata uang nominal semata dapat mendistorsi persepsi kesejahteraan karena perbedaan signifikan pada struktur pajak progresif dan harga sewa tempat tinggal.": {
+    "en": "Cross-border comparisons integrate domestic percentile standing with real purchasing power parity (PPP). Nominal exchange conversion alone distorts living standard perceptions due to stark differences in progressive taxation and local rental costs.",
+    "ja": "国境を越えた比較は、各国での国内所得パーセンタイル位置と実質購買力平価（PPP）を組み合わせて算出。単純な為替換算は、累進課税や都市別家賃相場の大きな差により、生活水準の認識に深刻な歪みを生じさせます。",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 425
+  },
+  "Pelajari Metodologi Lengkap": {
+    "en": "Read Full Methodology",
+    "ja": "詳細な推計手法を見る",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 438
+  },
+  "Bantu Laporkan Data Lokal": {
+    "en": "Contribute Local Data",
+    "ja": "現地データを報告する",
+    "file": "apps/web/components/percentile/PercentileClient.tsx",
+    "line": 447
+  },
+  "Kontribusi Anonim": {
+    "en": "Anonymous Contribution",
+    "ja": "完全匿名データコントリビューション",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 114
+  },
+  "pengamatan aktif": {
+    "en": "active observations",
+    "ja": "件の有効観測データ",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 116
+  },
+  "Bagikan Pengamatan Harga Lokal": {
+    "en": "Share Local Price Observation",
+    "ja": "現地の物価・生活費データを共有",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 120
+  },
+  "Bantu sesama peserta magang & mahasiswa dengan membagikan pengamatan harga riil di kotamu. Tanpa akun, 100% anonim.": {
+    "en": "Help fellow trainees & students by sharing real price observations in your city. Zero accounts, 100% anonymous.",
+    "ja": "アカウント登録不要・完全匿名。あなたの街の実勢物価や家賃データを共有して、後輩の技能実習生や留学生の海外挑戦を支えましょう。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 123
+  },
+  "Pengamatan Terkirim & Masuk Antrean!": {
+    "en": "Observation Queued for Review!",
+    "ja": "データが正常に送信されました！",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 137
+  },
+  "Bagaimana Data Anda Digunakan?": {
+    "en": "How Your Data Is Used",
+    "ja": "データの活用方針とプライバシー保護",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 154
+  },
+  "Moderasi Ketat: Setiap entri diverifikasi agar bebas spam dan tidak ada outlier ekstrem.": {
+    "en": "Strict Moderation: Every entry is reviewed to filter spam and extreme outliers.",
+    "ja": "厳格な審査: スパムや極端な外れ値を除外するため事前確認を実施。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 157
+  },
+  "Agregasi Nilai Median: Data hanya digabungkan ke median kota — tidak pernah dipublikasikan secara mentah atau perorangan.": {
+    "en": "Median Aggregation: Data is only merged into the city median — never published as raw individual rows.",
+    "ja": "中央値集計: 都市全体の中央値として統計処理され、個別データがそのまま公開されることはありません。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 158
+  },
+  "100% Anonim: Tidak ada pelacakan identitas, IP terenkripsi, bebas tanpa login.": {
+    "en": "100% Anonymous: Zero identity tracking, encrypted IPs, no login required.",
+    "ja": "完全匿名: 個人情報の追跡なし、ログイン不要。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 159
+  },
+  "Kontribusi Anda memperkuat basis data:": {
+    "en": "Your contribution empowers the community:",
+    "ja": "コミュニティの共有資産となります:",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 165
+  },
+  "total pengamatan": {
+    "en": "total entries",
+    "ja": "件",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 166
+  },
+  "Kunci Hapus Privat (Simpan jika ingin menghapus pengamatan ini di masa depan):": {
+    "en": "Private Deletion Key (Save if you want to delete later):",
+    "ja": "プライベート削除キー (後で削除したい場合に保管):",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 172
+  },
+  "Kota": {
+    "en": "City",
+    "ja": "対象都市",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 229
+  },
+  "— Pilih Kota —": {
+    "en": "— Select City —",
+    "ja": "— 都市を選択 —",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 247
+  },
+  "Kategori Pengeluaran": {
+    "en": "Expense Category",
+    "ja": "支出カテゴリー",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 264
+  },
+  "Housing (Sewa Tempat Tinggal)": {
+    "en": "Housing (Rent & Accommodation)",
+    "ja": "住居費（家賃・共益費）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 272
+  },
+  "Food (Makanan & Groceries)": {
+    "en": "Food (Groceries & Dining)",
+    "ja": "食費（自炊食材・外食）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 273
+  },
+  "Transport (Transportasi)": {
+    "en": "Transport (Public Transit)",
+    "ja": "交通費（電車・バス・定期代）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 274
+  },
+  "Utilities (Internet / SIM / Listrik)": {
+    "en": "Utilities (Internet / Mobile / Power)",
+    "ja": "光熱水費・通信費（電気・水道・SIM）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 275
+  },
+  "Lifestyle (Hiburan / Social)": {
+    "en": "Lifestyle (Leisure & Social)",
+    "ja": "娯楽・交際費（レジャー・外食）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 276
+  },
+  "Tipe Hunian": {
+    "en": "Housing Arrangement",
+    "ja": "住居タイプ",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 306
+  },
+  "WG / Sharehouse (Kamar Bersama)": {
+    "en": "WG / Sharehouse (Shared / Private Room)",
+    "ja": "ルームシェア・シェアハウス（WG）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 314
+  },
+  "Company Dormitory (Asrama Perusahaan)": {
+    "en": "Company Dormitory",
+    "ja": "社員寮・会社提供宿舎",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 315
+  },
+  "Studio Apartment (1K / 1R / Einzelappartment)": {
+    "en": "Studio Apartment (1K / 1R)",
+    "ja": "ワンルーム・単身アパート（1K/1R）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 316
+  },
+  "1-Bedroom Apartment (1LDK / 2-Zimmer)": {
+    "en": "1-Bedroom Apartment (1LDK)",
+    "ja": "1LDK・2部屋アパート",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 317
+  },
+  "Catatan Kontekstual (Opsional)": {
+    "en": "Contextual Note (Optional)",
+    "ja": "補足情報・メモ（任意）",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 326
+  },
+  "Contoh: Sudah termasuk pemanas air (Warmmiete), dekat stasiun.": {
+    "en": "Example: Includes heating (Warmmiete), near train station.",
+    "ja": "例：光熱費込み（Warmmiete）、駅徒歩5分、築浅など。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 334
+  },
+  "⚠️ Jangan sertakan nama, nomor telepon, alamat lengkap, atau link media sosial.": {
+    "en": "⚠️ Do not include names, phone numbers, full addresses, or social media handles.",
+    "ja": "⚠️ 個人名、電話番号、詳細な住所、SNSアカウント等の個人情報は記載しないでください。",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 344
+  },
+  "Kirim Pengamatan →": {
+    "en": "Submit Observation →",
+    "ja": "データを送信する →",
+    "file": "apps/web/components/contribute/ContributeClient.tsx",
+    "line": 359
+  },
+  "Tempat Tinggal & Biaya Pindah": {
+    "en": "Housing & Moving Costs",
+    "ja": "住居・初期移住費用",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 101
+  },
+  "Pilih tipe hunian dan estimasi biaya awal pindah.": {
+    "en": "Choose housing type and estimate your move-in costs.",
+    "ja": "住居タイプを選択し、敷金や初期費用を見積もります。",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 104
+  },
+  "Zona Hunian & Commuter Trade-Off": {
+    "en": "Housing Zone & Commuter Trade-Off",
+    "ja": "居住エリアと通勤費トレードオフ",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 145
+  },
+  "Pusat Kota (City Core) — Sewa lebih tinggi, tanpa tiket commuter tambahan": {
+    "en": "City Core — Higher rent, minimal commuter costs",
+    "ja": "都心・市内中心部 — 家賃高め・定期代最小限",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 158
+  },
+  "Zona Pinggiran (Suburban Zone 3-4) — Sewa ~25% lebih murah, butuh tiket pass": {
+    "en": "Suburban (Zone 3-4) — ~25% cheaper rent, monthly transit pass required",
+    "ja": "近郊・郊外 (ゾーン3-4) — 家賃約25%安・通勤定期代が必要",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 159
+  },
+  "Akomodasi disediakan majikan (sudah dipotong dari gaji)": {
+    "en": "Employer-provided housing (already deducted from wage)",
+    "ja": "会社提供の住居（給与天引き済み）",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 170
+  },
+  "Tabungan yang Tersedia (untuk biaya pindah)": {
+    "en": "Available Savings (for move-in costs)",
+    "ja": "保有準備資金 (移住初期費用向け)",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 182
+  },
+  "Biaya Awal Pindah (Satu Kali)": {
+    "en": "One-Time Move-In Costs",
+    "ja": "初期移住費用 (一時金)",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 190
+  },
+  "sewa": {
+    "en": "rent",
+    "ja": "ヶ月分",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 222
+  },
+  "Uang Kunci (礼金 Reikin)": {
+    "en": "Key Money (礼金 Reikin)",
+    "ja": "礼金 (Reikin)",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 215
+  },
+  "Tidak ada di Jerman": {
+    "en": "Not applicable in Germany",
+    "ja": "ドイツには存在しません",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 228
+  },
+  "Biaya Agen/Broker": {
+    "en": "Agency/Broker Fee",
+    "ja": "仲介手数料",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 235
+  },
+  "Dana Perabotan & Perlengkapan Awal": {
+    "en": "Setup & Furniture Budget",
+    "ja": "家具・生活用品購入予算",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 239
+  },
+  "Biaya Penerbangan & Perjalanan Awal": {
+    "en": "Initial Flight & Travel Cost",
+    "ja": "渡航・航空券費用",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 243
+  },
+  "Total Biaya Pindah (Satu Kali)": {
+    "en": "Total Move-In Cost (One-Time)",
+    "ja": "初期費用合計 (一時金)",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 251
+  },
+  "Tidak termasuk dalam cash flow bulanan": {
+    "en": "Not included in monthly cash flow",
+    "ja": "月々の経常収支には含まれません",
+    "file": "apps/web/components/wizard/Step4Housing.tsx",
+    "line": 253
+  },
+  "Profil Gaya Hidup": {
+    "en": "Lifestyle Profile",
+    "ja": "生活水準・ライフスタイル",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 90
+  },
+  "Pilih baseline pengeluaran harianmu. Kamu bisa override detail di langkah selanjutnya.": {
+    "en": "Choose your daily spending baseline. You can override details in the next step.",
+    "ja": "月々の生活費ベースラインを選択してください。次のステップで個別に微調整可能です。",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 93
+  },
+  "Perencanaan dasar yang dibatasi, bukan rekomendasi kenyamanan": {
+    "en": "Constrained planning baseline, not a comfort recommendation",
+    "ja": "制約付きの最低限基準であり、快適な生活推奨値ではありません",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 132
+  },
+  "Makanan": {
+    "en": "Food",
+    "ja": "食費",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 139
+  },
+  "Transport": {
+    "en": "Transport",
+    "ja": "交通費",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 140
+  },
+  "Utilities": {
+    "en": "Utilities",
+    "ja": "通信・光熱費",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 141
+  },
+  "Gaya hidup": {
+    "en": "Lifestyle",
+    "ja": "交際・娯楽費",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 142
+  },
+  "Total bulanan": {
+    "en": "Monthly total",
+    "ja": "月間生活費合計",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 155
+  },
+  "Review Detail →": {
+    "en": "Review Details →",
+    "ja": "詳細確認へ進む →",
+    "file": "apps/web/components/wizard/Step5Lifestyle.tsx",
+    "line": 175
+  },
+  "⚖️ Perbandingan Dual-Kota": {
+    "en": "⚖️ Dual-City Comparison",
+    "ja": "⚖️ 2都市並行比較",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 91
+  },
+  "Tentukan Kota Acuan & Kota Tujuan": {
+    "en": "Select Reference & Destination Cities",
+    "ja": "基準都市と渡航先都市を選択",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 98
+  },
+  "Pilih kota asal Anda sebagai acuan pembanding (#1), dan kota impian tujuan Anda (#2) untuk analisis komparatif penuh.": {
+    "en": "Choose your baseline reference city (#1) and target destination (#2) for side-by-side budgeting.",
+    "ja": "比較の基準となる現在の都市 (#1) と、渡航予定の目標都市 (#2) を選択してください。",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 101
+  },
+  "📍 Kota #1: Kota Acuan Pembanding (Reference)": {
+    "en": "📍 City #1: Baseline Reference City",
+    "ja": "📍 第1都市: 比較基準都市 (現在地)",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 113
+  },
+  "Acuan #1": {
+    "en": "Baseline #1",
+    "ja": "基準 #1",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 120
+  },
+  "🎯 Kota #2: Kota Tujuan Relokasi (Destination)": {
+    "en": "🎯 City #2: Destination City",
+    "ja": "🎯 第2都市: 渡航目標都市 (移住先)",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 184
+  },
+  "Target #2": {
+    "en": "Target #2",
+    "ja": "目標 #2",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 191
+  },
+  "Ausbildung & Fresh Grad": {
+    "en": "Vocational & Graduates",
+    "ja": "職業訓練 & 大卒初任給",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 228
+  },
+  "Kenshusei & Fresh Grad": {
+    "en": "Intern & Graduates",
+    "ja": "技能実習 & 大卒初任給",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 233
+  },
+  "Pilih Kota Tujuan Spesifik:": {
+    "en": "Select Specific Target City:",
+    "ja": "渡航先の具体都市を選択:",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 250
+  },
+  "Lanjut ke Pilih Jalur →": {
+    "en": "Continue to Pathway →",
+    "ja": "キャリア区分の選択へ進む →",
+    "file": "apps/web/components/wizard/Step1Destination.tsx",
+    "line": 288
+  },
+  "Makan cepat": {
+    "en": "Quick Meals",
+    "ja": "軽食・ファストフード",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 35
+  },
+  "Makan santai": {
+    "en": "Casual Dining",
+    "ja": "一般外食",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 36
+  },
+  "Nongkrong": {
+    "en": "Social Outings",
+    "ja": "飲み会・カフェ・交際費",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 37
+  },
+  "Belanja bahan makanan": {
+    "en": "Groceries",
+    "ja": "スーパー食料品自炊",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 38
+  },
+  "Internet & Ponsel": {
+    "en": "Internet & Phone",
+    "ja": "通信費・スマホ・Wi-Fi",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 40
+  },
+  "Kebutuhan pribadi": {
+    "en": "Personal Misc.",
+    "ja": "日用品・消耗品・雑費",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 41
+  },
+  "Perawatan diri, dll.": {
+    "en": "Personal care, etc.",
+    "ja": "日用品・消耗品・美容等",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 41
+  },
+  "Review & Override": {
+    "en": "Review & Override",
+    "ja": "生活費の詳細確認・手動調整",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 48
+  },
+  "Semua nilai bisa kamu sesuaikan. Perubahan langsung terlihat di hasil.": {
+    "en": "All values are editable. Changes reflect immediately in results.",
+    "ja": "各項目の単価と月間頻度を自由に微調整できます。結果に即座に反映されます。",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 51
+  },
+  "Kategori": {
+    "en": "Category",
+    "ja": "項目",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 62
+  },
+  "Harga/kali": {
+    "en": "Unit Cost",
+    "ja": "単価",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 63
+  },
+  "Frekuensi": {
+    "en": "Times/mo",
+    "ja": "月間頻度",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 64
+  },
+  "Total/bulan": {
+    "en": "Monthly",
+    "ja": "月額小計",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 65
+  },
+  "Total Pengeluaran Gaya Hidup": {
+    "en": "Lifestyle Expenses Total",
+    "ja": "月間生活費合計",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 122
+  },
+  "Lihat Hasil →": {
+    "en": "See Results →",
+    "ja": "診断結果を見る →",
+    "file": "apps/web/components/wizard/Step6Review.tsx",
+    "line": 133
+  },
+  "Masukkan nominal harga yang valid": {
+    "en": "Please enter a valid price",
+    "ja": "有効な金額を入力してください",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 65
+  },
+  "Gagal memperbarui harga": {
+    "en": "Failed to update price",
+    "ja": "価格の更新に失敗しました",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 83
+  },
+  "✅ Berhasil! Harga baru tersimpan dan tercatat di database.": {
+    "en": "✅ Success! Updated price is recorded in the database.",
+    "ja": "✅ 成功！更新された価格がデータベースに記録されました。",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 87
+  },
+  "Koreksi / Update Harga": {
+    "en": "Correct / Update Price",
+    "ja": "価格の修正・更新",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 123
+  },
+  "Nama / Panggilan (Opsional)": {
+    "en": "Your Name / Nickname (Optional)",
+    "ja": "ニックネーム（任意）",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 169
+  },
+  "Anonim / Mahasiswa Hamburg": {
+    "en": "Anonymous / Local Resident",
+    "ja": "匿名 / 現地在住者",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 176
+  },
+  "Catatan Sumber / Kondisi (Opsional)": {
+    "en": "Notes / Source Context (Optional)",
+    "ja": "補足情報・メモ（任意）",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 182
+  },
+  "Contoh: Kontrak baru WG 2026 sudah naik...": {
+    "en": "e.g. Recent housing price jump in 2026...",
+    "ja": "例：2026年契約改定で値上がり...",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 189
+  },
+  "Batal": {
+    "en": "Cancel",
+    "ja": "キャンセル",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 200
+  },
+  "Menyimpan...": {
+    "en": "Saving...",
+    "ja": "保存中...",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 208
+  },
+  "💾 Simpan ke Database": {
+    "en": "💾 Save to Database",
+    "ja": "💾 データベースに保存",
+    "file": "apps/web/components/common/PriceCorrectionModal.tsx",
+    "line": 209
+  },
+  "Kamu melihat skenario privat yang dibagikan secara rahasia via BandingHidup.": {
+    "en": "You are viewing a private, unlisted scenario shared via BandingHidup.",
+    "ja": "BandingHidupを通じて共有された限定公開シミュレーションを表示しています。",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 48
+  },
+  "Simulasi Biaya Hidup": {
+    "en": "Cost of Living Simulation",
+    "ja": "生活費シミュレーション",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 60
+  },
+  "Cash Flow Bulanan": {
+    "en": "Monthly Cash Flow",
+    "ja": "月間キャッシュフロー",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 70
+  },
+  "Gaji Kotor (Brutto)": {
+    "en": "Gross Salary (Brutto)",
+    "ja": "額面総支給（Gross）",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 75
+  },
+  "Gaji Bersih / Net Take-Home": {
+    "en": "Net Salary (Take-Home)",
+    "ja": "手取り月給（Netto）",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 80
+  },
+  "Transportasi & Utilitas": {
+    "en": "Transport & Utilities",
+    "ja": "交通費・光熱通信費",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 97
+  },
+  "Biaya Pindah (Satu Kali)": {
+    "en": "Move-In Costs (One-Time)",
+    "ja": "初期移住費用（一回限り）",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 116
+  },
+  "Duplikasi ke Browser Saya & Edit": {
+    "en": "Duplicate to My Browser & Edit",
+    "ja": "ブラウザに複製して編集",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 132
+  },
+  "Buat Simulasiku Sendiri": {
+    "en": "Create My Own Simulation",
+    "ja": "自分のシミュレーションを作成",
+    "file": "apps/web/components/share/SharedScenarioClient.tsx",
+    "line": 136
+  }
+}

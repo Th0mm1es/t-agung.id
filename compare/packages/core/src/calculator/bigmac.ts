@@ -326,7 +326,7 @@ export function calculateLifestyleEquivalenceSalary(
   const DEFAULT_TRANSPORT: Record<CountryCode, number> = {
     ID: 350000,  // TransJakarta / KRL / Bensin
     JP: 10000,   // Tsukin pass
-    DE: 49,      // Deutschlandticket
+    DE: 63,      // Deutschlandticket €63 (2026, deutschlandticket.de)
   };
 
   const periodicity: IncomePeriodicity = input.periodicity ?? "monthly";

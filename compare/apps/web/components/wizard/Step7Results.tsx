@@ -249,10 +249,10 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     <span>
                       {result.input.country === "DE"
                         ? txt(
-                            `Tunjangan Anak (Kindergeld ${result.input.numChildren}x €255):`,
-                            `Child Benefit (Kindergeld ${result.input.numChildren}x €255):`,
-                            `Kindergeld (${result.input.numChildren}x €255):`,
-                            `Kindergeld（ドイツ子供手当 ${result.input.numChildren}x €255）:`
+                            `Tunjangan Anak (Kindergeld ${result.input.numChildren}x €259):`,
+                            `Child Benefit (Kindergeld ${result.input.numChildren}x €259):`,
+                            `Kindergeld (${result.input.numChildren}x €259):`,
+                            `Kindergeld（ドイツ子供手当 ${result.input.numChildren}x €259）:`
                           )
                         : txt(
                             `Tunjangan Anak Jepang (Jido Teate ${result.input.numChildren}x ¥15.000):`,
@@ -264,7 +264,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                     <span className="font-mono whitespace-nowrap tabular-nums font-semibold">
                       + {formatCurrency(
                         result.input.country === "DE"
-                          ? BigInt((result.input.numChildren || 1) * 25500)
+                          ? BigInt((result.input.numChildren || 1) * 25900) // 2026: €259/child (was €255)
                           : BigInt((result.input.numChildren || 1) * 15000),
                         currency,
                         currencyLocale
@@ -275,7 +275,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
                 <div className="flex justify-between items-center pt-2 border-t border-line font-bold text-sm">
                   <span className="text-fg-90">{txt("Sisa Tabungan Bulanan:", "Net Monthly Savings:", "月間手残り・貯蓄額:")}</span>
                   <span className={`font-mono whitespace-nowrap tabular-nums ${result.monthlyBalance >= 0n ? "text-emerald-400" : "text-red-400"}`}>
-                    {result.monthlyBalance >= 0n ? "+" : "-"}
+                    {result.monthlyBalance >= 0n ? "+" : "−"}
                     {formatCurrency(result.monthlyBalance < 0n ? result.monthlyBalance * -1n : result.monthlyBalance, currency, currencyLocale)}
                   </span>
                 </div>
@@ -612,7 +612,7 @@ export function Step7Results({ result, referenceResult, onBack, onReset }: Step7
           grossSalaryText: formatCurrency(result.income.grossMonthly, currency, currencyLocale),
           netSalaryText: formatCurrency(result.income.netMonthly, currency, currencyLocale),
           expensesText: formatCurrency(result.monthlyExpenses.housingRent + result.monthlyExpenses.food + result.monthlyExpenses.utilities + result.monthlyExpenses.transport, currency, currencyLocale),
-          savingsText: `${result.monthlyBalance >= 0n ? "+" : ""}${formatCurrency(result.monthlyBalance, currency, currencyLocale)}`,
+          savingsText: `${result.monthlyBalance >= 0n ? "+" : "−"}${formatCurrency(result.monthlyBalance < 0n ? result.monthlyBalance * -1n : result.monthlyBalance, currency, currencyLocale)}`,
           foodIndexText: toMajor(result.monthlyBalance, currency) > 0
             ? txt("Surplus Keuangan Sehat", "Healthy Financial Surplus", "Solider finanzieller Überschuss", "黒字（健全な家計）")
             : txt("Perlu Penyesuaian Anggaran", "Budget Adjustment Needed", "Budgetanpassung erforderlich", "予算調整が必要"),

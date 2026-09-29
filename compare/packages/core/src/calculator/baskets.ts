@@ -78,7 +78,7 @@ export const DE_BASKETS: Record<LifestyleProfile, {
     casualDining: { unit: 600n,   freq: 2  },  // €6 (Mensa) × 2 = €12
     social:       { unit: 1200n,  freq: 1  },  // €12 × 1 = €12
     groceries:    { unit: 15000n, freq: 1  },  // €150/month
-    transport:    { unit: 4900n,  freq: 1  },  // €49 Deutschland-Ticket
+    transport:    { unit: 6300n,  freq: 1  },  // €63 Deutschland-Ticket 2026 (deutschlandticket.de)
     utilities:    { unit: 2500n,  freq: 1  },  // €25 phone+internet
     misc:         { unit: 5000n,  freq: 1  },  // €50 personal
   },
@@ -87,7 +87,7 @@ export const DE_BASKETS: Record<LifestyleProfile, {
     casualDining: { unit: 1300n,  freq: 4  },  // €13 × 4 = €52
     social:       { unit: 2000n,  freq: 2  },  // €20 × 2 = €40
     groceries:    { unit: 20000n, freq: 1  },  // €200/month
-    transport:    { unit: 4900n,  freq: 1  },  // €49 Deutschland-Ticket
+    transport:    { unit: 6300n,  freq: 1  },  // €63 Deutschland-Ticket 2026 (deutschlandticket.de)
     utilities:    { unit: 3500n,  freq: 1  },  // €35 phone+internet
     misc:         { unit: 8000n,  freq: 1  },  // €80 personal
   },
@@ -96,7 +96,7 @@ export const DE_BASKETS: Record<LifestyleProfile, {
     casualDining: { unit: 1800n,  freq: 6  },  // €18 × 6 = €108
     social:       { unit: 3000n,  freq: 3  },  // €30 × 3 = €90
     groceries:    { unit: 28000n, freq: 1  },  // €280/month
-    transport:    { unit: 4900n,  freq: 1  },  // €49 Deutschland-Ticket
+    transport:    { unit: 6300n,  freq: 1  },  // €63 Deutschland-Ticket 2026 (deutschlandticket.de)
     utilities:    { unit: 4500n,  freq: 1  },  // €45 phone+internet+streaming
     misc:         { unit: 15000n, freq: 1  }, // €150 personal
   },

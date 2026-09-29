@@ -28,14 +28,14 @@ export interface FamilyScalingResult {
   scaledHousingRent: bigint;
   scaledGroceryCost: bigint;
   monthlyChildcareCost: bigint;
-  monthlyKindergeldAllowance: bigint; // Contextual child benefit (e.g. €255/child in DE)
+  monthlyKindergeldAllowance: bigint; // Contextual child benefit (e.g. €259/child in DE)
   netChildcareExpense: bigint; // childcareCost - kindergeld
   familyHousingMultiplier: number;
   familyGroceryMultiplier: number;
 }
 
-/** Germany Kindergeld 2026: €255 / child / month (25500 cents) */
-export const DE_KINDERGELD_PER_CHILD_CENTS = 25500n;
+/** Germany Kindergeld 2026: €259 / child / month (25900 cents, arbeitsagentur.de 2026-01) */
+export const DE_KINDERGELD_PER_CHILD_CENTS = 25900n;
 
 /** Germany Kita average monthly fee estimate: €150 / child / month (15000 cents) */
 export const DE_KITA_FEE_PER_CHILD_CENTS = 15000n;
@@ -119,11 +119,11 @@ export function calculateChildBenefit(country: CountryCode, numChildren: number)
     const minor = DE_KINDERGELD_PER_CHILD_CENTS * BigInt(numChildren);
     return {
       monthlyBenefitMinorUnits: minor,
-      monthlyBenefitMajor: 255 * numChildren,
-      benefitNameId: `Tunjangan Anak (Kindergeld: €${255 * numChildren}/bln)`,
-      benefitNameEn: `Child Benefit (Kindergeld: €${255 * numChildren}/mo)`,
-      benefitNameDe: `Kindergeld (€${255 * numChildren}/Monat)`,
-      benefitNameJa: `Kindergeld（ドイツ子供手当: €${255 * numChildren}/月）`,
+      monthlyBenefitMajor: 259 * numChildren,
+      benefitNameId: `Tunjangan Anak (Kindergeld: €${259 * numChildren}/bln)`,
+      benefitNameEn: `Child Benefit (Kindergeld: €${259 * numChildren}/mo)`,
+      benefitNameDe: `Kindergeld (€${259 * numChildren}/Monat)`,
+      benefitNameJa: `Kindergeld（ドイツ子供手当: €${259 * numChildren}/月）`,
     };
   }
   if (country === "JP") {

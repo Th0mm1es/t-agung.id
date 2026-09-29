@@ -240,12 +240,12 @@ export function getCareerPathwayBenchmark(
       housingDescId = "Kamar WG (Wohngemeinschaft) / Asrama Mahasiswa";
       housingDescEn = "Shared WG Room / Student Dormitory";
       housingDescJa = "WGシェアハウス（個室）/ 学生寮";
-      bonusContextId = "Sebagian besar kontrak Ausbildung memberikan tunjangan tiket (Deutschlandticket €49) dan tunjangan buku.";
-      bonusContextEn = "Most Ausbildung contracts include public transit tickets (Deutschlandticket €49) & book subsidies.";
-      bonusContextJa = "多くのアウスビルドゥング契約で交通費補助（Deutschlandticket €49）や教材手当が支給されます。";
-      auditorAdviceId = "💡 Pajak penghasilan sangat rendah/nihil karena di bawah Grundfreibetrag (€11.784/thn). Potongan utama adalah jaminan sosial (~19.6%).";
-      auditorAdviceEn = "💡 Income tax is minimal/zero under Grundfreibetrag (€11,784/yr). Primary deduction is social security (~19.6%).";
-      auditorAdviceJa = "💡 基礎控除額（Grundfreibetrag €11,784/年）以下のため所得税は極めて低額または非課税です。主な控除は社会保険料（約19.6%）です。";
+      bonusContextId = "Sebagian besar kontrak Ausbildung memberikan tunjangan tiket (Deutschlandticket €63) dan tunjangan buku.";
+      bonusContextEn = "Most Ausbildung contracts include public transit tickets (Deutschlandticket €63) & book subsidies.";
+      bonusContextJa = "多くのアウスビルドゥング契約で交通費補助（Deutschlandticket €63）や教材手当が支給されます。";
+      auditorAdviceId = "💡 Pajak penghasilan sangat rendah/nihil karena di bawah Grundfreibetrag (€12.348/thn, 2026). Potongan utama adalah jaminan sosial (~19.6%).";
+      auditorAdviceEn = "💡 Income tax is minimal/zero under Grundfreibetrag (€12,348/yr, 2026). Primary deduction is social security (~19.6%).";
+      auditorAdviceJa = "💡 基礎控除額（Grundfreibetrag €12,348/年 (2026)）以下のため所得税は極めて低額または非課税です。主な控除は社会保険料（約19.6%）です。";
     } else if (pathway === "fresh_grad_s1") {
       baseGrossMajor = Math.round(3750 * wageMult); // ~€45k/yr
       baseRentMajor = Math.round(800 * rentMult);

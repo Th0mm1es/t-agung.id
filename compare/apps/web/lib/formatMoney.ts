@@ -27,13 +27,19 @@ export function formatMoney(
   else if (currencyCode === "ID" || currencyCode === "Rp" || currencyCode === "Rp ") currencyCode = "IDR";
   else if (currencyCode === "US" || currencyCode === "$") currencyCode = "USD";
 
+  const isNeg = amountMajor < 0;
+  const absAmount = Math.abs(amountMajor);
+
+  let formatted = "";
   if (["EUR", "JPY", "IDR", "USD"].includes(currencyCode)) {
-    return new Intl.NumberFormat(loc, {
+    formatted = new Intl.NumberFormat(loc, {
       style: "currency",
       currency: currencyCode,
       maximumFractionDigits: maxFractionDigits,
-    }).format(Math.round(amountMajor));
+    }).format(Math.round(absAmount));
+  } else {
+    formatted = `${currencyOrCountry}${Math.round(absAmount).toLocaleString(loc)}`;
   }
 
-  return `${currencyOrCountry}${Math.round(amountMajor).toLocaleString(loc)}`;
+  return isNeg ? `−${formatted}` : formatted;
 }

@@ -148,8 +148,8 @@ export function PercentileClient() {
               )}
               {country === "DE" && (
                 <>
-                  <button type="button" onClick={() => setGrossInput("2054")} className="px-2 py-0.5 rounded text-[10px] bg-panel-2 hover:bg-panel-2 text-fg-70 border border-line transition-colors">
-                    {txt("Mindestlohn (€2.054)", "Min. Wage (€2,054)", "法定最低賃金 (€2,054)")}
+                  <button type="button" onClick={() => setGrossInput("2224")} className="px-2 py-0.5 rounded text-[10px] bg-panel-2 hover:bg-panel-2 text-fg-70 border border-line transition-colors">
+                    {txt("Mindestlohn (€2.224)", "Min. Wage (€2,224)", "法定最低賃金 (€2,224)")}
                   </button>
                   <button type="button" onClick={() => setGrossInput("3650")} className="px-2 py-0.5 rounded text-[10px] bg-panel-2 hover:bg-panel-2 text-fg-70 border border-line transition-colors">
                     {txt("Median Jerman (€3.650)", "German Median (€3,650)", "独中央値 (€3,650)")}
@@ -188,6 +188,8 @@ export function PercentileClient() {
                     ? `第${localResult.percentile}パーセンタイル`
                     : locale === "en"
                     ? `${localResult.percentile}th Percentile`
+                    : locale === "de"
+                    ? `${localResult.percentile}. Perzentil`
                     : `Persentil ke-${localResult.percentile}`}
                   <span className="text-base sm:text-lg font-bold text-[var(--accent)] ml-3">
                     {locale === "ja" ? `(上位 ${localResult.topPercentage}%)` : `(Top ${localResult.topPercentage}%)`}
@@ -244,9 +246,9 @@ export function PercentileClient() {
           <p className="text-fg-80 leading-relaxed">
             {country === "ID"
               ? txt(
-                  "Gaji Rp 10.000.000 menempatkan Anda di kelas atas nasional Indonesia (Top 15%), namun jika dikonversi secara nominal hanya setara ~€581 di Jerman. Di Jerman, upah minimum resmi (Mindestlohn) adalah €2.054/bulan. Angka konversi nominal murni tidak mencerminkan daya beli riil karena biaya hidup dasar dan struktur upah di negara tujuan jauh lebih tinggi.",
-                  "An income of IDR 10,000,000 places you in Indonesia's national upper tier (Top 15%), yet nominally converts to only ~€581 in Germany. In Germany, the official gross minimum wage (Mindestlohn) is €2,054/month. Nominal conversions fail to reflect real purchasing power because baseline living costs and wage floors in destination countries are significantly higher.",
-                  "月収1,000万ルピアはインドネシア国内の上位15%に位置しますが、名目為替換算するとドイツでは約581ユーロに過ぎません。ドイツの法定最低賃金は月額2,054ユーロです。現地の物価水準や基礎生活費が根本的に異なるため、単なる名目換算値だけでは実質的な購買力を測ることはできません。"
+                  "Gaji Rp 10.000.000 menempatkan Anda di kelas atas nasional Indonesia (Top 15%), namun jika dikonversi secara nominal hanya setara ~€491 di Jerman (kurs €1 ≈ Rp 20.364). Di Jerman, upah minimum resmi (Mindestlohn) adalah €2.224/bulan (€13.90/jam × 160 jam). Angka konversi nominal murni tidak mencerminkan daya beli riil karena biaya hidup dasar dan struktur upah di negara tujuan jauh lebih tinggi.",
+                  "An income of IDR 10,000,000 places you in Indonesia's national upper tier (Top 15%), yet nominally converts to only ~€491 in Germany (rate €1 ≈ Rp 20.364). In Germany, the official gross minimum wage (Mindestlohn) is €2,224/month (€13.90/hr × 160h). Nominal conversions fail to reflect real purchasing power because baseline living costs and wage floors in destination countries are significantly higher.",
+                  "月収1,000万ルピアはインドネシア国内の上位15%に位置しますが、名目為替換算（€1 ≒ Rp 20,364）するとドイツでは約491ユーロに過ぎません。ドイツの法定最低賃金は月額2,224ユーロです（€13.90/時間 × 160時間）。現地の物価水準や基礎生活費が根本的に異なるため、単なる名目換算値だけでは実質的な購買力を測ることはできません。"
                 )
               : txt(
                   "Konversi mata uang pasar murni tidak memperhitungkan perbedaan struktur pajak wajib dan biaya hidup lokal. Gunakan Menu 1 (Berapa Gaji Setaraku) untuk menghitung angka negosiasi kontrak yang melindungi standar hidup riil Anda.",
@@ -311,6 +313,8 @@ export function PercentileClient() {
                         ? `第${data.percentile}パーセンタイル (上位${data.topPercentage}%)`
                         : locale === "en"
                         ? `${data.percentile}th Percentile (Top ${data.topPercentage}%)`
+                        : locale === "de"
+                        ? `${data.percentile}. Perzentil (Top ${data.topPercentage} %)`
                         : `Persentil ke-${data.percentile} (Top ${data.topPercentage}%)`}
                     </span>
                   </div>

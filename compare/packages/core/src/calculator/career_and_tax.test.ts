@@ -325,9 +325,9 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
       // Child benefits (Kindergeld)
       const deBenefit1 = calculateChildBenefit("DE", 1);
       const deBenefit2 = calculateChildBenefit("DE", 2);
-      expect(deBenefit1.monthlyBenefitMajor).toBe(255);
-      expect(deBenefit2.monthlyBenefitMajor).toBe(510);
-      expect(deBenefit2.monthlyBenefitMajor - deBenefit1.monthlyBenefitMajor).toBe(255);
+      expect(deBenefit1.monthlyBenefitMajor).toBe(259); // 2026: €259/mo per child (BMF)
+      expect(deBenefit2.monthlyBenefitMajor).toBe(518);
+      expect(deBenefit2.monthlyBenefitMajor - deBenefit1.monthlyBenefitMajor).toBe(259);
 
       // Japan: Gross ¥350,000 / month
       const jp1Child = calculateActiveDeductions({
@@ -361,8 +361,9 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
       // 1. Default Scenario: Jakarta -> Berlin Ausbildung (Single, no kids, €1,100 gross)
       const benchmark = getCareerPathwayBenchmark("DE", "Berlin", "ausbildung_kenshusei");
       expect(benchmark.grossMonthlyMajor).toBe(1100);
-      expect(benchmark.deductionResult.totalDeductionsMajor).toBe(231);
-      expect(benchmark.netMonthlyMajor).toBe(869);
+      // KV 2026: 10.2% (Zusatz 2.9%) → total deductions 254.1, net 845.9
+      expect(benchmark.deductionResult.totalDeductionsMajor).toBe(254.1);
+      expect(benchmark.netMonthlyMajor).toBe(845.9);
       expect(benchmark.recommendedRentMajor).toBe(500);
       expect(benchmark.otherConsumptionMajor).toBe(450);
       expect(benchmark.totalExpensesMajor).toBe(950);
@@ -372,9 +373,9 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
       // Assertion 1: card_total_shown === sum_of_card_line_items
       expect(cardTotalShown).toBe(sumOfLineItems);
 
-      // Raw arithmetic: take_home (869) - card_total_shown (950) = -81 (deficit)
+      // Raw arithmetic: take_home (845.9) - card_total_shown (950) = -104.1 (deficit)
       const rawSurplus = benchmark.netMonthlyMajor - cardTotalShown;
-      expect(rawSurplus).toBe(-81);
+      expect(rawSurplus).toBeCloseTo(-104.1, 8); // 845.9 is a float; avoid binary FP drift
       // Monthly savings MUST NOT be clamped to 0: true signed surplus (-81)
       expect(benchmark.monthlySavingsMajor).toBe(rawSurplus);
 
@@ -399,7 +400,7 @@ describe("Enhanced Equivalence Engine: Logic Modes & Extra Indices", () => {
         numChildren: 2,
         taxClassDE: 3,
       });
-      const kindergeld = calculateChildBenefit("DE", 2).monthlyBenefitMajor; // 2 * €255 = €510
+      const kindergeld = calculateChildBenefit("DE", 2).monthlyBenefitMajor; // 2 * €259 = €518 (2026)
       const familyTakeHome = familyDeductions.netMonthlyMajor + kindergeld; // Net pay + child benefit
 
       const familyRent = 1200; // 3-room apartment rent

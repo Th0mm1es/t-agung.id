@@ -270,24 +270,23 @@ export function EquivalenceCalculatorClient() {
 
   const formatMoney = (val: number, cur: string) => {
     const loc = locale === "id" ? "id-ID" : locale === "ja" ? "ja-JP" : locale === "de" ? "de-DE" : "en-US";
-    return `${cur}${Math.round(val).toLocaleString(loc)}`;
+    const isNeg = val < 0;
+    const formatted = `${cur}${Math.round(Math.abs(val)).toLocaleString(loc)}`;
+    return isNeg ? `−${formatted}` : formatted;
   };
 
-  // Remittance arriving in IDR for Target Country
-  const remitTargetMajor = Math.max(
-    100,
-    Math.round(
-      equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor > 0
-        ? equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor
-        : equivalenceResult.targetSummary.netMonthlyMajor * 0.25
-    )
-  );
+  // Remittance arriving in IDR for Target Country.
+  // Only when the scenario actually generates a positive surplus (audit v7 M5/M11).
+  const hasSurplusTarget = equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor > 0;
+  const remitTargetMajor = hasSurplusTarget
+    ? Math.max(100, Math.round(equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor))
+    : 0;
   const remitFee =
     remitTargetMajor * REMITTANCE_MARGIN_RATE +
     (targetCountry === "DE" ? REMITTANCE_FLAT_FEE_EUR : targetCountry === "JP" ? REMITTANCE_FLAT_FEE_JPY : 0);
   const remitNetArriving = Math.max(0, remitTargetMajor - remitFee);
   const remitIdrText = useMemo(() => {
-    if (!exchangeRates || targetCountry === "ID") return "Rp 0";
+    if (!exchangeRates || targetCountry === "ID" || remitTargetMajor <= 0) return "Rp 0";
     const minor = BigInt(Math.round(remitNetArriving * (targetCountry === "DE" ? 100 : 1)));
     const conv = convertCurrency(minor, targetCountry === "DE" ? "EUR" : "JPY", "IDR", exchangeRates);
     return formatConverted(conv, "IDR", locale === "id" ? "id-ID" : "en-US");
@@ -536,9 +535,9 @@ export function EquivalenceCalculatorClient() {
                 <span>
                   {targetCountry === "DE" || sourceCountry === "DE"
                     ? txt(
-                        "🇩🇪 Jerman: Tunjangan anak (Kindergeld €255/bln/anak) berlaku s.d. 18 th (atau 25 th jika kuliah/Ausbildung).",
-                        "🇩🇪 Germany: Child benefit (Kindergeld €255/mo/child) applies up to 18 (or 25 if studying/Ausbildung).",
-                        "🇩🇪 ドイツ: 児童手当（Kindergeld €255/月/子）は18歳まで（就学・職業訓練中は最長25歳まで）支給。"
+                        "🇩🇪 Jerman: Tunjangan anak (Kindergeld €259/bln/anak) berlaku s.d. 18 th (atau 25 th jika kuliah/Ausbildung).",
+                        "🇩🇪 Germany: Child benefit (Kindergeld €259/mo/child) applies up to 18 (or 25 if studying/Ausbildung).",
+                        "🇩🇪 ドイツ: 児童手当（Kindergeld €259/月/子）は18歳まで（就学・職業訓練中は最長25歳まで）支給。"
                       )
                     : targetCountry === "JP" || sourceCountry === "JP"
                     ? txt(
@@ -1644,10 +1643,10 @@ export function EquivalenceCalculatorClient() {
                     {txt("Sisa Uang Belanja & Tabungan", "Discretionary & Net Savings", "自由裁量余剰金・貯金可能額")}
                   </td>
                   <td className="py-3 px-3">
-                    + {formatMoney(equivalenceResult.sourceSummary.discretionarySavingsMonthlyMajor, sourceCur)}
+                    {equivalenceResult.sourceSummary.discretionarySavingsMonthlyMajor >= 0 ? "+ " : ""}{formatMoney(equivalenceResult.sourceSummary.discretionarySavingsMonthlyMajor, sourceCur)}
                   </td>
                   <td className="py-3 px-3">
-                    + {formatMoney(equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor, targetCur)}
+                    {equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor >= 0 ? "+ " : ""}{formatMoney(equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor, targetCur)}
                   </td>
                   <td className="py-3 px-3 text-emerald-200 font-sans text-[11px]">
                     {txt("Daya beli sisa uang terjaga seimbang!", "Real surplus purchasing power fully preserved!", "余剰金の実質的な購買力が完全に維持されています！")}
@@ -1895,7 +1894,7 @@ export function EquivalenceCalculatorClient() {
           grossSalaryText: `${targetCur}${Math.round(equivalenceResult.targetSummary.grossMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : locale === "de" ? "de-DE" : locale === "ja" ? "ja-JP" : "en-US")}`,
           netSalaryText: `${targetCur}${Math.round(equivalenceResult.targetSummary.netMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : locale === "de" ? "de-DE" : locale === "ja" ? "ja-JP" : "en-US")}`,
           expensesText: `${targetCur}${Math.round(equivalenceResult.targetSummary.totalConsumptionMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : locale === "de" ? "de-DE" : locale === "ja" ? "ja-JP" : "en-US")}`,
-          savingsText: `+${targetCur}${Math.round(equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor).toLocaleString(locale === "id" ? "id-ID" : locale === "de" ? "de-DE" : locale === "ja" ? "ja-JP" : "en-US")}`,
+          savingsText: `${equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor >= 0 ? "+" : ""}${formatMoney(equivalenceResult.targetSummary.discretionarySavingsMonthlyMajor, targetCur)}`,
           foodIndexText: `${equivalenceResult.targetFoodItem.emoji} ${equivalenceResult.targetSummary.foodPurchasingPowerQuantity} ${targetCountry === "JP" ? txt("mangkuk Gyudon", "bowls of gyudon", "Gyudon-Schalen", "ラーメン") : targetCountry === "DE" ? txt("porsi Döner Kebab", "servings of Döner Kebab", "Döner-Taschen", "ドネルケバブ") : txt("porsi Mie Ayam", "servings of Mie Ayam", "Portionen Mie Ayam", "ミーアヤム")} / ${txt("bln", "mo", "M.", "月")}`,
           badgeText: txt(`Gaji Bersih Setara di ${targetCityName}`, `Equivalent Net Salary in ${targetCityName}`, `Äquivalentes Nettogehalt in ${targetCityName}`, `${targetCityName}での実質手取り水準`),
           periodicityText: periodicity === "yearly" ? txt("Per Tahun · Setara", "Per Year · Equivalent", "Jährlich · Äquivalent", "年額 · 同等") : txt("Per Bulan · Setara", "Per Month · Equivalent", "Monatlich · Äquivalent", "月額 · 同等"),

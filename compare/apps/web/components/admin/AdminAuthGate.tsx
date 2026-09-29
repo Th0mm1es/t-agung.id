@@ -1,12 +1,21 @@
 "use client";
 
 import { useState, useEffect, ReactNode } from "react";
+import { useI18n } from "@/lib/i18n";
 
 export function AdminAuthGate({ children }: { children: ReactNode }) {
+  const { locale } = useI18n();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [passcode, setPasscode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const txt = (idStr: string, enStr: string, deStr: string, jaStr: string) => {
+    if (locale === "ja") return jaStr;
+    if (locale === "de") return deStr;
+    if (locale === "en") return enStr;
+    return idStr;
+  };
 
   // Check existing session on load
   useEffect(() => {
@@ -42,7 +51,7 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || "Passcode salah.");
+        throw new Error(data.error || txt("Passcode salah.", "Invalid passcode.", "Ungültiger Passcode.", "パスコードが正しくありません。"));
       }
 
       setIsAuthenticated(true);
@@ -66,7 +75,7 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-fg-soft text-sm font-medium animate-pulse">
-          Memeriksa izin sesi admin...
+          {txt("Memeriksa izin sesi admin...", "Checking admin session permissions...", "Überprüfe Admin-Sitzungsberechtigung...", "管理者セッション権限を確認中...")}
         </div>
       </div>
     );
@@ -81,23 +90,28 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
               🔒
             </div>
             <h1 className="text-xl font-display font-bold text-[var(--text)] tracking-tight">
-              Portal Admin Terproteksi
+              {txt("Portal Admin Terproteksi", "Protected Admin Portal", "Geschütztes Admin-Portal", "保護された管理ポータル")}
             </h1>
             <p className="text-xs text-fg-muted leading-relaxed">
-              Masukkan Admin Passcode untuk mengakses dashboard data governance dan review proposal komunitas.
+              {txt(
+                "Masukkan Admin Passcode untuk mengakses dashboard data governance dan review proposal komunitas.",
+                "Enter Admin Passcode to access data governance dashboard and review community proposals.",
+                "Geben Sie den Admin-Passcode ein, um auf das Daten-Governance-Dashboard zuzugreifen und Community-Vorschläge zu prüfen.",
+                "データガバナンスダッシュボードおよびコミュニティ提案の確認には管理者パスコードを入力してください。"
+              )}
             </p>
           </div>
 
           <form onSubmit={handleUnlock} className="space-y-4">
             <div>
               <label className="block text-xs font-medium text-fg-70 mb-1.5">
-                Admin Passcode
+                {txt("Admin Passcode", "Admin Passcode", "Admin-Passcode", "管理者パスコード")}
               </label>
               <input
                 type="password"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
-                placeholder="Masukkan passcode admin..."
+                placeholder={txt("Masukkan passcode admin...", "Enter admin passcode...", "Admin-Passcode eingeben...", "管理者パスコードを入力...")}
                 className="w-full px-4 py-3 bg-slate-950 border border-line rounded-xl text-[var(--text)] text-sm placeholder:text-fg-soft focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all"
                 autoFocus
               />
@@ -118,11 +132,11 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
               {isLoading ? (
                 <>
                   <span className="inline-block w-4 h-4 border-2 border-line-strong border-t-white rounded-full animate-spin" />
-                  <span>Memverifikasi...</span>
+                  <span>{txt("Memverifikasi...", "Verifying...", "Wird überprüft...", "認証中...")}</span>
                 </>
               ) : (
                 <>
-                  <span>Buka Portal Admin</span>
+                  <span>{txt("Buka Portal Admin", "Unlock Admin Portal", "Admin-Portal öffnen", "管理ポータルを開く")}</span>
                   <span>🔓</span>
                 </>
               )}
@@ -143,7 +157,7 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
       <div className="bg-slate-900 border-b border-line px-4 py-2 text-xs text-fg-60 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-medium text-fg-80">Sesi Admin Aktif</span>
+          <span className="font-medium text-fg-80">{txt("Sesi Admin Aktif", "Active Admin Session", "Aktive Admin-Sitzung", "管理者セッション有効")}</span>
           <span className="text-fg-soft">|</span>
           <span className="text-fg-soft">compare.t-agung.id</span>
         </div>
@@ -151,7 +165,7 @@ export function AdminAuthGate({ children }: { children: ReactNode }) {
           onClick={handleLogout}
           className="text-xs text-rose-400 hover:text-rose-300 transition-colors font-medium flex items-center gap-1"
         >
-          <span>Keluar</span>
+          <span>{txt("Keluar", "Sign Out", "Abmelden", "ログアウト")}</span>
           <span>🚪</span>
         </button>
       </div>
