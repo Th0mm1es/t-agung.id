@@ -56,8 +56,8 @@ export const QUICK_CITIES: Record<QuickCityKey, QuickCityConfig> = {
     currency: "JPY",
     currencySymbol: "¥",
     minGross: 100000,
-    maxGross: 600000,
-    stepGross: 5000,
+    maxGross: 1000000,
+    stepGross: 10000,
     defaultGross: 180000,
     rentLabel: {
       id: "Asrama / Apato Perusahaan",
@@ -96,8 +96,8 @@ export const QUICK_CITIES: Record<QuickCityKey, QuickCityConfig> = {
     currency: "EUR",
     currencySymbol: "€",
     minGross: 800,
-    maxGross: 6000,
-    stepGross: 50,
+    maxGross: 10000,
+    stepGross: 100,
     defaultGross: 1500,
     rentLabel: {
       id: "Kamar Bersama (WG)",
@@ -136,8 +136,8 @@ export const QUICK_CITIES: Record<QuickCityKey, QuickCityConfig> = {
     currency: "IDR",
     currencySymbol: "Rp",
     minGross: 3000000,
-    maxGross: 35000000,
-    stepGross: 250000,
+    maxGross: 100000000,
+    stepGross: 500000,
     defaultGross: 8500000,
     rentLabel: {
       id: "Kamar Kost Mandiri",
@@ -344,7 +344,7 @@ export function QuickHeroSimulator({
   const [sourceCityKey, setSourceCityKey] = useState<QuickCityKey>("tokyo");
   const [targetCityKey, setTargetCityKey] = useState<QuickCityKey>("jakarta");
   const [familyStatus, setFamilyStatus] = useState<FamilyCompositionKey>("single");
-  const [foodBenchmark, setFoodBenchmark] = useState<"street_food" | "big_mac">("street_food");
+  const [foodBenchmark, setFoodBenchmark] = useState<"street_food" | "big_mac">("big_mac");
 
   const sourceCity = QUICK_CITIES[sourceCityKey];
   const targetCity = QUICK_CITIES[targetCityKey];
@@ -1383,8 +1383,8 @@ export function QuickHeroSimulator({
               id="percentile-slider"
               type="range"
               min={percentileCountry === "ID" ? 2000000 : percentileCountry === "JP" ? 120000 : 800}
-              max={percentileCountry === "ID" ? 80000000 : percentileCountry === "JP" ? 8000000 : 50000}
-              step={percentileCountry === "ID" ? 500000 : percentileCountry === "JP" ? 25000 : 200}
+              max={percentileCountry === "ID" ? 100000000 : percentileCountry === "JP" ? 1000000 : 10000}
+              step={percentileCountry === "ID" ? 500000 : percentileCountry === "JP" ? 10000 : 100}
               value={percentileGrossInput}
               onChange={(e) => setPercentileGrossInput(Number(e.target.value))}
               className="w-full cursor-pointer h-2 rounded-lg bg-[var(--surface-3)]"
@@ -1396,7 +1396,7 @@ export function QuickHeroSimulator({
               <span className="text-[var(--accent)] font-semibold">
                 {txt("Geser Nilai Gaji", "Drag salary", "Gehalt anpassen", "給与額をスライド")}
               </span>
-              <span>{percentileCountry === "ID" ? "Rp 80 Juta" : percentileCountry === "JP" ? "¥8.000.000" : "€50.000"}</span>
+              <span>{percentileCountry === "ID" ? "Rp 100 Juta" : percentileCountry === "JP" ? "¥1.000.000" : "€10.000"}</span>
             </div>
           </div>
 
