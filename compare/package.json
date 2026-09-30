@@ -6,6 +6,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "dev:4321": "pnpm --filter @bandinghidup/web dev:4321",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",

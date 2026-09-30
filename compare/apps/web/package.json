@@ -5,6 +5,7 @@
   "description": "BandingHidup — Next.js 14 Web Application",
   "scripts": {
     "dev": "next dev",
+    "dev:4321": "next dev -p 4321",
     "check:theme": "node scripts/no-hardcoded-theme-colors.mjs",
     "check:i18n": "node scripts/check_de_inlines.mjs",
     "test": "npm run check:theme && npm run check:i18n",
