@@ -2,7 +2,7 @@
 #Required fields
 title: "Quantum Dot & QD-OLED: Kristal Ajaib yang Bikin Warna OLED Nggak Ada Tandingannya"
 description: "Bedah quantum dot sebagai color converter: dari QDEF di TV LCD sampai QD-OLED yang gabungkan OLED biru dengan kristal nano untuk warna paling jenuh, plus regulasi cadmium yang berakhir 2025."
-pubDate: 2026-09-18
+pubDate: 2026-09-30
 category: "deepdive"
 cover: "../../assets/blog/DD_OLED/OLED-7-quantum-dot-size.jpg"
 coverAlt: "Quantum Dot & QD-OLED: Kristal Ajaib yang Bikin Warna OLED Nggak Ada Tandingannya"
@@ -15,7 +15,7 @@ lang: "id-ID"
 #recommended
 slug: "oled-deepdive-7-quantum-dot-qd-oled"
 excerpt: "Quantum dot ubah satu sumber cahaya biru jadi tiga warna presisi. Dari QDEF di LCD sampai QD-OLED dan regulasi cadmium yang berakhir November 2025."
-updatedDate: 2026-09-18
+updatedDate: 2026-09-30
 
 #Optional-series support
 series: "OLED Deep Dive"
@@ -40,14 +40,14 @@ relatedPosts:
   - oled-deepdive-6-manufacturing
   - oled-deepdive-8-automotive-oled
 
-draft: true
+draft: false
 ---
 
 *Bagian 7 dari seri OLED Deep Dive*
 
-Dulu, Moko suka banget sama mainan stiker yang kalau disinari senter, warnanya keluar terang banget. Suka dia nempelkan di dinding kamar, lalu nyalain lampu kecil dari atas. Langsung menyala. Kayak magic.
+Dulu, saya suka banget sama mainan stiker yang kalau disinari senter, warnanya keluar kayak jadi nambah terangterang. Suka deh ditempelin di tembok kamar, lalu nyalain lampu kecil dari atas. Langsung nyala, kayak magic deh rasanya.
 
-Quantum dot itu prinsipnya sama persis, cuma versi engineering-grade yang presisinya bikin insinyur bisa tidur nyenyak. Ukurannya bisa diatur dalam satuan nanometer, dan warnanya keluar persis seperti yang kamu minta. Bukan sekadar "dekat-dekatan", tapi tepat di panjang gelombang yang kamu targetkan.
+Quantum dot itu prinsipnya sama persis, cuma versi engineering-grade yang presisinya bikin insinyur pusing. Ukurannya bisa diatur dalam satuan nanometer, dan warnanya keluar persis seperti yang kamu minta. Bukan sekadar "dekat-dekatan", tapi tepat di panjang gelombang yang kamu targetkan.
 
 Di bagian 6 kita bahas betapa rumitnya manufacturing OLED. FMM jadi bottleneck, yield masih jadi masalah, biaya produksi nggak murah. Nah, di sinilah quantum dot muncul sebagai solusi yang bikin banyak orang di industri display bilang "tunggu dulu, ada cara yang lebih efisien."
 
