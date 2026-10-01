@@ -290,24 +290,29 @@ export function LandingPageClient() {
                 >
                   <span>
                     {txt(
-                      "Berapa Sisa Uang Bersihmu di ",
-                      "What Is Your Real Take-Home in ",
-                      "Wie viel Netto bleibt dir in ",
-                      "海外生活での実質手取り・貯蓄力 "
+                      "Berapa sih gaji setara kita kalau di ",
+                      "What is our equivalent salary in ",
+                      "Wie viel Gehalt entspricht unserem Niveau in ",
+                      "他国や他都市での "
                     )}
                   </span>
                   <span className="text-gradient-brand">
-                    {txt("Jerman & Jepang?", "Germany & Japan?", "Deutschland & Japan?", "精密シミュレーター")}
+                    {txt(
+                      "negeri atau kota lain ?",
+                      "another country or city?",
+                      "einem anderen Land oder einer anderen Stadt?",
+                      "同等の給与・購買力は？"
+                    )}
                   </span>
                 </h1>
 
                 {/* Subtitle */}
                 <p className="text-base sm:text-lg text-[var(--muted)] leading-relaxed">
                   {txt(
-                    "Jangan terjebak ilusi kurs nominal! Hitung uang saku kotor ke gaji bersih masuk rekening (net take-home pay), biaya sewa kamar, dan sisa tabungan kirim ke kampung.",
-                    "Don't fall for exchange rate illusions. Calculate contract allowance to take-home pay, local room rent, and estimated remittance savings.",
-                    "Keine Wechselkurs-Illusionen: Berechnen Sie Ausbildungsvergütung/Bruttogehalt bis zum echten Nettoauszahlungsbetrag, Miete und Sparpotenzial.",
-                    "名目為替の錯覚を防ぐ。額面給与から税金・社会保険料控除後の手取り額、家賃、生活費、本国送金可能額をリアルタイムに試算。"
+                    "Jangan terjebak ama ilusi kurs valuta asing yang kelihatan besar, coba kita lihat berapa sih sebenarnya daya beli dari gaji orang yang kerja di luar. Berapa sih yang bisa di tabung ?",
+                    "Don't get fooled by foreign exchange rates that look deceptively large. Let's see the actual purchasing power of working abroad—and how much you can truly save.",
+                    "Lassen Sie sich nicht von scheinbar hohen Wechselkursen täuschen. Sehen Sie die reale Kaufkraft von Auslandsgehältern – und wie viel Sie wirklich sparen können.",
+                    "数字上大きく見える名目為替レートの錯覚に惑わされないでください。海外就労における実質的な購買力と、実際にいくら手元に残って貯金できるのかを正確に可視化します。"
                   )}
                 </p>
 
@@ -476,7 +481,12 @@ export function LandingPageClient() {
                 {txt("Pilih Simulator Sesuai Kebutuhanmu", "Choose Your Specific Calculator", "Passenden Rechner auswählen", "目的に合わせた精密シミュレーター")}
               </h2>
               <p className="text-sm text-[var(--muted)]">
-                {txt("Tiap modul dirancang untuk menjawab keraguan spesifik sebelum menandatangani kontrak atau mengajukan visa.", "Each tool is designed to solve a specific financial dilemma before signing your contract or applying for a visa.", "Jedes Modul beantwortet gezielte finanzielle Fragen vor Vertragsunterzeichnung oder Visumantrag.", "渡航前の契約締結やビザ申請における不安を解消するためのツール群。")}
+                {txt(
+                  "Tiap modul dirancang untuk menjawab keraguan spesifik tentang kerja di Indonesia, Jepang atau Jerman. Juga kalau anda mempertimbangkan untuk pindah negara.",
+                  "Each module is designed to answer specific questions about working in Indonesia, Japan, or Germany—as well as when considering relocating to another country.",
+                  "Jedes Modul beantwortet konkrete Fragen zur Arbeit in Indonesien, Japan oder Deutschland – insbesondere wenn Sie einen Umzug in ein anderes Land erwägen.",
+                  "各モジュールは、インドネシア、日本、ドイツでの就労に関する具体的な疑問や、他国への移住を検討する際の判断材料を提供するために設計されています。"
+                )}
               </p>
             </div>
 

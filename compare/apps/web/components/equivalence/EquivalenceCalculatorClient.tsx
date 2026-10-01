@@ -342,16 +342,18 @@ export function EquivalenceCalculatorClient() {
         </div>
         <h1 className="text-2xl sm:text-4xl font-display font-bold text-[var(--text)]">
           {txt(
-            "Berapa Gaji Setaraku di Luar Negeri?",
-            "What Is My Equivalent Salary Abroad?",
-            "海外で同等の生活水準を保つための必要給与シミュレーター"
+            "Berapa Gaji Setaraku di negeri lain?",
+            "What Is My Equivalent Salary in Another Country or City?",
+            "Wie viel Gehalt entspricht meinem Niveau in einem anderen Land?",
+            "他国・他都市での同等給与シミュレーター"
           )}
         </h1>
         <p className="text-sm text-fg-60 max-w-3xl leading-relaxed">
           {txt(
-            "Hitung secara realistis berapa gaji kotor (gross) yang harus Anda dapatkan di negara tujuan agar standar hidup Anda tidak turun. Dilengkapi simulasi potongan pajak & asuransi aktif sesuai struktur keluarga, sewa tempat tinggal, serta berbagai pilihan logika daya beli riil.",
-            "Calculate the exact gross salary you need abroad to preserve your domestic lifestyle, factoring in interactive statutory tax/social deductions, family dependents, local rent, and real purchasing power parities.",
-            "生活水準を落とさずに海外移住・転職するために必要な額面年収・月給を精密に逆算。家族構成に応じた税金・社会保険料の天引きシミュレーション、都市別家賃相場、購買力平価（PPP）指数を統合。"
+            "Hitung secara realistis berapa gaji di negara / kota lain agar standar hidup Anda tidak turun. Dilengkapi simulasi potongan pajak & asuransi aktif sesuai struktur keluarga, sewa tempat tinggal, serta berbagai pilihan logika daya beli yang nyata. Bukan sekedar perhitungan kurs valuta asing.",
+            "Calculate realistically what salary you need in another country or city so your standard of living doesn't decline. Complete with interactive tax & social insurance simulations based on family structure, local rent, and real purchasing power options—not just a simple currency conversion.",
+            "Berechnen Sie realistisch, welches Gehalt Sie in einem anderen Land oder einer anderen Stadt benötigen, damit Ihr Lebensstandard nicht sinkt. Inklusive Steuern und Sozialabgaben nach Familienstand, Warmmiete und realen Kaufkraftmodellen – mehr als nur eine einfache Währungsumrechnung.",
+            "生活水準を落とさないために、他国や他都市で実際に必要となる給与水準をリアルに逆算。家族構成に応じた税金・社会保険料の控除シミュレーション、家賃相場、単なる為替換算にとどまらない実質的な購買力指標を網羅。"
           )}
         </p>
       </div>

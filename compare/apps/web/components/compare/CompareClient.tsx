@@ -259,16 +259,18 @@ export function CompareClient() {
           </div>
           <h1 className="text-2xl sm:text-3xl font-display font-bold text-[var(--text)]">
             {txt(
-              "Perbandingan Magang & Fresh Graduate",
-              "Trainee & Fresh Graduate Dual-City Comparison",
-              "インターン・新卒 2都市給与比較"
+              "Magang & Fresh graduate : Indonesia, Jepang atau Jerman ?",
+              "Internships & Fresh Graduates: Indonesia, Japan, or Germany?",
+              "Ausbildung & Berufseinstieg: Indonesien, Japan oder Deutschland?",
+              "インターン・新卒就労：インドネシア、日本、またはドイツ？"
             )}
           </h1>
           <p className="text-sm text-fg-60 max-w-2xl leading-relaxed">
             {txt(
-              "Bandingkan uang saku Ausbildung di Jerman, gaji kenshusei di Jepang, dan fresh graduate di Indonesia secara berdampingan. Lengkap dengan potongan pajak resmi, biaya sewa hunian, dan analisis ketahanan finansial.",
-              "Compare vocational training stipends, intern wages, and fresh grad entry-level salaries side-by-side with statutory payroll deductions, accommodation costs, and net savings.",
-              "ドイツのAusbildung手当、日本の技能実習・新卒初任給、インドネシアの新卒初任給を並行比較。法定控除（税金・社会保険）、推奨家賃、手元に残る実質貯蓄可能額を完全シミュレーション。"
+              "Bandingkan uang tabungan Ausbildung di Jerman,  kenshusei di Jepang, dan fresh graduate di Indonesia secara berdampingan. Lengkap dengan potongan pajak resmi, biaya sewa hunian, dan analisis finansial singkat.",
+              "Compare savings from Ausbildung in Germany, kenshusei in Japan, and fresh graduate jobs in Indonesia side-by-side. Complete with statutory tax deductions, housing rent, and a concise financial breakdown.",
+              "Vergleichen Sie die Ersparnisse bei Ausbildung in Deutschland, Kenshusei in Japan und Berufseinstieg in Indonesien im direkten Vergleich. Inklusive gesetzlicher Steuerabzüge, Wohnungsmiete und kompakter Finanzanalyse.",
+              "ドイツのAusbildung（職業訓練手当）、日本の技能実習手当、インドネシアの新卒初任給における「実際の貯蓄可能額」を並行比較。公的控除、家賃相場、簡潔な財務分析を網羅。"
             )}
           </p>
         </div>

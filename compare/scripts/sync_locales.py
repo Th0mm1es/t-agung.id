@@ -374,16 +374,16 @@ TRANSLATIONS = {
         "ja": "換算基準通貨:"
     },
     "compare.title": {
-        "id": "Perbandingan Magang & Fresh Graduate",
-        "en": "Trainee & Fresh Graduate Dual-City Comparison",
-        "de": "Duales Städte-Vergleichstool für Praktikanten & Berufseinsteiger",
-        "ja": "インターン・新卒 2都市給与比較"
+        "id": "Magang & Fresh graduate : Indonesia, Jepang atau Jerman ?",
+        "en": "Internships & Fresh Graduates: Indonesia, Japan, or Germany?",
+        "de": "Ausbildung & Berufseinstieg: Indonesien, Japan oder Deutschland?",
+        "ja": "インターン・新卒就労：インドネシア、日本、またはドイツ？"
     },
     "compare.subtitle": {
-        "id": "Bandingkan uang saku Ausbildung di Jerman, gaji kenshusei di Jepang, dan fresh graduate di Indonesia secara berdampingan. Lengkap dengan potongan pajak resmi, biaya sewa hunian, dan analisis ketahanan finansial.",
-        "en": "Compare vocational training stipends, intern wages, and fresh grad entry-level salaries side-by-side with statutory payroll deductions, accommodation costs, and net savings.",
-        "de": "Vergleichen Sie Ausbildungsvergütungen in Deutschland, Praktikantengehälter in Japan und Einstiegsgehälter in Indonesien Seite an Seite inklusive Steuern, Miete und Ersparnissen.",
-        "ja": "ドイツのAusbildung手当、日本の技能実習・新卒初任給、インドネシアの新卒初任給を並行比較。法定控除（税金・社会保険）、推奨家賃、手元に残る実質貯蓄可能額を完全シミュレーション。"
+        "id": "Bandingkan uang tabungan Ausbildung di Jerman,  kenshusei di Jepang, dan fresh graduate di Indonesia secara berdampingan. Lengkap dengan potongan pajak resmi, biaya sewa hunian, dan analisis finansial singkat.",
+        "en": "Compare savings from Ausbildung in Germany, kenshusei in Japan, and fresh graduate jobs in Indonesia side-by-side. Complete with statutory tax deductions, housing rent, and a concise financial breakdown.",
+        "de": "Vergleichen Sie die Ersparnisse bei Ausbildung in Deutschland, Kenshusei in Japan und Berufseinstieg in Indonesien im direkten Vergleich. Inklusive gesetzlicher Steuerabzüge, Wohnungsmiete und kompakter Finanzanalyse.",
+        "ja": "ドイツのAusbildung（職業訓練手当）、日本の技能実習手当、インドネシアの新卒初任給における「実際の貯蓄可能額」を並行比較。公的控除、家賃相場、簡潔な財務分析を網羅。"
     },
     "compare.baseline_city": {
         "id": "Kota Acuan",

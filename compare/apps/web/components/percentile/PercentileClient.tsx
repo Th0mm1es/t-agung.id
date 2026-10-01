@@ -75,15 +75,29 @@ export function PercentileClient() {
             ? "Wo steht Ihr Gehalt? (Einkommens-Perzentil-Radar)"
             : "Where Does Your Salary Rank? (Income Percentile Radar)"}
         </h1>
-        <p className="text-sm text-fg-60 max-w-2xl leading-relaxed">
-          {locale === "id"
-            ? "Masukkan penghasilan kotor Anda untuk melihat peringkat persentil Anda di negara asal, serta perbandingannya jika dikonversi secara riil di Jerman dan Jepang. Data diperbarui secara berkala."
-            : locale === "ja"
-            ? "額面月給を入力すると、国内就業者全体におけるパーセンタイル順位と、ドイツ・日本・インドネシア間での相対的な所得ポジションを比較できます。"
-            : locale === "de"
-            ? "Geben Sie Ihr Bruttomonatseinkommen ein, um Ihren Perzentilrang im Heimatland zu ermitteln und mit Deutschland und Japan zu vergleichen. Regelmäßig aktualisierte Daten."
-            : "Enter your gross monthly income to evaluate your domestic percentile rank and see how your earnings compare across Germany, Japan, and Indonesia."}
-        </p>
+        <div className="text-sm text-fg-60 max-w-2xl leading-relaxed space-y-2">
+          {locale === "id" ? (
+            <>
+              <p>Masukkan penghasilan kotor Anda untuk melihat peringkat persentil Anda di negara asal, serta perbandingannya jika dikonversi secara langsung di negara lain.</p>
+              <p>Angka konversi nominal murni tidak mencerminkan daya beli riil karena biaya hidup dasar dan struktur upah di negara lain kadang berbeda jauh. Ini menunjukkan konversi simpel valuta asing itu tidak dapat jadi perbandingan langsung.</p>
+            </>
+          ) : locale === "ja" ? (
+            <>
+              <p>額面収入を入力すると、母国での所得パーセンタイル順位と、他国で直接換算した場合の相対的な位置づけを確認できます。</p>
+              <p>基礎的な生活費や給与体系は国によって大きく異なるため、単なる名目上の為替換算は実質的な購買力を反映しません。単純な外貨換算だけでは直接比較にならないことがよく分かります。</p>
+            </>
+          ) : locale === "de" ? (
+            <>
+              <p>Geben Sie Ihr Bruttoeinkommen ein, um Ihren Perzentilrang im Heimatland zu ermitteln und zu sehen, wie es bei direkter Umrechnung in einem anderen Land abschneidet.</p>
+              <p>Reine nominale Umrechnungszahlen spiegeln nicht die tatsächliche Kaufkraft wider, da sich Grundlebenshaltungskosten und Lohnstrukturen im Ausland oft erheblich unterscheiden. Dies verdeutlicht, warum eine einfache Währungsumrechnung kein direkter Vergleichsmaßstab sein kann.</p>
+            </>
+          ) : (
+            <>
+              <p>Enter your gross income to see your percentile rank in your home country, as well as how it compares when directly converted in another country.</p>
+              <p>Pure nominal conversion numbers do not reflect real purchasing power, as baseline living costs and wage structures abroad are often vastly different. This demonstrates why simple foreign currency conversion cannot serve as a direct comparison.</p>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Input Card */}

@@ -1,25 +1,27 @@
 {
-  "name": "astro-blog-starter",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "predev": "npm run build:search",
-    "build": "astro build && npm run build:search && pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build",
-    "build:search": "npx pagefind --site dist --output-path public/pagefind",
-    "preview": "astro preview",
-    "indexnow": "node scripts/indexnow-submit.mjs",
-    "build:blog": "astro build && npm run build:search",
-    "build:compare": "pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^7.0.0",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.3"
-  },
-  "devDependencies": {
-    "astro": "^7.0.1",
-    "pagefind": "^1.5.2"
-  }
+    "name":  "astro-blog-starter",
+    "type":  "module",
+    "version":  "0.0.1",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "astro dev",
+                    "predev":  "npm run build:search",
+                    "build":  "astro build && npm run build:search && pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build",
+                    "build:search":  "npx pagefind --site dist --output-path public/pagefind",
+                    "preview":  "astro preview",
+                    "indexnow":  "node scripts/indexnow-submit.mjs",
+                    "build:blog":  "astro build && npm run build:search",
+                    "build:compare":  "pnpm --dir compare install --frozen-lockfile && pnpm --dir compare build",
+                    "dev:all":  "npx concurrently -n \"BLOG,COMPARE\" -c \"magenta,cyan\" \"astro dev\" \"pnpm --dir compare --filter @bandinghidup/web dev\"",
+                    "push":  "git add . && git commit -m \"chore: update blog and compare app\" && git push"
+                },
+    "dependencies":  {
+                         "@astrojs/mdx":  "^7.0.0",
+                         "@astrojs/rss":  "^4.0.18",
+                         "@astrojs/sitemap":  "^3.7.3"
+                     },
+    "devDependencies":  {
+                            "astro":  "^7.0.1",
+                            "pagefind":  "^1.5.2"
+                        }
 }

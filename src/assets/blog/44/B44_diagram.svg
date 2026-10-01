@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1456" height="904" viewBox="0 0 1456 904">
+  <rect width="1456" height="904" fill="#0d1117"/>
+  <text x="728" y="64" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="bold" fill="#e6edf3">Haptic Engine: Dari Motor Putar ke Linear, Harga $5,7 Miliar</text>
+  <text x="728" y="98" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#8b949e">Kenapa getaran di HP-nya Apple jadi sengketa paten terbesar dalam sejarah AS</text>
+
+  <!-- Panel A: old rotary -->
+  <rect x="56" y="140" width="420" height="600" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="266" y="185" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="bold" fill="#8b949e">1. Cara Lama: Motor Putar</text>
+  <rect x="106" y="225" width="320" height="260" rx="18" fill="#1c2530" stroke="#8b949e" stroke-width="3"/>
+  <text x="266" y="262" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#8b949e">vibrator klasik (rotary motor)</text>
+  <circle cx="226" cy="370" r="46" fill="none" stroke="#8b949e" stroke-width="4"/>
+  <circle cx="226" cy="370" r="8" fill="#8b949e"/>
+  <line x1="226" y1="370" x2="226" y2="332" stroke="#8b949e" stroke-width="5"/>
+  <circle cx="252" cy="362" r="9" fill="#e6edf3"/>
+  <path d="M 290 320 A 60 60 0 0 1 316 392" fill="none" stroke="#e0524d" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="316,400 312,382 302,396" fill="#e0524d"/>
+  <text x="330" y="340" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#e0524d">putar dulu</text>
+  <text x="266" y="530" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#e6edf3">bobot tak seimbang diputar</text>
+  <text x="266" y="554" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#e6edf3">getarannya = sisa rotasi</text>
+  <rect x="106" y="590" width="320" height="110" rx="10" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+  <text x="266" y="622" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">lambat start (puluhan ms), satu</text>
+  <text x="266" y="646" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">pola getar saja, boros daya,</text>
+  <text x="266" y="670" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">relatif besar dan berisik</text>
+
+  <!-- Panel B: LRA -->
+  <rect x="518" y="140" width="420" height="600" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="728" y="185" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="bold" fill="#3b82c4">2. Cara Baru: Linear (LRA)</text>
+  <rect x="568" y="225" width="320" height="260" rx="18" fill="#1c2530" stroke="#3b82c4" stroke-width="3"/>
+  <text x="728" y="262" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#8b949e">linear resonant actuator</text>
+  <rect x="600" y="300" width="256" height="40" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+  <text x="728" y="326" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#8b949e">magnet (statis)</text>
+  <rect x="648" y="352" width="160" height="56" rx="10" fill="#3b82c4"/>
+  <text x="728" y="387" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="bold" fill="#0d1117">armature</text>
+  <line x1="728" y1="420" x2="728" y2="446" stroke="#ffd479" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="728,454 718,436 738,436" fill="#ffd479"/>
+  <line x1="728" y1="348" x2="728" y2="322" stroke="#ffd479" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="728,314 718,332 738,332" fill="#ffd479"/>
+  <text x="842" y="440" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#ffd479">bolak-balik</text>
+  <text x="728" y="530" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#e6edf3">seperti speaker mini untuk sentuhan:</text>
+  <text x="728" y="554" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#e6edf3">armature digetarkan, bukan diputar</text>
+  <rect x="568" y="590" width="320" height="110" rx="10" fill="#21262d" stroke="#3b82c4" stroke-width="2"/>
+  <text x="728" y="622" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">cepat (ms), satu hardware bisa</text>
+  <text x="728" y="646" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">buat banyak pola: click, thud,</text>
+  <text x="728" y="670" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">tekstur — ini Taptic Engine</text>
+
+  <!-- Panel C: verdict -->
+  <rect x="980" y="140" width="420" height="600" rx="14" fill="#161b22" stroke="#e0524d" stroke-width="3"/>
+  <text x="1190" y="185" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="bold" fill="#e0524d">3. Harganya: Vonis $5,7 M</text>
+  <rect x="1030" y="225" width="320" height="200" rx="18" fill="#1c2530" stroke="#e0524d" stroke-width="3"/>
+  <text x="1190" y="270" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#8b949e">Juri federal San Diego, 2026</text>
+  <text x="1190" y="330" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="40" font-weight="bold" fill="#e6edf3">$5,7 M+</text>
+  <text x="1190" y="368" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">kepada Taction Technology</text>
+  <text x="1190" y="394" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">(± Rp 102,6 triliun)</text>
+  <line x1="1030" y1="455" x2="1350" y2="455" stroke="#30363d" stroke-width="2"/>
+  <text x="1190" y="495" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">2 paten Taction (priority 2014):</text>
+  <text x="1190" y="519" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">desain LRA + magnet torus</text>
+  <rect x="1030" y="545" width="320" height="155" rx="10" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+  <text x="1190" y="577" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">penghargaan paten terbesar</text>
+  <text x="1190" y="601" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#e6edf3">dalam sejarah AS</text>
+  <text x="1190" y="635" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">tanpa "willful" → bisa turun</text>
+  <text x="1190" y="659" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">saat banding; Apple: "akan banding"</text>
+
+  <text x="728" y="810" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#8b949e">Sumber: Reuters, CNBC, 9to5mac, patents.google.com (US10659885B2, US10820117B2) — September 2026</text>
+</svg>
