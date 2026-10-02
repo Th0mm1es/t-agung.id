@@ -2,21 +2,21 @@
 #Required fields
 title: "Apple Divonis $5,7 Miliar Gara-Gara Getar HP-nya: Paten Taptic Engine"
 description: "Juri federal San Diego memvonis Apple bayar lebih dari $5,7 miliar (~Rp 102,6 triliun) ke Taction Technology atas paten Taptic Engine. Vonis paten terbesar dalam sejarah AS, dan kenapa komponen getar sekecil itu begitu berharga."
-pubDate: 2026-09-29
-category: "produk"
-cover: "../../assets/blog/44/B44_haptic_engine_verdict.png"
+pubDate: 2026-10-02
+category: "haptic"
+cover: "../../assets/blog/44/taptic_engine_iphone_render.jpg"
 coverAlt: "Diagram tiga panel: motor putar klasik, linear resonant actuator, dan vonis $5,7 miliar"
 
 #Core Fields
 tags: ["Apple", "Taptic Engine", "Haptics", "HMI", "Paten"]
 author: "Thomas Agung Nugraha"
 lang: "id-ID"
-draft: true
+draft: false
 
 #recommended
 slug: "blog44_apple_vonis_5_7_m_taptic_engine"
 excerpt: "Apple divonis lebih dari $5,7 miliar karena Taptic Engine. Vonis paten terbesar dalam sejarah AS, sekaligus pelajaran kenapa haptics itu cabang tersendiri dalam HMI."
-updatedDate: 2026-09-29
+updatedDate: 2026-10-02
 
 #Optional:SEO & Indexing
 canonicalURL: "https://t-agung.id/blog/blog44_apple_vonis_5_7_m_taptic_engine"
@@ -79,6 +79,10 @@ Taptic Engine beda cara kerjanya. Ini **linear resonant actuator (LRA)**: kompon
 
 Sisi teknisnya: respons LRA jauh lebih cepat (dalam milidetik, bukan puluhan milidetik), lebih hemat daya, lebih kecil, dan lebih senyap. Tapi masalahnya juga di situ. Satu actuator harus mampu meniru banyak pola sensasi yang berbeda, mengatur timing, frekuensi, dan amplitudo per pola, tanpa sensasinya terasa kacau. Ini bukan soal "menyambung vibrator". Ini desain sistem: mekanik, magnet, piringan resonansi, chip pengontrol, dan software yang mengorkestrasi semuanya.
 
+Ini rupa komponennya. Render resmi Apple dari iPhone 7 memperlihatkan Taptic Engine persis di posisi tombol Home virtual, titik di mana getaran "klik" itu lahir dari satu actuator kecil.
+
+![Taptic Engine di dalam iPhone 7](../../assets/blog/44/taptic_engine_iphone_render.jpg)<center>*Render resmi Apple: Taptic Engine di iPhone 7, sumber getar notifikasi sekaligus tombol Home virtual. Sumber: Apple*</center>
+
 Sejarahnya singkat:
 
 - Apple Watch (2015): Taptic Engine debut, menghasilkan haptic tap di pergelangan tangan.
@@ -106,6 +110,10 @@ Bagian favorit saya dari kasus ini justru yang paling jarang dibahas: HMI-nya.
 
 Selama ini antarmuka manusia dan mesin dibangun dari empat pancas: visual (layar), audio (speaker), taktil klasik (tombol dan saklar fisik), dan gesture (gerak tangan, sentuhan di layar). Haptics digital adalah pancas kelima: UI yang tidak cuma dilihat dan didengar, tapi **dirasakan**. Layar memberitahu, speaker mengonfirmasi, haptic membuatmu merasakan bahwa sesuatu benar-benar terjadi. Getaran di pergelangan dari Apple Watch contohnya: tidak ada perubahan visual, tidak ada suara, tapi kamu tetap tahu ada pesan masuk.
 
+Render resmi Apple memperlihatkan wujudnya: sebuah modul persegi kecil yang menempel di sisi dalam casing, tepat di atas baterai. Komponennya sekecil itu, dan justru di situlah pancas kelima ini bekerja.
+
+![Interior Apple Watch dengan Taptic Engine](../../assets/blog/44/taptic_engine_watch_case.png)<center>*Interior Apple Watch: Taptic Engine menempel di sisi dalam casing, di atas baterai. Sumber: Apple*</center>
+
 Di mobil, pancas kelima ini sudah masuk kokpit. Setir yang bergetar sebagai peringatan, sabuk pengaman dengan feedback haptic, tombol virtual di center stack yang memberi "klik" lewat getaran. Arah industrinya juga jelas: mobil listrik semakin mengurangi tombol fisik, dan setiap tombol yang hilang butuh pengganti agar sensasi "klik" tidak ikut hilang. Haptic adalah jawabannya.
 
 Tapi di situlah tantangannya. Satu actuator harus meniru ratusan sensasi yang berbeda di lingkungan yang jauh lebih keras daripada HP: getaran mesin, guncangan kursinya, dan suhu. Desainnya harus menjaga agar setiap sensasi tetap terasa "benar" di tangan sopir, tanpa berubah jadi noise yang bikin pusing. Makanya komponen sekecil Taptic Engine bisa bernilai miliaran dolar. Ini bukan fitur, ini cabang desain tersendiri.
@@ -118,13 +126,4 @@ Soal uangnya, posisinya sekarang: Rp 102,6 triliun belum final. Vonis belum diek
 
 Coba perhatikan HP di tanganmu. Saat notifikasi masuk, getarannya terasa seperti klik yang presisi dan cepat, atau seperti dengung yang lama? Kalau kamu bisa membedakan keduanya, baru saja kamu merasakan sendiri perbedaan antara motor putar dan linear resonant actuator. Pertanyaannya: di mobilmu, pancas mana yang paling sering kamu rasakan? Saya tunggu ceritanya di komentar.
 
-## Referensi Gambar
-
-- Diagram tiga panel di atas (motor putar vs LRA vs vonis $5,7 miliar): diolah dari laporan Reuters, CNBC, 9to5mac, dan data paten di patents.google.com, September 2026.
-- Saran foto pendukung (halaman file di Wikimedia Commons sudah diverifikasi ada):
-  - Apple Watch Series 4: https://commons.wikimedia.org/wiki/File:Apple_Watch_Series_4_40mm_space_gray_Aluminum.jpg
-  - iPhone 7 (depan): https://commons.wikimedia.org/wiki/File:IPhone_7_-_A1778_Rose_Gold_-_Front.jpg
-  - Gedung pengadilan federal San Diego: https://commons.wikimedia.org/wiki/File:Jacob_Weinberger_U.S._Courthouse,_San_Diego,_CA_Jun_03.jpg
-- Placeholder (opsional, maksimal dua):
-  - [PLACEHOLDER: close-up HP di tangan saat notifikasi masuk, fokus ke layar]
-  - [PLACEHOLDER: foto kokpit mobil listrik dengan center stack tanpa tombol fisik]
+# 

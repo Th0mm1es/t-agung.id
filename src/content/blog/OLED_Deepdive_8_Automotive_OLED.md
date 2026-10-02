@@ -2,7 +2,7 @@
 #Required fields
 title: "OLED di Otomotif: Kenapa Mobil Jadi Layar Raksasa Berjalan"
 description: "Dari cockpit Porsche sampai spion virtual Audi, OLED mengambil alih kabin mobil. Kenapa otomotif butuh layar fleksibel, tahan suhu ekstrem, dan aman sesuai standar ISO 26262."
-pubDate: 2026-09-22
+pubDate: 2026-10-04
 category: "deepdive"
 cover: "../../assets/blog/DD_OLED/OLED-8-ferrari-luce-binnacle.jpg"
 coverAlt: "OLED di Otomotif: Kenapa Mobil Jadi Layar Raksasa Berjalan"
@@ -15,7 +15,7 @@ lang: "id-ID"
 #recommended
 slug: "oled-deepdive-8-automotive-oled"
 excerpt: "Dari dashboard Porsche sampai spion virtual Audi, OLED mengubah kabin mobil jadi layar raksasa. Kenapa otomotif butuh fleksibilitas dan ketahanan ekstrem."
-updatedDate: 2026-09-22
+updatedDate: 2026-10-04
 
 #Optional-series support
 series: "OLED Deep Dive"
@@ -41,12 +41,12 @@ relatedPosts:
   - oled-deepdive-7-quantum-dot-qd-oled
   - oled-deepdive-9-oled-vs-microled-automotive
 
-draft: false
+draft: true
 ---
 
 *Bagian 8 dari seri OLED Deep Dive*
 
-# OLED di Otomotif: Kenapa Mobil Jadi Layar Raksasa Berjalan
+# 
 
 Pernah masuk showroom mobil baru, terus nonton layar dashboard yang nyala satu per satu pas dinyalakan? Bukan cuma animasi keren, tapi display beneran berubah fungsi sesuai konteks. Itu otomotif. Dan itu alasan kenapa industri mobil sekarang berlomba-lomba pakai OLED.
 
@@ -128,9 +128,9 @@ Solusi: cover glass dengan UV filter layer, plus encapsulation yang juga tahan U
 
 Ini yang bikin otomotif beda banget dari consumer electronics: **OLED di mobil harus aman**. Kalau display TV mati, kamu ganti channel. Kalau display speedometer mati di jalan tol? Berbahaya.
 
-![Virtual mirror Audi e-tron: kamera di tiang tipis](../../assets/blog/DD_OLED/OLED-8-audi-virtual-mirror.jpg)
+![Virtual mirror Audi e-tron: display OLED 7 inci di trim pintu](../../assets/blog/DD_OLED/OLED-8-audi-virtual-mirror.jpg)
 
-<center><i>Virtual mirror Audi e-tron: kamera di tiang tipis menggantikan spion kaca, digabung display OLED 7 inci di dalam kabin. Produksi massal sejak 2019.</i></center>
+<center><i>Virtual mirror Audi e-tron: display OLED 7 inci tertanam di trim pintu menampilkan feed kamera langsung dari tiang tipis. Produksi massal sejak 2019. Source: CAR Magazine.</i></center>
 
 Standar ISO 26262 mewajibkan display di dashboard punya redundant path dan failure mode yang aman. Kalau OLED utama mati, harus ada fallback, bisa LCD kecil, bisa HUD, bisa display cadangan di zona lain. Audi sudah jalan di arah ini sejak 2019: virtual mirror berbasis kamera plus display OLED 7 inci di dalam kabin, dan yang pertama masuk produksi massal.
 
